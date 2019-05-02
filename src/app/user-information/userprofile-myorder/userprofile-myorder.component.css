@@ -1,0 +1,185 @@
+@media only screen and (min-width: 320px) {
+  .myOrderOuter {
+    margin: 25px 25px;
+    text-align: left;
+  }
+  .order-wrapper {
+    border: 1px solid lightgray;
+  }
+  .orderIdRow {
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+  .message {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .inputsOuterMobile {
+    width: 215px;
+    margin: 0 auto;
+  }
+  .myOrders {
+    padding-top: 20px;
+    cursor: pointer;
+    padding-bottom: 20px;
+  }
+
+  .orederId {
+    font-family: 'Muli-Bold';
+
+    background-color: white;
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+  .wholeorder {
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    background-color: #2874f0;
+    width: 139px;
+    padding: 4px;
+  }
+  .orderIdRow > div {
+    display: inline-block;
+  }
+  .orderType {
+    /* background-color: black; */
+    color: white;
+    padding: 0px 10px;
+    font-size: 11px;
+    border-radius: 4px;
+    margin-left: 17px;
+  }
+  .orderTypeBulk {
+    background-color: black;
+  }
+
+  .orderTypeMade {
+    background-color: black;
+  }
+  .last {
+    border: 0px !important;
+  }
+
+  .trackOrderPopupIcon {
+    background-image: url('/assets/my-profileImages/popupIcon.png');
+    width: 3px;
+    height: 16px;
+    float: right;
+    cursor: pointer;
+  }
+  .trackOrderEditGroup {
+    width: 84px;
+    height: 45px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 3px 3px 12px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 12px 0 rgba(0, 0, 0, 0.2);
+    float: right;
+    display: none;
+    cursor: pointer;
+  }
+  .trackOrderGroup {
+    padding: 2px 0px 2px 7px;
+    font-family: 'Muli';
+    font-size: 12px;
+    font-weight: 600;
+    color: #393939;
+  }
+  .trackOrderButton {
+    border-bottom: solid 1px #e0e0e0;
+  }
+  .trackOrderPopup {
+    float: right;
+  }
+  .orderItemDesc {
+    height: 106px;
+    margin: 18px 0px;
+  }
+
+  .orderImg {
+    width: 85px;
+    height: 106px;
+    float: left;
+    margin-right: 12px;
+  }
+  .orderItemName {
+    font-family: 'Muli-Bold';
+    font-size: 15px;
+    color: #393939;
+  }
+
+  .deliveryDate {
+    font-family: 'Muli';
+    font-size: 12px;
+    font-weight: 600;
+    color: #393939;
+    margin: 7px 0px;
+  }
+  .deliveryText {
+    font-family: 'Muli';
+    font-size: 8px;
+    color: #737373;
+  }
+  .orderPriceOuter {
+    font-family: 'Muli';
+    font-size: 17px;
+
+    color: #393939;
+  }
+  .orderText {
+    font-family: 'Muli';
+    font-size: 12px;
+    color: #737373;
+  }
+  .orderedDate {
+    font-family: 'Muli-Bold';
+    font-size: 12px;
+    color: #626262;
+  }
+  .orderedPrice {
+    font-family: 'Muli-Bold';
+    font-size: 12px;
+    color: #626262;
+  }
+  .orderPriceRow > div {
+    display: inline-block;
+    padding-left: 15px;
+  }
+  .orderPriceClassOuter {
+    float: letf;
+    padding-right: 15px;
+  }
+  .horizontalLine {
+    width: 100%;
+    height: 1px;
+    border: solid 0.3px #979797;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .inputsOuterMobile {
+    width: 100%;
+  }
+  .message {
+    font-size: 22px;
+  }
+  .orderItemName {
+    font-size: 17px;
+  }
+
+  .deliveryDate {
+    font-size: 14px;
+    margin: 10px 0px;
+  }
+
+  .deliveryText {
+    font-size: 12px;
+  }
+
+  .orderPriceClassOuter {
+    float: right;
+  }
+}

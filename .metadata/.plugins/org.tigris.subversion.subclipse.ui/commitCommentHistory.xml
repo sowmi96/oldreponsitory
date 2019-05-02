@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommitComments>	<CommitComment>Email and Password text box fields need to be hide.(For anomoyous user)</CommitComment>
+	<CommitComment>confirm password textbox highlighted in signup page</CommitComment>
+	<CommitComment>symbols validation-addressline one,two ,nominee name-validation for symbols and number</CommitComment>
+	<CommitComment>symbols validation for addressline one,two , validation for nominee name-symbols and number </CommitComment>
+	<CommitComment>space and cursor removed in user profile</CommitComment>
+	<CommitComment>community certificate number field-symbols validation</CommitComment>
+	<CommitComment>textbox missing in bulk order register page for email and password</CommitComment>
+	<CommitComment>ordered time fixed</CommitComment>
+	<CommitComment>valiation for name and mobile number</CommitComment>
+	<CommitComment>checkbox size modified</CommitComment>
+</CommitComments>

@@ -1,0 +1,229 @@
+<div class="madeOrder">
+  <div class="moveToOrder">
+    <h1>Made to Order</h1>
+    <img src="../../assets/img/common/order/order1.png" alt="orderList">
+  </div>
+  <ul class="orderStaper">
+    <li class="first">Upload a design of your choice</li>
+    <li class="second">Upload a design of your choice</li>
+  </ul>
+  <div class="orderStaper1">
+    <div class="stepwizard">
+      <div class="stepwizard-row ">
+        <div class="stepwizard-step">
+          <a type="button" class="btn default"></a>
+          <p>Upload a design of your choice</p>
+        </div>
+
+        <div class="stepwizard-step right">
+          <a type="button" class="btn active1"></a>
+          <p>Pay and place the order online</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="steperdesktop">
+
+
+    <div class="addNewOrder">
+      <button type="submit" *ngIf="!showForm && orderList.length > 0" (click)="showform()">Add New Order</button>
+    </div>
+    <!-- <div class="sort-option orderSelect">
+      <ng-select [allowClear]="true" class="orderselect1" [items]="items" placeholder="All">
+      </ng-select>
+
+      <ng-select [allowClear]="true" [items]="items"  placeholder="ALL TIME">
+    </ng-select>
+</div> -->
+    <form (ngSubmit)="makeAnOrder()" #madeToOderForm="ngForm">
+      <div class="uploadDesign" *ngIf="showForm || orderList.length==0 ">
+        <img src="../../assets/img/header/close.png" (click)="showform1()" class="uploadDesignClose" *ngIf="orderList.length!==0">
+        <div class="row fileUpload">
+          <h1>Upload body design
+            <span style="color:red">*</span>
+          </h1>
+          <div class="file__cont">
+            <input accept="image/*,.pdf" type="file" (change)="readUrl($event,0)" class="inputfile inputfile-1" />
+            <label for="file-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+                />
+              </svg>
+              <span>Upload file</span>
+            </label>
+          </div>
+          <div class="uploadImage col-xs-12" id="file-upload">
+            <div class="dynamicImg" *ngIf="url1[0]!==undefined">
+              <img class="dynamicimg1" [src]="url1[0]" />
+              <!-- <img class="dynamicclose" src="../../assets/img/header/close.png" (click)="srcClick(i)"> -->
+              <i class="fa fa-times-circle dynamicclose" (click)="srcClick(0)"></i>
+            </div>
+
+          </div>
+
+          <p *ngIf="fileerror[0]" class="error-info">Please upload body design</p>
+        </div>
+        <div class="row fileUpload">
+          <h1>Upload border design
+            <span style="color:red">*</span>
+          </h1>
+          <div class="file__cont">
+            <input accept="image/*,.pdf" type="file" (change)="readUrl($event,1)" class="inputfile inputfile-1" />
+            <label for="file-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+                />
+              </svg>
+              <span>Upload file</span>
+            </label>
+          </div>
+
+          <!-- <input type='file' accept="image/*" name="file1" (change)="readUrl($event,1)" class="knt__login__upload form-control" id="fileUpload1"
+                        required/>
+                    <span class="max-size"> &nbsp;PDF,PNG,JPEG</span> -->
+          <p *ngIf="fileerror[1]" class="error-info">Please upload border design</p>
+          <div class="uploadImage col-xs-12" id="file-upload">
+            <div class="dynamicImg" *ngIf="url1[1]!==undefined">
+              <img class="dynamicimg1" [src]="url1[1]" />
+              <!-- <img class="dynamicclose" src="../../assets/img/header/close.png" (click)="srcClick(i)"> -->
+              <i class="fa fa-times-circle dynamicclose" (click)="srcClick(1)"></i>
+            </div>
+
+          </div>
+        </div>
+        <div class="row fileUpload">
+
+          <h1>Upload zari design
+            <span style="color:red">*</span>
+          </h1>
+          <div class="file__cont">
+            <input accept="image/*,.pdf" type="file" (change)="readUrl($event,2)" class="inputfile inputfile-1" />
+            <label for="file-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+                />
+              </svg>
+              <span>Upload file</span>
+            </label>
+          </div>
+
+          <p *ngIf="fileerror[2]" class="error-info">Please upload zari design</p>
+          <div class="uploadImage col-xs-12" id="file-upload">
+            <div class="dynamicImg" *ngIf="url1[2]!==undefined">
+              <img class="dynamicimg1" [src]="url1[2]" />
+              <!-- <img class="dynamicclose" src="../../assets/img/header/close.png" (click)="srcClick(i)"> -->
+              <i class="fa fa-times-circle dynamicclose" (click)="srcClick(2)"></i>
+            </div>
+
+          </div>
+        </div>
+        <div class="row fileUpload">
+          <h1>Upload pallu design
+            <span style="color:red">*</span>
+          </h1>
+          <div class="file__cont">
+            <input accept="image/*,.pdf" type="file" (change)="readUrl($event,3)" class="inputfile inputfile-1" />
+            <label for="file-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+                />
+              </svg>
+              <span>Upload file</span>
+            </label>
+          </div>
+          <p *ngIf="fileerror[3]" class="error-info">Please upload pallu design</p>
+          <div class="uploadImage col-xs-12" id="file-upload">
+            <div class="dynamicImg" *ngIf="url1[3]!==undefined">
+              <img class="dynamicimg1" [src]="url1[3]" />
+              <!-- <img class="dynamicclose" src="../../assets/img/header/close.png" (click)="srcClick(i)"> -->
+              <i class="fa fa-times-circle dynamicclose" (click)="srcClick(3)"></i>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="imageDelete">
+              <!-- <i class="fa fa-trash-o"></i><span>Remove Item</span> -->
+            </div>
+          </div>
+          <div class="quantity__cont">
+            <h1>Quantity
+              <span style="color:red">*</span>
+            </h1>
+            <input class="length form-control" type="number" min="1" placeholder="please enter quantity" name="quantity1" [(ngModel)]="quantity"
+              #quantity1="ngModel" (ngModelChange)="inputChange($event)" required>
+            <div *ngIf="quantity1.invalid && (quantity1.dirty || quantity1.touched)" class="caution">
+              Please Select quantity
+            </div>
+            <p *ngIf="showError1" class="error-info">Please Select quantity greater than 0</p>
+          </div>
+          <div class="marginTop">
+            <h1>Length
+              <span style="color:red">*</span>
+            </h1>
+            <input class="length form-control" min="1" type="number" placeholder="please enter length" name="length1" [(ngModel)]="length"
+              #length1="ngModel" (ngModelChange)="inputChange1($event)" required>
+            <div *ngIf="length1.invalid && (length1.dirty || length1.touched)" class="caution">
+              Please Enter length
+            </div>
+            <p *ngIf="showError" class="error-info">Please Enter length greater than 0</p>
+          </div>
+          <div class="marginTop">
+
+            <h1>Uom
+              <span style="color:red">*</span>
+            </h1>
+
+            <select class="length form-control" name="umo1" [(ngModel)]="umo" #umo1="ngModel" (change)="umoChange($event.target.value)"
+              required>
+              <option value="-1" [attr.selected]="true" disabled>Select UOM</option>
+              <option *ngFor="let umo of Umo" value="{{umo.id}}">{{umo.name}}</option>
+            </select>
+            <div *ngIf="umo1.invalid && (umo1.dirty || umo1.touched)" class="caution">
+              please select uom
+            </div>
+            <!-- <p *ngIf="umoerror" class="error-info">please select uom</p> -->
+          </div>
+          <div class="description marginTop">
+            <h1>Description
+              <span style="color:red">*</span>
+            </h1>
+            <textarea class="form-control" placeholder="Write something" name="description1" [(ngModel)]="description" #description1="ngModel"
+              required></textarea>
+            <div *ngIf="description1.invalid && (description1.dirty || description1.touched)" class="caution">
+              Please write some description
+            </div>
+            <p *ngIf="showMadeToError" class="error-info">Please enter all values</p>
+            <div class="desbutton">
+              <button class="buybutton" type="submit" [disabled]="!madeToOderForm.form.valid && !fileerror">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="orderId" *ngFor="let orderlist of orderList">
+      <div class="purchased" *ngIf="orderlist.status!=null">{{orderlist.status}}</div>
+      <div class="orderDate">
+        <h1>Order ID :
+          <span>{{orderlist.salesId}}</span>
+        </h1>
+        <h2>Date of order :
+          <span>{{orderlist.orderDate | date:'MM-dd-yyyy'}}</span>
+        </h2>
+      </div>
+      <p>Descrpition :
+        <span *ngIf="orderlist.salesOrderItemsList.length!=0">{{orderlist.salesOrderItemsList[0].itemNote}}</span>
+      </p>
+      <div *ngFor="let file of orderlist.salesOrderItemsList;let i=index">
+        <h6 class="fileName">
+          <span>{{file.imageType!==undefined?file.imageType:'file'+i}}:</span>
+          <span *ngIf="file.fileName!=null">{{file.fileName.slice(0,file.fileName.lastIndexOf("."))}}</span>
+          <!-- <img src="{{file.filePath}}"> -->
+          <i (click)="downloadFile(file.salesOrderItemId)" class="fa fa-download cursorPointer"></i>
+        </h6>
+      </div>
+    </div>
+
+  </div>
+</div>

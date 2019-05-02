@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="16" viewBox="0 0 36 16">
+    <defs>
+        <rect id="a" width="36" height="16" rx="3"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <use fill="#F2F7FA" xlink:href="#a"/>
+            <rect width="35" height="15" x=".5" y=".5" stroke="#95989A" rx="3"/>
+        </g>
+        <text fill="#393939" font-family="Muli-SemiBold, Muli" font-size="9" font-weight="500" letter-spacing=".522">
+            <tspan x="6.112" y="11">Clear</tspan>
+        </text>
+    </g>
+</svg>

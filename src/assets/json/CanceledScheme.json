@@ -1,0 +1,41 @@
+{
+
+  "CanceledScheme":[{
+
+      "Id":1,
+      "user": "Koel Bhatt",
+      "account": "Acc123456",
+      "schemeDuration": "6 months",
+      "schemeType": "KNT Scheme Type : B",
+      "installmentAmount": "700/month ",
+      "amountPaid": "600",
+      "cancelStatus":"Refund"
+
+
+
+
+
+  },
+  {
+
+"Id":1,
+"user": "Koel Bhatt",
+"account": "Acc123456",
+"schemeDuration": "6 months",
+"schemeType": "KNT Scheme Type : B",
+"installmentAmount": "700/month ",
+"amountPaid": "600",
+"cancelStatus":"Done"
+
+
+
+
+
+}
+
+
+
+  ]
+
+
+}

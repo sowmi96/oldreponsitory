@@ -1,0 +1,195 @@
+<div class="col-md-8 col-md-offset-2">
+
+  <div class="tender_apply" style="margin-top: 12px;">
+    <div>
+      <h1>Complaint</h1>
+      <img src="../../assets/supplier.png" alt="girl with bags">
+    </div>
+  </div>
+</div>
+<div class="col-md-8 col-md-offset-2">
+
+  <div class="" style="box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.2);">
+
+    <form class="pad-30 formborder" *ngIf="newquery" [formGroup]="supportForm" (ngSubmit)="supportSave(supportForm.value)">
+
+
+      <div class="row ">
+
+        <div class="col-md-5 ">
+
+          <div _ngcontent-c9="" class=" text-left">
+
+            <p _ngcontent-c9="">Tendering is a potential revenue stream for all businesses and who does not want that. Also organizations expect
+              suppliers to tender for business retention. </p>
+          </div>
+          <div class="">
+            <h2 class="headersize text-Center ">Help Desk</h2>
+            <img src="../../assets/helpdesk.png" width="80px" alt="helpdesk">
+            <h5 class=" helptext text-Center ">
+              <i class="phone text-left font-15"></i> &nbsp;+91-9590900092 </h5>
+            <h5 class=" helptext text-Center ">
+              <i class="mail text-left font-15"></i> &nbsp;support@co-optex.in </h5>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="col-md-7 ">
+
+          <div class="row borderpanel">
+
+
+            <ul class=" text-center">
+
+              <li class="active">
+                <button data-toggle="tab" class="btn btn-primary btn-sm" (click)="query()" href="#CreateNewComplaint">
+                  <i class="newxomplaint text-left font-15"></i> &nbsp;Create New Complaint</button>
+              </li>
+              <li>
+                <button data-toggle="tab" class="btn btn-primary btn-sm" href="#TrackComplaint">
+                  <i class=" track text-left font-15"></i> &nbsp;Track Your Complaint Status</button>
+              </li>
+
+            </ul>
+
+            <div class="tab-content pad-513 ">
+
+              <div id="CreateNewComplaint" class="tab-pane fade in active ">
+                <h2 class="headersize text-Center m-t-0">Create New Complaint</h2>
+                <div class="text-left">
+                  <div class="row">
+                    <div *ngIf="success" class="alert col-xs-12  col-sm-push-3 col-sm-6  col-md-4 col-md-push-4 alert-success">
+                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      <strong>Success!</strong> We have Received Your Queries
+                      <div>Reference Number: {{ticketNumber}}
+
+                      </div>
+                    </div>
+                    <div *ngIf="failure" class="alert col-xs-12   col-sm-push-3 col-sm-6  col-md-4 col-md-push-4  alert-danger">
+                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      <strong>Failure!</strong> Something Went wrong Please Try Again
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Name</label>
+                    <input type="text" class="form-control" pattern="[a-zA-Z ]*" minlength="3" maxlength="30" formControlName="name" class="form-control">
+                    <div *ngIf="supportForm.controls['name'].errors && supportForm.controls['name'].touched" class="error-msg">
+                      <div class="error-info" [hidden]="!supportForm.controls['name'].errors.required">Please enter name.</div>
+                      <div class="error-info" [hidden]="!supportForm.controls['name'].errors.minlength">Please Enter Minimun 3 characters.</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Mobile Number</label>
+                    <input type="text" pattern="[789][0-9]{9}" minlength="10" maxlength="10" (keypress)="isNumber($event)" formControlName="contact"
+                      class="form-control">
+                    <div *ngIf="supportForm.controls['contact'].errors && supportForm.controls['contact'].touched" class="error-msg">
+                      <div class="error-info" [hidden]="!supportForm.controls['contact'].errors.required">Please Mobile Number.</div>
+                      <div class="error-info" [hidden]="!supportForm.controls['contact'].errors.minlength">Please Enter Minimun 10 digit.</div>
+                      <div class="error-info" [hidden]="!supportForm.controls['contact'].errors.pattern">Please Enter Valid Mobile Number.</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" formControlName="email" [(ngModel)]="email" [pattern]="emailPattern" class="form-control">
+                    <div *ngIf="supportForm.controls['email'].errors && supportForm.controls['email'].touched" class="error-msg">
+                      <div class="error-info" [hidden]="!supportForm.controls['email'].errors.required">Please Enter Email.</div>
+                      <div class="error-info" [hidden]="!supportForm.controls['email'].errors.pattern">Please Enter valid Email.</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="sel1">Category</label>
+                    <select required formControlName="category" [(ngModel)]="dropdown" class="form-control" id="sel1">
+                      <option value="null" disabled>Select Category</option>
+                      <option *ngFor="let x of categoryList" value="{{x.categoryId}}">{{x.categoryName}}</option>
+                    </select>
+                    <div *ngIf="supportForm.controls['category'].errors && supportForm.controls['category'].touched" class="error-msg">
+                      <div class="error-info" [hidden]="!supportForm.controls['category'].errors.required">Please Select Category.</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="comment">Description</label>
+                    <textarea minlength="20" maxlength="250" formControlName="description" class="form-control" rows="5" id="comment"></textarea>
+                    <div *ngIf="supportForm.controls['description'].errors && supportForm.controls['description'].touched" class="error-msg">
+                      <div class="error-info" [hidden]="!supportForm.controls['description'].errors.required">Please write Description.</div>
+                      <div class="error-info" [hidden]="!supportForm.controls['description'].errors.minlength">Enter Minimum 20 characters.</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="">
+                  <div class="text-right" style="margin-top: 10px">
+                    <button class="btn  btn-default btn-sm" class="btn btn-primary">
+                      <i class=" closeicon text-left font-15"></i> &nbsp;Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                      <i class=" submiticon text-left font-15"></i>{{buttontext}}</button>
+                    <!-- <button class="btn  btn-success btn-sm ">
+                      <i class=" submiticon text-left font-15"></i> &nbsp;Submit</button> -->
+                  </div>
+
+                </div>
+              </div>
+              <div id="TrackComplaint" class="tab-pane fade">
+                <h2 class="headersize text-Center m-t-0">Track Your Complaint Status</h2>
+                <div class="row">
+                  <div class="form-group">
+                    <label for="comment">Enter the Ticket Number</label>
+                    <input type="textbox" name="ticket" placeholder="Enter Ticket Number" [(ngModel)]="ticketid" [ngModelOptions]="{standalone: true}"
+                      class="form-control" id="comment">
+                    <!-- <div *ngIf="statusshow" class="status-text text-success">{{ticketstatus}}</div> -->
+                  </div>
+                </div>
+                <button type="submit" (click)="ticketStatus()" class="btn btn-primary">Submit</button>
+
+                <div class="tenderdetails text-left" *ngIf="statusshow">
+
+                  <div class="col-md-4 p-0">Ticket No.</div>
+                  <div class="col-md-8 p-0">:
+                    <label>{{ticketNumber}}</label>
+                  </div>
+                  <div class="col-md-4 p-0">Created Date</div>
+                  <div class="col-md-8 p-0">:
+                    <label>{{createdDate}}</label>
+                  </div>
+                  <!-- <div class="col-md-4 p-0">Name</div>
+                  <div class="col-md-8 p-0">:
+                    <label>{{supportForm.name}}</label>
+                  </div>
+                  <div class="col-md-4 p-0">Mobile</div>
+                  <div class="col-md-8 p-0">:
+                    <label></label>
+                  </div>
+                  <div class="col-md-4 p-0">Email</div>
+                  <div class="col-md-8 p-0">:
+                    <label></label>
+                  </div> -->
+                  <div class="col-md-4 p-0">Category</div>
+                  <div class="col-md-8 p-0">:
+                    <label>{{ticketCategory}}</label>
+                  </div>
+                  <div class="col-md-4 p-0">Status</div>
+                  <div class="col-md-8 p-0">:
+                    <label>{{ticketstatus}}</label>
+                  </div>
+                  <div class="col-md-4 p-0">Description</div>
+                  <div class="col-md-8 p-0" style="color:#333">:
+                    <label>{{descriptions}}</label>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

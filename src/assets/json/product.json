@@ -1,0 +1,41 @@
+[
+    {
+      "productId": "1",
+      "oldPrice": "1200",
+      "newPrice": "750",
+      "offer": "50",
+      "customerRating": "4",
+      "wishlist": "true",
+          "size": [24, 45, 67],
+      "productName": "Kanchipuram",
+      "price": "300 - 500",
+      "material": "Pattu",
+      "colors": "Red",
+      "work": "Plain",
+      "images":["/assets/img/product/4.png"],
+      "ocasion": "Casual",
+      "bulk-order": "30 - 50",
+      "Length": "5.5 metres plus 0.8 metre blouse piece",
+      "materialcare": ["Kanjeevaram tussar silk Dry-clean", "Tax: Applicable tax on the basis of exact location & discount will be charged at the time of checkout", "100% Original Products","Free Delivery on order above Rs. 1199 Cash on delivery might be available","Easy 30 days returns & 30 days exchanges"],
+      "description":["Kanjeevaram tussar silk Dry-clean", "Tax: Applicable tax on the basis of exact location & discount will be charged at the time of checkout", "100% Original Products","Free Delivery on order above Rs. 1199 Cash on delivery might be available","Easy 30 days returns & 30 days exchanges"]
+    },
+    {
+      "productId": "2",
+      "oldPrice": "1400",
+      "newPrice": "850",
+      "offer": "50",
+      "customerRating": "5",
+      "wishlist": "false",
+      "productName": "Kanchipuram",
+      "colors": "Red",
+      "work": "Plain",
+      "images":["/assets/img/product/4.png"],
+      "ocasion": "Casual",
+      "bulk-order": "30 - 50",
+      "Length": "5.5 metres plus 0.8 metre blouse piece",
+      "materialcare": ["Kanjeevaram tussar silk Dry-clean", "Tax: Applicable tax on the basis of exact location & discount will be charged at the time of checkout", "100% Original Products","Free Delivery on order above Rs. 1199 Cash on delivery might be available","Easy 30 days returns & 30 days exchanges"],
+      "description":["Kanjeevaram tussar silk Dry-clean", "Tax: Applicable tax on the basis of exact location & discount will be charged at the time of checkout", "100% Original Products","Free Delivery on order above Rs. 1199 Cash on delivery might be available","Easy 30 days returns & 30 days exchanges"]
+      
+      
+    }
+  ]

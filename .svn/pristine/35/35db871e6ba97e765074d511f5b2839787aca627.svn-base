@@ -1,0 +1,299 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { RouterModule, Router } from '@angular/router';
+import { GeneralService } from '../../general.service';
+
+import {
+  ReactiveFormsModule,
+  FormsModule,
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder
+} from '@angular/forms';
+import { SharedService } from '../../shared.service';
+import { ToastsManager } from 'ng2-toastr';
+
+@Component({
+  selector: 'app-bulkorder-login',
+  templateUrl: './bulkorder-login.component.html',
+  styleUrls: ['./bulkorder-login.component.css']
+})
+export class BulkorderLoginComponent implements OnInit, OnDestroy {
+  subscription: any;
+  public emailPattern = '[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}';
+
+  userData: string;
+  bulkDetails: {
+    designation: string;
+    companyName: string;
+    userId: string;
+    userDetails: {
+      emailId: string;
+      mobileNumber: string;
+      password: string;
+      name: string;
+    };
+    businessAddress: {
+      addresLineOne: string;
+      addressLineTwo: string;
+      countryId: number;
+      stateId: number;
+      districtId: number;
+      pin: number;
+    };
+  };
+  bulkForm: FormGroup;
+  checkboxValue1 = false;
+  businessCountry = null;
+  businessState = null;
+  businessCity = null;
+  countryList = [];
+  stateList = [];
+  cityList = [];
+
+  constructor(
+    private fb: FormBuilder,
+    public router: Router,
+    private ss: SharedService,
+    private bulkformservice: GeneralService,
+    private toastr: ToastsManager
+  ) {
+    this.bulkForm = fb.group({
+      customerName: [name, Validators.required],
+      designation: [name, Validators.required],
+      emailId: [name, [Validators.required, Validators.email]],
+      mobileNumber: [name, Validators.required],
+      companyName: [name, Validators.required],
+      businessAddress: [null, Validators.required],
+      businessAddress1: [name, Validators.required],
+      country: [name, Validators.required],
+      city: [name, Validators.required],
+      state: [name, Validators.required],
+      pincode: [name, Validators.required],
+      password: [null, Validators.required]
+    });
+    this.subscription = this.ss.userLoginSuccess$.subscribe(astronaut => {
+      this.checkBulkRegisteration();
+    });
+  }
+
+  checkBulkRegisteration() {
+    if (
+      this.bulkformservice.getUserId() !== undefined &&
+      this.bulkformservice.getUserId() !== null
+    ) {
+      // this.router.navigate(['product/Bulkorder']);
+      this.bulkformservice
+        .getRequest1(
+          'bulkOrderRegisteredUser?id=' + this.bulkformservice.getUserId()
+        )
+        .subscribe(
+          res => {
+            if (res.responseContent === true) {
+              this.ss.changemenuId('Bulkorder');
+              this.router.navigate(['/product', 'Bulkorder']);
+            } else {
+              this.router.navigate(['product/bulk/login']);
+            }
+          },
+          e => {
+            this.ss.showLoading(false);
+          },
+          () => {}
+        );
+    }
+  }
+
+  ngOnInit() {
+    // this.userData = this.bulkformservice.getUserId();
+    this.ss.selectedmenu('2');
+    this.getCountry();
+    this.checkBulkRegisteration();
+  }
+
+  submit(value) {
+    this.bulkForm.controls['customerName'].markAsTouched();
+    this.bulkForm.controls['designation'].markAsTouched();
+    this.bulkForm.controls['emailId'].markAsTouched();
+    this.bulkForm.controls['mobileNumber'].markAsTouched();
+    this.bulkForm.controls['companyName'].markAsTouched();
+    this.bulkForm.controls['businessAddress'].markAsTouched();
+    this.bulkForm.controls['businessAddress1'].markAsTouched();
+    this.bulkForm.controls['country'].markAsTouched();
+    this.bulkForm.controls['city'].markAsTouched();
+    this.bulkForm.controls['state'].markAsTouched();
+    this.bulkForm.controls['pincode'].markAsTouched();
+    this.bulkForm.controls['password'].markAsTouched();
+
+    if (this.bulkformservice.getUserId() !== undefined) {
+      this.bulkDetails = {
+        designation: value.designation,
+        userId: this.bulkformservice.getUserId(),
+        companyName: value.companyName,
+        userDetails: {
+          emailId: '',
+          mobileNumber: '',
+          password: '',
+          name: ''
+        },
+        businessAddress: {
+          addresLineOne: value.businessAddress,
+          addressLineTwo: value.businessAddress1,
+          countryId: value.country,
+          stateId: value.state,
+          districtId: value.city,
+          pin: value.pincode
+        }
+      };
+    } else {
+      this.bulkDetails = {
+        designation: value.designation,
+        userId: '',
+        companyName: value.companyName,
+        userDetails: {
+          emailId: value.emailId,
+          mobileNumber: value.mobileNumber,
+          password: value.password,
+          name: value.customerName
+        },
+        businessAddress: {
+          addresLineOne: value.businessAddress,
+          addressLineTwo: value.businessAddress1,
+          countryId: value.country,
+          stateId: value.state,
+          districtId: value.city,
+          pin: value.pincode
+        }
+      };
+    }
+
+    this.postBulkorder();
+  }
+
+  postBulkorder() {
+    this.bulkformservice
+      .postRequest('bulkOrder/registration', this.bulkDetails)
+      .subscribe(res => {
+        if (res.statusCode === 0) {
+          if (this.bulkformservice.getUserId() === undefined) {
+            const reqParam = {
+              emailId: this.bulkDetails.userDetails.emailId,
+              password: this.bulkDetails.userDetails.password
+            };
+            this.bulkformservice
+              .postRequest('signIn', reqParam)
+              .subscribe(res => {
+                this.ss.changemenuId('Bulkorder');
+                this.router.navigate(['product/Bulkorder']);
+                // this.headercomponent.ngOnInit();
+
+                this.ss.changeshowlogin(true);
+                this.ss.changeuserDetail(res.authenticatedUser);
+                if (typeof localStorage !== 'undefined') {
+                  window.localStorage.setItem(
+                    'co-optex-sessionId',
+                    res['XSRF-TOKEN']
+                  );
+                  window.localStorage.setItem(
+                    'co-optex-userId',
+                    res.authenticatedUser.id
+                  );
+                  window.localStorage.setItem(
+                    'co-optex-userName',
+                    res.authenticatedUser.username
+                  );
+
+                  window.localStorage.setItem('showLogin', 'true');
+                  window.localStorage.setItem(
+                    'co-optex-emailId',
+                    this.bulkDetails.userDetails.emailId
+                  );
+                  this.ss.senduserInfo(res.authenticatedUser.id);
+                  // this.headercomponent.getWishlist();
+                  // this.headercomponent.getCartdetails1();
+                  // this.logincomponent.getCartdetails1();
+                  // this.logincomponent.notificationlist();
+                  // this.logincomponent.allNotification();
+                  // this.logincomponent.getWishlist();
+                  // }
+                  //  this.ss.changeshowDiv4(false);
+                  //  this.logincomponent.closeLogin();
+                  this.ss.checkuserId(res.authenticatedUser.id);
+                }
+              });
+          } else {
+            this.ss.changemenuId('Bulkorder');
+            this.router.navigate(['product/Bulkorder']);
+          }
+          this.toastr.success('Bulk Order Registered Successfully');
+        } else {
+          this.toastr.error(res.errorDescription);
+        }
+      });
+  }
+
+  getCountry() {
+    this.bulkformservice.getRequest('getAllCountryList').subscribe(
+      res => {
+        this.countryList = res.responseContents;
+      },
+      e => {},
+      () => {}
+    );
+  }
+
+  getStatelist() {
+    const reqParam = this.businessCountry;
+    this.bulkformservice
+      .getRequest('getStateListByCountry/' + reqParam)
+      .subscribe(
+        res => {
+          this.stateList = res.responseContents;
+        },
+        e => {},
+        () => {}
+      );
+  }
+
+  getDistlist() {
+    const reqParam = this.businessState;
+    this.bulkformservice
+      .getRequest('getDistrictListByState/' + reqParam)
+      .subscribe(
+        res => {
+          this.cityList = res.responseContents;
+        },
+        e => {},
+        () => {}
+      );
+  }
+
+  newFunction1(value: boolean) {
+    this.checkboxValue1 = value;
+  }
+
+  onCountryChange(country) {
+    this.businessCountry = country;
+    this.getStatelist();
+  }
+
+  onStateChange(country) {
+    this.businessState = country;
+    this.getDistlist();
+  }
+
+  // onCityChange(country) {
+  //  this.businessCity = country;
+  // }
+  isNumber(evt) {
+    evt = evt ? evt : window.event;
+    const charCode = evt.which ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+}

@@ -1,0 +1,196 @@
+.selected {
+  border-bottom: 2px solid #cd1517;
+}
+.username .userullogout {
+  padding-right: 15px;
+  font-size: 10px;
+}
+.hideInMobile a:hover {
+  border-bottom: 2px solid #cd1517;
+}
+.down {
+  cursor: pointer;
+}
+.notibutton {
+  margin-top: 10px;
+}
+.force-overflow h6 {
+  font-family: "Muli-Bold";
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #393939;
+}
+
+.dropdown-toggle {
+  padding: 10px 0px 10px 22px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: solid 1px #bdbdbd;
+}
+.dropdown-toggle .caret {
+  margin-left: 15px;
+}
+.location {
+  font-family: "Muli-Bold";
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #393939;
+  padding: 0px 16px;
+}
+.dropdown-menu {
+  width: 100%;
+}
+.dropdown-menu input {
+  border-radius: 4px;
+  width: 129px;
+  border: solid 1px #e0e0e0;
+  margin: 5px 15px 0px 15px;
+  padding: 7px 4px 7px 7px;
+  font-size: 8px;
+  font-family: "Muli";
+}
+.access {
+  font-family: "Muli-Bold";
+  font-size: 8px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #393939;
+  padding: 21px 0px 19px;
+  margin: 0px;
+}
+.cooptex-svg {
+  width: 24px;
+  height: 24px;
+}
+.locationSvg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+header {
+  position: fixed;
+  z-index: 999;
+  background: #fff;
+}
+.searchBar1 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.profilePic {
+  width: 42px;
+  height: 42px;
+  background-size: cover;
+  float: left;
+  margin-right: 14px;
+}
+
+@media screen and (max-width: 1350px) {
+  .co-optex-logoText {
+    font-size: 12px !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .headerFilter {
+    padding-bottom: 3px;
+    margin-bottom: 0;
+  }
+  .showNotiNum {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background-color: #cd1517;
+    top: -3px;
+    right: -4px;
+    border-radius: 50%;
+    color: #fff;
+  }
+  .co-optex-logoText {
+    display: none;
+  }
+}
+
+.close-icon {
+  position: absolute;
+  right: 0;
+}
+.mobileLogin,
+.mobilesignup {
+  margin-right: 10px;
+}
+.mobile__menu__cont .fa.fa-bars {
+  font-size: 24px;
+}
+
+.secondary__menu {
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: wrap;
+}
+
+.co-optex-headerImg {
+  margin-right: 5px;
+  width:70px;
+  border-right: 1px solid lightgrey;
+  padding-right: 10px;
+}
+
+.co-optex-logoText {
+  font-size: 16px;
+  font-weight: 500;
+  
+  padding-left: 5px;
+  color: #d10900;
+}
+
+.logo__cont {
+  display: flex;
+  flex-flow: row;
+  justify-content: left;
+  align-items: center;
+}
+
+.currency__dropdown {
+  padding: 10px 0px;
+  position: absolute;
+  z-index: 3;
+  width: 271px;
+  display: none;
+  top: 28px;
+  right: -28px;
+  box-shadow: 3px 3px 12px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.currency__cont {
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.currency__main {
+  position: relative;
+}
+.currency__main:hover .currency__dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.searchboxborder{
+  border:0px !important;
+  color:black;
+}

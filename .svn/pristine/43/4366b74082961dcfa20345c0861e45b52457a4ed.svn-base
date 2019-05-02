@@ -1,0 +1,440 @@
+<div class="knt__login__header">
+  <div>
+    <h1>Welcome to KNT Schemes!
+
+    </h1>
+
+    <img src="../../assets/girlWithBags.png" alt="girl with bags">
+  </div>
+</div>
+<div class="knt__login__container">
+  <div class="knt__login__d1">
+    <h2>What is KNT Schemes?</h2>
+    <p>Kanavu Nanavu Thittam i.e. “Converting your dreams to reality” is a Scheme launched by Co-optex. Kanavu Nanavu Thittam i.e. “Converting your dreams to reality” is a Scheme launched by Co-optex.</p>
+   <!--  <p>Kanavu Nanavu Thittam i.e. Converting your dreams to reality is a Scheme launched by Co-optex.</p> -->
+  </div>
+  <div class="knt__login__d2">
+    <h2>3 Simple steps to get started with KNT Schemes</h2>
+    <div class="knt__login__steps">
+      <div>
+        <h5>1</h5>
+        <h3>KNT Registration</h3>
+      </div>
+      <div>
+        <h5>2</h5>
+        <h3>Join any scheme </h3>
+      </div>
+      <div>
+        <h5>3</h5>
+        <h3>Pay monthly installments</h3>
+      </div>
+    </div>
+  </div>
+  <div class="knt__login__d3">
+    <form [formGroup]="kntForm" (ngSubmit)="submit(kntForm.value)" class="knt__login__form">
+      <div class="text-center text-success alert alert-danger" *ngIf="userinfo==1">
+        You are an Valid User please Login to Continue
+
+      </div>
+
+
+      <div *ngIf="usercheck==0">
+        <label for="">KNT Registeration</label>
+        <div>
+          <div style="width:100%" class="input-height">
+            <label>Name</label>
+            <input type="text" style="width:100%" required formControlName="username" [(ngModel)]="name" pattern="[a-zA-Z ]*" placeholder="Enter Name" minlength="3"
+              maxlength="100">
+            <!-- <p class="error-info" *ngIf="kntForm.get('username').invalid && kntForm.get('username').touched">Please provide  Name</p> -->
+            <div *ngIf="kntForm.controls['username'].errors && kntForm.controls['username'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['username'].errors.required">Please Enter Name.</div>
+              <div class="error-info" [hidden]="!kntForm.controls['username'].errors.minlength">Enter Minimun 3 characters.</div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+        <div>
+          <div class="input-height">
+            <label>Email</label>
+
+            <input type="" required formControlName="useremail" [(ngModel)]="usermail" [pattern]="emailPattern" email (blur)="CheckUser(usermail)"
+              placeholder="Enter Email">
+            <div *ngIf="kntForm.controls['useremail'].errors && kntForm.controls['useremail'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['useremail'].errors.required"> Enter Email Address.</div>
+              <div class="error-info" [hidden]="!kntForm.controls['useremail'].errors.pattern"> Enter Valid Email .</div>
+
+
+            </div>
+          </div>
+          <div class="input-height">
+            <label>Password</label>
+
+            <input type="password" required formControlName="userpassword" minlength="6" [(ngModel)]="userpassword" placeholder="password">
+            <div *ngIf="kntForm.controls['userpassword'].errors && kntForm.controls['userpassword'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['userpassword'].errors.required">Please Enter Password.</div>
+              <div class="error-info" [hidden]="!kntForm.controls['userpassword'].errors.minlength">Enter Minimun 6 character.</div>
+
+            </div>
+          </div>
+
+        </div>
+        <div>
+          <div class="input-height">
+            <label>Mobile Number</label>
+
+            <input type="text" required formControlName="mobileNumber" pattern="[6789][0-9]{9}" minlength="10" maxlength="10" [(ngModel)]="mobile"
+              (keypress)="isNumber($event)" placeholder="Mobile Number">
+            <div *ngIf="kntForm.controls['mobileNumber'].errors && kntForm.controls['mobileNumber'].dirty" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['mobileNumber'].errors.required">Please Enter Mobile Number.</div>
+              <div class="error-info" [hidden]="!kntForm.controls['mobileNumber'].errors.maxlength">Please Enter valid mobileNumber.</div>
+
+            </div>
+          </div>
+          <div class="input-height">
+            <label>Landline Number</label>
+            <input type="text" formControlName="landlineNumber" maxlength="15" [(ngModel)]="landLine" (keypress)="isNumber($event)" placeholder="Landline Number">
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div *ngIf="usercheck!=0">
+        <div>
+          <div class="input-height">
+            <label for="">Customer Name</label>
+
+            <input type="text" minlength="3" maxlength="100" required formControlName="username" required placeholder="Customer Name"
+              [(ngModel)]="customer">
+            <div *ngIf="kntForm.controls['username'].errors && kntForm.controls['username'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['username'].errors.required">Please Enter Customer Name.</div>
+              <div class="error-info" [hidden]="!kntForm.controls['username'].errors.minlength">Enter Minimun 3 character</div>
+
+            </div>
+
+          </div>
+
+          <div class="input-height">
+            <label>Landline Number</label>
+            <input type="text" formControlName="landlineNumber" [(ngModel)]="landLine" (keypress)="isNumber($event)" placeholder="Landline Number">
+
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+        <label for="">Business Address</label>
+        <div>
+          <div class="input-height">
+            <label>Address one</label>
+            <input type="text" minlength="3" maxlength="100" formControlName="businessAddress1" [(ngModel)]="example.businessAddres1"
+              placeholder="Address Line1">
+            <div *ngIf="kntForm.controls['businessAddress1'].errors && kntForm.controls['businessAddress1'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['businessAddress1'].errors.required"> Enter Bussiness Addresss.</div>
+              <div class="error-info" [hidden]="!kntForm.controls['businessAddress1'].errors.minlength"> Enter Minimun 3 character.</div>
+
+
+            </div>
+          </div>
+          <div class="input-height">
+            <label>Address two</label>
+
+            <input type="text" minlength="3" maxlength="100" formControlName="businessAddress2" [(ngModel)]="example.businessAddres2"
+              placeholder="Address Line2">
+            <div *ngIf="kntForm.controls['businessAddress2'].errors && kntForm.controls['businessAddress2'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['businessAddress2'].errors.required"> Enter Bussiness Addresss.</div>
+              <div class="error-info" [hidden]="!kntForm.controls['businessAddress2'].errors.minlength"> Enter minimum 3 character.</div>
+
+
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="input-height dropdown-arrow">
+            <label>Country</label>
+
+            <select required [(ngModel)]="businessCountry" (change)="onCountryChange($event.target.value,'data')" formControlName="country">
+              <option disabled [attr.selected]="true" value=null>Select country</option>
+
+              <option *ngFor="let c of bussinesscountryList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="kntForm.controls['country'].errors && kntForm.controls['country'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['country'].errors.required">Please Select Country.</div>
+
+            </div>
+          </div>
+          <div class="input-height dropdown-arrow">
+            <label>State</label>
+            <select [(ngModel)]="businessState" (change)="onStateChange($event.target.value,'data')" formControlName="state">
+              <option disabled disabled [attr.selected]="true" value=null>Select state</option>
+              <!-- <option disabled *ngIf="stateload" >State is Loading</option> -->
+
+              <option *ngFor="let c of bussinessstateList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="kntForm.controls['state'].errors && kntForm.controls['state'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['state'].errors.required">Please Select State.</div>
+
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="input-height dropdown-arrow">
+            <label>District</label>
+
+            <select [(ngModel)]="bussinessDistrict" (change)="onDistrictChange($event.target.value,'data')" formControlName="district">
+              <option disabled [attr.selected]="true" value=null>Select District</option>
+              <option *ngFor="let c of bussinessDistrictList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="kntForm.controls['district'].errors && kntForm.controls['district'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['district'].errors.required">Please Select District.</div>
+
+            </div>
+          </div>
+          <div class="input-height dropdown-arrow">
+            <label>City</label>
+
+            <select [(ngModel)]="businessCity" formControlName="city">
+              <option disabled [attr.selected]="true" value=null>Select City</option>
+              <option *ngFor="let c of bussinessCityList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="kntForm.controls['city'].errors && kntForm.controls['city'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['city'].errors.required">Please Select City.</div>
+
+            </div>
+
+          </div>
+        </div>
+        <div>
+          <div class="input-height">
+            <label>Pincode</label>
+
+            <input type="text" (keypress)="isNumber($event)" minlength="6" maxlength="6" formControlName="pincode" [(ngModel)]="example.businessPincode"
+              placeholder="Pin Code">
+            <div *ngIf="kntForm.controls['pincode'].errors && kntForm.controls['pincode'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['pincode'].errors.required">Please Enter Pincode</div>
+              <div class="error-info" [hidden]="!kntForm.controls['pincode'].errors.maxlength">Please Enter Valid Pincode.</div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="knt__login__homeaddress">
+        <label for="">Home Address (Same)
+        </label>
+
+        <input type="checkbox" formControlName="checkboxVal" [(ngModel)]="checkboxValue" (change)=" checkboxChange()" class="knt__login__homeaddress--check">
+        <span class="homeaddress__checkmark"></span>
+
+        <div>
+          <div class="input-height">
+            <label>Address one</label>
+
+            <input type="text" minlength="3" maxlength="100" formControlName="homeAddress1" [(ngModel)]="example1.homeAddress1" placeholder="Address Line1">
+            <div *ngIf="kntForm.controls['homeAddress1'].errors && kntForm.controls['homeAddress1'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['homeAddress1'].errors.required">Please Enter Home Address.</div>
+              <div class="error-info" [hidden]="!kntForm.controls['homeAddress1'].errors.minlength"> Enter minimum 3 character.</div>
+
+
+            </div>
+          </div>
+          <div class="input-height">
+            <label>Address two</label>
+
+            <input type="text" minlength="3" maxlength="100" formControlName="homeAddress2" [(ngModel)]="example1.homeAddress2" placeholder="Address Line2">
+            <div *ngIf="kntForm.controls['homeAddress2'].errors && kntForm.controls['homeAddress2'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['homeAddress2'].errors.required">Please Enter Home Address.</div>
+              <div class="error-info" [hidden]="!kntForm.controls['homeAddress2'].errors.minlength"> Enter minimum 3 character.</div>
+
+
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="input-height dropdown-arrow">
+            <label>Country</label>
+
+            <select [(ngModel)]="homeCountry" (change)="homeCountryChange($event.target.value,'data')" formControlName="homeCountry">
+              <option disabled [attr.selected]="true" value=null>Select country</option>
+              <option *ngFor="let c of homecountryList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="kntForm.controls['homeCountry'].errors && kntForm.controls['homeCountry'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['homeCountry'].errors.required">Please select Country.</div>
+
+            </div>
+          </div>
+          <div class="input-height dropdown-arrow">
+            <label>State</label>
+
+            <select [(ngModel)]="homeState" (change)="homeStateChange($event.target.value,'data')" formControlName="homeState">
+              <option disabled [attr.selected]="true" value=null>Select State</option>
+              <option *ngFor="let c of homestateList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="kntForm.controls['homeState'].errors && kntForm.controls['homeState'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['homeState'].errors.required">Please select State.</div>
+
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="input-height dropdown-arrow">
+            <label>District</label>
+
+            <select [(ngModel)]="homeDistrict" (change)="homeDistrictChange($event.target.value,'data')" formControlName="homeDistrict">
+              <option disabled [attr.selected]="true" value=null>Select District</option>
+              <option *ngFor="let c of homeDistrictList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="kntForm.controls['homeDistrict'].errors && kntForm.controls['homeDistrict'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['homeDistrict'].errors.required">Please select District.</div>
+
+            </div>
+          </div>
+          <div class="input-height dropdown-arrow">
+
+            <label>City</label>
+
+            <select [(ngModel)]="homeCity" formControlName="homeCity">
+              <option disabled [attr.selected]="true" value=null>Select City</option>
+              <option *ngFor="let c of homeCityList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="kntForm.controls['homeCity'].errors && kntForm.controls['homeCity'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['homeCity'].errors.required">Please select City.</div>
+
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="input-height">
+            <label>Pincode</label>
+
+            <input type="text" (keypress)="isNumber($event)" minlength="6" maxlength="6" formControlName="homePincode" [(ngModel)]="example1.homePincode"
+              placeholder="Pin Code">
+            <div *ngIf="kntForm.controls['homePincode'].errors && kntForm.controls['homePincode'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['homePincode'].errors.required">Please Enter PinCode.</div>
+              <div class="error-info" [hidden]="!kntForm.controls['homePincode'].errors.maxlength">Please valid Pincode.</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="knt__login__homeaddress">
+        <label for="">Nominee Details
+        </label>
+
+        <div>
+          <div class="input-height">
+            <label>Nominee Name</label>
+
+            <input formControlName="Nomineename" minlength="3" maxlength="100" type="text" [(ngModel)]="NomineeName" placeholder="Nominee Name" pattern="[a-zA-Z ]*">
+            <div *ngIf="kntForm.controls['Nomineename'].errors && kntForm.controls['Nomineename'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['Nomineename'].errors.required">Please Enter Nominee name.</div>
+              <div class="error-info" [hidden]="!kntForm.controls['Nomineename'].errors.minlength"> Enter Minimum 3 character.</div>
+
+
+            </div>
+          </div>
+          <div class="input-height dropdown-arrow">
+
+            <label>Relationship</label>
+
+            <select formControlName="NomineeRelationship" [(ngModel)]="NomineeRelation">
+              <option disabled [attr.selected]="true" value=null>Please Select Relationship Status</option>
+              <option *ngFor="let c of relationList" value="{{c.id}}"> {{c.name}} </option>
+            </select>
+            <div *ngIf="kntForm.controls['NomineeRelationship'].errors && kntForm.controls['NomineeRelationship'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['NomineeRelationship'].errors.required">Please Enter Relationship.</div>
+
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="input-height dropdown-arrow">
+            <label>Gender</label>
+
+            <select formControlName="NomineeGender" [(ngModel)]="Gender">
+              <option disabled [attr.selected]="true" value=null>Select Gender</option>
+              <option *ngFor="let c of genderList" value="{{c.id}}"> {{c.name}} </option>
+            </select>
+            <div *ngIf="kntForm.controls['NomineeGender'].errors && kntForm.controls['NomineeGender'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['NomineeGender'].errors.required">Please Select Gender.</div>
+
+            </div>
+          </div>
+          <div class="input-height">
+            <label>DOB</label>
+
+            <input [(ngModel)]="DOB" formControlName="NomineeDob" type="text" placeholder="DOB" [maxDate]="maxDate" class="form-control"
+              bsDatepicker>
+            <div *ngIf="kntForm.controls['NomineeDob'].errors && kntForm.controls['NomineeDob'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['NomineeDob'].errors.required">Please Select DOB.</div>
+
+            </div>
+          </div>
+
+        </div>
+        <div>
+          <div class="input-height">
+            <label>Contact Number</label>
+
+            <input type="text" pattern="[6789][0-9]{9}" formControlName="Nomineecontact" minlength="10" maxlength="10" (keypress)="isNumber($event)"
+              required class="pincode inputFields" placeholder="Nominee Contact" [(ngModel)]="NomineeNumber" />
+            <div *ngIf="kntForm.controls['Nomineecontact'].errors && kntForm.controls['Nomineecontact'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!kntForm.controls['Nomineecontact'].errors.required">Please Enter Number</div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- <div *ngIf="showname">
+        <span class="file-msg">Uploaded File</span>
+        <a>{{fileshow}}</a>
+
+      </div> -->
+      <div *ngIf="showfile">
+        <h3>Upload PAN / Aadhar Card </h3>
+        <div class="file__cont">
+          <input formControlName="file" accept="image/*,.pdf" type="file" [(ngModel)]="files" (change)="fileChangeEvent($event)" class="inputfile inputfile-1"
+          />
+          <label for="file-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+              <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+              />
+            </svg>
+            <span>{{kntFileName||'Upload file'}}</span>
+          </label>
+        </div>
+        <div class="max-size">
+          <span style="color:red">*</span> &nbsp;PDF,PNG,JPEG - Max 3mb</div>
+      </div>
+      <h4>
+        <a target="_blank" href="/#/information/termsandcondition">Terms and Condition</a>
+
+      </h4>
+      <label class="tandc">
+        Agree to Terms and Conditions
+
+
+        <input #saveUserNameCheckBox id="saveUserNameCheckBox" type="checkbox" [checked]="checkboxValue1" (change)="checkboxdata(saveUserNameCheckBox.checked)">
+        <span class="checkmark"></span>
+
+      </label>
+      <p class="error-info" *ngIf="hidecheck">Please accept term and conditions</p>
+      <button [disabled]="userinfo==1" [ngClass]="{'disabled-btn':userinfo==1}">{{buttontext}}</button>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,125 @@
+<div class="addToCart cart-container">
+  <div *ngIf="cartList.length==0">
+    <div>Your Shopping Cart is empty</div>
+    <button class="btn btn-primary continueButton1" type="button" (click)="product()">Continue Shopping</button>
+  </div>
+  <div *ngIf="cartList.length>0">
+    <h1>Shopping Cart</h1>
+    <div class="tabletTab">
+      <span class="tabletTab  tabletTab1">Product</span>
+      <span class="tabletTab  tabletTab2">Price</span>
+      <span class="tabletTab   tabletTab3">Qty</span>
+      <span class="tabletTab   tabletTab4">Subtotal</span>
+      <hr/>
+    </div>
+    <div class="row cart-container" *ngFor="let CartList of cartList">
+      <div class="col-xs-12 col-sm-4 col-md-4 pad cart-saree">
+        <div class="col-xs-6 col-sm-5 col-md-6 pad cartImage">
+          <img class="cartimage" src="{{CartList.smallImagePath}}" (click)="productDetail(CartList.productId)" />
+        </div>
+        <div class="col-xs-6 col-sm-7 col-md-6 pad cartDetails">
+          <h1 (click)="productDetail(CartList.productId)" class="productName">{{CartList.name}}</h1>
+          <div class="cartDetails1" *ngIf="CartList.size">
+            <p>Size</p>
+            <button>{{CartList.size}}</button>
+          </div>
+          <div class="cartDetails2" (click)="listClick($event,CartList)">
+            <p class="moveWishlist">Move to Wishlist</p>
+            <div class="faHeart">
+              <i [ngClass]="{'active': selectedItem1 ==CartList.id}" class="fa fa-heart" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="cartDetails3">
+            <p>Remove Item</p>
+            <img src="./assets/bin.svg" class="deleteCart" (click)="deletecart(CartList.id)" />
+          </div>
+        </div>
+      </div>
+
+      <div class="cartQuantity">
+        <div class="col-xs-12 col-sm-4 col-md-4 pad">
+          <div class="col-xs-6 col-sm-6 col-md-6 pad cartQuantity1">
+            <!--
+           <div class=""> -->
+            <form class="cart__quantity">
+              <p>Quantity</p>
+              <!-- <label class="pro__quantity">QuantiHGHty</label> -->
+              <div class="value-button" id="decrease" (click)="decreaseValue(CartList)" value="Decrease Value">-</div>
+              <input class="number1" [(ngModel)]='CartList.quantity' name="quantity" type="number" (ngModelChange)="checkAvailability(CartList)"
+              />
+              <div class="value-button" id="increase" (click)="increaseValue(CartList)" value="Increase Value">+</div>
+              <div *ngIf="updateCartLoad">
+                updating...
+              </div>
+            </form>
+            <!-- </div>  -->
+
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 pad cartQuantity2">
+            <h4>Price</h4>
+            <h5>{{CartList.newPrice | currConvert : currencyRate}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class=" cartSubTotal">
+        <div class="col-xs-12 col-sm-4 col-md-4 pad subtotal-cart">
+          <h1>Subtotal</h1>
+          <!-- <div class="horizantal">
+          <hr/>
+        </div> -->
+          <div class="cartSubTotal1">
+            <div class="cartTotal row">
+              <span class="discount col-xs-7 col-md-6">Discount ({{CartList.discountPercentage}})
+                <span class="quote-symbol">:</span>
+              </span>
+              <span class="amount amount1 col-xs-5 col-md-6"> {{CartList.newPrice | currConvert : currencyRate}}</span>
+            </div>
+            <div class="cartTotal">
+              <span class="discount col-xs-7 col-md-6">CGST ({{CartList.cgstTaxPercentage}})
+                <span class="quote-symbol">:</span>
+              </span>
+              <span class="amount col-xs-5 col-md-6">{{CartList.cgst | currConvert : currencyRate}}</span>
+            </div>
+            <div class="cartTotal">
+              <span class="discount col-xs-7 col-md-6">SGST ({{CartList.sgstTaxPercentage}})
+                <span class="quote-symbol">:</span>
+              </span>
+              <span class="amount sgst  col-xs-5 col-md-6">{{CartList.sgst | currConvert : currencyRate}}</span>
+            </div>
+            <div class="cartTotal">
+              <span class="discount  col-xs-7 col-md-6">GST ({{(CartList.sgstTaxPercentage+CartList.cgstTaxPercentage)/2}})
+                <span class="quote-symbol">:</span>
+              </span>
+              <span class="amount sgst col-xs-5 col-md-6"> {{CartList.taxAmount | currConvert : currencyRate}}</span>
+            </div>
+
+          </div>
+          <div class="cartAllTotal">
+            <span class="cartAllTotal1   col-xs-6 col-md-6">Sub Total
+              <span class="quote-symbol">:</span>
+            </span>
+            <span class="cartAllTotal2 col-xs-6 col-md-6"> {{CartList.totalCalculatedAmount| round | currConvert : currencyRate}}
+              <div>({{CartList.quantity}} items)</div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row total-cart">
+      <div class="col-xs-12 col-sm-8 col-md-8 pad"></div>
+      <div class="col-xs-12 col-sm-4 col-md-4 pad">
+        <div class="cartFullTotal">
+          <h4>Total: {{totalAmout | currConvert : currencyRate}}</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartButtons" *ngIf="pathname!='#/product/checkout'">
+      <button type="button" class="btn btn-primary continueButton" (click)="product()">Continue Shopping</button>
+      <button type="button" class="btn btn-primary proceedButton" routerLink='../checkout'>Proceed to Checkout</button>
+
+    </div>
+
+  </div>
+
+</div>

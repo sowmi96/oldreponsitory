@@ -1,0 +1,1091 @@
+import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
+import { TemplateRef } from "@angular/core";
+import { BsModalService } from "ngx-bootstrap/modal";
+import { BsModalRef } from "ngx-bootstrap/modal/bs-modal-ref.service";
+import { GeneralService } from "../../general.service";
+import { Router, ActivatedRoute, Params } from "@angular/router";
+import { SharedService } from "../../shared.service";
+import { UtilsService } from "../../shared/utils";
+import { ToastsManager } from "ng2-toastr";
+
+@Component({
+  selector: "app-careers-apply",
+  templateUrl: "./careers-apply.component.html",
+  styleUrls: ["./careers-apply.component.css"],
+  providers: [BsModalService]
+})
+export class CareersApplyComponent implements OnInit {
+  showccnError = false;
+  showEdit4 = false;
+  showEdit1 = false;
+  showEdit2 = false;
+  showEdit3 = false;
+  showPanCaution: boolean;
+  @ViewChild("closeButton1") closeBtn1: ElementRef;
+  @ViewChild("Addressform") form: any;
+  @ViewChild("QualificationForm") qualiform: any;
+  @ViewChild("WorkExpForm") workform: any;
+
+  modalRef: BsModalRef;
+  public maxDate: Date;
+  public dateIssue:any;
+  photoFileName: any;
+  signatureFileName: any;
+  workDoc: any;
+  disabilityDocName: any;
+  destituteDocName: any;
+  constructor(
+    private modalService: BsModalService,
+    private careerApplyService: GeneralService,
+    private route: ActivatedRoute,
+    private ss: SharedService,
+    private toast: ToastsManager,
+    private router: Router,
+    private utils: UtilsService
+  ) {}
+
+  public Quali: any = {};
+  public qualification: any = [];
+  public exp: any = {};
+  public workExp: any = [];
+  editMode = false;
+  public genderList: any;
+  public maritalStatus: any;
+  public countryList: any;
+  public applyCountry: any;
+  public careerStateList: any;
+  public careerStateList3: any;
+  public applyState: any;
+  public careerDistrictList: any;
+  public applyDistrict: any;
+  public applyDistrict1: any;
+  public applyDistrict2: any;
+  public applyTaluk: any;
+  public careerTalukList: any;
+  public careerVillageList: any;
+  public applyCountry1: any;
+  public careerStateList1: any;
+  public applyState1: any;
+  public applyState2: any;
+  public applyState3: any;
+  public careerDistrictList1: any;
+  public careerDistrictList2: any;
+  public applyTaluk1: any;
+  public applyTaluk2: any;
+  public careerTalukList1: any;
+  public careerTalukList2: any;
+  public applyVillage1: any;
+  public careerVillageList1: any;
+  public religionList: any;
+  public communityList: any;
+  public casteList: any;
+  public applyCountry2: any;
+  public motherTongueList: any;
+  public careerStateList2: any;
+  public QualificationList: any;
+  public salutation: any;
+  public mothertongue: any;
+  public examcenter: any;
+  public panNo: any;
+  public fileContent: any;
+  public fname: any = "";
+  public mname: any = "";
+  public lname: any = "";
+  public age: any;
+  public gender: any = "";
+  public dobValue: any = "";
+  public pobValue: any = "";
+  public maritalstatus: any = "";
+  public fathername: any = "";
+  public mothername: any = "";
+  public mnumber: any = "";
+  public aadhar: any = "";
+  public email: any = "";
+  public pAddLine1: any = "";
+  public pAddLine2: any = "";
+  public pAddLine3: any = "";
+  public pPincode: any = "";
+  public prAddLine1: any = "";
+  public prAddLine2: any = "";
+  public prAddLine3: any = "";
+  public pPincode1: any = "";
+  public prPincode1: any = "";
+  public applyVillage: any = "";
+  public religion: any = "";
+  public community: any = "";
+  public caste: any = "";
+  public commCertNo: any = "";
+  public commCertIssueDate: any = "";
+  public commCertIssueAuth: any = "";
+  commCertfiles: any;
+  public medium: any = "";
+  public qualName: any = "";
+  public resultDate: any = "";
+  //public collegeName: any = "";
+  public organizationName: any = "";
+  public nameofboarduniversity: any = "";
+  public certNo: any = "";
+  public percentage: any = "";
+  public govtEmp: any = "";
+  public orgName: any = "";
+  public designation: any = "";
+  public natureofduty: any = "";
+  public workFrom: any = "";
+  public workTo: any = "";
+  public photoFiles: any;
+  public signFiles: any;
+  placeName: any;
+  showDestitute: false;
+  showServiceman: false;
+  showDifferentlyAbled: false;
+  public examCenterList: any;
+  filesToUpload: Array<File> = [];
+  filesToUpload1: Array<File> = [];
+  filesToUpload2: Array<File> = [];
+  showEmailCaution = false;
+  showMobileCaution = false;
+  showAadharCaution = false;
+  showMandCaution = false;
+  showMandCaution1 = false;
+  personalDetails: any = [];
+  salutationList: any;
+  jobApplicationId: any;
+  addtionalDetails: any;
+  filesToUpload3: any;
+  qualificationDetails: any;
+  qualificationBlockID: any;
+  filesToUpload4: any;
+  workExpDetails: any;
+  workBlockID: any;
+  priorityNameLists: any;
+  priorityLists: any;
+  priorityName: any;
+  dffDis: boolean;
+  destDis: boolean;
+  serDis: boolean;
+  filesToUpload5: Array<File> = [];
+  filesToUpload6: Array<File> = [];
+  filesToUpload7: Array<File> = [];
+  filesToUpload8: Array<File> = [];
+  otherInfo: any;
+  diff: any;
+  abled: any;
+  perecntDis: any;
+  pCertNo: any;
+  disDateValue: any;
+  disIssueAuth: any;
+  destAuth: any;
+  serAuth: any;
+  serDateValue: any;
+  serviceCertNo: any;
+  destDateValue: any;
+  destCertNo: any;
+  issueAuth: any;
+  doiValue: any;
+  priorityList: any;
+  disCertNo: any;
+  submitDis = false;
+  showApplied = false;
+  showDelete = true;
+  disPriority = false;
+  personalCountry = "";
+  qualificationDoc = "";
+
+  showPersonal = true;
+  showAdditional = false;
+  showQualification = false;
+  showExperience = false;
+  showPriorityClass = false;
+  showEdit = false;
+  donePersonal = false;
+  doneAdditional = false;
+  doneQualification = false;
+  doneExperience = false;
+  donePriorityClass = false;
+
+  sameAsPresent = false;
+  commCertFileName = "";
+  showQualificationError = false;
+  showPriorityError = false;
+  serviceDocName = "";
+  priorityDocName = "";
+
+  photomaxSize: any;
+  photype: any;
+  photosizevalidate: any;
+  photoextvalidate: any;
+
+  signaturemaxSize: any;
+  signaturetype: any;
+  signaturesizevalidate: any;
+  signatureextvalidate: any;
+
+  commcertmaxSize: any;
+  commcerttype: any;
+  commcertsizevalidate: any;
+  commcertextvalidate: any;
+
+  qualificationmaxSize: any;
+  qualificationtype: any;
+  qualificationsizevalidate: any;
+  qualificationextvalidate: any;
+
+  workdocmaxSize: any;
+  workdoctype: any;
+  workdocsizevalidate: any;
+  workdocextvalidate: any;
+
+  prioritymaxSize: any;
+  prioritytype: any;
+  prioritysizevalidate: any;
+  priorityextvalidate: any;
+
+  disabilitymaxSize: any;
+  disabilitytype: any;
+  disabilitysizevalidate: any;
+  disabilityextvalidate: any;
+
+  destitutemaxSize: any;
+  destitutetype: any;
+  destitutesizevalidate: any;
+  destituteextvalidate: any;
+
+  servicemaxSize: any;
+  servicetype: any;
+  servicesizevalidate: any;
+  serviceextvalidate: any;
+
+
+
+  ngOnInit() {
+    this.maxDate = new Date();
+
+    this.maxDate.setDate(this.maxDate.getDate() + 0);
+    this.modalService.onHide.subscribe((reason: string) => {
+      this.Quali = {};
+      this.exp = {};
+    });
+    this.careerApplyService.getRequest("getGenderList").subscribe(
+      res => {
+        this.genderList = res.responseContents;
+      },
+      e => {},
+      () => {}
+    );
+    this.careerApplyService.getRequest("getSalutationMasterList").subscribe(
+      res => {
+        this.salutationList = res.responseContents;
+      },
+      e => {},
+      () => {}
+    );
+    this.careerApplyService.getRequest("getMotherTongue").subscribe(
+      res => {
+        this.motherTongueList = res.responseContent;
+      },
+      e => {},
+      () => {}
+    );
+    this.careerApplyService.getRequest("getMaritalStatus").subscribe(
+      res => {
+        this.maritalStatus = res.responseContents;
+      },
+      e => {},
+      () => {}
+    );
+    this.careerApplyService.getRequest("getExamList").subscribe(
+      res => {
+        this.examCenterList = res.responseContents;
+      },
+      e => {},
+      () => {}
+    );
+    this.careerApplyService.getRequest("getAllCountryList").subscribe(
+      res => {
+        this.countryList = res.responseContents;
+        this.countryList.sort(this.utils.dynamicSort("placeName"));
+      },
+      e => {},
+      () => {}
+    );
+    this.careerApplyService.getRequest("getReligionList").subscribe(
+      res => {
+        this.religionList = res.responseContents;
+      },
+      e => {},
+      () => {}
+    );
+    this.careerApplyService.getRequest("communityList").subscribe(
+      res => {
+        this.communityList = res.responseContents;
+      },
+      e => {},
+      () => {}
+    );
+    this.careerApplyService.getRequest("getCasteType").subscribe(
+      res => {
+        this.casteList = res.responseContents;
+      },
+      e => {},
+      () => {}
+    );
+    this.careerApplyService.getRequest("getQualificationList").subscribe(
+      res => {
+        this.QualificationList = res.responseContents;
+      },
+      e => {},
+      () => {}
+    );
+    this.priorityLists = [
+      { name: "Priority", value: "Priority" },
+      { name: "Non Priority", value: "Non Priority" }
+    ];
+  }
+
+  onSameAsPresent(event) {
+    this.sameAsPresent = event.target.checked;
+    if (this.sameAsPresent) {
+      this.prAddLine1 = this.pAddLine1;
+      this.prAddLine2 = this.pAddLine2;
+      this.prAddLine3 = this.pAddLine3;
+      this.applyCountry1 = this.applyCountry;
+      this.applyState1 = this.applyState;
+      this.applyDistrict1 = this.applyDistrict;
+      this.applyTaluk1 = this.applyTaluk;
+      this.applyVillage1 = this.applyVillage;
+      this.prPincode1 = this.pPincode;
+    } else {
+      this.prAddLine1 = "";
+      this.prAddLine2 = "";
+      this.prAddLine3 = "";
+      this.applyCountry1 = "";
+      this.applyState1 = "";
+      this.applyDistrict1 = "";
+      this.applyTaluk1 = "";
+      this.applyVillage1 = "";
+      this.prPincode1 = "";
+    }
+  }
+
+  onCountryChange(event, arg) {
+    if (arg === "personal") {
+      this.careerApplyService
+        .getRequest("getStateListByCountry/" + event.placeId)
+        .subscribe(res => {
+          this.careerStateList = res.responseContents;
+
+          this.careerStateList.sort(this.utils.dynamicSort("placeName"));
+        });
+    } else if (arg === "permanent") {
+      this.careerApplyService
+        .getRequest("getStateListByCountry/" + event.placeId)
+        .subscribe(res => {
+          this.careerStateList1 = res.responseContents;
+          this.careerStateList1.sort(this.utils.dynamicSort("placeName"));
+        });
+    } else if (arg === "community") {
+      this.careerApplyService
+        .getRequest("getStateListByCountry/" + event.placeId)
+        .subscribe(res => {
+          this.careerStateList2 = res.responseContents;
+          this.careerStateList2.sort(this.utils.dynamicSort("placeName"));
+        });
+    } else if (arg === "personalfirstrow") {
+      this.careerApplyService
+        .getRequest("getStateListByCountry/" + event.placeId)
+        .subscribe(res => {
+          this.careerStateList3 = res.responseContents;
+          this.careerStateList3.sort(this.utils.dynamicSort("placeName"));
+        });
+    }
+  }
+  onStateChange(event, arg) {
+    if (arg === "personal") {
+      this.careerApplyService
+        .getRequest("getDistrictListByState/" + event.placeId)
+        .subscribe(res => {
+          this.careerDistrictList = res.responseContents;
+          this.careerDistrictList.sort(this.utils.dynamicSort("placeName"));
+        });
+    } else if (arg === "permanent") {
+      this.careerApplyService
+        .getRequest("getDistrictListByState/" + event.placeId)
+        .subscribe(res => {
+          this.careerDistrictList1 = res.responseContents;
+          this.careerDistrictList1.sort(this.utils.dynamicSort("placeName"));
+        });
+    } else if (arg === "community") {
+      this.careerApplyService
+        .getRequest("getDistrictListByState/" + event.placeId)
+        .subscribe(res => {
+          this.careerDistrictList2 = res.responseContents;
+          this.careerDistrictList2.sort(this.utils.dynamicSort("placeName"));
+        });
+    }
+  }
+  onDistrictChange(event, arg) {
+    if (arg === 'additional') {
+      this.careerApplyService
+        .getRequest('getTalukListByDistrict/' + event.placeId)
+        .subscribe(res => {
+          this.careerTalukList = res.responseContents;
+        });
+    } else if (arg === 'permanent') {
+      this.careerApplyService
+        .getRequest('getTalukListByDistrict/' + event.placeId)
+        .subscribe(res => {
+          this.careerTalukList1 = res.responseContents;
+        });
+    } else if (arg === 'community') {
+      this.careerApplyService
+        .getRequest('getTalukListByDistrict/' + event.placeId)
+        .subscribe(res => {
+          this.careerTalukList2 = res.responseContents;
+        });
+    }
+  }
+  onTalukChange(event, arg) {
+    if (arg === 'personal') {
+      this.careerApplyService
+        .getRequest('getVillageListByTaluk/' + event.placeId)
+        .subscribe(res => {
+          this.careerVillageList = res.responseContents;
+        });
+    } else if (arg === 'permanent') {
+      this.careerApplyService
+        .getRequest('getVillageListByTaluk/' + event.placeId)
+        .subscribe(res => {
+          this.careerVillageList1 = res.responseContents;
+        });
+    }
+  }
+  onPriorityChange(event) {
+    if (this.priorityName === 'Priority') {
+      this.careerApplyService.getRequest('getPriorityType').subscribe(
+        res => {
+          this.priorityNameLists = res.responseContents;
+        },
+        e => {},
+        () => {}
+      );
+    } else {
+      this.careerApplyService.getRequest('getnonPriorityType').subscribe(
+        res => {
+          this.priorityNameLists = res.responseContents;
+        },
+        e => {},
+        () => {}
+      );
+    }
+  }
+  openpopUp(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+    this.filesToUpload3 = 'null';
+  }
+  openModal(template: TemplateRef<any>, x, index) {
+    this.modalRef = this.modalService.show(template);
+    this.editMode = true;
+    this.Quali = x;
+  }
+  openpopUp1(template1: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template1);
+    this.filesToUpload4 = 'null';
+  }
+  openModal1(template1: TemplateRef<any>, y, index) {
+    this.modalRef = this.modalService.show(template1);
+    this.editMode = true;
+    this.exp = y;
+  }
+  verifyEmail() {
+    const EMAIL_REGEXP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (
+      this.email.length <= 5 ||
+      !EMAIL_REGEXP.test(this.email) ||
+      this.email === ''
+    ) {
+      this.showEmailCaution = true;
+      return false;
+    } else {
+      this.showEmailCaution = false;
+      return true;
+    }
+  }
+  verifyMobileNumber(event) {
+    const flag = isNaN(this.mnumber);
+    if (event !== null) {
+      if (event.toString().length === 10) {
+        this.showMobileCaution = false;
+        return true;
+      } else {
+        this.showMobileCaution = true;
+        return false;
+      }
+    } else {
+      if (this.mnumber.toString().length === 9) {
+        this.showMobileCaution = false;
+        return true;
+      } else {
+        this.showMobileCaution = true;
+        return false;
+      }
+    }
+  }
+  verifyPanNumber(event) {
+    const flag = isNaN(this.mnumber);
+    if (event !== null) {
+      if (event.length === 10) {
+        this.showPanCaution = false;
+        return true;
+      } else {
+        this.showPanCaution = true;
+        return false;
+      }
+    } else {
+      if (this.panNo.length === 9) {
+        this.showPanCaution = false;
+        return true;
+      } else {
+        this.showPanCaution = true;
+        return false;
+      }
+    }
+  }
+  verifyAadharNumber(event) {
+    const flag = isNaN(this.aadhar);
+    if (event !== null) {
+      if (event.length === 12) {
+        this.showAadharCaution = false;
+        return true;
+      } else {
+        this.showAadharCaution = true;
+        return false;
+      }
+    } else {
+      if (this.aadhar.length === 11) {
+        this.showAadharCaution = false;
+        return true;
+      } else {
+        this.showAadharCaution = true;
+        return false;
+      }
+    }
+  }
+  submitPersonalInfo() {
+    alert(this.fileContent);
+    if (
+      this.salutation === '' ||
+      this.fname === '' ||
+      this.lname === '' ||
+      this.age === '' ||
+      this.gender === '' ||
+      this.dobValue === '' ||
+      this.pobValue === '' ||
+      this.maritalstatus === '' ||
+      this.fathername === '' ||
+      this.mothername === '' ||
+      this.mothertongue === '' ||
+      //this.panNo === '' ||
+      this.examcenter === '' ||
+      this.mnumber === '' ||
+      this.mnumber.length !== 10 ||
+      //this.aadhar === '' ||
+      this.photoFiles === '' ||
+      this.signFiles === ''||
+      this.photosizevalidate !== ''||
+      this.photoextvalidate  !== ''||
+      this.signaturesizevalidate !== ''||
+      this.signatureextvalidate !== ''
+    ) {
+      this.showMandCaution = true;
+    } else {
+      this.personalDetails = {
+        userId: parseInt(this.careerApplyService.getUserId(), 10),
+        jobId: sessionStorage.getItem('JobID'),
+        salutation: this.salutation.id,
+        firstName: this.fname,
+        middleName: this.mname,
+        lastName: this.lname,
+        age: this.age,
+        gender: this.gender,
+        dateOfBirth: this.dobValue,
+        //placeOfBirth: this.pobValue,
+        appliedStateId: this.applyState3.placeId,
+        maritalStatus: this.maritalstatus,
+        fatherOrSpouseName: this.fathername,
+        motherName: this.mothername,
+        motherTounge: this.mothertongue,
+        panNumber: this.panNo,
+        preferredExaminationCenter: this.examcenter,
+        mobileNumber: this.mnumber,
+        aadhaarNumber: this.aadhar,
+        emailId: this.email
+      };
+      this.upload();
+    }
+  }
+  upload() {
+    const formData: any = new FormData();
+    const files: Array<File> = this.filesToUpload;
+    const files1: Array<File> = this.filesToUpload1;
+
+    for (let i = 0; i < files.length; i++) {
+      formData.append('photo', files[i], files[i]['name']);
+    }
+    for (let j = 0; j < files1.length; j++) {
+      formData.append('signature', files1[j], files1[j]['name']);
+    }
+    formData.append('userData', JSON.stringify(this.personalDetails));
+    this.ss.showLoading(true);
+    this.careerApplyService
+      .postRequest2('applyJobPersonal', formData)
+      .subscribe(
+        res => {
+          this.showAdditional = true;
+          this.showPersonal = false;
+          this.donePersonal = true;
+          this.showEdit = true;
+          this.showMandCaution = false;
+          this.ss.showLoading(false);
+          this.jobApplicationId = res.responseContent.JobAppId;
+        },
+        e => {
+          this.ss.showLoading(false);
+        },
+        () => {}
+      );
+  }
+
+  public edit() {
+    this.donePersonal = false;
+    this.showEdit = false;
+  }
+  public edit1() {
+    this.doneAdditional = false;
+    this.showEdit1 = false;
+  }
+  public edit2() {
+    this.doneQualification = false;
+    this.showEdit2 = false;
+  }
+  public edit3() {
+    this.doneExperience = false;
+    this.showEdit3 = false;
+  }
+  public edit4() {
+    this.donePriorityClass = false;
+    this.showEdit4 = false;
+  }
+  public ccnChange(commCertNo) {
+    if (commCertNo.length > 50) {
+      this.showccnError = true;
+    } else {
+      this.showccnError = false;
+    }
+  }
+  submitAdditionalInfo() {
+    if (
+      this.pAddLine1 === '' ||
+      this.pPincode === '' ||
+      this.prAddLine1 === '' ||
+      this.prPincode1 === '' ||
+      this.religion === '' ||
+      this.community === '' ||
+      this.caste === '' ||
+      this.commCertNo === '' ||
+      this.commCertIssueDate === '' ||
+      this.commCertIssueAuth === '' ||
+      this.applyDistrict2 === '' ||
+      this.applyTaluk2 === '' ||
+      this.commCertfiles === '' ||
+      this.commcertsizevalidate !== '' ||
+      this.commcertextvalidate !== ''
+    ) {
+      this.showMandCaution1 = true;
+    } else {
+      this.addtionalDetails = {
+        userId: parseInt(this.careerApplyService.getUserId(), 10),
+        jobId: sessionStorage.getItem('JobID'),
+        jobApplicationId: this.jobApplicationId,
+        presentAddLine1: this.pAddLine1,
+        presentAddLine2: this.pAddLine2,
+        presentAddLine3: this.pAddLine3,
+        presentStateId: this.applyState.placeId,
+        presentDistrictId: this.applyDistrict.placeId,
+        presentTalukaId: this.applyTaluk.placeId,
+        presentVillageId: this.applyVillage.placeId,
+        presentPinCode: this.pPincode,
+        permAddLine1: this.prAddLine1,
+        permAddLine2: this.prAddLine2,
+        permAddLine3: this.prAddLine3,
+        permStateId: this.applyState1.placeId,
+        permDistrictId: this.applyDistrict1.placeId,
+        permTalukaId: this.applyTaluk1.placeId,
+        permVillageId: this.applyVillage1.placeId,
+        permPinCode: this.prPincode1,
+        religionId: this.religion,
+        communityId: this.community,
+        casteId: this.caste,
+        communityCertNumber: this.commCertNo,
+        communityCertIssueDate: this.commCertIssueDate,
+        communityCertIssuingAuth: this.commCertIssueAuth,
+        communityCertIssuingDistrict: this.applyDistrict2.placeId,
+        communityCertIssuingTaluka: this.applyTaluk2.placeId
+      };
+      this.uploadAdditionalInfo();
+    }
+  }
+  uploadAdditionalInfo() {
+    const formData: any = new FormData();
+    const files2: Array<File> = this.filesToUpload2;
+
+    for (let i = 0; i < files2.length; i++) {
+      formData.append('communityDoc', files2[i], files2[i]['name']);
+    }
+    formData.append('userData', JSON.stringify(this.addtionalDetails));
+    this.ss.showLoading(true);
+    this.careerApplyService
+      .postRequest2('applyJobAdditonalInfo', formData)
+      .subscribe(
+        res => {
+          this.showQualification = true;
+          this.doneAdditional = true;
+          this.showAdditional = false;
+          this.showMandCaution1 = false;
+          this.showEdit1 = true;
+          this.ss.showLoading(false);
+        },
+        e => {
+          this.ss.showLoading(false);
+        },
+        () => {}
+      );
+  }
+  Formsave(arg) {
+    if (this.qualificationsizevalidate !== '') { return false; }
+    if (this.qualificationextvalidate !== '') { return false; }
+    this.showQualificationError = false;
+    if (!this.editMode) {
+      if (this.filesToUpload3 === 'null') {return false; } else {this.qualification.push(arg); }
+    }
+    this.editMode = false;
+    this.qualificationDetails = {
+      userId: parseInt(this.careerApplyService.getUserId(), 10),
+      jobId: sessionStorage.getItem('JobID'),
+      jobApplicationId: this.jobApplicationId,
+      isTamilMedium: this.Quali.Medium,
+      qualificationId: this.Quali.name.id,
+      dateOfResultPublished: this.Quali.Datevalue,
+      organisationName: this.Quali.college,
+      universityName: this.Quali.nameboarduniv,
+      certificateNumber: this.Quali.certificate,
+      percentageCGPA: this.Quali.Percentage
+    };
+    this.uploadQualificationInfo();
+  }
+  uploadQualificationInfo() {
+    const formData: any = new FormData();
+    const files3: Array<File> = this.filesToUpload3;
+
+    for (let i = 0; i < files3.length; i++) {
+      formData.append('qualificationDoc', files3[i], files3[i]['name']);
+    }
+    formData.append('userData', JSON.stringify(this.qualificationDetails));
+    this.ss.showLoading(true);
+    this.careerApplyService
+      .postRequest2('applyJobEducational', formData)
+      .subscribe(
+        res => {
+          this.ss.showLoading(false);
+          this.qualificationDoc = '';
+          this.modalRef.hide();
+          this.qualificationBlockID = res.responseContent.jobAppEduQualiId;
+        },
+        e => {
+          this.ss.showLoading(false);
+        },
+        () => {}
+      );
+  }
+  DeleteQualification(arg, arg1) {
+    this.careerApplyService
+      .getRequest('deleteJobApplEduQual?id=' + arg1)
+      .subscribe(res => {}, e => {}, () => {});
+    this.qualification.splice(arg, 1);
+    // this.qualification.splice(index, 1);
+  }
+  Formsave2(arg) {
+    // if (!this.editMode) {
+    //   this.workExp.push(arg);
+    // }
+     if (this.workdocsizevalidate !== '') {return false; }
+     if (this.workdocextvalidate !== '') {return false; }
+     if(Date.parse(this.exp.Datevalue1)>Date.parse(this.exp.Datevalue2))
+    {
+this.dateIssue=true;
+    }
+    else{
+    this.editMode = false;
+    this.dateIssue=false;
+    this.modalRef.hide();
+    if (this.filesToUpload4 === 'null') { return false; } else {this.workExp.push(arg); }
+    //this.workExp.push(arg);
+    this.workExpDetails = {
+      userId: parseInt(this.careerApplyService.getUserId(), 10),
+      jobId: sessionStorage.getItem('JobID'),
+      jobApplicationId: this.jobApplicationId,
+      isGovEmployee: this.exp.govtEmp || false,
+      organisationName: this.exp.OrgName,
+      designation: this.exp.designation,
+      natureofduty: this.exp.natureofduty,
+      workingFrom: this.exp.Datevalue1,
+      workingTo: this.exp.Datevalue2
+    };
+    this.uploadWorkExpInfo();
+  }
+  }
+  uploadWorkExpInfo() {
+    const formData: any = new FormData();
+    const files4: Array<File> = this.filesToUpload4;
+
+    for (let i = 0; i < files4.length; i++) {
+      formData.append('experienceDoc', files4[i], files4[i]['name']);
+    }
+    formData.append('userData', JSON.stringify(this.workExpDetails));
+    this.ss.showLoading(true);
+    this.careerApplyService
+      .postRequest2('applyJobWorkExprience', formData)
+      .subscribe(
+        res => {
+          this.ss.showLoading(false);
+          this.workBlockID = res.responseContent.jobAppWorkExpId;
+        },
+        e => {
+          this.ss.showLoading(false);
+        },
+        () => {}
+      );
+  }
+  DeleteExp(arg, arg1) {
+    this.careerApplyService
+      .getRequest('deleteJobApplicationWorkExperience?id=' + arg1)
+      .subscribe(res => {}, e => {}, () => {});
+    this.workExp.splice(arg, 1);
+  }
+  submitOtherInfo() {
+    this.otherInfo = {
+      userId: parseInt(this.careerApplyService.getUserId(), 10),
+      jobId: sessionStorage.getItem('JobID'),
+      jobApplicationId: this.jobApplicationId,
+      isPhysicalChallenged: this.dffDis,
+      differentlyAbled: this.abled,
+      percentageDisability: this.perecntDis,
+      diffAbledCertificateNmber: this.disCertNo,
+      diffAbledDateOfIssue: this.disDateValue,
+      diffAbledIssueAuthority: this.disIssueAuth,
+      priorityId: this.priorityList,
+      nonPriorityId: this.priorityList,
+      priorityCertificateNmber: this.pCertNo,
+      priorityDateOfIssue: this.doiValue,
+      priorityIssueAuthority: this.issueAuth,
+      isDestituteWidow: this.destDis,
+      destituteCertificateNmber: this.destCertNo,
+      destituteDateOfIssue: this.destDateValue,
+      destituteIssueAuthority: this.destAuth,
+      isExServiceman: this.serDis,
+      exServicemanCertificateNmber: this.serviceCertNo,
+      exServicemanDateOfIssue: this.serDateValue,
+      exServicemanIssueAuthority: this.serAuth
+    };
+    this.uploadOtherInfo();
+  }
+  uploadOtherInfo() {
+    const formData: any = new FormData();
+    const files5: Array<File> = this.filesToUpload5;
+    const files6: Array<File> = this.filesToUpload6;
+    const files7: Array<File> = this.filesToUpload7;
+    const files8: Array<File> = this.filesToUpload8;
+
+    for (let i = 0; i < files5.length; i++) {
+      formData.append('priority', files5[i], files5[i]['name']);
+    }
+    for (let i = 0; i < files6.length; i++) {
+      formData.append('physicallyChallenged', files6[i], files6[i]['name']);
+    }
+    for (let i = 0; i < files7.length; i++) {
+      formData.append('destituteWidow', files7[i], files7[i]['name']);
+    }
+    for (let i = 0; i < files8.length; i++) {
+      formData.append('exServiceman', files8[i], files8[i]['name']);
+    }
+    formData.append('userData', JSON.stringify(this.otherInfo));
+    this.ss.showLoading(true);
+
+    this.careerApplyService.postRequest2('applyJobOther', formData).subscribe(
+      res => {
+        this.toast.success('oola!! Successful for  Applied  for Job');
+        this.ss.showLoading(false);
+        this.router.navigate(['/career/details']);
+      },
+      e => {
+        this.ss.showLoading(false);
+        this.showApplied = true;
+        sessionStorage.setItem('JobID', '');
+        this.toast.error('oops! Something went wrong Please Try Again');
+      },
+      () => {}
+    );
+  }
+  validateFile(name: string) {
+    let ext = name;
+    if (ext === 'application/pdf' || ext === 'image/png' || ext === 'image/jpeg') {return '';}
+    else { return 'Selected file format is not supported'; }
+  }
+  isValidFileSize(name: any) {
+    let overallfilesize = 500;
+    let fileSizeinMB = Math.round(name / 1024);
+    if (overallfilesize > fileSizeinMB){return ''; } else {return 'File size should be less than 500 kb'; }
+  }
+  fileChangeEvent(fileInput: any) {
+    let files = fileInput.target.files;
+    this.photomaxSize = files[0].size;
+    this.photype = files[0].type;
+    this.photosizevalidate = this.isValidFileSize(this.photomaxSize);
+    this.photoextvalidate = this.validateFile(this.photype);
+
+    this.filesToUpload = <Array<File>>fileInput.target.files;
+    this.photoFileName = fileInput.target.value.split('\\').pop();
+  }
+  fileChangeEvent1(fileInput: any) {
+    let files = fileInput.target.files;
+    this.signaturemaxSize = files[0].size;
+    this.signaturetype = files[0].type;
+    this.signaturesizevalidate = this.isValidFileSize(this.signaturemaxSize);
+    this.signatureextvalidate = this.validateFile(this.signaturetype);
+
+    this.filesToUpload1 = <Array<File>>fileInput.target.files;
+    this.signatureFileName = fileInput.target.value.split('\\').pop();
+  }
+  fileChangeEvent2(fileInput: any) {
+    let files = fileInput.target.files;
+    this.commcertmaxSize = files[0].size;
+    this.commcerttype = files[0].type;
+    this.commcertsizevalidate = this.isValidFileSize(this.commcertmaxSize);
+    this.commcertextvalidate = this.validateFile(this.commcerttype);
+
+    this.filesToUpload2 = <Array<File>>fileInput.target.files;
+    this.commCertFileName = fileInput.target.value.split('\\').pop();
+  }
+  fileChangeEvent3(fileInput: any) {
+    let files = fileInput.target.files;
+    this.qualificationmaxSize = files[0].size;
+    this.qualificationtype = files[0].type;
+    this.qualificationsizevalidate = this.isValidFileSize(this.qualificationmaxSize);
+    this.qualificationextvalidate = this.validateFile(this.qualificationtype);
+
+    this.filesToUpload3 = <Array<File>>fileInput.target.files;
+    this.qualificationDoc = fileInput.target.value.split('\\').pop();
+  }
+  fileChangeEvent4(fileInput: any) {
+    let files = fileInput.target.files;
+    this.workdocmaxSize = files[0].size;
+    this.workdoctype = files[0].type;
+    this.workdocsizevalidate = this.isValidFileSize(this.workdocmaxSize);
+    this.workdocextvalidate = this.validateFile(this.workdoctype);
+
+    this.filesToUpload4 = <Array<File>>fileInput.target.files;
+    this.workDoc = fileInput.target.value.split('\\').pop();
+  }
+  fileChangeEvent5(fileInput: any) {
+    let files = fileInput.target.files;
+    this.prioritymaxSize = files[0].size;
+    this.prioritytype = files[0].type;
+    this.prioritysizevalidate = this.isValidFileSize(this.prioritymaxSize);
+    this.priorityextvalidate = this.validateFile(this.prioritytype);
+
+    this.filesToUpload5 = <Array<File>>fileInput.target.files;
+    this.priorityDocName = fileInput.target.value.split('\\').pop();
+  }
+  fileChangeEvent6(fileInput: any) {
+    let files = fileInput.target.files;
+    this.disabilitymaxSize = files[0].size;
+    this.disabilitytype = files[0].type;
+    this.disabilitysizevalidate = this.isValidFileSize(this.disabilitymaxSize);
+    this.disabilityextvalidate = this.validateFile(this.disabilitytype);
+
+    this.filesToUpload6 = <Array<File>>fileInput.target.files;
+    this.disabilityDocName = fileInput.target.value.split('\\').pop();
+  }
+  fileChangeEvent7(fileInput: any) {
+    let files = fileInput.target.files;
+    this.destitutemaxSize = files[0].size;
+    this.destitutetype = files[0].type;
+    this.destitutesizevalidate = this.isValidFileSize(this.destitutemaxSize);
+    this.destituteextvalidate = this.validateFile(this.destitutetype);
+
+    this.filesToUpload7 = <Array<File>>fileInput.target.files;
+    this.destituteDocName = fileInput.target.value.split('\\').pop();
+  }
+  fileChangeEvent8(fileInput: any) {
+    let files = fileInput.target.files;
+    this.servicemaxSize = files[0].size;
+    this.servicetype = files[0].type;
+    this.servicesizevalidate = this.isValidFileSize(this.servicemaxSize);
+    this.serviceextvalidate = this.validateFile(this.servicetype);
+
+    this.filesToUpload8 = <Array<File>>fileInput.target.files;
+    this.serviceDocName = fileInput.target.value.split('\\').pop();
+  }
+  radioChange(event, arg1, arg2) {
+    if (arg1 === 'diffabled') {
+      if (arg2 === 'yes') {
+        this.dffDis = true;
+      } else if (arg2 === 'no') {
+        this.dffDis = false;
+      }
+    } else if (arg1 === 'destitute') {
+      if (arg2 === 'yes') {
+        this.destDis = true;
+      } else if (arg2 === 'no') {
+        this.destDis = false;
+      }
+    } else if (arg1 === 'sericeman') {
+      if (arg2 === 'yes') {
+        this.serDis = true;
+      } else if (arg2 === 'no') {
+        this.serDis = false;
+      }
+    }
+  }
+  isNumber(evt) {
+    evt = evt ? evt : window.event;
+    const charCode = evt.which ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+  continueEducation(e) {
+    e.preventDefault();
+    this.showQualificationError = false;
+    if (this.qualification.length > 0) {
+      this.doneQualification = true;
+      this.showEdit2 = true;
+      this.showQualification = false;
+      this.showExperience = true;
+    } else {
+      this.showQualificationError = true;
+    }
+  }
+  continueWork(e) {
+    e.preventDefault();
+    this.showPriorityError = false;
+    this.doneExperience = true;
+    this.showExperience = false;
+    this.showPriorityClass = true;
+  }
+  continuePririty(e) {
+    e.preventDefault();
+    this.donePriorityClass = true;
+    this.showEdit4 = true;
+  }
+}

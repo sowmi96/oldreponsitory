@@ -1,0 +1,35 @@
+{
+        "Wishlist": [{
+                "Id": "1",
+                "Src": "./assets/cart.png",
+                "Title":"Parampara Silks",
+                "Oldprice": "25000",
+                "Newprice": "22000",
+                "Offer": "10%",
+                "Rating":4
+
+        },
+        {
+                "Id": "1",
+                "Src": "./assets/cart.png",
+                "Title":"Parampara Silks",
+                "Oldprice": "25000",
+                "Newprice": "22000",
+                "Offer": "10%",
+                "Rating":4
+
+
+        },
+        {
+                "Id": "1",
+                "Src": "./assets/cart.png",
+                "Title":"Parampara Silks",
+                "Oldprice": "25000",
+                "Newprice": "22000",
+                "Offer": "10%",
+                "Rating":5
+
+
+        }
+    ]
+}

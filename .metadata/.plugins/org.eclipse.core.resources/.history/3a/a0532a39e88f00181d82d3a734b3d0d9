@@ -1,0 +1,578 @@
+<div class="abcc">
+  <ng-template #templatepayment>
+
+    <div class="modal-header">
+
+      <button type="button" (click)="hidetemplate()" class="close pull-right" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <div class="row">
+        <h5 class="text-center monthtitle">Please select the number of months to pay</h5>
+        <div class="row">
+          <div class="form-group">
+            <label for="comment">Select Number of Months </label>
+            <select name="month" [(ngModel)]="selectmonth" class="form-control" id="comment">
+              <option value="null" disabled>Select month</option>
+              <option *ngFor="let x of remainingMonths" value="{{x}}">{{x}}</option>
+            </select>
+            <div class="error-info text-left" *ngIf="montherror">Please select Month</div>
+
+          </div>
+          <div class="col-xs-12 modelButtonDiv">
+            <button class="buybutton" (click)="hidetemplate()" style="background-color:#1c9cea">Cancel</button>
+            <button class="buybutton" style="background-color:#1c9cea" (click)="kntPayment(paymentdata)">Proceed Payment</button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </ng-template>
+  <ng-template #template1>
+
+    <div class="modal-header">
+
+      <button type="button" class="close pull-right" aria-label="Close" (click)="hide();doPayment(false)">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <div class="row">
+          
+        <h3 class="text-center">KNT scheme successfully added !</h3>
+        <h5 class="text-center">Do you want to pay first installment?</h5>
+        <div class="col-xs-12 modelButtonDiv">
+          <button class="buybutton" style="background-color:#1c9cea" (click)="doPayment(true)">Yes</button>
+          <button class="buybutton" style="background-color:#1c9cea" (click)="doPayment(false)">No</button>
+
+        </div>
+      </div>
+    </div>
+
+
+  </ng-template>
+  <button class="buybutton" style="visibility: hidden" #openBtn (click)="openModal1(template1)">No</button>
+
+  <ng-template #template>
+
+    <div class="modal-header">
+
+      <button type="button" class="close pull-right" aria-label="Close" (click)="hide();">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <div class="row">
+        <div class="col-xs-5">
+          <p class="scheme-user">{{DeleteSchema.customerResponseDTO.name}}</p>
+          <p class="scheme-no">{{DeleteSchema.registrationNumber}}</p>
+
+        </div>
+        <div class="col-xs-7">
+          <p class="scheme-type scheme-user">{{DeleteSchema.kntPlanResponseDTO.plan_name}} </p>
+        </div>
+        <div class="col-xs-12">
+          <p class="delete-info scheme-no">Do you want delete this scheme?</p>
+        </div>
+        <div class="col-xs-12">
+          <button class="buybutton" style="background-color:#1c9cea" (click)="DeleteInitiate(DeleteSchema.id)">Yes</button>
+
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <div class="knt__login__header">
+    <div>
+      <h1>KNT Schemes</h1>
+      <img src="../../assets/girlWithBags.png" alt="girl with bags">
+    </div>
+  </div>
+
+  <div class="container ktn_add">
+    <button class="knt_btn" (click)="showScheme()">Add New Scheme</button>
+  </div>
+
+  <div class="knt_new_scheme" *ngIf="Schemeshow">
+    <div class="container">
+      <div>
+        <button type="button" class="knt_close">
+          <span (click)="emptyform()">x</span>
+        </button>
+        <h3 class="modal-title" id="myModalLabel">New KNT Scheme</h3>
+      </div>
+      <div class="row knt">
+        <div class="knt-head">KNT Plan Details</div>
+        <!-- <div *ngFor="let item of KntPlans" class="col-xs-6 col-sm-3 col-md-3 text-color">
+          <div class="col-xs-12 text-inner">
+            <p class="plan-name">{{item.plan_name}}</p>
+            <p>Installment Months: {{item.installment_month}} months</p>
+            <p>Bonus Months: {{item.bonus_month}} months</p>
+          </div>
+        </div> -->
+        <ngx-carousel class="knt-plans-detail ngcarousel" [inputs]="carouselTile" *ngIf="KntPlans.length>0">
+          <ngx-tile NgxCarouselItem *ngFor="let item of KntPlans" class="home__card1">
+            <div class="card">
+              <div class="card-body">
+                <!-- <p class="buy-offer new-offer">{{new.off}}</p> -->
+                <h5 class="plandetail">Plan Name:{{item.plan_name}}</h5>
+                <p class="plandetail">Installment Months:
+                  <span style="color:#59c559">{{item.installment_month}}</span>
+                </p>
+                <p class="plandetail">Bonus Months:
+                  <span style="color:#59c559">{{item.bonus_month}}</span>
+                </p>
+              </div>
+            </div>
+          </ngx-tile>
+          <button NgxCarouselPrev class='leftRs'>
+            <img class=" home-last" src="/assets/leftarrow.svg" />
+          </button>
+          <button NgxCarouselNext class='rightRs '>
+            <img class=" home-last" src="/assets/rightarrow.svg" />
+          </button>
+        </ngx-carousel>
+
+   </div>
+      <form novalidate id="step-1" #Schemeform="ngForm" (ngSubmit)="Schemesave(Schemeform.value)">
+        <div class="row">
+
+
+          <div class=" col-xs-12 col-sm-4 knt__Mobile">
+            <p class="select">Select Plan</p>
+            <div class="sort-option knt__filter">
+              <select style="margin-bottom:0px" (change)="PlanChanged(Plans)" name="kntPlanMasterId" [(ngModel)]="Plans" required class="form-control"
+                #duration="ngModel">
+                <option [value]=null selected disabled>Select Plan</option>
+                <option *ngFor="let item of KntPlans" [value]="item.id">{{item.plan_name}}({{item.installment_month}} months)</option>
+              </select>
+              <div *ngIf="duration.errors && (duration.dirty||duration.touched)">
+
+                <div class="error-info" [hidden]="!duration.errors.required">
+                  Please select a plan
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-4 knt__Mobile2">
+            <p class="select">Enter Amount</p>
+            <div class="sort-option knt__filter">
+              <!-- <select  name="Amount" ngModel class="form-control">
+                <option value="" selected disabled>Select  Duration</option>
+                <option *ngFor="let item of amount" [value]="item">{{item}}</option>
+            </select> -->
+              <input type="text" [readonly]="Plandata" [disabled]="Plandata" (keydown)="isSpecial($event)" (ngModelChange)="AmountChange(FixAmount,$event)"
+                required #amount="ngModel" name="installmentAmount" class="form-control arrow-hide" [(ngModel)]="FixAmount"
+                [min]="minval" step="100" [max]="maxval">
+              <div *ngIf="amount.errors && (amount.dirty||amount.touched)">
+
+                <div class="error-info" [hidden]="!amount.errors.required">
+                  Please enter a valid amount
+                </div>
+
+              </div>
+              <div class="error-info" *ngIf="!amount.errors && (amount.dirty||amount.touched) && showerrorMsg2">
+                Amount should be multiple of 100
+              </div>
+              <div class="error-info" *ngIf="!amount.errors && (amount.dirty||amount.touched) && showerrorMsg">
+                Amount should be greater than {{minval}}
+              </div>
+              <div class="error-info" *ngIf="!amount.max && (amount.dirty||amount.touched) && showerrorMsg1">
+                Amount should be lesser than {{maxval}}
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="col-xs-12 col-sm-4 form-group">
+            <p class="select">Start date</p>
+            <input type="text" #date="ngModel" required name="StartDate" placeholder="Datepicker" class="form-control" bsDatepicker  ngModel>
+            <div *ngIf="date.errors && (date.dirty||date.touched)">
+
+              <div  class="error-info" [hidden]="!date.errors.required">
+                  Please  select Date
+              </div>
+   
+               </div>
+          </div> -->
+
+          <div class="col-xs-12 col-sm-4 form-group">
+            <p class="select">Nominee Name</p>
+            <input type="text" #nominee="ngModel" readonly required name="nomineeId" placeholder="Nominee Name" class="form-control"
+              [(ngModel)]="Nominee.name">
+
+          </div>
+
+          <div class="col-xs-12 col-sm-4 form-group">
+            <p class="select">Relation with the nominee</p>
+            <input name="Relationship" #relation="ngModel" readonly required type="text" placeholder="Relation" class="form-control"
+              [(ngModel)]="Nominee.relationship">
+
+          </div>
+        </div>
+
+        <!-- End Stepper -->
+
+
+        <div class="col-xs-12" *ngIf="matureshow">
+          <!-- <h1>First installment amount to be paid : Rs.
+          <span>{{Totalamount}}</span>
+        </h1> -->
+          <h1 class="select plan-info">Maturity Date : {{maturityDate}}</h1>
+          <h1 class="select  plan-info">Total plan amount :
+            <input type="text" style="border:none !important;background-color:#f6f6f6" name="totalInstallmentAmount" readonly [(ngModel)]="Totalamount">
+          </h1>
+          <h1 class="select  plan-info">Total Bonus amount :
+            <input type="text" style="border:none !important;background-color:#f6f6f6" name="totalBonusAmount" readonly [(ngModel)]="bonusAmount">
+          </h1>
+        </div>
+        <div class="condition">
+          <h4 class="modal-title">
+           Terms and condition :
+          </h4>
+          <div class="list">
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            <p class="list-li">The Seller hereby makes an offer to sell the Products listed by Seller on the Website and the Buyer upon agreeing
+              to purchase the Products so listed by the Seller hereby accepts such offer to sell by the Seller.</p>
+          </div>
+
+          <div class="list">
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            <p class="list-li"> Accordingly, the contract for sale of the Product is be a bipartite contract between Buyer and the Seller.</p>
+          </div>
+
+          <div class="list">
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            <p class="list-li">The Seller hereby makes an offer to sell the Products listed by Seller on the Website and the Buyer upon agreeing
+              to purchase the Products so listed by the Seller hereby accepts such offer to sell by the Seller.</p>
+          </div>
+          <div class="list">
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            <p class="list-li"> Accordingly, the contract for sale of the Product is be a bipartite contract between Buyer and the Seller.</p>
+          </div>
+          <div class="agree">
+            <input type="checkbox" (click)="Conditionscheck()" />
+            <span>Agree to Terms and Conditions</span>
+          </div>
+        </div>
+        <div class="planAmount">
+
+          <button type="submit" [disabled]="(Schemeform.invalid ||condition==false ||(FixAmount > maxval==true) || (FixAmount<minval==true)||remainder!==0)"
+            [ngClass]="{'checkoutbutton':Schemeform.valid && condition==true && FixAmount > maxval==false && FixAmount<minval==false && remainder==0,'buybutton':(Schemeform.invalid ||condition==false ||(FixAmount > maxval==true)||(FixAmount > maxval==true)|| remainder!==0)}">Proceed to Pay</button>
+
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+
+  <div class="container">
+    <!-- <div class="sort-option knt__filter">
+      <select  ngModel class="form-control">
+          <option value="" selected disabled>Select  Duration</option>
+          <option *ngFor="let item of items" [value]="item">{{item}}</option>
+      </select>
+  </div> -->
+  </div>
+  <div class="container">
+    <div class="my__scheme">
+      <h1 class="modal-title mobheader">My Schemes</h1>
+      <ul class="nav nav-tabs" role="tablist">
+        <h1 class="modal-title tabsheader">My Schemes</h1>
+        <li (click)="listAllscheme()" class="nav-item active">
+          <a class="nav-link active" href="#profile" role="tab" data-toggle="tab">Running Schemes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#buzz" role="tab" data-toggle="tab" (click)="completed()">Completed Schemes</a>
+        </li>
+        <!-- <li class="nav-item">
+        <a class="nav-link" href="#references" role="tab" data-toggle="tab" (click)="CancelledScheme()">Cancelled Schemes</a>
+      </li> -->
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="profile">
+          <div class="scheme-hide" *ngIf="noschemeRunning">There are no running Schemes</div>
+          <accordion [closeOthers]="oneAtATime">
+            <accordion-group *ngFor="let x of Running;let i=index" class="borderleft" [class.changeColor]="shouldShow==x.id">
+              <div accordion-heading class="clearfix">
+                <div class="knt__aligment">
+                  <div class="kntCard" (click)="toggle(x.id,x.toPay,x.nextInstallmentAmount)">
+                    <div class="knt__details">
+                      <div>
+                        <h1>{{x.customerResponseDTO.name}}</h1>
+                        <p>{{x.registrationNumber}}</p>
+                      </div>
+                      <div class="knt__tybeB">
+                        <div class="mid-detail">
+                          <h1 class="kntSheme">{{x.kntPlanResponseDTO.plan_name}}</h1>
+                          <p class="kntSheme1">Installment amount : Rs.
+                            <span>{{x.installmentAmount}} </span>
+                          </p>
+                          <p class="kntSheme1">Scheme Duration :
+                            <span></span> {{x.kntPlanResponseDTO.installment_month}}</p>
+                        </div>
+
+                        <div class="kntpaid">
+                          <h1>Total amount paid : Rs.
+                            <span>{{x.totalAmountPaid}}</span>
+                          </h1>
+                          <h1 *ngIf="x.toPay"> Next payment date :
+                            <span class="nextpayment">{{x.nextInstallmentDate | date: 'dd/MM/yyyy'}}</span>
+                          </h1>
+                          <h1 *ngIf="x.toPay">Amount to paid on next Installment : Rs.
+                            <span class="nextpaid">{{x.nextInstallmentAmount}} </span>
+                          </h1>
+
+                          <h1 *ngIf="!x.toPay" style="color:green">Payment is Completed for this Scheme</h1>
+                        </div>
+                      </div>
+
+                      <span class="float-right pull-right">
+                        <i [ngClass]="{'fa':true,'fa-angle-up':shouldShow==x.id,'fa-angle-down':shouldShow!=x.id}" aria-hidden="true"></i>
+                      </span>
+                      <!-- <span class="badge badge-secondary float-right pull-right">Some HTML here</span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- accordion for Mobile view  -->
+              <accordion>
+                <accordion-group class="mob__accordian" *ngFor="let x of paymentDetail;let i=index" [ngClass]="{'unpaid':x.status=='unpaid'}"
+                  (click)="ShowChild(x.id,x.toPay,x.nextInstallmentAmount)">
+                  <div accordion-heading class="mobiletable" [ngClass]="{'unpaid':x.status=='unpaid'}">
+                    <h2>S.No &nbsp;{{i+1}}</h2>
+
+                    <span class="float-right pull-right">
+                      <i [ngClass]="{'fa':true,'fa-angle-up':childShow==x.id,'fa-angle-down':childShow!=x.id}" aria-hidden="true"></i>
+                    </span>
+                  </div>
+
+                  <div *ngIf="childShow==x.Id">
+
+                    <div class="tableList">
+                      <h2 class="tableheading">Amount</h2>
+                      <p>{{x.amountPaid}}</p>
+                    </div>
+
+                    <div class="tableList">
+                      <h2 class="tableheading">Status</h2>
+                      <p>{{x.status}}</p>
+                    </div>
+                    <div class="tableList">
+                      <h2 class="tableheading">Payment Mode</h2>
+                      <p>{{x.paymentMode}}</p>
+                    </div>
+                    <div class="tableList">
+                      <h2 class="tableheading">Date of Payment</h2>
+                      <p>{{x.date| date: 'dd/MM/yyyy'}}</p>
+                    </div>
+                  </div>
+                </accordion-group>
+              </accordion>
+              <!--END accordion for Mobile view  -->
+              <div>
+
+                <table *ngIf="paymentshow;else elseBlock" class="table" border="1">
+                  <thead>
+                    <tr>
+                      <!-- <td></td> -->
+                      <td style="visibility:hidden">payfor</td>
+                      <th>S.No</th>
+                      <th>Transaction Id</th>
+                      <th>Amount</th>
+
+                      <th>Status</th>
+                      <th>Payment Mode</th>
+                      <th>Date of Payment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr role="row" *ngFor="let x of paymentDetail;let i=index" [ngClass]="{'unpaid':x.status=='unpaid'}">
+                      <!-- <td><input type="checkbox" name="check" /></td> -->
+                      <td style="visibility:hidden">payfor</td>
+
+                      <td>{{i+1}}</td>
+                      <td>{{x.txnId}}</td>
+                      <td>{{x.amountPaid}}</td>
+
+                      <td>{{x.status}}</td>
+                      <td>{{x.paymentMode}}</td>
+                      <td>{{x.date| date: 'dd/MM/yyyy'}}</td>
+                    </tr>
+
+                  </tbody>
+
+                </table>
+                <ng-template style="text-align:center;font-weight:600" #elseBlock>
+                  <div class="error-data">There are no payment available</div>
+                </ng-template>
+                <div *ngIf="x.toPay" class="cancelPay">
+                  <!-- <a class="cancel" (click)="openModal(template,x)">Cancel Scheme</a> -->
+                  <button [class.buybutton]="disablePayment1==true" [disabled]="disablePayment1" class="payment-allow" (click)="monthselection(templatepayment,x)">Pay Installment</button>
+
+                </div>
+
+              </div>
+            </accordion-group>
+          </accordion>
+        </div>
+
+
+
+
+
+        <div role="tabpanel" class="tab-pane fade" id="buzz">
+          <div class="scheme-hide" *ngIf="nocompleted">There are no completed schemes</div>
+
+          <accordion [closeOthers]="oneAtATime">
+            <accordion-group *ngFor="let x of schemecomplete;let i=index" class="borderleft" [class.changeColor]="showcomplete==x.id">
+              <div accordion-heading class="clearfix">
+                <div class="knt__aligment">
+                  <div class="kntCard" (click)="toggleschema(x.id)">
+                    <div class="knt__details">
+                      <div>
+                        <h1>{{x.customerResponseDTO.name}}</h1>
+                        <p>{{x.registrationNumber}}</p>
+                      </div>
+                      <div class="knt__tybeB">
+                        <div>
+                          <h1 class="kntSheme">{{x.kntPlanResponseDTO.plan_name}}</h1>
+                          <p class="kntSheme1">Installment amount : Rs.
+                            <span>{{x.installmentAmount}} </span>
+                          </p>
+                          <!-- <p class="kntSheme1">Scheme Duration :
+                          <span></span> {{x.schemeDuration}} </p> -->
+                        </div>
+
+
+                      </div>
+
+                      <span class="float-right pull-right">
+                        <i [ngClass]="{'fa':true,'fa-angle-up':showcomplete==x.id,'fa-angle-down':showcomplete!=x.id}" aria-hidden="true"></i>
+                      </span>
+                      <!-- <span class="badge badge-secondary float-right pull-right">Some HTML here</span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- accordion for Mobile view  -->
+              <accordion>
+                <accordion-group class="mob__accordian " *ngFor="let x of paymentDetail;let i=index" (click)="ShowChild(x.id,x.toPay,x.nextInstallmentAmount)">
+                  <div accordion-heading class="mobiletable">
+                    <h2>S.No &nbsp;{{i+1}}
+                    </h2>
+
+                    <span class="float-right pull-right">
+                      <i [ngClass]="{'fa':true,'fa-angle-up':childShow==x.id,'fa-angle-down':childShow!=x.id}" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <div *ngIf="childShow==x.id">
+
+                    <div class="tableList">
+                      <h2 class="tableheading">Amount</h2>
+                      <p>{{x.amountPaid}}</p>
+                    </div>
+
+                    <div class="tableList">
+                      <h2 class="tableheading">Status</h2>
+                      <p>{{x.status}}</p>
+                    </div>
+                    <div class="tableList">
+                      <h2 class="tableheading">Payment Mode</h2>
+                      <p>{{x.paymentMode}}</p>
+                    </div>
+                    <div class="tableList">
+                      <h2 class="tableheading">Date of Payment</h2>
+                      <p>{{x.date| date: 'dd/MM/yyyy'}}</p>
+                    </div>
+                  </div>
+                </accordion-group>
+              </accordion>
+              <!--END accordion for Mobile view  -->
+              <table *ngIf="closedshow;else completeBlock" class="table" border="1">
+                <thead>
+                  <tr>
+                    <th style="visibility:hidden">hide</th>
+                    <th>S.No</th>
+
+                    <th>Amount</th>
+
+                    <th>Status</th>
+                    <th>Payment Mode</th>
+                    <th>Date of Payment</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr role="row" *ngFor="let x of paymentDetail;let i=index">
+                    <!-- <td><input type="checkbox" name="check" /></td> -->
+                    <td style="visibility:hidden">hide</td>
+
+                    <td>{{i+1}}</td>
+                    <td>{{x.amountPaid}}</td>
+
+                    <td>{{x.status}}</td>
+                    <td>{{x.paymentMode}}</td>
+                    <td>{{x.date| date: 'dd/MM/yyyy'}}</td>
+                  </tr>
+
+                </tbody>
+              </table>
+              <ng-template style="text-align:center;font-weight:600" #completeBlock>
+                <div class="error-data">There are no payment available</div>
+              </ng-template>
+
+            </accordion-group>
+          </accordion>
+        </div>
+        <!-- <div role="tabpanel" class="tab-pane fade" id="references">
+        <div class="knt__aligment" *ngFor="let x of cancelled">
+          <div class="kntCard1">
+            <div class="knt__details1">
+              <div>
+                <h1>{{x.user}}</h1>
+                <p>{{x.account}}</p>
+              </div>
+              <div class="cancelscheme">
+                <div>
+                  <h1 class="kntSheme">{{x.schemeType}}</h1>
+                  <p class="kntSheme1">Installment amount : Rs.
+                    <span>{{x.installmentAmount}} </span>
+                  </p>
+                  <p class="kntSheme1">Scheme Duration :
+                    <span></span> {{x.schemeDuration}} </p>
+                </div>
+                <div class="kntpaid kntpaid_align ">
+                  <h1>Total amount paid : Rs.
+                    <span>{{x.amountPaid}}</span>
+                  </h1>
+                  <button class="buybutton" [disabled]="x.cancelStatus=='done'" [ngClass]="{'buybutton':x.cancelStatus=='Refund','donebutton':x.cancelStatus=='Done'}">Get Refund</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+
+      </div> -->
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+</div>

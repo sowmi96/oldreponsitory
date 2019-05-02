@@ -1,0 +1,456 @@
+.madeOrder {
+  width: 270px;
+  margin: 0 auto;
+}
+.madeToOrder {
+  text-align: center;
+}
+.orderStaper1 {
+  display: none;
+}
+.orderStaper {
+  display: flex;
+}
+.uploadDesignClose {
+  float: right;
+  cursor: pointer;
+}
+.orderStaper .first {
+  padding: 8px 8px 8px 8px;
+  float: left;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  background: #1c9cea;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  font-size: 8px;
+}
+.second {
+  padding: 8px 8px 8px 15px;
+  float: left;
+  text-align: center;
+  color: #737373;
+  position: relative;
+  background: #f2f2f2;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  font-size: 8px;
+}
+
+.orderStaper .first::after,
+.orderStaper .first::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  margin-top: -14px;
+  border-top: 14px solid transparent;
+  border-bottom: 13px solid transparent;
+  border-left: 1em solid;
+  right: -1em;
+}
+.orderStaper .first::after {
+  z-index: 2;
+  border-left-color: #1c9cea;
+}
+
+.moveToOrder h1 {
+  font-family: 'Muli-SemiBold';
+  font-size: 20px;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+  padding: 26px 0px 10px;
+  margin: 0;
+}
+.moveToOrder img {
+  display: none;
+}
+.orderSelect {
+  display: flex;
+  justify-content: space-between;
+}
+.addNewOrder {
+  text-align: right;
+  margin: 50px 0px 15px 0px;
+}
+.addNewOrder button {
+  background-color: #393939;
+  border: none;
+  font-family: 'muli-Bold';
+  color: #ffffff;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+.orderSelect {
+  border-top: 1px solid #d8d8d8;
+  padding: 16px 0px 19px;
+}
+.knt__login__upload {
+  padding: 5px 0px 0px 35px;
+  border: 0px;
+  position: relative;
+  outline: none !important;
+  width: 110px;
+}
+.knt__login__upload::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.knt__login__upload::before {
+  content: 'Upload a file';
+  border-radius: 3px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  padding: 5px 8px;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Muli-Bold';
+  background-color: #000;
+}
+.uploadImage {
+  text-align: left;
+  padding: 0px;
+}
+.imageDelete {
+  margin: 18px 0px 34px;
+}
+.imageDelete span {
+  padding-left: 10px;
+  font-family: 'latoRegular';
+  font-size: 12px;
+  text-align: left;
+  color: #757575;
+}
+.imageDelete i {
+  color: #757575;
+}
+.uploadDesign {
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.2);
+  padding: 12px 13px 24px;
+  text-align: left;
+}
+.uploadDesign h1 {
+  font-size: 15px;
+  color: #393939;
+  font-family: 'Muli-Bold';
+  text-align: left;
+  margin: 0px;
+  padding-bottom: 8px;
+}
+.description textarea {
+  width: 242px;
+  height: 109px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: solid 1px #bdbdbd;
+  font-family: 'Muli-SemiBold';
+  font-size: 12px;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+  padding: 8px;
+  resize: none;
+}
+.description h1 {
+  font-size: 15px;
+  font-family: 'Muli-SemiBold';
+}
+.desbutton {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+.orderId {
+  background-color: #ffffff;
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.2);
+  padding: 2px 13px 24px 24px;
+  margin: 25px 0px;
+}
+.orderId h1 {
+  font-size: 13px;
+  margin: 25px 0px 10px;
+  text-align: left;
+}
+.orderId h2 {
+  font-size: 10px;
+  font-family: 'Muli-Bold';
+  text-align: left;
+  color: #393939;
+  margin: 0px;
+  padding-bottom: 16px;
+}
+.orderId p {
+  font-family: 'Muli-SemiBold';
+  font-size: 12px;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+}
+.purchased {
+  width: 67px;
+  height: 14px;
+  font-size: 10px;
+  font-family: 'Muli-Bold';
+  background-color: #00c086;
+  color: white;
+  float: right;
+  margin: 8px 12px 0px 0px;
+  border-radius: 4px;
+}
+.length {
+  display: block;
+  width: 30%;
+  border: solid 1px #bdbdbd !important;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+@media only screen and (min-width: 768px) {
+  .madeOrder {
+    width: 100%;
+  }
+  .moveToOrder {
+    width: 650px;
+    margin: 21px auto 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .steperdesktop {
+    width: 700px;
+    margin: 0 auto;
+  }
+  .orderStaper {
+    display: none;
+  }
+
+  .moveToOrder img {
+    width: 120px;
+    height: 80px;
+  }
+  .moveToOrder h1 {
+    font-size: 24px;
+    padding: 26px 0px 10px;
+  }
+  .moveToOrder img {
+    display: block;
+  }
+  .orderSelect {
+    padding: 26px 0px 25px;
+    justify-content: flex-end;
+  }
+  .addNewOrder {
+    text-align: right;
+    margin: 50px 0px 15px 0px;
+  }
+  .orderselect1 {
+    margin-right: 20px;
+  }
+  .uploadImage {
+    text-align: left;
+  }
+  .imageDelete {
+    margin: 18px 0px 34px;
+    text-align: left;
+  }
+
+  .uploadDesign {
+    padding: 24px 24px 24px;
+    margin-bottom: 20px;
+  }
+  .uploadDesign h1 {
+    font-size: 17px;
+    padding-bottom: 10px;
+  }
+  .description textarea {
+    width: 541px;
+    height: 85px;
+    display: flex;
+  }
+
+  .desbutton {
+    justify-content: flex-start;
+    margin-top: 18px;
+  }
+  .orderId {
+    padding: 10px 15px 19px 25px;
+    margin: 18px 0px;
+  }
+  .orderDate {
+    display: flex;
+    width: 402px;
+    justify-content: space-between;
+  }
+  .orderId h1 {
+    font-size: 15px;
+    margin: 0px;
+  }
+  .orderId h2 {
+    font-size: 11px;
+  }
+  .orderId p {
+    width: 473px;
+  }
+  .purchased {
+    width: 74px;
+    height: 16px;
+  }
+
+  .orderStaper1 {
+    background-color: #f6f6f6;
+    height: 125px;
+    padding: 0px 80px;
+    display: block;
+  }
+  .stepwizard {
+    margin: 30px 0px 30px;
+    display: table;
+    width: 100%;
+    position: relative;
+    padding-top: 38px;
+  }
+  .stepwizard-step p {
+    margin-top: 5px;
+  }
+  .stepwizard-row {
+    display: table-row;
+  }
+
+  .stepwizard-row:before {
+    top: 52px;
+    bottom: 0;
+    position: absolute;
+    content: ' ';
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+  }
+  .stepwizard-step {
+    display: table-cell;
+    text-align: left;
+    position: relative;
+  }
+  .right {
+    text-align: right !important;
+  }
+  .stepwizard-step p {
+    font-family: 'Muli-Bold';
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.1px;
+    color: #393939;
+  }
+
+  .default {
+    background-color: #1c9cea;
+    color: #4a4a4a;
+    cursor: default;
+    box-shadow: 0 0 0 10px #a6dafa;
+    margin-top: 4px;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+    margin-bottom: 10px;
+  }
+
+  .active1 {
+    background-color: #393939;
+    border: none;
+    width: 15px;
+    height: 15px;
+    padding: 0px;
+    border-radius: 15px;
+  }
+}
+@media only screen and (min-width: 1023px) {
+  .steperdesktop {
+    width: 939px;
+    margin: 0 auto;
+  }
+  .moveToOrder {
+    width: 800px;
+    margin: 0 auto;
+  }
+  .moveToOrder img {
+    width: 200px;
+    height: 120px;
+  }
+  .moveToOrder h1 {
+    font-size: 31px;
+    padding: 30px 0px 25px;
+  }
+  .orderId {
+    padding: 10px 15px 16px 32px;
+    margin: 24px 0px;
+  }
+  .orderId h1 {
+    font-size: 17px;
+    margin: 0px;
+  }
+  .orderId h2 {
+    font-size: 12px;
+  }
+}
+.dynamicImg {
+  width: 122px;
+  height: 122px;
+  margin: 16px 16px 0px 0px;
+  display: inline-block;
+  position: relative;
+}
+.dynamicimg1 {
+  width: 122px;
+  height: 122px;
+}
+.dynamicclose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+  cursor: pointer;
+}
+.fileName {
+  text-align: left;
+}
+.fileName img {
+  margin: 0 20px;
+}
+.error-info,
+.caution {
+  font-size: 12px;
+  font-weight: 200;
+  color: red !important;
+  font-family: 'Muli-SemiBold';
+  text-align: left;
+}
+.marginTop {
+  margin-top: 20px;
+}
+.max-size {
+  color: #737373;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.fileUpload {
+  margin-bottom: 25px;
+}
+.quantity__cont {
+  margin-top: 20px;
+}
+.error-info {
+  margin-top: 20px;
+}

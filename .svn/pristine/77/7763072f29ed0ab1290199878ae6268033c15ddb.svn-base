@@ -1,0 +1,154 @@
+<div class="tenders">
+  <div class="headers row">
+    <div class="col-md-6 col-sm-6 col-xs-12 pad">
+      <h1>Tenders</h1>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12 pad">
+      <img src="./assets/supplier.png" />
+    </div>
+
+  </div>
+  <div class="gap">
+    <hr/>
+  </div>
+
+  <div class="tenders__Filter row">
+    <div class="col-md-8 col-sm-6"></div>
+    <div class="col-md-2 col-sm-3 col-xs-6 pad">
+      <div class="dropdown">
+        <!-- <div class="selectdiv "> -->
+        <!-- <select class="selectDropdown" [(ngModel)]="tenderFilter" (ngModelChange)="onDropdownChange(tenderFilter)">
+
+         
+          <option *ngFor="let c of dropdownList;let i=index" [value]="c"> {{c}} </option>
+        </select> -->
+        <!-- </div> -->
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-3 col-xs-6 pad">
+      <!-- <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Last Month
+          <span class="caret"></span>
+        </button>
+      </div> -->
+    </div>
+  </div>
+  <div class="gap1">
+    <hr/>
+  </div>
+
+
+
+  <div class="tenders__Content row">
+    <div class="col-md-2 col-sm-3 col-xs-12 pad">
+      <h1>Tender Category</h1>
+      <p [class.pstyle]="pstyle=='open'" (click)="showTender('open')" class="cursorPointer">Opened Tenders</p>
+      <p [class.pstyle]="pstyle=='close'" (click)="showTender('close')" class="cursorPointer">Closed Tenders</p>
+    </div>
+    <div class="col-md-10 col-sm-9 col-xs-12 pad">
+
+
+
+      <div class="row">
+        <div class="col-xs-12 col-12">
+          <div class="content-wrapper">
+            <div class="content-item" *ngFor="let content of tender;let i=index;">
+
+
+
+
+              <div class="tenderPage" [ngClass]="{'tenderBorderCol': tendersId1==content.tenderId,'tenderBorder1': (tendersId1!==content.tenderId) }">
+                <accordion [closeOthers]="oneAtATime">
+                  <accordion-group>
+                    <div accordion-heading class="clearfix">
+                      <div class="row tenderDetails" (click)="onClick(content.tenderStatus,content.tenderId);">
+                        <span class="tenderCaurosal">
+                          <img *ngIf="tendersId1!==content.tenderId" class="first" src="./assets/active1.png" />
+                          <img *ngIf="(tendersId1==content.tenderId)" class="second" src="./assets/active.png" />
+                        </span>
+                        <div class="buttonClass">
+                          <button class="tendersButton statusImage " [ngClass]="{'applied': content.tenderStatus == 'APPLIED','active' : content.tenderStatus == 'ACTIVE', 'won': content.tenderStatus == 'WON'}">{{content.tenderStatus}}</button>
+                        </div>
+                        <div class="col-md-4 col-sm-12 col-xs-12 tenderHeading pad">
+
+                          <h1>{{content.tenderName}}</h1>
+                          <p>{{content.tenderReferenceNumber}}</p>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12 tenderDetail pad">
+                          <h1>Tender start date : {{content.tenderStartDate | date: 'dd/MM/yyyy'}}</h1>
+                          <h1>Tender end date : {{content.tenderEndDate | date: 'dd/MM/yyyy'}}</h1>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-md-4 col-sm-5 col-xs-12 tenderPayment pad">
+                          <h1>Tender cost form :
+                            <span class="amountColor">Rs.{{content.tenderCost}}</span>
+                          </h1>
+                          <button type="button" class="btn-primary" *ngIf="!content.tenderPayment" (click)="tenderPayment('TENDER',content.tenderId)">Pay Tender cost form</button>
+                          <button type="button" class="btn-primary greyColor" *ngIf="content.tenderPayment">Paid</button>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="row tenderDetails1">
+                      <div class="col-md-6 col-sm-6 col-xs-12 pad">
+                        <h1>Pay the EMD to view and apply for Tender</h1>
+                      </div>
+                      <div class="col-md-2 col-sm-1"></div>
+                      <div class="col-md-4 col-sm-5 col-xs-12 pad" style="display:grid;">
+                        <p>EMD cost :
+                          <span class="amountColor">Rs. {{content.earnestDeposite}}</span>
+                        </p>
+                        <button type="button" class="btn-primary" *ngIf="!content.tenderEmdStatus" (click)="tenderPayment('EMD',content.tenderId)">Pay EMD Amount</button>
+                        <button type="button" class="btn-primary greyColor" *ngIf="content.tenderEmdStatus">Paid</button>
+                      </div>
+
+                    </div>
+
+                    <div class="row tenderDetails2" *ngIf="content.tenderPayment && content.tenderEmdStatus">
+                      <hr/>
+                      <div class="col-md-12 col-sm-12 pad">
+                        <h1>Tender Details: </h1>
+                        <p>Online Lumpsum offer on Contractors Own Design & Drawings in ‘C' For Tender are invited by the Executive
+                          Engineer, Public Works Division, Aurangabad for the following work from contractors registered
+                          in appropriate class of Public Works Department of Maharashtra State. The Name of Work, Estimated
+                          Cost, Earnest Money, Security Deposit, Time limit for Completion etc.</p>
+                        <div class="row">
+                          <div class="col-md-8 col-sm-7"></div>
+                          <div class="col-md-4 col-sm-5 downloadDoc pad">
+                            <button type="button" class="btn-primary" (click)="downloadDocument(content.tenderId)">Download document</button>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </accordion-group>
+
+                </accordion>
+
+              </div>
+
+
+
+
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+    <pagination previousText="&lsaquo;" nextText="&rsaquo;" [totalItems]="totalRecords" (pageChanged)="pageChanged($event)" [itemsPerPage]="5"></pagination>
+  </div>
+
+</div>

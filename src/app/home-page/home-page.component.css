@@ -1,0 +1,1220 @@
+.ngx-data {
+  min-height: 200px;
+  text-align: center;
+  line-height: 200px;
+}
+.colorButtonDiv {
+  cursor: pointer;
+}
+.leftRs {
+  position: absolute;
+  margin: auto;
+  border-radius: 50%;
+  top: 120%;
+  display: block !important;
+  bottom: 0;
+  width: 31px;
+  height: 31px;
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  left: 45%;
+  /* background-image: url("/assets/rightarrow.svg"); */
+  background-image: none;
+}
+
+.rightRs {
+  position: absolute;
+  margin: auto;
+  display: block !important;
+  outline: none;
+  border-radius: 50%;
+  top: 120%;
+  bottom: 0;
+  width: 31px;
+  background-color: #ffffff !important;
+
+  height: 31px;
+  background-color: #ffffff;
+  right: 45%;
+  background-image: none;
+  /* background-image: url("/assets/rightarrow.svg"); */
+}
+.left-one {
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right-one {
+  right: 0;
+  left: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-last {
+  position: absolute;
+  left: -6px;
+  top: -5px;
+}
+.noright-padding {
+  padding-right: 0px;
+}
+.nopad {
+  padding: 0px;
+}
+.carousel-caption {
+  right: 20%;
+  left: 18%;
+  top: 42%;
+  padding-bottom: 30px;
+  width: 249px;
+  height: 48px;
+  font-size: 17px;
+  text-align: left;
+}
+.carousel-caption h2 {
+  font-family: 'Muli-Bold';
+  font-size: 34px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  margin: 0px 0px 20px;
+  width: 320px;
+}
+
+.row {
+  margin: 0;
+}
+
+.shop-button {
+  background-color: #cd1517 !important;
+  height: 32px;
+  width: 123px;
+  margin-bottom: 10px;
+  font-family: 'Muli-Bold';
+  font-size: 14px;
+}
+.mainDiv {
+  width: 940px;
+  margin: 0 auto;
+}
+
+.mainDiv .deal1 {
+  background-image: url('/assets/white-and-black-checks-kanjivaram-saree-with-pink-border-copy.png');
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: cover;
+  height: 370px;
+}
+.percentage_card {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 92px;
+  right: 14px;
+  top: 15px;
+  align-items: center;
+  height: 92px;
+  background-image: url('/assets/shape.png');
+  background-repeat: no-repeat;
+}
+
+.percentage_cardBorder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 69px;
+  height: 69px;
+  border: 1px solid #e0e0e0;
+  border-radius: 49px;
+}
+
+.sub {
+  -webkit-backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.deal3 .sub2 {
+  width: 165px;
+  height: 140px;
+}
+.sub h1 {
+  width: 164px;
+  font-family: 'Muli-Bold';
+  font-size: 24px;
+  font-weight: 800;
+  text-align: left;
+  color: #ffffff;
+  padding: 24px 0px 18px 26px;
+  margin: 0px;
+}
+.sub p {
+  width: 176px;
+  font-family: 'Muli';
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #ffffff;
+  padding: 0px 0px 0px 28px;
+}
+.sub button {
+  position: absolute;
+  font-family: 'Muli-Bold';
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+  bottom: 25px;
+  left: 25px;
+}
+.sub1 h2 {
+  /* width: 123px;
+  height: 24px; */
+  font-family: 'Muli-Bold';
+  font-size: 15px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.41;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #ffffff;
+  padding: 20px 0px 30px 20px;
+  margin: 0;
+}
+.sub1 button {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+}
+.sub2 button {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+}
+.sub2 h2 {
+  font-family: 'Muli-Bold';
+  font-size: 17px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.12;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #ffffff;
+  padding: 20px 0px 30px 20px;
+  margin: 0;
+}
+.sub .button-padding {
+  padding: 0px 0px 28px 28px;
+}
+.pad {
+  padding: 0;
+}
+.deal2 {
+  background-image: url('/assets/white-and-black-checks-kanjivaram-saree-with-pink-border-copy.png');
+  background-repeat: no-repeat;
+  /* position: absolute;  */
+  width: 380px;
+  height: 180px;
+  margin-bottom: 30px;
+  margin-left: 11px;
+  padding: 20px 0px 20px 20px;
+  margin-top: 20px;
+}
+.deal3 {
+  background-image: url('/assets/white-and-black-checks-kanjivaram-saree-with-pink-border-copy.png');
+  background-repeat: no-repeat;
+  /* position: absolute;  */
+  width: 380px;
+  height: 180px;
+  margin-left: 11px;
+  padding: 20px 0px 20px 20px;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 600;
+  font-style: normal;
+  font-family: 'Muli-SemiBold';
+  font-stretch: normal;
+  line-height: 1.41;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #ffffff;
+}
+.carousel-caption h2 {
+  font-family: 'Muli-Bold';
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  margin: 0px 0px 20px;
+}
+
+.mainPage {
+  height: 442px;
+}
+
+.caurosal-button {
+  width: 123px;
+  height: 32px;
+  background-color: #cd1517;
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: #cd1517;
+  font-family: 'Muli-Bold';
+  font-size: 14px;
+}
+
+.image1 {
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 34px;
+}
+
+.image1 h4 {
+  font-family: 'Muli-Bold';
+  font-size: 24px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #393939;
+}
+
+.div3 {
+  background-color: #f7f7f7;
+}
+
+.arrival {
+  height: 286px;
+  background-color: #ffffff;
+  border: solid 1px #e0e0e0;
+}
+.arrival_image {
+  height: 148px;
+  background-image: url('/assets/kanakavalli-handwoven-mustard-yellow-kanjivaram-saree-copy.png');
+}
+.arrival_image1 {
+  height: 148px;
+  background-image: url('/assets/kanakavalli-handwoven-mustard-yellow-kanjivaram-saree.png');
+}
+.arrival_image2 {
+  height: 148px;
+  background-image: url('/assets/download-43.png');
+}
+.arrival_image3 {
+  height: 148px;
+  background-image: url('/assets/royal-blue-kanjivaram-saree.png');
+}
+.shop-sarie {
+  margin-left: 0px !important;
+}
+.arrival_content {
+  margin: 14px 0px 14px 14px;
+  text-align: left;
+}
+.arrival_content h1 {
+  margin: 0;
+  font-family: 'Muli-Bold';
+  font-size: 17px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.41;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+  padding-top: 3px;
+}
+.arrival_content_tag {
+  width: 33px;
+  height: 20px;
+  border-radius: 2px;
+  border: solid 1px #cd1517;
+  display: inline-block;
+}
+.arrival_content_tag p {
+  width: 33px;
+  height: 12px;
+  font-family: 'latoRegular';
+  font-size: 10px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #cd1517;
+}
+.arrival_content_tag1 {
+  width: 147px;
+  height: 20px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  border: solid 1px #e0e0e0;
+  margin-left: 2px;
+  display: inline-block;
+}
+.arrival_content_tag1 p {
+  width: 146px;
+  height: 12px;
+  font-family: 'latoRegular';
+  font-size: 10px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #393939;
+}
+.arrival_content button {
+  font-family: 'Muli-Bold';
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.saries1 {
+  background-image: url('/assets/yellow-kanjivaram-saree.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 580px;
+}
+
+.saries2 {
+  background-image: url('/assets/download-42-copy.png');
+  background-repeat: no-repeat;
+  height: 274px;
+  margin-bottom: 25px;
+  padding-top: 31px;
+  padding-left: 30px;
+  margin-top: 20px;
+}
+
+.saries3 {
+  background-image: url('/assets/download-42.png');
+  background-repeat: no-repeat;
+  height: 281px;
+  padding-top: 31px;
+  padding-left: 30px;
+}
+
+.saries1__inside {
+  width: 314px;
+  height: auto;
+  padding-bottom: 10px;
+  object-fit: contain;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: relative;
+  top: 30px;
+  margin-left: 30px;
+}
+
+.saries1__inside h1 {
+  font-family: 'Muli-Bold';
+  font-size: 24px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  padding: 19px 0px 58px 25px;
+}
+.collection_Saries {
+  margin-bottom: 48px;
+  margin-top: 28px;
+}
+.collection_Saries button {
+  width: 123px;
+  height: 32px;
+  object-fit: contain;
+  font-family: 'Muli-Bold';
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+  margin-left: 25px;
+}
+
+.saries2__inside {
+  width: 193px;
+  height: auto;
+  padding-bottom: 10px;
+  object-fit: contain;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.card-sarie {
+  width: 206px;
+  height: 28px;
+  font-family: 'Muli-Bold';
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+}
+.saries2__inside h1 {
+  font-family: 'Muli-Bold';
+  font-size: 18px !important;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  padding: 18px 0px 30px 25px;
+}
+
+.saries3__inside {
+  width: 270px;
+  height: 208px;
+  object-fit: contain;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.saries3__inside h1 {
+  font-family: 'Muli-Bold';
+  font-size: 24px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  padding: 13px 0px 48px 25px;
+  width: 213px;
+}
+
+.schemes {
+  background-image: url('/assets/orange-kanakavalli-kanjivaram-saree.png');
+  background-repeat: no-repeat;
+  width: 941px;
+  height: 387px;
+  margin-top: 49px;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.schemas__content {
+  background-image: url('/assets/rectangle-6.png');
+  background-repeat: no-repeat;
+  width: 240px;
+  text-align: left;
+  margin: 30px 0px 30px 30px;
+  position: absolute;
+  left: 20px;
+  top: 0px;
+  padding-bottom: 20px;
+}
+.schemas__content h1 {
+  font-family: 'Muli-Bold';
+  font-size: 24px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  width: 189px;
+  padding: 19px 0px 26px 25px;
+  margin: 0;
+}
+.schemas__content p {
+  width: 189px;
+  font-family: 'Muli-SemiBold';
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #ffffff;
+  padding: 0px 0px 116px 25px;
+  margin: 0;
+}
+.schemas__image {
+  background-image: url('/assets/girlWithBags.png');
+  background-repeat: no-repeat;
+  height: 366px;
+  background-position: right;
+  position: relative;
+  top: 20px;
+  right: 0px;
+  background-size: 60% 100%;
+}
+
+.schemes button {
+  width: 111px;
+  height: 32px;
+  background-color: #cd1517;
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: #cd1517;
+  margin-left: 25px;
+  font-family: 'Muli-Bold';
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+}
+.colorButtonDiv {
+  display: inline-block;
+}
+
+.colorButtonDiv > p {
+  text-align: center;
+  font-family: 'Muli-SemiBold';
+  font-size: 14px;
+}
+
+.buttonGroup {
+  width: 1025px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .homelanding .row {
+    width: 270px;
+    margin: 0 auto;
+  }
+  .image-content {
+    height: 200px;
+  }
+  .fixed-height {
+    height: 299px;
+  }
+  .deal2,
+  deal3 {
+    width: 270px;
+    margin-left: 0px;
+  }
+  .sub1 h2 {
+    padding-left: 0px;
+    padding-top: 5px;
+    font-size: 12px;
+  }
+  .sub1 {
+    width: 150px;
+    padding-left: 10px;
+    height: 120px;
+    text-align: left;
+    -webkit-backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  #myCarousel,
+  .mobile-carousel {
+    height: 217px;
+  }
+  .buttonGroup {
+    width: 100%;
+  }
+  .colorButton {
+    height: 80px;
+    background-color: red;
+  }
+  .colorButtonDiv {
+    width: 90px;
+    border-radius: 4px;
+    height: 127px;
+    position: relative;
+    display: inline-block;
+  }
+  .colorButtonDiv p {
+    padding: 10px 0px;
+  }
+  .rightRs {
+    right: 36%;
+  }
+  .leftRs {
+    left: 36%;
+  }
+  .saries1,
+  .saries2,
+  .saries3 {
+    height: 265px;
+  }
+  .saries1__inside,
+  .saries2__inside,
+  .saries3__inside {
+    width: 157px;
+    height: auto;
+    padding-bottom: 10px;
+  }
+  .saries1__inside h1,
+  .saries2__inside h1,
+  .saries3__inside h1 {
+    width: 157px;
+    margin-bottom: 28px;
+    font-size: 14px;
+    padding: 0px;
+    padding: 15px 12px 0px;
+    line-height: 20px;
+  }
+  .noright-padding {
+    padding-left: 0px;
+  }
+  .collection_Saries button {
+    margin: 0px;
+  }
+  .collection_Saries {
+    margin-top: 48px !important;
+    margin-bottom: 48px !important;
+  }
+  .schemes {
+    width: 100%;
+  }
+  .schemes button {
+    font-size: 12px;
+  }
+  .left-one,
+  .right-one {
+    display: none;
+  }
+
+  .main-img {
+    height: 217px !important;
+    width: 100%;
+  }
+  .main-img .carousel-inner > .item > a > img,
+  .carousel-inner > .item > img {
+    height: 217px !important;
+  }
+  .mainDiv {
+    width: 100%;
+  }
+  h3 {
+    margin: 10px 0px 13px;
+    font-size: 12px;
+  }
+  .carousel-caption {
+    right: 0;
+    left: 5%;
+    top: -4%;
+    padding-bottom: 0;
+    width: 179px;
+    font-size: 12px;
+    text-align: left;
+  }
+  .caurosal-button {
+    width: 90px;
+    border-width: 0px;
+    border-radius: 6px;
+  }
+  .carousel-caption h2 {
+    margin: 20px 0px 20px;
+  }
+  .image1 {
+    margin-top: 38px;
+    margin-bottom: 30px;
+    padding-top: 25px;
+  }
+  .image1 h4 {
+    font-size: 20px;
+    margin: 12px;
+  }
+  .sub h1 {
+    font-size: 12px;
+    margin: 0px;
+    padding: 20px 0px 31px 12px;
+    width: 120px;
+  }
+
+  .sub p {
+    font-size: 12px;
+    margin: 0px;
+    width: 109px;
+    padding: 0px 0px 0px 12px;
+  }
+  .sub button {
+    margin: 20px 0px 14px 12px;
+    float: left;
+  }
+
+  .percentage_card {
+    background-size: 75% 75%;
+    right: -10px;
+  }
+  .percentage_card p {
+    font-size: 10px;
+    color: #393939;
+    font-weight: 800;
+    margin: -8px 29px 10px 9px;
+  }
+  .mainDiv .deal1 {
+    width: 271px;
+    height: 299px;
+    margin-bottom: 50px;
+  }
+  .sub {
+    width: 125px;
+    height: 200px;
+    position: absolute;
+    top: 19px;
+    left: 16px;
+  }
+  .rightRs,
+  .leftRs {
+    top: 95%;
+  }
+  .percentage_cardBorder {
+    border: none;
+  }
+  .arrival-viewall {
+    display: none;
+  }
+  .new-item {
+    width: 33px;
+    height: 20px;
+    font-size: 8px;
+    color: #cd1517;
+    padding: 2px;
+    border-radius: 2px;
+    border: solid 1px #cd1517;
+    display: inline-block;
+    font-family: 'latoBold';
+    display: inline-block;
+    padding: 3px;
+  }
+  .buy-offer {
+    background-color: #ffffff;
+    border: solid 1px #e0e0e0;
+    display: inline-block;
+    font-family: 'latoBold';
+    font-size: 8px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #393939;
+    padding: 8px;
+    margin-top: 12px;
+    margin-left: 20px;
+  }
+  .home__card {
+    width: 270px;
+    margin: 0 auto;
+  }
+  .home__card1 {
+    padding: 0px;
+  }
+  .card-img-top {
+    width: 250px;
+  }
+  .card-sarie {
+    width: 190px;
+    text-align: left;
+    margin: 0px 0px 0px 33px;
+  }
+  .card {
+    padding-bottom: 15px;
+    margin-bottom: 50px;
+  }
+  .div3 {
+    padding-bottom: 45px;
+  }
+  .schemes {
+    width: 100%;
+    height: 345px;
+  }
+  .schemas__content {
+    width: 240px;
+    height: 182px;
+    top: 0px;
+  }
+  .schemas__content h1 {
+    font-size: 20px;
+    margin: 0px;
+    padding: 15px 0px 8px 20px;
+    line-height: 24px;
+  }
+  .schemas__content p {
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px 0px 22px 20px;
+  }
+  .colorCard {
+    display: flex;
+    justify-content: space-around;
+  }
+  .schemas__image {
+    height: 551px;
+    background-position: center;
+    position: relative;
+    top: 20px;
+    right: 7px;
+    background-size: 135px;
+  }
+  .collection_Saries button {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .offer-carousel-wrapper {
+    height: 560px;
+  }
+  .slide-height {
+    height: 190px;
+  }
+  .main-img {
+    width: 100%;
+    height: 442px;
+  }
+  .main-img .carousel-inner > .item > a > img,
+  .carousel-inner > .item > img {
+    height: 442px !important;
+  }
+  .saries3__inside {
+    width: 230px;
+    height: 155px;
+  }
+  .saries2,
+  .saries3 {
+    padding-top: 5px;
+  }
+  .saries2_inside {
+    width: 164px;
+    height: 155px;
+  }
+  .arrival-container {
+    width: 700px;
+    margin: 0 auto;
+  }
+  .sarie-info {
+    font-size: 18px !important;
+    padding-bottom: 20px !important;
+    width: 188px !important;
+  }
+  .new-item {
+    width: 33px;
+    height: 20px;
+    font-size: 10px;
+    color: #cd1517;
+    padding: 2px;
+    border-radius: 2px;
+    border: solid 1px #cd1517;
+    display: inline-block;
+  }
+  .purchase-amount {
+    color: #737373;
+    font-family: 'Muli-Bold';
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .buy-offer {
+    width: 104px;
+    height: 22px;
+    padding-top: 6px;
+    color: #393939;
+    font-size: 7px;
+    display: inline-block;
+    border: solid 1px #e0e0e0;
+  }
+  .new-offer {
+    font-family: 'latoRegular';
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: center;
+  }
+  .card-body {
+    padding-left: 18px;
+    text-align: left;
+    padding-top: 14px;
+    background-color: #ffffff;
+  }
+  .carousel-caption h2 {
+    font-size: 34px;
+  }
+  .carousel-caption {
+    top: 19%;
+  }
+
+  .sub1 button {
+    position: relative;
+    bottom: 22px;
+  }
+  .sub1 h2 {
+    padding-bottom: 20px;
+    height: 85px;
+    padding-top: 12px;
+  }
+  .deal2 {
+    margin-bottom: 10px;
+    margin-top: 0px;
+  }
+  .deal2,
+  .deal3 {
+    width: 280px;
+    height: 170px;
+  }
+  .deal2 .sub1,
+  .deal3 .sub1 {
+    width: 152px;
+    height: 102px;
+    -webkit-backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .mainDiv .deal1 {
+    height: 360px;
+  }
+  .sub p {
+    width: 164px;
+  }
+  .sub {
+    width: 182px;
+    height: 245px;
+    margin-left: 22px;
+    top: 22px;
+    position: relative;
+  }
+  .arrival-viewall {
+    height: 32px;
+  }
+  .fixed-height {
+    height: 370px;
+  }
+  .arrow-set {
+    position: relative;
+    left: -4px;
+    top: -3px;
+  }
+  .image1 {
+    margin-bottom: 18px;
+    padding-top: 30px;
+  }
+  .arrival-viewall > button {
+    width: 111px;
+    height: 32px;
+    float: right;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: solid 2px #e0e0e0;
+  }
+  .arrival-data {
+    background-color: #f7f7f7;
+    height: 520px;
+    margin-top: 48px;
+  }
+  .coptex-sarie {
+    text-align: left;
+  }
+  .caurosal-button {
+    margin-left: 0px;
+  }
+  .colorButtonDiv {
+    width: 72px;
+    height: 101px;
+    position: relative;
+    display: inline-block;
+  }
+  .colorButtonDiv > p {
+    position: absolute;
+    bottom: 0px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+  }
+  .color-btn-other {
+    margin-left: 13.5px;
+  }
+  .colorButton {
+    position: absolute;
+    width: 100%;
+    height: 65px;
+    border-radius: 4px;
+    background-color: #ea0d0d;
+  }
+  .collection_Saries,
+  .buttonGroup,
+  .schemes,
+  .mainDiv {
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 48px;
+  }
+  .collection_Saries {
+    margin-bottom: 50px;
+  }
+  .shopby-color {
+    margin-top: 48px;
+  }
+
+  .percentage_cardBorder p {
+    width: 59px;
+    padding-left: 3px;
+    padding-top: 13px;
+  }
+  .collection_Saries {
+    height: 430px;
+  }
+  .saries1 {
+    height: 430px;
+  }
+  .saries2,
+  .saries3 {
+    height: 203px;
+    background-size: cover;
+  }
+  .saries1__inside {
+    width: 203px;
+    height: auto;
+    padding-bottom: 10px;
+  }
+  .card-sarie {
+    width: 130px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .mainDiv {
+    height: 390px;
+  }
+  .saries3__inside {
+    width: 300px;
+  }
+  .saries3__inside h1 {
+    width: 280px !important;
+  }
+  .carousel-indicators {
+    left: 54%;
+  }
+  .sarie-info {
+    font-size: 24px !important;
+  }
+  .sub {
+    height: 270px;
+  }
+
+  .offer-carousel-wrapper {
+    height: 580px;
+  }
+  .arrival-container {
+    margin-top: 48px;
+  }
+  .sub1 button {
+    bottom: 0px;
+  }
+  .shopby-color {
+    margin-top: 48px;
+    height: 308px;
+  }
+  .mainDiv .deal1 {
+    height: 370px;
+  }
+  .deal2 .sub1,
+  .deal3 .sub1 {
+    height: 140px;
+  }
+  .image1 {
+    margin-top: 55px;
+    margin-bottom: 0px;
+  }
+  .colorButtonDiv {
+    height: 115px;
+    width: 97px;
+  }
+  .carousel-caption h2 {
+    font-size: 42px;
+  }
+  .carousel-caption {
+    top: 33%;
+  }
+  .arrival-data {
+    margin-top: 0px;
+    height: 550px;
+  }
+  .colorButton {
+    height: 72px;
+  }
+  .collection_Saries,
+  .buttonGroup,
+  .schemes,
+  .mainDiv,
+  .arrival-container {
+    width: 1010px !important;
+  }
+  .collection_Saries {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+  .card img {
+    width: 100%;
+    height: 148px;
+  }
+
+  .deal2,
+  .deal3 {
+    width: 380px;
+    height: 180px;
+  }
+  .fixed-height {
+    height: 390px;
+  }
+  .buy-offer {
+    width: 165px;
+    font-size: 10px;
+    padding-top: 3px;
+  }
+  .card-sarie {
+    width: 200px;
+  }
+}

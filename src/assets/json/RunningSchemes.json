@@ -1,0 +1,117 @@
+{
+    "RunningSchemes":[
+{
+
+
+      "Id":1,
+      "user": "Koel Bhatt",
+      "account": "Acc123456",
+      "schemeDuration": "6 months",
+      "schemeType": "KNT Scheme Type : B",
+      "installmentAmount": "700/month ",
+      "amountPaid": "600",
+      "nextpaymentDate": "05-Apr-2018",
+      "nextpayableAmount": "300",
+      "PaymentDetail": [
+        {
+          "Id":1,
+          "date": "05-Jan-2018",
+          "amount": "Rs. 600",
+          "penalty": "300",
+          "status": "unpaid",
+          "paymentMode": "Online",
+          "DateOfPayment": "23-Jan-2018"
+        },
+        {
+          "Id":2,
+          "date": "05-Jan-2018",
+          "amount": "Rs. 600",
+          "penalty": "300",
+          "status": "unpaid",
+          "paymentMode": "Online",
+          "DateOfPayment": "23-Jan-2018"
+        },       
+         {
+          "Id":3,
+          "date": "05-Jan-2018",
+          "amount": "Rs. 600",
+          "penalty": "300",
+          "status": "unpaid",
+          "paymentMode": "Online",
+          "DateOfPayment": "23-Jan-2018"
+        }
+
+    ]
+
+    },
+    {
+
+
+"Id":2,
+"user": "Koel Bhatt",
+"account": "Acc123456",
+"schemeDuration": "6 months",
+"schemeType": "KNT Scheme Type : B",
+"installmentAmount": "700/month ",
+"amountPaid": "600",
+"nextpaymentDate": "05-Apr-2018",
+"nextpayableAmount": "300",
+"PaymentDetail": [
+  {
+    "Id":1,
+    "date": "05-Jan-2018",
+    "amount": "Rs. 600",
+    "penalty": "300",
+    "status": "paid",
+    "paymentMode": "Online",
+    "DateOfPayment": "23-Jan-2018"
+  },
+  { 
+    "Id":2,
+    "date": "05-Jan-2018",
+    "amount": "Rs. 600",
+    "penalty": "300",
+    "status": "unpaid",
+    "paymentMode": "Online",
+    "DateOfPayment": "23-Jan-2018"
+  }
+
+]
+
+},
+{
+
+
+"Id":3,
+"user": "Koel Bhatt",
+"account": "Acc123456",
+"schemeDuration": "6 months",
+"schemeType": "KNT Scheme Type : B",
+"installmentAmount": "700/month ",
+"amountPaid": "600",
+"nextpaymentDate": "05-Apr-2018",
+"nextpayableAmount": "300",
+"PaymentDetail": [
+  { 
+    "Id":1,
+    "date": "05-Jan-2018",
+    "amount": "Rs. 600",
+    "penalty": "300",
+    "status": "paid",
+    "paymentMode": "Online",
+    "DateOfPayment": "23-Jan-2018"
+  }
+
+]
+
+}
+
+    
+
+
+
+    ]
+
+}
+
+

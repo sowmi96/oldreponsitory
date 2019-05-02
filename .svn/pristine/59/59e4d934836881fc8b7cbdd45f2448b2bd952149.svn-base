@@ -1,0 +1,44 @@
+{
+    "addcart":[{
+        "id":1,
+         "src":"./assets/cart.png",
+         "title":"Parampara Silks",
+         "size":"55",
+         "quantity":3,
+         "price":12500,
+         "Discountpercent":"10%",
+         "DiscountAmount":2500,
+         "Cgstpercent":"2.5%",
+         "Cgstamount":"2000",
+         "Sgstpercent":"2.5%",
+         "Sgstamount":"2000",
+         "Total":"25000"
+    },
+    {
+         "id":2,
+         "src":"./assets/cart.png",
+         "title":"Parampara Silks",
+         "size":"55",
+         "quantity":3,
+         "price":12500,
+         "Discountpercent":"10%",
+         "DiscountAmount":2500,
+         "Cgstpercent":"2.5%",
+         "Cgstamount":"2000",
+         "Sgstpercent":"2.5%",
+         "Sgstamount":"2000",
+         "Total":"25000"
+    }],
+    "TotalCart":{
+      "TotalCgst":"2.5%",
+      "TotalSgst":"2.5%",
+      "TotalCgstAmount":2500,
+      "TotalSgstAmount":2500,
+      "TotalDiscountPercent":"10%",
+      "TotalDiscount":25000
+    }
+
+
+
+
+}

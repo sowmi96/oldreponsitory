@@ -1,0 +1,80 @@
+<form class="col-xs-12 col-sm-12" [formGroup]="kntForm" (ngSubmit)="onSubmit(kntForm.value)">
+  <div class="row">
+    <div class="col-xs-12 header-title">Nominee Details</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12  col-sm-5 wrapper">
+      <label for="">Nominee Name</label>
+      <input type="text" [ngClass]="{'no-pointer':allowedit}" formControlName="name" class="lastName namesInput inputFields form-control"
+        placeholder="Nominee Name" [(ngModel)]="Nomineename" />
+      <div *ngIf="kntForm.controls['name'].errors && kntForm.controls['name'].touched" class="error-msg">
+        <div class="error-info" [hidden]="!kntForm.controls['name'].errors.required">Please Enter Name.</div>
+      </div>
+
+    </div>
+    <div class="col-xs-12  col-sm-5 wrapper">
+      <label for="">Relationship</label>
+      <select required [ngClass]="{'no-pointer':allowedit}" class="form-control" formControlName="relationship" [(ngModel)]="Relation">
+        <option selected disabled [value]=null>Select Relaionship</option>
+        <option *ngFor="let c of relationList" [ngValue]="c.id"> {{c.name}} </option>
+      </select>
+      <div *ngIf="kntForm.controls['relationship'].errors && kntForm.controls['relationship'].touched" class="error-msg">
+        <div class="error-info" [hidden]="!kntForm.controls['relationship'].errors.required">Please Select Relationship.</div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="row">
+    <div class="col-xs-12  col-sm-5 wrapper">
+      <label for="">Gender</label>
+
+      <select [ngClass]="{'no-pointer':allowedit}" class="form-control" formControlName="gender" [(ngModel)]="Gender">
+        <option selected disabled [value]=null>Select Gender</option>
+        <option *ngFor="let c of genderList" [ngValue]="c.id"> {{c.name}} </option>
+      </select>
+      <div *ngIf="kntForm.controls['gender'].errors && kntForm.controls['gender'].touched" class="error-msg">
+        <div class="error-info" [hidden]="!kntForm.controls['gender'].errors.required">Please Select Gender.</div>
+      </div>
+
+
+    </div>
+    <div class="col-xs-12  col-sm-5 wrapper">
+      <label for="">Date of Birth</label>
+
+      <input type="text" [ngClass]="{'no-pointer':allowedit}" formControlName="dob" class="lastName namesInput inputFields form-control"
+        placeholder="DOB" name="fullName" [(ngModel)]="date"    [maxDate]="maxDate"  bsDatepicker/>
+      <div *ngIf="kntForm.controls['dob'].errors && kntForm.controls['dob'].touched" class="error-msg">
+        <div class="error-info" [hidden]="!kntForm.controls['dob'].errors.required">Please Select Date of Birth.</div>
+      </div>
+
+    </div>
+
+
+  </div>
+  <div class="row">
+    <div class="col-xs-12  col-sm-5 wrapper">
+      <label for="">Contact Number</label>
+
+      <input type="text" (keypress)="isNumber($event)" pattern="[789][0-9]{9}" minlength="10" maxlength="10" [ngClass]="{'no-pointer':allowedit}"
+        formControlName="contact" class="form-control" placeholder="Contact no" [(ngModel)]="contactNo">
+      <div *ngIf="kntForm.controls['contact'].errors && kntForm.controls['contact'].touched" class="error-msg">
+        <div class="error-info" [hidden]="!kntForm.controls['contact'].errors.required">Please Enter contact No..</div>
+        <div class="error-info" [hidden]="!kntForm.controls['contact'].errors.minlength">Please Enter 10 digit mobile number.</div>
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+  <div class="row text-right">
+    <button *ngIf="showbutton" class="btn" (click)="EditCancel()">cancel</button>
+    <button *ngIf="!showbutton" class="btn" (click)="EditField()">Edit</button>
+    <button *ngIf="showbutton" type="submit" class="btn btn-primary">Save</button>
+
+
+  </div>
+
+</form>

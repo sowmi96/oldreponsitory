@@ -1,0 +1,581 @@
+<div class="checkout">
+  <ng-template #template>
+
+    <div class="modal-header">
+      <h4 class="modal-title text-center header-log">{{addtitle}}</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <form novalidate id="step-1" #Addressform="ngForm" (ngSubmit)="Formsave(Addressform.value)">
+
+          <div class="col-xs-12 col-sm-6 addressForm">
+            <label for="">Address Line 1</label>
+            <input type="text" required placeholder="Enter address line1" name="Address" [(ngModel)]="shipping.Address" #Address1="ngModel">
+            <div *ngIf="Address1.errors && (Address1.dirty||Address1.touched)">
+
+              <div class="error-info" [hidden]="!Address1.errors.required">
+                Please Enter Address Line1
+              </div>
+
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 addressForm">
+            <label for="">Address Line 2</label>
+            <input type="text" required placeholder="Enter address line2" name="place2" [(ngModel)]="shipping.Adressstwo" #Address2="ngModel">
+            <div *ngIf="Address2.errors && (Address2.dirty||Address2.touched)">
+
+              <div class="error-info" [hidden]="!Address2.errors.required">
+                Please Enter Address Line2
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 addressForm">
+            <label for="">Country</label>
+
+            <select name="Country" (change)="CountryChange($event.target.value)" [(ngModel)]="countryId" required #countrySelect="ngModel">
+              <option value="-1" [attr.selected]="true" disabled>Select Country</option>
+              <option *ngFor="let country of countryList" value="{{country.placeId}}">{{country.placeName}}</option>
+            </select>
+            <div *ngIf="countrySelect.errors && (countrySelect.dirty||countrySelect.touched)">
+
+              <div class="error-info" [hidden]="!countrySelect.errors.required">
+                Please select a country
+              </div>
+
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 addressForm">
+            <label for="">State</label>
+            <select name="state" (change)="StateChange($event.target.value)" [disabled]="!disableState" [(ngModel)]="stateId" required
+              #stateSelect="ngModel">
+              <option value="-1" [attr.selected]="true" disabled>Select State</option>
+              <option *ngFor="let state of stateList" value="{{state.placeId}}">{{state.placeName}}</option>
+            </select>
+            <div *ngIf="stateSelect.errors && (stateSelect.dirty||stateSelect.touched)">
+
+              <div class="error-info" [hidden]="!stateSelect.errors.required">
+                Please select a state
+              </div>
+
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 addressForm">
+            <label for="">District</label>
+            <select name="district" (change)="districtChange($event.target.value)" [disabled]="!disableDistrict" [(ngModel)]="districtId"
+              required #districtSelect="ngModel">
+              <option value="-1" [attr.selected]="true" disabled>Select District</option>
+              <option *ngFor="let district of districtList" value="{{district.placeId}}">{{district.placeName}}</option>
+            </select>
+            <div *ngIf="districtSelect.errors && (districtSelect.dirty||districtSelect.touched)">
+
+              <div class="error-info" [hidden]="!districtSelect.errors.required">
+                Please select a district
+              </div>
+
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 addressForm">
+            <label for="">City</label>
+            <select name="city" (change)="cityChange($event.target.value)" [disabled]="!disableCity" [(ngModel)]="cityId" required #citySelect="ngModel">
+              <option value="-1" [attr.selected]="true" disabled>Select City</option>
+              <option *ngFor="let city of cityList" value="{{city.placeId}}">{{city.placeName}}</option>
+            </select>
+            <div *ngIf="citySelect.errors && (citySelect.dirty||citySelect.touched)">
+
+              <div class="error-info" [hidden]="!citySelect.errors.required">
+                Please select a city
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-xs-12 col-sm-6 addressForm">
+            <label for="">Pincode</label>
+            <input type="text" (keypress)="isNumber($event)" minlength="6" maxlength="6" required placeholder="Enter pincode" name="Pincode"
+              [(ngModel)]="shipping.Pincode" #Pincode="ngModel">
+
+            <div *ngIf="Pincode.errors && (Pincode.dirty||Pincode.touched)">
+
+              <div class="error-info" [hidden]="!Pincode.errors.required">
+                Please enter 6 digit pincode
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-xs-12 col-sm-6 addressForm">
+            <label for="">AddressType</label>
+            <select required #addressType="ngModel" name="addresstype" [(ngModel)]="typeaddress">
+              <option selected disabled [ngValue]=null>Select AddressType</option>
+
+              <option [ngValue]=0>Custom Address</option>
+              <option [ngValue]=1 *ngIf="!billingAddress?.id">Billing Address</option>
+              <option [ngValue]=2 *ngIf="!shippingAddress?.id">Shipping Address</option>
+              <option [ngValue]=3 *ngIf="!officeAddress?.id">Office Address</option>
+              <option [ngValue]=4 *ngIf="!customerAddress?.id"> Home Address</option>
+
+
+
+            </select>
+          </div>
+
+
+          <div class="checkproceed1 col-xs-12 paddingzero text-left">
+            <button [ngClass]="{'checkoutbutton':Addressform.valid && !diableForm(),'Address-button':true}" type="submit" [disabled]="!Addressform.valid || diableForm()">{{addressSaveLoad?'Adding...':'Add Address'}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+  </ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h1 class="checkout_head">Checkout </h1>
+  <!-- start mobile wizard -->
+  <ul class="nav nav-pills nav-wizard">
+    <li (click)="showdataView('info')" [ngClass]="{'active': showPersonalInfo==true}">
+      <a [ngClass]="{'active': showPersonalInfo==true}">Billing & Shipping Information</a>
+      <div class="nav-arrow" [ngClass]="{'active': showPersonalInfo==true}"></div>
+    </li>
+    <li (click)="showdataView('order')" [ngClass]="{'active': showOrder==true}">
+      <div class="nav-wedge" [ngClass]="{'active': showPersonalInfo==true}"></div>
+      <a [ngClass]="{'active': showOrder==true}">Order View</a>
+      <div class="nav-arrow" [ngClass]="{'active': showOrder==true}"></div>
+    </li>
+    <li (click)="showdataView('payment')" [ngClass]="{'active': showpayment==true}">
+      <div class="nav-wedge" [ngClass]="{'active': showOrder==true}"></div>
+      <a [ngClass]="{'active': showpayment==true}">Payment information</a>
+    </li>
+  </ul>
+
+  <!-- end mobile wizard -->
+
+  <div class="stepwizard">
+    <div class="stepwizard-row ">
+      <div class="stepwizard-step">
+        <a type="button" (click)="showdataView('info')" [ngClass]="{'btn default btn-circle': true,'active': showPersonalInfo==true}">01</a>
+        <p>Billing & Shipping Information</p>
+
+      </div>
+      <div class="stepwizard-step">
+        <a type="button" (click)="showdataView('order')" [ngClass]="{'btn default btn-circle': true,'active': showOrder==true}">02</a>
+        <p>Order View</p>
+      </div>
+      <div class="stepwizard-step">
+        <a type="button" (click)="showdataView('payment')" [ngClass]="{'btn default btn-circle': true,'active': showpayment==true}">03</a>
+        <p>Payment information</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showPersonalInfo==true">
+    <div class="row new-address" style="text-align:left" (click)="addtitle='New Address'">
+      <div class="col-xs-12" (click)="openpopUp(template)">
+        <span class="plus-icon">
+          <i class="fa fa-plus"></i>
+        </span>
+        <span class="allow-edit"> Add a New Address</span>
+      </div>
+    </div>
+    <div class="checkout_boder">
+    </div>
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-6 text-left " *ngFor="let x of address1;let i=index;">
+
+        <div class="address-container row" (click)="GetDeliveryAddress(x)">
+          <div class="col-xs-1 paddingzero">
+            <label class="container-radio">
+              <input type="radio" [checked]='id==x.id' name="radio">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <span class="label label-default">{{x.type | titlecase}}</span>
+          <div class="address-data col-xs-8 col-md-9 paddingright">
+            <!-- <div class="address-all">{{address1.primaryContactName}}</div>
+            <div class="address-all">{{address1.primaryContactNumber}}</div> -->
+            <div class="address-all">{{x.addressLine1}}</div>
+            <div class="address-all">{{x.addressLine2}}</div>
+            <div class="address-all">{{x.cityName}},{{x.stateName}},{{x.countryName}}</div>
+            <div class="address-all">Pincode: {{x.pincode}}</div>
+            <div class="col-xs-12 paddingzero text-left" *ngIf="data==x.id">
+              <button style="background-color:#2196F3;margin-left:0px;" type="submit" (click)="showOrderView()">Deliver Here</button>
+            </div>
+          </div>
+          <!-- <div class="col-xs-3 col-md-2 edit-wrapper paddingzero ">
+                      <button style="background-color:#2196F3"  class="edit" (click)="openModal(template,x);addtitle='Edit Address'"> <i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
+                    </div> -->
+
+
+
+
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+  <div class="overview" id="step-2" *ngIf="showOrder==true">
+    <div class="overview_boder">
+      <h1>Order Review</h1>
+    </div>
+    <h1>Shipping Address</h1>
+    <p>{{address1.primaryContactName}}</p>
+    <p>{{deliveryplace.addressLine1}}</p>
+    <p>{{deliveryplace.addressLine2}}</p>
+    <p>{{address1.primaryContactNumber}}</p>
+    <p>{{deliveryplace.cityName}},{{deliveryplace.stateName}},{{deliveryplace.countryName}}</p>
+    <p>Pincode-{{deliveryplace.pincode}}</p>
+    <div class="addresschange" (click)="changeAddress()">
+      <a style="padding-left:0px">Change Address</a>
+    </div>
+    <app-add-cart></app-add-cart>
+    <div class="checkproceed">
+      <button style="background-color:#2196F3" type="submit" (click)="showOverview()">Proceed</button>
+    </div>
+
+
+    <!-- <div class="addToCart ">
+
+        <div class="tabletTab">
+          <span class="tabletTab tabletTab1">Product</span>
+          <span class="tabletTab tabletTab2">Price</span>
+          <span class="tabletTab tabletTab3">Qty</span>
+          <span class="tabletTab tabletTab4">Subtotal</span>
+          <hr/>
+        </div>
+        <div class="row cart-container" *ngFor="let x of orderitem">
+          <div class="col-xs-12 col-sm-4 col-md-4 pad cart-saree" >
+            <div class="col-xs-6 col-sm-5 col-md-6 pad cartImage">
+              <img src="{{x.src}}" />
+            </div>
+            <div class="col-xs-6 col-sm-7 col-md-6 pad cartDetails">
+              <h1>{{x.title}}</h1>
+              <div class="cartDetails1">
+                <p>Size</p>
+                <button>{{x.size}}</button>
+              </div>
+              <div class="cartDetails2">
+                <p>Move to Wishlist</p>
+                <img src="./assets/unlike.png" />
+              </div>
+              <div class="cartDetails3">
+                <p class="remove-item">Remove Item</p>
+                <img src="./assets/bin.svg" />
+              </div>
+            </div>
+          </div>
+
+          <div class="cartQuantity">
+            <div class="col-xs-12 col-sm-4 col-md-4 pad">
+              <div class="col-xs-6 col-sm-6 col-md-6 pad cartQuantity1">
+
+                 <div class="">
+                 <form class="quantity-wrapper">
+                   <p>Quantity</p> -->
+    <!-- <label class="pro__quantity">Quantity</label> -->
+    <!-- <div class="value-button" id="decrease" (click)="decreaseValue()" value="Decrease Value">-</div>
+                  <input id="number" [(ngModel)]='x.quantity'  name="quantity"/>
+                  <div class="value-button" id="increase" (click)="increaseValue()" value="Increase Value">+</div>
+              </form>
+              </div>
+
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 pad cartQuantity2">
+                <h4>Price</h4>
+                <h5>Rs.{{x.price}}</h5>
+              </div>
+            </div>
+          </div>
+          <div class=" cartSubTotal">
+            <div class="col-xs-12 col-sm-4 col-md-4 pad subtotal-cart">
+              <h1>Subtotal</h1> -->
+    <!-- <div class="horizantal">
+                <hr/>
+              </div> -->
+    <!-- <div class="cartSubTotal1">
+                <div class="cartTotal">
+                  <span class="discount">Discount ({{x.Discountpercent}}) :</span>
+                  <span class="amount amount1">Rs. {{x.DiscountAmount}}</span>
+                </div>
+                <div class="cartTotal">
+                  <span class="discount">CGST ({{x.Cgstpercent}}) :</span>
+                  <span class="amount">Rs. {{x.Cgstamount}}</span>
+                </div>
+                <div class="cartTotal">
+                  <span class="discount">SGST ({{Sgstpercent}}) :</span>
+                  <span class="amount">Rs. {{x.Sgstamount}}</span>
+                </div>
+
+              </div>
+              <div class="cartAllTotal">
+                <span class="cartAllTotal1">Total :</span>
+                <span class="cartAllTotal2">Rs. {{x.Total}}</span>
+
+              </div>
+
+            </div>
+          </div> -->
+    <!-- <div class="horizantal">
+          <hr/>
+          </div> -->
+    <!-- </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="row total-cart">
+           <div class="col-xs-12 col-sm-8 col-md-8 pad"></div>
+          <div class="col-xs-12 col-sm-4 col-md-4 pad">
+            <div class="cartFullTotal">
+          <h4>Total</h4>
+          <div class="cartTotal">
+            <span class="discount">Discount ({{ordertotal.TotalDiscountPercent}}) :</span>
+            <span class="amount">Rs. {{ordertotal.TotalDiscount}}</span>
+          </div>
+          <div class="cartTotal">
+            <span class="discount">CGST ({{ordertotal.TotalCgst}}) :</span>
+            <span class="amount">Rs. {{ordertotal.TotalCgstAmount}}</span>
+          </div>
+          <div class="cartTotal">
+            <span class="discount">SGST ({{ordertotal.TotalSgst}}) :</span>
+            <span class="amount">Rs.  {{ordertotal.TotalSgstAmount}}</span>
+          </div>
+          <div class="cartFinalTotal">
+            <span class="FinalTotal1">Cart Subtotal :</span>
+            <span class="FinalTotal2">Rs. {{ordertotal.TotalDiscount}}</span>
+          </div>
+          <div class="checkproceed">
+            <button style="background-color:#2196F3" type="submit" (click)= "showOverview()" >Proceed</button>
+          </div>
+
+        </div>
+          </div>
+        </div>
+      </div> -->
+
+
+  </div>
+
+
+
+
+
+
+  <div class="payment" id="step-3" *ngIf="showpayment==true">
+    <div class="payment_boder">
+      <h1>Payment Information</h1>
+    </div>
+
+    <accordion>
+      <p class="totalAmount">Total amount to be paid
+        <span>: Rs. {{totalAmout1}}</span>
+      </p>
+
+      <p *ngIf="kntSchemeList.length==0" class="totalAmount">No KNT Scheme is available</p>
+
+      <accordion-group *ngIf="kntSchemeList.length!=0">
+        <div accordion-heading class="check__accordian" (click)="toggleIcon('0')">
+          <!-- <input type="checkbox" id="myCheck" [checked]="check"  (change)="checkboxchange($event.target.checked)"> -->
+          <span class="check__header"> KNT Schemes</span>
+          <span class="  pull-right">
+            <i [ngClass]="{'fa':true,'fa-angle-up':toggle[0],'fa-angle-down':!toggle[0]}" aria-hidden="true"></i>
+          </span>
+          <p class="check__apply" *ngIf="kntAmount>0">KNT Scheme of Rs. {{kntAmount}} is will be Applied.</p>
+        </div>
+        <!-- <div class="knt__aligment" >No Knt scheme available</div> -->
+        <div class="knt__aligment" *ngFor="let KntSchemeList of kntSchemeList">
+          <input type="radio" name="indoor-outdoor" [checked]="check1" (change)="checkboxchange1($event.target.checked,KntSchemeList.id,KntSchemeList.totalAmountPaid)"
+          />
+          <div class="kntCard">
+            <div class="knt__details">
+              <div>
+                <h1>{{KntSchemeList.customerResponseDTO.name}}</h1>
+                <p>{{KntSchemeList.registrationNumber}}</p>
+              </div>
+
+              <div>
+                <h1 class="kntSheme">KNT Scheme Type : {{KntSchemeList.kntPlanResponseDTO.plan_name}} </h1>
+                <p class="kntSheme1">Installment amount : Rs.
+                  <span>{{KntSchemeList.installmentAmount}}/month </span>
+                </p>
+                <p class="kntSheme1">Scheme Duration :
+                  <span></span> {{KntSchemeList.kntPlanResponseDTO.installment_month}}months </p>
+              </div>
+
+              <div>
+                <h1>Total amount : RS:
+                  <span>{{KntSchemeList.totalAmountPaid}}</span>
+                </h1>
+                <button type="submit">Apply this Scheme</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </accordion-group>
+
+      <!-- <p class="totalAmount">Select an option to pay balance <span>: Rs. 50,100</span></p> -->
+      <!-- <accordion-group>
+            <div accordion-heading class="check__accordian1" (click)="toggleIcon('1')">
+           <span class=check__header>Credit Card / Debit Card </span>
+              <span class=" pull-right">   <i [ngClass]="{'fa':true,'fa-angle-up':toggle[1],'fa-angle-down':!toggle[1]}" aria-hidden="true"></i></span>
+            </div>
+           <div class="check_credit">
+              <div class=" addressForm">
+                  <label for="">Card No</label>
+                  <input type="number" placeholder="1387312671279">
+               </div>
+               <div class=" addressForm">
+                  <label for="">Card Holder's Name</label>
+                  <input type="text" placeholder="Full Nmae">
+               </div>
+           <div class="checkyear">
+               <div class="addressForm monthInput">
+                   <label for="">Month</label>
+                   <input class="" type="number" placeholder="MM">
+               </div>
+               <div class="addressForm monthInput">
+                    <label for="">Year</label>
+                    <input class="" type="number" placeholder="YYYY">
+                </div>
+           </div>
+                <div class="addressForm monthInput">
+                    <label for="">CVV/Security Code</label>
+                    <input class="" type="password" placeholder="2018">
+                </div>
+                <div class="condition">
+                  <input type="checkbox"/><span>Save this card for faster</span>
+                </div>
+           </div>
+          </accordion-group> -->
+      <!-- <accordion-group>
+              <div accordion-heading class="check__accordian1" (click)="toggleIcon('2')">
+             <span class=check__header> Debit Card </span>
+                <span class=" pull-right">   <i [ngClass]="{'fa':true,'fa-angle-up':toggle[2],'fa-angle-down':!toggle[2]}" aria-hidden="true"></i></span>
+              </div>
+              <div class="check_credit">
+                  <div class=" addressForm">
+                      <label for="">Card No</label>
+                      <input type="number" placeholder="1387312671279">
+                   </div>
+                   <div class=" addressForm">
+                      <label for="">Card Holder's Name</label>
+                      <input type="text" placeholder="Full Nmae">
+                   </div>
+               <div class="checkyear">
+                   <div class="addressForm monthInput">
+                       <label for="">Month</label>
+                       <input class="" type="number" placeholder="MM">
+                   </div>
+                   <div class="addressForm monthInput">
+                        <label for="">Year</label>
+                        <input class="" type="number" placeholder="YYYY">
+                    </div>
+               </div>
+                    <div class="addressForm monthInput">
+                        <label for="">CVV/Security Code</label>
+                        <input class="" type="password" placeholder="2018">
+                    </div>
+                    <div class="condition">
+                      <input type="checkbox"/><span>Save this card for faster</span>
+                    </div>
+               </div>
+          </accordion-group> -->
+      <!-- <accordion-group>
+                <div accordion-heading class="check__accordian1" (click)="toggleIcon('3')">
+               <span class=check__header>Net Banking </span>
+                  <span class=" pull-right">   <i [ngClass]="{'fa':true,'fa-angle-up':toggle[3],'fa-angle-down':!toggle[3]}" aria-hidden="true"></i></span>
+                </div>
+              <div class="net__bank">
+                  <h1>Popular Bank</h1>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-3 bankname">
+                      <input type="radio" name="indoor-outdoor"/><img src="../../assets/img/product/download.svg" alt=""><span>HDFC BANK</span>
+                  </div>
+                  <div class="col-xs-6 col-sm-3 bankname">
+                      <input type="radio" name="indoor-outdoor"/><img src="../../assets/img/product/download1.svg" alt=""><span>ICICI BANK</span>
+                  </div>
+                  <div class="col-xs-6 col-sm-3 bankname">
+                      <input type="radio" name="indoor-outdoor"/><img src="../../assets/img/product/download2.svg" alt=""><span>SBI BANK</span>
+                  </div>
+                  <div class="col-xs-6 col-sm-3 bankname">
+                      <input type="radio" name="indoor-outdoor"/><img src="../../assets/img/product/download3.svg" alt=""><span>Axis BANK</span>
+                  </div>
+                </div>
+             <div class="otherBank">
+                <p>Others Bank</p>
+                <div class="selectdiv ">
+                <select>
+                    <option value="volvo">Choose Other Bank</option>
+                    <option value="saab">ALLAHABAD BANK</option>
+                    <option value="mercedes">BANK OF BARODA</option>
+                    <option value="audi">DENA BANK</option>
+                  </select>
+                  </div>
+             </div>
+              </div>
+           </accordion-group> -->
+      <!-- <h2 class="term">Terms and Condition</h2>
+           <div class="condition"><input type="checkbox"/><span>Agree to Terms and Conditions</span> </div> -->
+      <div class="paymentsubmit">
+        <button style="background-color:#2196F3" type="submit" (click)="checkout()" [disabled]="checkoutLoading">{{checkoutLoading?'Redirecting to payment...':'Proceed to payment'}}</button>
+      </div>
+    </accordion>
+
+  </div>
+
+</div>

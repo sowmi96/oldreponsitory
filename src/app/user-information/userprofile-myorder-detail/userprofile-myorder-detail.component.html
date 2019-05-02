@@ -1,0 +1,138 @@
+<div class="myOrderDetailOuter">
+
+  <div class="inputsOuterMobile">
+
+
+    <div class="myOrders">
+
+      <div class="orderIdRow">
+        <div class="orederId">{{itemId.salesItemId}}</div>
+        <div class="needSupport" (click)="Support()">Need Support ?</div>
+      </div>
+
+
+      <div class="orderItemDesc">
+        <div class="orderImg" [style.backgroundImage]="'url('+itemId.smallImagePath+')'"></div>
+        <div class="orderItemName">{{itemId.title}}</div>
+        <div class="deliveryDate" *ngIf="itemId.deliveryDate">
+          Delivered on
+          <span>{{itemId.deliveryDate | date: 'dd/MM/yyyy'}}</span>
+          <br>
+        </div>
+        <div *ngIf="itemId.orderStatus">
+          <span class="deliveryText">Your item has been {{itemId.orderStatus}}</span>
+
+        </div>
+        <div class="orderPriceOuter" *ngIf="itemId.orderAmount">
+          Rs.
+          <span class="orderPrice">{{itemId.orderAmount}}</span>
+        </div>
+      </div>
+
+      <div class="orderPriceRow">
+        <div>
+          <span class="orderText">Ordered On :</span>
+          <span class="orderedDate">{{itemId.orderedDate | date: 'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="orderPriceClassOuter">
+          <span class="orderText">Order Total :</span>
+          <span class="orderedPrice">{{itemId.orderAmount}}</span>
+        </div>
+      </div>
+
+      <div class="horizontalLine"></div>
+    </div>
+
+    <div class="deliveryAddress">
+
+      <span class="deliveryAddressFields deliveryAddressName">{{itemId.customerAddress.contactName}}</span>
+      <span class="deliveryAddressFields deliveryAddressMOb">{{itemId.customerAddress.contactNumber}}</span>
+      <div class="deliveryAddressText">
+        <p>
+          <!-- <span *ngIf="itemId.customerAddress.addressLineOne!==null">{{itemId.customerAddress.addressLineOne}}</span>
+          <span *ngIf="itemId.customerAddress.addressLineTwo!==null">{{itemId.customerAddress.addressLineTwo}}</span>
+          <span *ngIf="itemId.customerAddress.addressLineThree!==null">{{itemId[0].customerAddress.addressLineThree}}</span>
+          <span *ngIf="itemId.customerAddress.landmark!==null"> {{itemId.customerAddress.landmark}}</span>
+          <span *ngIf="itemId.customerAddress.area!==null"> {{itemId.customerAddress.area}}</span>
+          <span *ngIf="itemId.customerAddress.country!==null"> {{itemId.customerAddress.country}}</span>
+          <span *ngIf="itemId.customerAddress.state!==null"> {{itemId.customerAddress.state}}</span>
+          <span *ngIf="itemId.customerAddress.district!==null"> {{itemId.customerAddress.district}} </span>
+          <span *ngIf="itemId.customerAddress.taluk!==null">{{itemId.customerAddress.taluk}} </span>
+          <span *ngIf="itemId.customerAddress.city!==null">{{itemId.customerAddress.city}} </span>
+          <span *ngIf="itemId.customerAddress.postalCode!==null"> {{itemId.customerAddress.postalCode}}</span> -->
+          <span *ngIf="itemId.deliveryAddress!!==null">{{itemId.deliveryAddress}}</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="horizontalLine"></div>
+
+    <div class="orderProcessHeader">Order Process</div>
+
+
+
+    <div class="container1">
+      <div>
+        <span class="Status"></span>
+      </div>
+      <div>
+        <span class="Status"></span>
+      </div>
+      <div>
+        <span class="Status"></span>
+      </div>
+      <div>
+        <span class="Status"></span>
+      </div>
+    </div>
+
+    <div class="lineStepper">
+    </div>
+
+    <div class="container2">
+      <div>Ordered</div>
+      <div>Packed</div>
+      <div>Shipped</div>
+      <div>Delivered</div>
+    </div>
+
+    <div class="trackStatus" *ngIf="itemId.orderStatus!==null">Your item has been {{itemId.orderStatus}}</div>
+
+    <div class="horizontalLine"></div>
+
+    <div class="docInfoSaved downloadDoc" [routerLink]="['/invoice']">
+      <span class="docAttachName">Download-Invoice</span>
+      <div class="downloadImg"></div>
+    </div>
+
+    <div class="cancelOrder" *ngIf="itemId.orderStatus!=='Cancelled'" (click)="openModal(template,itemId.salesItemId)">Cancel Order</div>
+
+    <div class="backToOrders" (click)="backToMyorders()">Back</div>
+
+  </div>
+
+</div>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left"> Cancel Order</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group row ">
+      <label class="col-xs-12" for="sel1">Reason for cancellation:</label>
+      <select class="form-control col-xs-12 col-sm-6 canceler" id="sel1" [(ngModel)]="cancelItem">
+        <option disabled [ngValue]="null">Please Select Reason</option>
+        <option *ngFor="let x of cancel" [ngValue]="x.id">{{x.name}}</option>
+
+      </select>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="row">
+      <button class=" col-xs-2 btn  btn-primary pull-right" (click)="cancelOrder()">Continue</button>
+      <button class=" backer col-xs-2 btn btn-primary pull-right" (click)="closeModal()">Back</button>
+    </div>
+  </div>
+</ng-template>

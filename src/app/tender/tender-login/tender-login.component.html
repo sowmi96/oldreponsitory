@@ -1,0 +1,404 @@
+<div class="knt__login__header">
+  <div>
+    <h1>Tender Registration! </h1>
+    <img src="../../assets/supplier.png" alt="girl with bags">
+  </div>
+</div>
+<div class="knt__login__container">
+  <div class="knt__login__d1">
+    <h2>Supplier Benefits Program</h2>
+    <p>Tendering is a potential revenue stream for all businesses and who does not want that. Also organizations expect suppliers
+      to tender for business retention. You may think you have a great business relationship with your client, but they will
+      still need you to prove you are offering value for money. </p>
+    <p>So here are a couple of tips for those of you responding to tenders and those of you constructing a tender.</p>
+  </div>
+  <div class="knt__login__d2">
+    <h2>3 Simple steps to get started with supplier registration</h2>
+    <div class="knt__login__steps">
+      <div>
+        <h5>1</h5>
+        <h3>Sign up as a supplier</h3>
+      </div>
+      <div>
+        <h5>2</h5>
+        <h3>Apply Tenders </h3>
+      </div>
+      <div>
+        <h5>3</h5>
+        <h3>Win Tenders</h3>
+      </div>
+    </div>
+  </div>
+  <div class="knt__login__d3">
+    <form [formGroup]="tenderForm" (ngSubmit)="submit(tenderForm.value)" class="knt__login__form">
+      <div class="phone__number" *ngIf="this.userdata==undefined">
+        <div>
+          <label class="businessAddress" for="">Name</label>
+          <div>
+            <input type="text" [(ngModel)]="name1" formControlName="name" placeholder="Name" required/>
+
+            <div *ngIf="tenderForm.controls['name'].errors && tenderForm.controls['name'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['name'].errors.required">Please Enter Name.</div>
+              <div class="error-info" [hidden]="!tenderForm.controls['name'].errors.minlength">Enter Minimun 3 characters.</div>
+
+            </div>
+          </div>
+        </div>
+        <div>
+          <label class="businessAddress" for="">Email</label>
+          <div>
+            <input type="email" [(ngModel)]="email" formControlName="email" [pattern]="emailPattern" placeholder="Email" required/>
+            <div *ngIf="tenderForm.controls['email'].errors && tenderForm.controls['email'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['email'].errors.required">Please Enter Email</div>
+              <div class="error-info" [hidden]="!tenderForm.controls['email'].errors.pattern">Enter valid Email.</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phone__number" *ngIf="this.userdata ==undefined">
+        <div>
+          <label class="businessAddress" for="">Mobile Number</label>
+          <div>
+            <input type="text" [(ngModel)]="mobile" formControlName="mobile" pattern="[6789][0-9]{9}" (keypress)="isNumber($event)" minlength="10"
+              maxlength="10" placeholder="Mobile Number" required/>
+            <div *ngIf="tenderForm.controls['mobile'].errors && tenderForm.controls['mobile'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['mobile'].errors.required">Please Enter Password</div>
+              <div class="error-info" [hidden]="!tenderForm.controls['mobile'].errors.minlength">Enter 10 digit valid Number.</div>
+
+            </div>
+          </div>
+        </div>
+        <div>
+          <label class="businessAddress" for="">Password</label>
+          <div>
+            <input type="password" minlength="6" [(ngModel)]="password1" minlength="6" formControlName="password" placeholder="" required/>
+            <div *ngIf="tenderForm.controls['password'].errors && tenderForm.controls['password'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['password'].errors.required">Please Enter Password</div>
+              <div class="error-info" [hidden]="!tenderForm.controls['password'].errors.minlength">Enter Minimum 6 Character.</div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <label for="">Supplier Name</label>
+      <input type="text" formControlName="supplierName" minlength="3" maxlength="100" required placeholder="Supplier Name" />
+      <!-- <p class="error_message" *ngIf="tenderForm.controls['supplierName'].errors.required && tenderForm.get('supplierName').touched">Please provide customer Name</p> -->
+      <div *ngIf="tenderForm.controls['supplierName'].errors && tenderForm.controls['supplierName'].touched" class="error-msg">
+        <!-- <div class="error-info" [hidden]="!tenderForm.controls['supplierName'].errors.required">Please Supplier Name</div> -->
+        <div class="error-info" [hidden]="!tenderForm.controls['supplierName'].errors.minlength">Enter Minimum 3 character</div>
+
+
+      </div>
+
+      <label for="">Account Number</label>
+      <input type="text" formControlName="accountNumber" (keypress)="isNumber($event)" minlength="16" maxlength="16" required placeholder="Account Number"
+      />
+      <div *ngIf="tenderForm.controls['accountNumber'].errors && tenderForm.controls['accountNumber'].touched" class="error-msg">
+        <!-- <div class="error-info" [hidden]="!tenderForm.controls['accountNumber'].errors.required">Please provide AccNo</div> -->
+        <div class="error-info" [hidden]="!tenderForm.controls['accountNumber'].errors.minlength">Enter 16 digit AccNo.</div>
+
+      </div>
+
+      <div class="phone__number">
+        <div class="wrapper typer">
+          <label class="businessAddress" for="">Business Type Id</label>
+          <div>
+            <select [(ngModel)]="businessValueId" (change)="onBusinessChange($event.target.value)" formControlName="businessTypeId">
+              <option value="null" [attr.selected]="true" disabled>Select id</option>
+              <option *ngFor="let c of businessId" value="{{c.businessTypeId}}"> {{c.businessTypeCode}} </option>
+            </select>
+            <div *ngIf="tenderForm.controls['businessTypeId'].errors && tenderForm.controls['businessTypeId'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['businessTypeId'].errors.required">Please select BussinessType</div>
+
+            </div>
+
+
+          </div>
+        </div>
+        <div class="wrapper typer">
+          <label class="businessAddress" for="">Supplier Type Id</label>
+          <div>
+            <select [(ngModel)]="supplierValueId" (change)="onSupplierChange($event.target.value)" formControlName="supplierTypeId">
+              <option value="null" [attr.selected]="true" disabled>Select Id</option>
+              <option *ngFor="let c of supplierId" value="{{c.supplierTypeId}}"> {{c.supplierTypeCode}} </option>
+            </select>
+            <div *ngIf="tenderForm.controls['supplierTypeId'].errors && tenderForm.controls['supplierTypeId'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['supplierTypeId'].errors.required">Please select supplierType</div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label class="businessAddress"  for="">Business Address</label>
+        <div>
+          <div class="input-height">
+            <label>AddressLine one</label>
+            <input type="text" formControlName="businessAddress1" [(ngModel)]="example.businessAddres1" minlength="3" maxlength="100"
+              placeholder="Address Line1">
+            <div *ngIf="tenderForm.controls['businessAddress1'].errors && tenderForm.controls['businessAddress1'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['businessAddress1'].errors.required">Please Enter AdddresLine one</div>
+              <div class="error-info" [hidden]="!tenderForm.controls['businessAddress1'].errors.minlength">Enter Minimum 3 character</div>
+
+
+            </div>
+          </div>
+          <div class="input-height">
+
+            <label>AddressLine two</label>
+
+            <input type="text" formControlName="businessAddress2" minlength="3" maxlength="10" [(ngModel)]="example.businessAddres2"
+              placeholder="Address Line2">
+            <div *ngIf="tenderForm.controls['businessAddress2'].errors && tenderForm.controls['businessAddress2'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['businessAddress2'].errors.required">Please Enter AdddresLine two</div>
+              <div class="error-info" [hidden]="!tenderForm.controls['businessAddress2'].errors.minlength">Enter Minimum 3 character</div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+        <div>
+          <div class="input-height wrapper">
+            <label>Country</label>
+            <select [(ngModel)]="businessCountry" (change)="onCountryChange($event.target.value)" formControlName="country">
+              <option value="null" [attr.selected]="true" disabled>Select country</option>
+              <option *ngFor="let c of countryList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="tenderForm.controls['country'].errors && tenderForm.controls['country'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['country'].errors.required">Please Select Country</div>
+
+
+            </div>
+          </div>
+          <div class="input-height wrapper">
+            <label>State</label>
+
+            <select [(ngModel)]="businessState" (change)="onStateChange($event.target.value)" formControlName="state">
+              <option value="null" [attr.selected]="true" disabled>Select state</option>
+              <option *ngFor="let c of stateList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="tenderForm.controls['state'].errors && tenderForm.controls['state'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['state'].errors.required">Please Select State</div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+        <div>
+          <div class="input-height wrapper">
+            <label>City</label>
+            <select [(ngModel)]="businessCity" (change)="onCityChange($event.target.value)" formControlName="city">
+              <option value="null" [attr.selected]="true" disabled>Select City</option>
+              <option *ngFor="let c of cityList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="tenderForm.controls['city'].errors && tenderForm.controls['city'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['city'].errors.required">Please Select City</div>
+
+
+            </div>
+          </div>
+          <div>
+            <div class="input-height">
+              <label>Pincode</label>
+
+              <input type="text" maxlength="6" minlength="6" (keypress)="isNumber($event)" formControlName="pincode" [(ngModel)]="example.businessPincode"
+                required placeholder="Pin Code" />
+              <div *ngIf="tenderForm.controls['pincode'].errors && tenderForm.controls['pincode'].touched" class="error-msg">
+                <div class="error-info" [hidden]="!tenderForm.controls['pincode'].errors.required">Please Enter AdddresLine one</div>
+                <div class="error-info" [hidden]="!tenderForm.controls['pincode'].errors.minlength">Enter Minimum 6 digit</div>
+
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="knt__login__homeaddress">
+        <label class="businessAddress" for="">Home Address (Same)
+        </label>
+        <input type="checkbox" formControlName="checkboxVal" [(ngModel)]="checkboxValue" (change)="newFunction()" class="knt__login__homeaddress--check">
+        <span class="homeaddress__checkmark"></span>
+        <div>
+          <div class="input-height">
+            <label>AddressLine one</label>
+
+            <input type="text" minlength="3" maxlength="100" formControlName="homeAddress1" [(ngModel)]="example1.homeAddress1" placeholder="Address Line1">
+            <div *ngIf="tenderForm.controls['homeAddress1'].errors && tenderForm.controls['homeAddress1'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['homeAddress1'].errors.required">Please Enter AdddresLine one</div>
+              <div class="error-info" [hidden]="!tenderForm.controls['homeAddress1'].errors.minlength">Enter Minimum 3 character</div>
+
+
+            </div>
+          </div>
+          <div class="input-height">
+            <label>AddressLine two</label>
+            <input type="text" minlength="3" maxlength="100" formControlName="homeAddress2" [(ngModel)]="example1.homeAddress2" placeholder="Address Line2">
+            <div *ngIf="tenderForm.controls['homeAddress2'].errors && tenderForm.controls['homeAddress2'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['homeAddress2'].errors.required">Please Enter AdddresLine two</div>
+              <div class="error-info" [hidden]="!tenderForm.controls['homeAddress2'].errors.minlength">Enter Minimum 3 character</div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="input-height wrapper">
+            <label>Country</label>
+            <select [(ngModel)]="homeCountry" (change)="onCountryChange1($event.target.value)" formControlName="homeCountry">
+              <option value="null" [attr.selected]="true" disabled>Select country</option>
+              <option *ngFor="let c of countryList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="tenderForm.controls['homeCountry'].errors && tenderForm.controls['homeCountry'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['homeCountry'].errors.required">Please Select Country</div>
+
+
+            </div>
+          </div>
+          <div class="input-height wrapper">
+            <label>State</label>
+
+            <select [(ngModel)]="homeState" (change)="onStateChange1($event.target.value)" formControlName="homeState">
+              <option value="null" [attr.selected]="true" disabled>Select State</option>
+              <option *ngFor="let c of stateList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="tenderForm.controls['homeState'].errors && tenderForm.controls['homeState'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['homeState'].errors.required">Please Select State</div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="input-height wrapper">
+            <label>City</label>
+            <select [(ngModel)]="homeCity" (change)="onCityChange1($event.target.value)" formControlName="homeCity">
+              <option value="null" [attr.selected]="true" disabled>Select City</option>
+              <option *ngFor="let c of cityList" value="{{c.placeId}}"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="tenderForm.controls['homeCity'].errors && tenderForm.controls['homeCity'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['homeCity'].errors.required">Please Select City</div>
+
+
+            </div>
+          </div>
+          <div class="input-height">
+            <label>Pincode</label>
+            <input type="text" (keypress)="isNumber($event)" formControlName="homePincode" [(ngModel)]="example1.homePincode" minlength="6"
+              maxlength="6" placeholder="Pin Code">
+            <div *ngIf="tenderForm.controls['homePincode'].errors && tenderForm.controls['homePincode'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['homePincode'].errors.required">Enter pincode</div>
+
+              <div class="error-info" [hidden]="!tenderForm.controls['homePincode'].errors.minlength">Enter 6 digit Pincode</div>
+
+
+            </div>
+
+          </div>
+        </div>
+        <div>
+        </div>
+      </div>
+      <div class="phone__number">
+        <!-- <div>
+          <label class="businessAddress" for="">Primary Email</label>
+      <div>
+        <input type="text" formControlName="PrimaryEmailid"   placeholder="Primary Email">
+        <p class="error_message" *ngIf="tenderForm.get('PrimaryEmailid').required && tenderForm.get('PrimaryEmailid').touched">Please provide Email Id</p>
+      </div>
+      
+    </div> -->
+        <div>
+          <label class="businessAddress" for="">Secondary Email</label>
+          <div>
+            <input type="email" [pattern]="emailPattern" formControlName="SecondaryEmailid" placeholder="Secondary Email">
+            <div *ngIf="tenderForm.controls['SecondaryEmailid'].errors && tenderForm.controls['SecondaryEmailid'].dirty" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['SecondaryEmailid'].errors.pattern">Please valid Email</div>
+
+
+            </div>
+
+          </div>
+        </div>
+        <div>
+          <label class="businessAddress" for="">Secondary Mobile</label>
+          <div>
+            <input type="text" formControlName="landlineNumber" pattern="[789][0-9]{9}" minlength="10" maxlength="10" (keypress)="isNumber($event)"
+              placeholder="Secondary Mobile">
+            <div *ngIf="tenderForm.controls['landlineNumber'].errors && tenderForm.controls['landlineNumber'].dirty" class="error-msg">
+              <div class="error-info" [hidden]="!tenderForm.controls['landlineNumber'].errors.pattern">Please Enter Valid Number</div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="phone__number"> -->
+      <!-- <div>
+          <label class="businessAddress" for="">Primary Mobile</label>
+      <div>
+        <input type="text" formControlName="mobileNumber"  pattern="[789][0-9]{9}" minlength="10" maxlength="10" (keypress)="isNumber(event)" placeholder="Mobile Number">
+        <p class="error_message" *ngIf="tenderForm.get('mobileNumber').required && tenderForm.get('mobileNumber').touched">Please provide Mobile Number</p>
+      </div>
+    </div> -->
+
+      <!-- </div> -->
+      <!-- <p *ngIf="fileUploadStatus">
+        <b style="color:black;">PAN/ADHAR Document :</b>{{fileNames}}</p> -->
+      <h3 *ngIf="!fileUploadStatus">Upload PAN / Aadhar Card</h3>
+      <!--    <input type="file" name="pic" (change)="onFileChange($event)" #fileInput accept="image/*" class="knt__login__upload"> -->
+      <!-- <input type="file" (change)="onFileChange($event)"  name="pic"  accept="image/*" class="knt__login__upload"> -->
+      <!-- <input *ngIf="!fileUploadStatus" class="knt__login__upload" id="cin" name="cin" type="file" (change)="fileChangeEvent($event)"
+        placeholder="Upload a file..." multiple/>
+      <span style="color:red">*</span>
+      <span class="max-size"> &nbsp;PDF,PNG,JPEG - Max 3mb</span> -->
+
+      <div class="file__cont" *ngIf="!fileUploadStatus">
+        <input id="cin" name="cin" type="file" accept="image/*" type="file" (change)="fileChangeEvent($event)" class="inputfile inputfile-1"
+        />
+        <label for="file-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+            <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+            />
+          </svg>
+          <span>{{fileNames||'Upload file'}}</span>
+        </label>
+
+
+
+        <div class="max-size">
+          <span style="color:red">*</span> &nbsp;PDF,PNG,JPEG - Max 3mb</div>
+      </div>
+      <!-- <p class="error_message" *ngIf="tenderForm.get('uploadFile').required && tenderForm.get('uploadFile').touched">Please Upload File </p> -->
+      <!-- <button type="button" class="btn btn-success btn-s" (click)="upload()"></button> -->
+      <h4>
+        <a target="_blank" href="/#/information/termsandcondition">Terms and Condition</a>
+      </h4>
+      <label class="tandc">Agree to Terms and Conditions
+        <input #saveUserNameCheckBox id="saveUserNameCheckBox" formControlName="checkboxVal2" type="checkbox" [checked]="checkboxValue1"
+          (change)="newFunction1(saveUserNameCheckBox.checked)">
+
+        <span class="checkmark"></span>
+      </label>
+      <p class="error_message" *ngIf="hidecheck">Please accept term and conditions</p>
+
+      <!-- <p class="error_message" *ngIf="tenderForm.get('checkboxVal2').required && tenderForm.get('checkboxVal2').touched">Please Accept Terms & Conditions </p> -->
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+</div>

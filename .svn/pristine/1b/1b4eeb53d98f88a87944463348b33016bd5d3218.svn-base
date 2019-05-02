@@ -1,0 +1,1097 @@
+<div class="container carrier_apply">
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title text-center header-log">Add Qualification</h4>
+      <button type="button" class="close " aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <form novalidate id="step-1" #QualificationForm="ngForm" (ngSubmit)="Formsave(QualificationForm.value)">
+          <div class="col-xs-6 col-sm-3 col-lg-6 medium">
+            <label>
+              <input type="checkbox" class="col-lg-2" name="Medium" [(ngModel)]="Quali.Medium" #MediumValue="ngModel">Is Tamil Medium?</label>
+            <div class="col-lg-10"></div>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-lg-6 qual_id">
+            <label>Qualification</label>
+            <div class="selectdiv">
+              <select name="name" [(ngModel)]="Quali.name">
+                <option *ngFor="let c of QualificationList" [ngValue]="c"> {{c.name}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-lg-6 date_result">
+            <label>Date of result publish</label>
+            <input type="text" class="" placeholder="Enter date of result published" #dp="bsDatepicker" bsDatepicker [maxDate]="maxDate" required
+              name="Datevalue" [(ngModel)]="Quali.Datevalue" #DateSelect="ngModel">
+            <div *ngIf="DateSelect.errors && (DateSelect.dirty||DateSelect.touched)">
+              <div class="error-info" [hidden]="!DateSelect.errors.required">
+                Please Select Date
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-lg-6 college_name">
+            <label>College / University Name</label>
+            <input type="text" class="" placeholder="Enter college / university name" required name="college" [(ngModel)]="Quali.college"
+              #collegeName="ngModel">
+            <div *ngIf="collegeName.errors && (collegeName.dirty||collegeName.touched)">
+              <div class="error-info" [hidden]="!collegeName.errors.required">
+                Please Enter College / University Name
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-lg-6 certificate_no">
+            <label>Certificate Number</label>
+            <input type="text" maxlength="50" class="" placeholder="Enter certificate number" required name="certificate" [(ngModel)]="Quali.certificate"
+              (ngModelChange)="ccnChange(Quali.certificate)" #certificatefield="ngModel">
+            <div class="error-info" *ngIf="showccnError">
+              Please enter Community certificate number less than 50
+            </div>
+            <div *ngIf="certificatefield.errors && (certificatefield.dirty||certificatefield.touched)">
+              <div class="error-info" [hidden]="!certificatefield.errors.required">
+                Please Enter Certificate Number
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-lg-6 percentage">
+            <label>Percentage CGPA</label>
+            <input type= "number" placeholder="Enter percentage / CGPA" required name="Percentage" [(ngModel)]="Quali.Percentage" #Percentages="ngModel">
+            <div *ngIf="Percentages.errors && (Percentages.dirty||Percentages.touched)">
+              <div class="error-info" [hidden]="!Percentages.errors.required">
+                Please Enter Percentage / CGPA
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-lg-6 document">
+            <label>Upload Qualification Document</label>
+            <div class="file__cont">
+              <input (change)="fileChangeEvent3($event)" accept="image/*,.pdf" type="file" class="inputfile inputfile-1" [(ngModel)]="Quali.files"
+                #fileName="ngModel" type="file" name="qualiFiles" />
+              <label for="file-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                  <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+                  />
+                </svg>
+                <span>{{qualificationDoc||'Upload file'}}</span>
+              </label>
+            </div>
+            <div class="max-size">
+              <span style="color:red">*</span> &nbsp;PDF,PNG,JPEG - Max 3mb</div>
+            <div *ngIf="fileName.errors && (fileName.dirty||fileName.touched)">
+              <div class="error-info" [hidden]="!fileName.errors.required">
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 btn-cont">
+            <button type="submit" [ngClass]="{'checkoutbutton':QualificationForm.valid,'qualification-button':true}" [disabled]="!QualificationForm.valid">Continue</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #template1>
+    <div class="modal-header">
+      <h4 class="modal-title text-center header-log">Add Work Experience</h4>
+      <button type="button" class="close " aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <form novalidate id="step-1" #WorkExpForm="ngForm" (ngSubmit)="Formsave2(WorkExpForm.value)">
+          <div class="col-xs-6 col-sm-3 col-lg-6 medium govt-emp">
+            <label>
+              <input type="checkbox" class="col-lg-2" name="govtEmp" [(ngModel)]="exp.govtEmp" #EmpVal="ngModel">Is Govt. Employee?</label>
+            <div class="col-lg-10"></div>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-lg-6 percentage org-name">
+            <label>Organisation Name</label>
+            <input type="text" placeholder="Enter organisation name" required name="OrgName" [(ngModel)]="exp.OrgName" #Organisation="ngModel">
+            <div *ngIf="Organisation.errors && (Organisation.dirty||Organisation.touched)">
+              <div class="error-info" [hidden]="!Organisation.errors.required">
+                Please Enter Organisation Name
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-lg-6 college_name">
+            <label>Designation</label>
+            <input type="text" class="" placeholder="Enter Designation" required name="designation" [(ngModel)]="exp.designation" #Designation="ngModel">
+            <div *ngIf="Designation.errors && (Designation.dirty||Designation.touched)">
+              <div class="error-info" [hidden]="!Designation.errors.required">
+                Please Enter Designation
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-lg-6 date_result">
+            <label>Work From</label>
+            <input type="text" class="" [maxDate]="maxDate" placeholder="Work from" #dp="bsDatepicker" bsDatepicker required name="Datevalue1"
+              [(ngModel)]="exp.Datevalue1" #DateSelect="ngModel">
+            <div *ngIf="DateSelect.errors && (DateSelect.dirty||DateSelect.touched)">
+              <div class="error-info" [hidden]="!DateSelect.errors.required">
+                Please From Date
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-lg-6 date_result">
+            <label>Work To</label>
+            <input type="text" class="" [maxDate]="maxDate" placeholder="Work to" #dp="bsDatepicker" bsDatepicker required name="Datevalue2"
+              [(ngModel)]="exp.Datevalue2" #DateSelect2="ngModel">
+            <div *ngIf="DateSelect2.errors && (DateSelect2.dirty||DateSelect2.touched)">
+              <div class="error-info" [hidden]="!DateSelect2.errors.required">
+                Please Select To Date
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-lg-6">
+          </div>
+          <div class="col-xs-6 col-sm-3 col-lg-6 document">
+            <label>Upload Work Document</label>
+            <div class="file__cont">
+              <input (change)="fileChangeEvent4($event)" accept="image/*,.pdf" type="file" class="inputfile inputfile-1" [(ngModel)]="exp.files"
+                #fileName1="ngModel" type="file" name="workFiles" />
+              <label for="file-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                  <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+                  />
+                </svg>
+                <span>{{workDoc||'Upload File'}}</span>
+              </label>
+            </div>
+            <div class="max-size">
+              <span style="color:red">*</span> &nbsp;PDF,PNG,JPEG - Max 3mb</div>
+            <!-- <input accept="image/*,.doc,.docx,.pdf" class="doc_upload" name="files" required="" [(ngModel)]="exp.files" #fileName="ngModel"
+              type="file"> -->
+            <div *ngIf="fileName1.errors && (fileName1.dirty||fileName1.touched)">
+              <div class="error-info" [hidden]="!fileName1.errors.required">
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 btn-cont">
+            <button type="submit" [ngClass]="{'checkoutbutton':WorkExpForm.valid,'work-exp-button':true}" [disabled]="!WorkExpForm.valid"
+              (click)="modalRef.hide()">Continue</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ng-template>
+  <div class="row header col-lg-12">Apply for Job</div>
+  <div class="row career-apply-portal">
+    <div class="row personal-info additional-info custom__accordian">
+      <div class="row col-lg-12 sec-name" (click)="showPersonal=!showPersonal">
+        <span> Personal Info</span>
+        <span *ngIf="donePersonal">
+          <i class="fa fa-check"></i>
+        </span>
+        <div class="editDiv" *ngIf="showEdit" (click)="edit()">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="accordian__cont" *ngIf="showPersonal">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-lg-12 salutation">
+            <div class="col-lg-4 col-xs-6 col-sm-4">
+              <label for="">Salutation</label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+              <div class="selectdiv">
+                <select name="salutation" [(ngModel)]="salutation" [disabled]="donePersonal">
+                  <option *ngFor="let s of salutationList" [ngValue]="s"> {{s.name}} </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="first-name-sec col-xs-12 col-sm-4">
+            <label>First Name</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <input [disabled]="donePersonal" type="text" class="name-field" placeholder="Enter name" [(ngModel)]="fname" #fname1="ngModel"
+              required>
+            <div *ngIf="fname1.invalid && (fname1.dirty || fname1.touched)" class="caution">
+              First name is required
+            </div>
+          </div>
+          <div class="middle-name-sec col-xs-12 col-sm-4">
+            <label>Middle Name</label>
+            <input [disabled]="donePersonal" type="text" class="name-field" placeholder="Enter name" [(ngModel)]="mname">
+          </div>
+          <div class="last-name-sec col-xs-12 col-sm-4">
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <label>Last Name</label>
+            <input [disabled]="donePersonal" type="text" class="name-field" placeholder="Enter name" [(ngModel)]="lname" required #lname1="ngModel">
+            <div *ngIf="lname1.invalid && (lname1.dirty || lname1.touched)" class="caution">
+              Last name is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="age-sec col-xs-12 col-sm-4">
+            <label>Age</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <input [disabled]="donePersonal" type="text" pattern="[1-9][0-9]{0,2}" class="age-field" placeholder="Enter age" [(ngModel)]="age"
+              #age1="ngModel" minlength="1" maxlength="3" (keypress)="isNumber($event)">
+            <div class="caution" *ngIf="age1.invalid && (age1.dirty || age1.touched)">
+              Please enter a valid age
+            </div>
+          </div>
+          <div class="gender-sec col-xs-12 col-sm-4">
+            <label>Gender</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="donePersonal" name="gender" [(ngModel)]="gender">
+                <option *ngFor="let g of genderList" [ngValue]="g.id"> {{g.name}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="dob-sec col-xs-12 col-sm-4">
+            <label>Date Of Birth</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <input [disabled]="donePersonal" type="text" class="" [maxDate]="maxDate" placeholder="Enter date of birth" #dp="bsDatepicker"
+              bsDatepicker [(ngModel)]="dobValue">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-4">
+            <label for="">Marital Status</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="donePersonal" name="maritalstatus" [(ngModel)]="maritalstatus">
+                <option *ngFor="let m of maritalStatus" [ngValue]="m.id"> {{m.name}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="f-name-sec col-xs-12 col-sm-4">
+            <label>Father / Spouse Name</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <input [disabled]="donePersonal" type="text" class="fathername" placeholder="Enter father/spouse name" [(ngModel)]="fathername"
+              #fathername1="ngModel" required>
+            <div *ngIf="fathername1.invalid && (fathername1.dirty || fathername1.touched)" class="caution">
+              Father / Spouse name is required
+            </div>
+          </div>
+          <div class="mothername col-xs-12 col-sm-4">
+            <label>Mother's Name</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <input [disabled]="donePersonal" type="text" class="name-field" placeholder="Enter mother's name" [(ngModel)]="mothername"
+              #mothername1="ngModel" required>
+            <div *ngIf="mothername1.invalid && (mothername1.dirty || mothername1.touched)" class="caution">
+              Mother's name is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-4">
+            <label for="">Mother Tongue</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="donePersonal" name="mothertongue" [(ngModel)]="mothertongue">
+                <option *ngFor="let m of motherTongueList" [ngValue]="m.id"> {{m.name}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="panNo col-xs-12 col-sm-4">
+            <label>PAN No.</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <input [disabled]="donePersonal" type="text" class="pan-no-field" minlength="10" maxlength="10" (ngModelChange)="verifyPanNumber($event)"
+              placeholder="Enter pan number" [(ngModel)]="panNo">
+            <div class="caution" *ngIf="showPanCaution">
+              Please enter a valid PAN number
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4">
+            <label for="">Country</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="donePersonal" name="examcountry" [(ngModel)]="personalCountry" (ngModelChange)="onCountryChange($event,'personalfirstrow')">
+                <option disabled [attr.selected]="true" value=null>Select country</option>
+                <option *ngFor="let e of countryList" [ngValue]="e"> {{e.placeName}} </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-4">
+            <label for="">State</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="donePersonal" [(ngModel)]="applyState3">
+                <option *ngFor="let c of careerStateList3" [ngValue]="c"> {{c.placeName}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="aadhar col-xs-12 col-sm-4">
+            <label>Aadhaar Number</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <input minlength="12" maxlength="12" [disabled]="donePersonal" type="text" class="aadhar-field" (ngModelChange)="verifyAadharNumber($event)"
+              placeholder="Enter aadhar number" [(ngModel)]="aadhar" (keypress)="isNumber($event)">
+            <div class="caution" *ngIf="showAadharCaution">
+              Please enter a valid aadhaar number
+            </div>
+          </div>
+          <div class="email-id-sec col-xs-12 col-sm-4">
+            <label>Email Id</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <input type="e-mail" class="form-control" [disabled]="donePersonal" placeholder="Enter email" name="email1" [(ngModel)]="email"
+              #email1="ngModel" required pattern="[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
+            <div *ngIf="email1.invalid && (email1.dirty || email1.touched)" class="caution">
+              <div *ngIf="email1?.errors.required"> Email is required.
+
+              </div>
+              <div *ngIf="email1.errors && email1?.errors.pattern"> Please enter a valid Email Id</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-4">
+            <label for="">Exam Center</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="donePersonal" name="examcenter" [(ngModel)]="examcenter">
+                <option *ngFor="let e of examCenterList" [ngValue]="e.id"> {{e.name}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="mobile-sec col-xs-12 col-sm-4">
+            <label>Mobile Number</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <input [disabled]="donePersonal" type="text" pattern="[6789][0-9]{9}" minlength="10" maxlength="10" [(ngModel)]="mnumber"
+              (keypress)="isNumber($event)" placeholder="Mobile Number" #mobilenumber="ngModel">
+            <div class="caution" *ngIf="mobilenumber.invalid && (mobilenumber.dirty || mobilenumber.touched)">
+              Please enter a valid mobile number
+            </div>
+            <!-- <input min="10" max="10" [disabled]="donePersonal" type="number" class="mobile-field" (ngModelChange)="verifyMobileNumber($event)"
+            placeholder="Enter mobile number" [(ngModel)]="mnumber"> -->
+
+          </div>
+          <div class="col-xs-6 col-sm-4 left-align">
+            <label>Upload Photo</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="file__cont">
+              <input accept="image/*,.pdf" type="file" [disabled]="donePersonal" (change)="fileChangeEvent($event)" class="inputfile inputfile-1"
+              />
+              <label for="file-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                  <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+                  />
+                </svg>
+                <span>{{photoFileName||'Upload file'}}</span>
+              </label>
+            </div>
+            <div class="max-size">
+              <span style="color:red">*</span> &nbsp;PDF,PNG,JPEG - Max 3mb</div>
+            <!-- <input [disabled]="donePersonal" accept="image/*,.doc,.docx,.pdf" class="doc_upload photo_upload" (change)="fileChangeEvent($event)"
+            name="photoFiles" required="" type="file"> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-4 left-align">
+            <label>Upload Signature</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="file__cont">
+              <input accept="image/*,.pdf" type="file" [disabled]="donePersonal" (change)="fileChangeEvent1($event)" class="inputfile inputfile-1"
+              />
+              <label for="file-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                  <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+                  />
+                </svg>
+                <span>{{signatureFileName||'Upload file'}}</span>
+              </label>
+            </div>
+            <div class="max-size">
+              <span style="color:red">*</span> &nbsp;PDF,PNG,JPEG - Max 3mb</div>
+            <!-- <input [disabled]="donePersonal" accept="image/*,.doc,.docx,.pdf" class="doc_upload sign_upload" (change)="fileChangeEvent1($event)"
+            name="signFiles" required="" type="file"> -->
+          </div>
+        </div>
+        <div class="row submit-personal-info">
+          <button [disabled]="donePersonal" class="buybutton btn-continue" (click)="submitPersonalInfo()">Save & Continue</button>
+          <div class="caution mandCaution" *ngIf="showMandCaution">
+            Please enter all the mandatory field values
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row additional-info custom__accordian">
+      <div class="row col-lg-12 sec-name" (click)="showAdditional=!showAdditional">
+        <span>Additional Info</span>
+        <span *ngIf="doneAdditional">
+          <i class="fa fa-check"></i>
+        </span>
+        <div class="editDiv" *ngIf="showEdit1" (click)="edit1()">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div *ngIf="showAdditional" class="accordian__cont ">
+        <div>
+          <h1 class="sec-name1 col-lg-12 add-info">Present address</h1>
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <label for="">Address Line1 </label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+              <input [disabled]="doneAdditional" required type="text" class="address-line col-lg-4" maxlength="20" placeholder="Address Line 1"
+                [(ngModel)]="pAddLine1" #pAddLine11="ngModel">
+              <div *ngIf="pAddLine11.invalid && (pAddLine11.dirty || pAddLine11.touched)" class="caution">
+                Address line1 is required
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <label for="">Address Line2 </label>
+
+              <input [disabled]="doneAdditional" type="text" class="address-line col-lg-4" maxlength="25" placeholder="Address Line 2"
+                [(ngModel)]="pAddLine2">
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <label for="">Address Line3 </label>
+              <input [disabled]="doneAdditional" type="text" class="address-line col-lg-4" placeholder="Address Line 3" [(ngModel)]="pAddLine3">
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <label for="">Country</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="doneAdditional" name="applyCountry" [(ngModel)]="applyCountry" (ngModelChange)="onCountryChange($event, 'personal')">
+                <option *ngFor="let c of countryList" [ngValue]="c"> {{c.placeName}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <label for="">State</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="doneAdditional" [(ngModel)]="applyState" (ngModelChange)="onStateChange($event, 'personal')">
+                <option *ngFor="let c of careerStateList" [ngValue]="c"> {{c.placeName}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <label for="">District</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="doneAdditional" [(ngModel)]="applyDistrict" (ngModelChange)="onDistrictChange($event, 'additional')">
+                <option *ngFor="let c of careerDistrictList" [ngValue]="c"> {{c.placeName}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <label for="">Taluk</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="doneAdditional" [(ngModel)]="applyTaluk" (ngModelChange)="onTalukChange($event, 'personal')">
+                <option *ngFor="let c of careerTalukList" [ngValue]="c"> {{c.placeName}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <label for="">Village</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="doneAdditional" [(ngModel)]="applyVillage">
+                <option *ngFor="let c of careerVillageList" [ngValue]="c"> {{c.placeName}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <label for="">Pincode</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <input [disabled]="doneAdditional" (keypress)="isNumber($event)" minlength="6" maxlength="6" required placeholder="Enter pincode"
+              name="Pincode" [(ngModel)]="pPincode" type="text" class="address-line col-lg-4" #pincode1="ngModel">
+
+            <div *ngIf="pincode1.errors && (pincode1.dirty||pincode1.touched)">
+
+              <div class="error-info">
+                Please enter 6 digit pincode
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="row permanent">
+          <h1 class="sec-name1 col-lg-12 add-info">Permanent address</h1>
+          <div class="col-xs-12">
+            <div class="form-group-ck">
+              <input type="checkbox" id="html" (change)="onSameAsPresent($event)">
+              <label for="html">Same as present address</label>
+            </div>
+          </div>
+          <div *ngIf="!sameAsPresent">
+            <div class="col-xs-12 col-sm-4">
+              <label for="">Address Line1 </label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+
+              <input [disabled]="doneAdditional" required type="text" class="address-line col-lg-4" maxlength="20" placeholder="Address Line 1"
+                [(ngModel)]="prAddLine1" #prAddLine11="ngModel">
+              <div *ngIf="prAddLine11.invalid && (prAddLine11.dirty || prAddLine11.touched)" class="caution">
+                Address line1 is required
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <label for="">Address Line2 </label>
+              <input [disabled]="doneAdditional" [(ngModel)]="prAddLine2" type="text" class="address-line col-lg-4" maxlength="25" placeholder="Address Line 2">
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <label for="">Address Line3 </label>
+              <input [disabled]="doneAdditional" [(ngModel)]="prAddLine3" type="text" class="address-line col-lg-4" placeholder="Address Line 3">
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <label for="">Country</label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+              <div class="selectdiv">
+                <select [disabled]="doneAdditional" [(ngModel)]="applyCountry1" (ngModelChange)="onCountryChange($event, 'permanent')">
+                  <option *ngFor="let c of countryList" [ngValue]="c"> {{c.placeName}} </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <label for="">State</label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+              <div class="selectdiv">
+                <select [disabled]="doneAdditional" [(ngModel)]="applyState1" (ngModelChange)="onStateChange($event, 'permanent')">
+                  <option *ngFor="let c of careerStateList1" [ngValue]="c"> {{c.placeName}} </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <label for="">District</label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+              <div class="selectdiv">
+                <select [disabled]="doneAdditional" [(ngModel)]="applyDistrict1" (ngModelChange)="onDistrictChange($event, 'permanent')">
+                  <option *ngFor="let c of careerDistrictList1" [ngValue]="c"> {{c.placeName}} </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <label for="">Taluk</label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+              <div class="selectdiv">
+                <select [disabled]="doneAdditional" [(ngModel)]="applyTaluk1" (ngModelChange)="onTalukChange($event,'permanent')">
+                  <option *ngFor="let c of careerTalukList1" [ngValue]="c"> {{c.placeName}} </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <label for="">Village</label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+              <div class="selectdiv">
+                <select [disabled]="doneAdditional" [(ngModel)]="applyVillage1">
+                  <option *ngFor="let c of careerVillageList1" [ngValue]="c"> {{c.placeName}} </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <label for="">Pincode</label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+              <input [disabled]="doneAdditional" (keypress)="isNumber($event)" minlength="6" maxlength="6" required placeholder="Enter pincode"
+                name="Pincode" [(ngModel)]="prPincode1" type="text" class="address-line col-lg-4" #pincode11="ngModel">
+
+              <div *ngIf="pincode11.errors && (pincode11.dirty||pincode11.touched)">
+
+                <div class="error-info">
+                  Please enter 6 digit pincode
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+        <div class="row community">
+          <h1 class="sec-name1 col-lg-12 add-info">General Information</h1>
+
+          <div class="col-xs-6 col-sm-4 left-align">
+            <label>Religion</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="doneAdditional" [(ngModel)]="religion">
+                <option *ngFor="let c of religionList" [ngValue]="c.id"> {{c.name}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4 left-align">
+            <label>Community</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="doneAdditional" [(ngModel)]="community">
+                <option *ngFor="let c of communityList" [ngValue]="c.id"> {{c.name}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4 left-align">
+            <label>Caste</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="doneAdditional" [(ngModel)]="caste">
+                <option *ngFor="let c of casteList" [ngValue]="c.id"> {{c.name}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4 left-align">
+            <label for="">Community Certificate Number</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <input [disabled]="doneAdditional" max="50" [(ngModel)]="commCertNo" type="text" class="address-line col-lg-4" placeholder="Community certificate number">
+          </div>
+          <div class="col-xs-6 col-sm-4 left-align">
+            <label for="">Community Certificate Date Of Issue</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <input [disabled]="doneAdditional" [(ngModel)]="commCertIssueDate" [maxDate]="maxDate" type="text" class="" placeholder="Enter date of issue"
+              #dp="bsDatepicker" bsDatepicker>
+          </div>
+          <div class="col-xs-6 col-sm-4 left-align">
+            <label for="">Community Certificate Issue Authority</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <input [disabled]="doneAdditional" [(ngModel)]="commCertIssueAuth" type="text" class="address-line col-lg-4" placeholder="Community certificate issue authority">
+          </div>
+          <div class="col-xs-6 col-sm-4 left-align">
+            <label for="">Country</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="doneAdditional" [(ngModel)]="applyCountry2" (ngModelChange)="onCountryChange($event,'community')">
+                <option *ngFor="let c of countryList" [ngValue]="c"> {{c.placeName}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4 left-align">
+            <label>State</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="doneAdditional" [(ngModel)]="applyState2" (ngModelChange)="onStateChange($event,'community')">
+                <option *ngFor="let c of careerStateList2" [ngValue]="c"> {{c.placeName}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4 left-align">
+            <label for="">Community Certificate Issuing District</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="doneAdditional" [(ngModel)]="applyDistrict2" (ngModelChange)="onDistrictChange($event, 'community')">
+                <option *ngFor="let c of careerDistrictList2" [ngValue]="c"> {{c.placeName}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4 left-align">
+            <label for="">Community Certificate Issuing Taluka</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="selectdiv">
+              <select [disabled]="doneAdditional" [(ngModel)]="applyTaluk2">
+                <option *ngFor="let c of careerTalukList2" [ngValue]="c"> {{c.placeName}} </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4 left-align">
+            <label>Community Certificate</label>
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <div class="file__cont">
+              <input accept="image/*,.pdf" type="file" [disabled]="doneAdditional" (change)="fileChangeEvent2($event)" class="inputfile inputfile-1"
+                [(ngModel)]="commCertfiles" name="commCertfiles" />
+              <label for="file-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                  <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+                  />
+                </svg>
+                <span>{{commCertFileName||'Upload file'}}</span>
+              </label>
+            </div>
+            <div class="max-size">
+              <span style="color:red">*</span> &nbsp;PDF,PNG,JPEG - Max 3mb</div>
+          </div>
+          <div class="col-lg-12 submit-additional-info">
+            <button [disabled]="doneAdditional" class="buybutton btn-continue" (click)="submitAdditionalInfo()">Save & Continue</button>
+            <div class="caution mandCaution" *ngIf="showMandCaution1">
+              Please enter all the mandatory field values
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row additional-info custom__accordian">
+      <div class="row col-lg-12 sec-name" (click)="showQualification=!showQualification">
+        <span> Qualification</span>
+        <span *ngIf="doneQualification">
+          <i class="fa fa-check"></i>
+        </span>
+        <div class="editDiv" *ngIf="showEdit2" (click)="edit2()">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="acoordian__cont" *ngIf="showQualification">
+        <div class="row qualification">
+          <div class="add_qualification col-lg-12" *ngIf="showDelete" (click)="openpopUp(template)">
+            <i class="fa fa-plus" aria-hidden="true"></i> Add Qualification
+          </div>
+          <div class="qualification_details col-lg-12" *ngFor="let x of qualification;let i=index;">
+            <div class="col-lg-12 qual">
+              <div class="col-lg-12">
+                <!-- <div class="edit" (click)="openModal(template,x, i)">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </div> -->
+                <div class="delete" *ngIf="showDelete" (click)="DeleteQualification(i, qualificationBlockID)">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="isTamil col-lg-4">
+                <label>Is Tamil medium?</label>
+                <div class="medium">{{x.Medium ? 'Yes' : 'No'}}</div>
+              </div>
+              <div class="Qual_id col-lg-4">
+                <label>Qualification</label>
+                <div class="qualID">{{x.name.name}}</div>
+              </div>
+              <div class="publish_date col-lg-4">
+                <label>Date of result publish</label>
+                <div class="publish-date">{{x.Datevalue | date}}</div>
+              </div>
+              <div class="org_name col-lg-4">
+                <label>College / University Name</label>
+                <div class="publish-date">{{x.college}}</div>
+              </div>
+              <div class="cert_no col-lg-4">
+                <label>Certificate Number</label>
+                <div class="cert-no">{{x.certificate}}</div>
+              </div>
+              <div class="percentage col-lg-4">
+                <label>Percentage / CGPA</label>
+                <div class="per">{{x.Percentage}}</div>
+              </div>
+              <div class="file col-lg-4">
+                <label>Document</label>
+                <div class="per">{{x.files}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row submit-personal-info">
+            <button class="buybutton btn-continue" (click)="continueEducation($event)">Save & Continue</button>
+            <div class="caution mandCaution" *ngIf="showQualificationError">
+              Please add atleast 1 education detail
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row additional-info custom__accordian">
+      <div class="row col-lg-12 sec-name" (click)="showExperience=!showExperience">
+        <span> Work Experience</span>
+        <span *ngIf="doneExperience">
+          <i class="fa fa-check"></i>
+        </span>
+        <div class="editDiv" *ngIf="showEdit3" (click)="edit3()">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="row qualification work-exp accordion__cont" *ngIf="showExperience">
+        <div class="add_qualification col-lg-12" *ngIf="showDelete" (click)="openpopUp1(template1)">
+          <i class="fa fa-plus" aria-hidden="true"></i> Add Work Experience
+        </div>
+        <div class="qualification_details col-lg-12" *ngFor="let y of workExp;let i=index;">
+          <div class="col-lg-12 qual">
+            <div class="col-lg-12">
+              <!-- <div class="edit" (click)="openModal1(template1, y, i)">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </div> -->
+              <div class="delete" *ngIf="showDelete" (click)="DeleteExp(i, workBlockID)">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="isTamil col-lg-4">
+              <label>Is Govt. Employee?</label>
+              <div class="medium">{{y.govtEmp ? 'Yes' : 'No'}}</div>
+            </div>
+            <div class="Qual_id col-lg-4">
+              <label>Organisation Name</label>
+              <div class="qualID">{{y.OrgName}}</div>
+            </div>
+            <div class="org_name col-lg-4">
+              <label>Designation</label>
+              <div class="publish-date">{{y.designation}}</div>
+            </div>
+            <div class="publish_date col-lg-4">
+              <label>Work From</label>
+              <div class="publish-date">{{y.Datevalue1 | date}}</div>
+            </div>
+            <div class="publish_date col-lg-4">
+              <label>Work To</label>
+              <div class="publish-date">{{y.Datevalue2 | date}}</div>
+            </div>
+            <div class="file col-lg-4">
+              <label>Document</label>
+              <div class="per">{{y.files}}</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row submit-personal-info">
+          <button class="buybutton btn-continue" (click)="continueWork($event)">Save & Continue</button>
+        </div>
+      </div>
+    </div>
+    <div class="row additional-info priority-info custom__accordian">
+      <div class="row col-lg-12 sec-name" (click)="showPriorityClass=!showPriorityClass">
+        <span> Apply for Priority / Non Priority Class</span>
+        <span *ngIf="donePriorityClass">
+          <i class="fa fa-check"></i>
+        </span>
+        <div class="editDiv" *ngIf="showEdit4" (click)="edit4()">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="accordian__cont" *ngIf="showPriorityClass">
+        <div>
+          <div class="row">
+            <div class="priority-sec col-xs-12 col-sm-4 left-align">
+              <label>Priority/Non Priority Name</label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+              <div class="selectdiv">
+                <select [disabled]="disPriority" name="priorityName" [(ngModel)]="priorityName" (ngModelChange)="onPriorityChange($event)">
+                  <option *ngFor="let g of priorityLists" [ngValue]="g.value"> {{g.name}} </option>
+                </select>
+              </div>
+            </div>
+            <div class="priority-sec col-xs-12 col-sm-4 left-align">
+              <label>Priority List</label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+              <div class="selectdiv">
+                <select [disabled]="disPriority" name="priorityList" [(ngModel)]="priorityList">
+                  <option *ngFor="let g of priorityNameLists" [ngValue]="g.id"> {{g.name}} </option>
+                </select>
+              </div>
+            </div>
+            <div class="priority-list-sec col-xs-12 col-sm-4 left-align">
+              <label>Certificate Number</label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+              <input maxlength="100" [disabled]="disPriority" type="text" class="name-field" placeholder="Enter name" [(ngModel)]="pCertNo">
+            </div>
+          </div>
+          <div class="row">
+            <div class="priority-date-sec col-xs-12 col-sm-4 left-align">
+              <label>Date Of Issue</label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+              <input [disabled]="disPriority" type="text" class="" [maxDate]="maxDate" placeholder="Enter date of issue" #dp="bsDatepicker"
+                bsDatepicker [(ngModel)]="doiValue">
+            </div>
+            <div class="priority-issue-auth col-xs-12 col-sm-4 left-align">
+              <label>Issuing Authority</label>
+              <i class="fa fa-asterisk" aria-hidden="true"></i>
+              <input [disabled]="disPriority" type="text" class="issue-auth-field" placeholder="Enter issuing authority" [(ngModel)]="issueAuth">
+            </div>
+            <div class="priority-issue-auth col-xs-12 col-sm-4 left-align">
+              <label>Priority Certificate</label>
+              <div class="file__cont">
+
+                <input [disabled]="disPriority" (change)="fileChangeEvent5($event)" accept="image/*,.doc,.docx,.pdf" class="doc_upload inputfile inputfile-1"
+                  name="priCertfiles" required="" type="file">
+
+
+                <label for="file-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                    <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+                    />
+                  </svg>
+                  <span>{{priorityDocName||'Upload file'}}</span>
+                </label>
+              </div>
+              <div class="max-size">
+                <span style="color:red">*</span> &nbsp;PDF,PNG,JPEG - Max 3mb</div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row diffrently-abled">
+
+          <h1 class="sec-name1 col-lg-12">Differently Abled</h1>
+          <div class="accordaian__cont">
+            <div class="row">
+              <div class="diff-abled-sec col-xs-12 col-sm-4 left-align">
+                <label>Are you differently abled person?</label>
+                <i class="fa fa-asterisk" aria-hidden="true"></i>
+                <div>
+                  <input type="radio" [disabled]="disPriority" name="diff-abled" value="yes" (change)="radioChange($event, 'diffabled', 'yes')">
+                  <span>Yes</span>
+                  <input type="radio" [disabled]="disPriority" name="diff-abled" value="no" (change)="radioChange($event, 'diffabled', 'no')">
+                  <span>No</span>
+                </div>
+              </div>
+              <div *ngIf="dffDis" class="row">
+                <div class="diff-desc col-xs-12 col-sm-4 left-align">
+                  <label>Differently-Abled Description</label>
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                  <input type="text" class="diff-abled-field" placeholder="Enter something" [(ngModel)]="abled" [disabled]="!dffDis">
+                </div>
+                <div class="dis-percentage col-xs-12 col-sm-4 left-align">
+                  <label>Percentage of Disability</label>
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                  <input type="text" class="name-field" placeholder="Enter name" [(ngModel)]="perecntDis" [disabled]="!dffDis">
+                </div>
+
+                <div class="row">
+                  <div class="dis-issue-date col-xs-12 col-sm-4 left-align">
+                    <label>Issue Date</label>
+                    <i class="fa fa-asterisk" aria-hidden="true"></i>
+                    <input type="text" [disabled]="!dffDis" class="" [maxDate]="maxDate" placeholder="Enter date of issue" #dp="bsDatepicker"
+                      bsDatepicker [(ngModel)]="disDateValue">
+                  </div>
+                  <div class="dis-cert-no col-xs-12 col-sm-4 left-align">
+                    <label>Certificate Number</label>
+                    <i class="fa fa-asterisk" aria-hidden="true"></i>
+                    <input maxlength="100" type="text" class="name-field" placeholder="Enter name" [(ngModel)]="disCertNo" [disabled]="!dffDis">
+                  </div>
+                  <div class="dis-issue-auth col-xs-12 col-sm-4 left-align">
+                    <label>Issuing Authority</label>
+                    <i class="fa fa-asterisk" aria-hidden="true"></i>
+                    <input type="text" class="name-field" placeholder="Enter name" [(ngModel)]="disIssueAuth" [disabled]="!dffDis">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="dis-cert-no col-xs-12 col-sm-4 left-align">
+                    <label>Disability Certificate</label>
+                    <div class="file__cont">
+
+                      <input (change)="fileChangeEvent6($event)" accept="image/*,.pdf" type="file" class="inputfile inputfile-1" name="disCertfiles"
+                        type="file" [disabled]="!dffDis" />
+                      <label for="file-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                          <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+                          />
+                        </svg>
+                        <span>{{disabilityDocName||'Upload file'}}</span>
+                      </label>
+                    </div>
+                    <div class="max-size">
+                      <span style="color:red">*</span> &nbsp;PDF,PNG,JPEG - Max 3mb</div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row destitute-sec">
+          <h1 class="sec-name1 col-lg-12">Destitue Widow</h1>
+          <div class="accordian__cont">
+            <div class="row">
+              <div class="dest-widow-sec col-xs-12 col-sm-4 left-align">
+                <label>Are you destitute widow?</label>
+                <i class="fa fa-asterisk" aria-hidden="true"></i>
+                <div>
+                  <input type="radio" [disabled]="disPriority" name="destitute" value="yes" (change)="radioChange($event, 'destitute', 'yes')">
+                  <span>Yes</span>
+                  <input type="radio" [disabled]="disPriority" name="destitute" value="no" (change)="radioChange($event, 'destitute', 'no')">
+                  <span>No</span>
+                </div>
+              </div>
+              <div *ngIf="destDis" class="row">
+                <div class="dest-cert col-xs-12 col-sm-4 left-align">
+                  <label>Certificate Number</label>
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                  <input maxlength="100" type="text" [disabled]="!destDis" class="dest-cert-field" placeholder="Enter certificate number" [(ngModel)]="destCertNo">
+                </div>
+                <div class="dest-date-no col-xs-12 col-sm-4 left-align">
+                  <label>Date Of Issue</label>
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                  <input type="text" [disabled]="!destDis" class="" [maxDate]="maxDate" placeholder="Enter date of issue" #dp="bsDatepicker"
+                    bsDatepicker [(ngModel)]="destDateValue">
+                </div>
+
+                <div class="row">
+                  <div class="dest-auth col-xs-12 col-sm-4 left-align">
+                    <label>Issuing Authority</label>
+                    <i class="fa fa-asterisk" aria-hidden="true"></i>
+                    <input type="text" [disabled]="!destDis" class="name-field" placeholder="Enter issuing authority" [(ngModel)]="destAuth">
+                  </div>
+                  <div class="dest-auth col-xs-12 col-sm-4 left-align">
+                    <label>Destitute Certificate</label>
+
+                    <div class="file__cont">
+
+
+                      <input [disabled]="!destDis" (change)="fileChangeEvent7($event)" accept="image/*,.doc,.docx,.pdf" class="doc_upload inputfile inputfile-1"
+                        name="destCertfiles" required="" type="file">
+                      <label for="file-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                          <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+                          />
+                        </svg>
+                        <span>{{destituteDocName||'Upload file'}}</span>
+                      </label>
+                    </div>
+                    <div class="max-size">
+                      <span style="color:red">*</span> &nbsp;PDF,PNG,JPEG - Max 3mb</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row servicemen-sec">
+          <h1 class="sec-name1 col-lg-12">Ex-serviceman</h1>
+          <div class="accordian__cont">
+            <div class="row">
+              <div class="serviceman-opt col-xs-12 col-sm-4 left-align">
+                <label>Are you an ex-serviceman?</label>
+                <i class="fa fa-asterisk" aria-hidden="true"></i>
+                <div>
+                  <input type="radio" [disabled]="disPriority" name="serviceman" value="yes" (change)="radioChange($event, 'sericeman', 'yes')">
+                  <span>Yes</span>
+                  <input type="radio" [disabled]="disPriority" name="serviceman" value="no" (change)="radioChange($event, 'sericeman', 'no')">
+                  <span>No</span>
+                </div>
+              </div>
+              <div class="row" *ngIf="serDis">
+                <div class="service-cert col-xs-12 col-sm-4 left-align">
+                  <label>Certificate Number</label>
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                  <input maxlength="100" [disabled]="!serDis" type="text" class="dest-cert-field" placeholder="Enter certificate number" [(ngModel)]="serviceCertNo">
+                </div>
+                <div class="ser-date-no col-xs-12 col-sm-4 left-align">
+                  <label>Date Of Issue</label>
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                  <input [disabled]="!serDis" type="text" class="" [maxDate]="maxDate" placeholder="Enter date of issue" #dp="bsDatepicker"
+                    bsDatepicker [(ngModel)]="serDateValue">
+                </div>
+
+                <div class="row">
+                  <div class="ser-auth col-xs-12 col-sm-4 left-align">
+                    <label>Issuing Authority</label>
+                    <i class="fa fa-asterisk" aria-hidden="true"></i>
+                    <input [disabled]="!serDis" type="text" class="name-field" placeholder="Enter issuing authority" [(ngModel)]="serAuth">
+                  </div>
+                  <div class="ser-cert col-xs-12 col-sm-4 left-align">
+                    <label>Service Certificate</label>
+                    <div class="file__cont">
+
+
+
+                      <input [disabled]="!serDis" accept="image/*,.doc,.docx,.pdf" class="doc_upload" name="serCertfiles" required="" type="file"
+                        class="doc_upload inputfile inputfile-1" (change)="fileChangeEvent8($event)" />
+
+                      <label for="file-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                          <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+                          />
+                        </svg>
+                        <span>{{serviceDocName||'Upload file'}}</span>
+                      </label>
+                    </div>
+                    <div class="max-size">
+                      <span style="color:red">*</span> &nbsp;PDF,PNG,JPEG - Max 3mb</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row submit-information">
+          <button class="buybutton final-submit" (click)="submitOtherInfo()" [disabled]="submitDis">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row submit-information success-apply" *ngIf="showApplied">
+  <h2>Successfully Applied!</h2>
+
+</div>

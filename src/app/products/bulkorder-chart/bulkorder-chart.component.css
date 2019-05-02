@@ -1,0 +1,91 @@
+@media screen and (min-width: 320px) {
+   .modal fade in {
+       text-align: -webkit-center;
+   }
+.sizechartButton{
+  border: none;
+  background-color: transparent;
+}
+   .modal-body {
+    padding: 0;
+}
+
+    .modal-header {
+    padding: 15px 15px 0px 0px;
+    border-bottom: 0px solid #e5e5e5;
+}
+
+   p {
+     font-family: 'Muli-SemiBold';
+  font-size: 22px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #393939;
+  margin-left: 24px;
+}
+
+    .modal-dialog {
+    width: 300px;
+    text-align: center;
+    }
+
+    .fade.in {
+    text-align: -webkit-center;
+}
+
+    img {
+    width: 250px;
+    height: 480px;
+}
+}
+
+
+@media screen and (min-width: 767px) {
+   .modal-header {
+    padding: 15px 15px 0px 0px;
+    border-bottom: 0px solid #e5e5e5;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+p {
+     font-family: 'Muli-SemiBold';
+  font-size: 31px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #393939;
+  margin-left: 0px;
+}
+
+.modal-dialog {
+    text-align: left;
+    width: 446px;
+}
+
+.modal-header button {
+    color: #cd1517;
+}
+
+.modal-content {
+    padding-left: 41px;
+}
+
+img {
+    width: 364px;
+    height: 480px;
+}
+}
+
+
+
+

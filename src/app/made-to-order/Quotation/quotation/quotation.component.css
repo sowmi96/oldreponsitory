@@ -1,0 +1,485 @@
+@media all and (min-width: 320px) {
+  div {
+    -webkit-print-color-adjust: exact;
+  }
+  .text-info {
+    margin-bottom: 20px;
+  }
+  .a {
+    grid-area: a;
+  }
+  .b {
+    grid-area: b;
+  }
+  .c {
+    grid-area: c;
+  }
+  .d {
+    grid-area: d;
+  }
+  .e {
+    grid-area: e;
+  }
+  .t1 {
+    grid-area: t1;
+    text-align: left;
+  }
+  .t2 {
+    grid-area: t2;
+  }
+  .t3 {
+    grid-area: t3;
+  }
+  .t4 {
+    grid-area: t4;
+  }
+  .d1 {
+    grid-area: d1;
+  }
+  .d2 {
+    grid-area: d2;
+  }
+  .d3 {
+    grid-area: d3;
+  }
+  .d4 {
+    grid-area: d4;
+  }
+  .quotation-card > div {
+    border: 1px solid lightgray;
+  }
+  .button-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .header-wrapper {
+    background-color: #3cb371;
+    color: white;
+    font-weight: 600;
+  }
+  .info-wrapper {
+    padding-left: 25px;
+    text-align: left;
+  }
+  .productdetail {
+    height: 200px;
+    border-bottom: 1px solid lightgray;
+  }
+  .quotation-card {
+    display: grid;
+    grid-template-columns: auto auto;
+
+    grid-auto-rows: auto;
+    grid-gap: 10px;
+    grid-template-areas:
+      "a a a a a a a a a a a a"
+      "b b b b b b b b b b b b"
+      "c c c c c c c c c c c c"
+      "d d d d d d d d d d d d"
+      "e e e e e e e e e e e e";
+  }
+  .quotation-details {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: 1px solid lightgray;
+  }
+
+  .info-title {
+    background-color: black;
+    height: 25px;
+    color: white;
+    padding-left: 20px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .data-info {
+    padding-top: 30px;
+    padding-left: 10px;
+    color: black;
+    text-align: left;
+    padding-left: 25px;
+  }
+
+  th,
+  td {
+    padding: 5px;
+    text-align: left;
+  }
+
+  .quotation-data {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+
+    grid-gap: 10px;
+  }
+  .quotation-data > div {
+    background-color: white;
+    border: 1px solid lightgray;
+  }
+
+  .heading {
+    color: white;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 20px;
+    background-color: #3cb371;
+
+    border-bottom: 1px solid white;
+  }
+  .info {
+    padding-left: 20px;
+    font-weight: 600;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .material {
+    text-align: right;
+    background-color: lightgray;
+    padding-right: 50px;
+    margin: 20px 0px;
+    margin-bottom: 0px;
+    font-weight: 600;
+  }
+  .quotation-title {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .table-wrapper {
+    padding: 0px;
+  }
+  .gst-title {
+    text-align: left;
+    border: 1px solid lightgray;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .no-border {
+    border: 0px;
+  }
+  .total-row {
+    background-color: lightgray;
+  }
+  .final-info {
+    text-align: left;
+  }
+  .final-wrapper > div {
+    min-height: 30px;
+  }
+  .final-wrapper {
+    margin-top: 25px;
+  }
+  div.title {
+    background-color: #8e908f;
+    display: flex;
+    align-items: center;
+  }
+
+  .grid-layout {
+    display: grid;
+    grid-template-columns: auto auto;
+
+    grid-auto-rows: min-content;
+    grid-gap: 1px;
+    grid-template-areas:
+      "t1 t1 t1 t1  d1 d1 d1 d1 d1 d1 d1 d1"
+      "t2 t2 t2 t2 d2 d2 d2 d2 d2 d2 d2 d2"
+      "t3 t3 t3 t3 d3 d3 d3 d3 d3 d3 d3 d3"
+      "t4 t4 t4 t4 d4 d4 d4 d4 d4 d4 d4 d4";
+    border-top: 1px solid lightgray;
+  }
+  .grid-layout > div {
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    padding-left: 20px;
+    border-bottom: 1px solid lightgray;
+  }
+  .d1,
+  .d2,
+  .d3,
+  .d4 {
+    font-weight: normal !important;
+    color: black !important;
+  }
+  .fontadd {
+    font-weight: 600;
+  }
+}
+
+@media all and (min-width: 768px) {
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  .text-info {
+    margin-bottom: 0px;
+  }
+  .final-wrapper {
+    margin-top: 0px;
+  }
+  .quotation-card {
+    grid-template-areas:
+      "a a a a a a b b b b b b"
+      "c c c c  d d d d  e e e e";
+    grid-auto-rows: 150px auto;
+  }
+  .info-title {
+    padding-left: 35px;
+  }
+  .quotation-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: min-content;
+  }
+  .table-wrapper {
+    margin-top: 10px;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .quotation-data {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media print {
+  div {
+    -webkit-print-color-adjust: exact;
+  }
+  .a {
+    grid-area: a;
+  }
+  .b {
+    grid-area: b;
+  }
+  .c {
+    grid-area: c;
+  }
+  .d {
+    grid-area: d;
+  }
+  .e {
+    grid-area: e;
+  }
+  .t1 {
+    grid-area: t1;
+    text-align: left;
+  }
+  .t2 {
+    grid-area: t2;
+  }
+  .t3 {
+    grid-area: t3;
+  }
+  .t4 {
+    grid-area: t4;
+  }
+  .d1 {
+    grid-area: d1;
+  }
+  .d2 {
+    grid-area: d2;
+  }
+  .d3 {
+    grid-area: d3;
+  }
+  .d4 {
+    grid-area: d4;
+  }
+  .quotation-card > div {
+    border: 1px solid lightgray !important;
+  }
+  .button-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .header-wrapper {
+    background-color: #3cb371 !important;
+    -webkit-print-color-adjust: exact;
+    color: white !important;
+    font-weight: 600;
+  }
+  .quotation-card {
+    display: grid;
+    grid-template-columns: auto auto;
+
+    grid-auto-rows: 150px auto;
+    grid-gap: 10px;
+    grid-template-areas:
+      "a a a a a a a a a a a a"
+      "b b b b b b b b b b b b"
+      "c c c c c c c c c c c c"
+      "d d d d d d d d d d d d"
+      "e e e e e e e e e e e e";
+  }
+  .quotation-details {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: 1px solid lightgray !important;
+  }
+
+  .info-title {
+    background-color: black !important;
+    height: 25px;
+    color: white !important;
+    padding-left: 20px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .data-info {
+    padding-top: 30px;
+    padding-left: 10px;
+    color: black !important;
+    text-align: left;
+    font-weight: 600;
+    padding-left: 25px;
+  }
+
+  th,
+  td {
+    padding: 5px;
+    text-align: left;
+  }
+
+  .quotation-data {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+
+    grid-gap: 10px;
+  }
+  .quotation-data > div {
+    background-color: white !important;
+    border: 1px solid lightgray !important;
+  }
+
+  .heading {
+    color: white !important;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 20px;
+    background-color: #3cb371 !important;
+    -webkit-print-color-adjust: exact;
+    border-bottom: 1px solid white;
+  }
+  .info {
+    padding-left: 20px;
+    font-weight: 600;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .material {
+    text-align: right;
+    background-color: lightgray !important;
+    padding-right: 50px;
+    margin: 20px 0px;
+    margin-bottom: 0px;
+    font-weight: 600;
+  }
+  .quotation-title {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .table-wrapper {
+    padding: 0px;
+  }
+  .gst-title {
+    text-align: left;
+    border: 1px solid lightgray;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .no-border {
+    border: 0px;
+  }
+  .total-row {
+    background-color: lightgray;
+  }
+  .final-info {
+    text-align: left;
+  }
+  .final-wrapper > div {
+    min-height: 30px;
+  }
+  .final-wrapper {
+    margin-top: 25px;
+  }
+  div.title {
+    background-color: #8e908f;
+    display: flex;
+    align-items: center;
+  }
+
+  .grid-layout {
+    display: grid;
+    grid-template-columns: auto auto;
+
+    grid-auto-rows: min-content;
+    grid-gap: 1px;
+    grid-template-areas:
+      "t1 t1 t1 t1  d1 d1 d1 d1 d1 d1 d1 d1"
+      "t2 t2 t2 t2 d2 d2 d2 d2 d2 d2 d2 d2"
+      "t3 t3 t3 t3 d3 d3 d3 d3 d3 d3 d3 d3"
+      "t4 t4 t4 t4 d4 d4 d4 d4 d4 d4 d4 d4";
+    border-top: 1px solid lightgray;
+  }
+  .grid-layout > div {
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    padding-left: 20px;
+    border-bottom: 1px solid lightgray;
+  }
+  .d1,
+  .d2,
+  .d3,
+  .d4 {
+    font-weight: normal !important;
+    color: #000000 !important;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  .final-wrapper {
+    margin-top: 0px;
+  }
+  .quotation-card {
+    grid-template-areas:
+      "a a a a a a b b b b b b"
+      "c c c c  d d d d  e e e e";
+    grid-auto-rows: 150px auto;
+  }
+  .info-title {
+    padding-left: 35px;
+  }
+  .quotation-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: min-content;
+  }
+  .table-wrapper {
+    margin-top: 10px;
+  }
+  .print {
+    display: none !important;
+  }
+}

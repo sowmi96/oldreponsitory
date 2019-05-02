@@ -1,0 +1,573 @@
+.mainDivFooter {
+  margin: 0 auto;
+  /* max-width: 320px; */
+}
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.col-sm-3,
+.col-sm-2,
+.col-sm-9,
+.col-sm-12 {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.footerServiceHeader {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 0px;
+  border-top: 1px solid #bdbdbd;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: 'Muli';
+  font-size: 15px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+}
+.serviceItems {
+  padding-left: 34px;
+  text-align: left;
+}
+.serviceItems > p {
+  cursor: pointer;
+}
+.serviceItems > p > a {
+  color: #393939;
+}
+
+#a1 {
+  border-top: 0px;
+}
+.popularSearchFooter {
+  display: none;
+}
+.paymentAndSecureHead {
+  font-family: 'Muli';
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.1px;
+  color: #393939;
+  margin-bottom: 15px;
+}
+
+.socialIcons {
+  width: 17px;
+  height: 18px;
+  object-fit: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-right: 12px;
+  background-size: contain;
+}
+.fbIcon {
+  background-image: url('/assets/footerImages/facebook.png');
+}
+.twitIcon {
+  background-image: url('/assets/footerImages/twitter.png');
+}
+.instaIcon {
+  background-image: url('/assets/footerImages/instagram.png');
+}
+.ytIcon {
+  background-image: url('/assets/footerImages/youtube.png');
+}
+
+.masterIcon {
+  width: 27px;
+  background-image: url('/assets/footerImages/mastercard.png');
+}
+.visaIcon {
+  width: 46px;
+  background-image: url('/assets/footerImages/visa.png');
+}
+.paypalIcon {
+  width: 47px;
+  background-image: url('/assets/footerImages/paypal.png');
+}
+.paymentIcons {
+  height: 18px;
+  object-fit: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-right: 5px;
+  background-size: contain;
+}
+.securityIcons {
+  object-fit: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-right: 4px;
+  background-size: contain;
+}
+.aexIcon {
+  width: 40px;
+  height: 17px;
+  background-image: url('/assets/footerImages/american-express.png');
+}
+.dinnerClubIcon {
+  width: 40px;
+  height: 22px;
+  background-image: url('/assets/footerImages/diners-club.png');
+}
+.nortonIcon {
+  width: 40px;
+  height: 22px;
+  background-image: url('/assets/footerImages/bitmap.png');
+}
+.lineFooter {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  width: auto;
+  height: 0px;
+  border: 0.3px solid #bdbdbd;
+}
+.shippingFooter {
+  display: none;
+}
+.DHLShipping {
+  display: none;
+}
+.websiteAddress {
+  font-family: 'Muli';
+  font-size: 15px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #393939;
+  padding: 10px 10px;
+  border-top: 0.5px solid #bdbdbd;
+  margin-top: 12px;
+}
+.lineFooterEnding {
+  width: auto;
+  height: 0px;
+  border: 0.5px solid #bdbdbd;
+}
+.copyRightFooter {
+  font-family: 'Muli-Bold';
+  font-size: 8px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.5;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #393939;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.needHelpFooter {
+  font-family: 'Muli';
+  font-size: 15px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+  padding-left: 30px;
+}
+.contactClass {
+  font-family: 'Muli';
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.67;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+  padding-left: 30px;
+}
+.keepInTouchHeadMob {
+  font-family: 'Muli';
+  font-size: 15px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+  text-align: center;
+}
+.keepInTouchHeadMob span {
+  margin-right: 23px;
+}
+.keepInTouchHead {
+  display: none;
+}
+.socialGroupFooter {
+  display: none;
+}
+
+.accrordianArrow {
+  background-image: url('/assets/footerImages/active.png');
+  width: 13px;
+  height: 7px;
+  margin-top: 9px;
+  background-repeat: no-repeat;
+  float: right;
+  display: block;
+}
+.accrordianArrow1 {
+  background-image: url('/assets/footerImages/down-arrow.png');
+  width: 13px;
+  height: 7px;
+  margin-top: 9px;
+  background-repeat: no-repeat;
+  float: right;
+  display: none;
+}
+.hideInMobile1 {
+  margin-top: 0px;
+}
+
+@media only screen and (min-width: 768px) {
+  #footer {
+    background-color: #f6f6f6;
+  }
+  .mainDivFooter {
+    width: 92%;
+    margin: 0 auto;
+    max-width: 940px;
+  }
+
+  .footerServiceHeader {
+    padding-left: 0px;
+    margin-top: 50px;
+    margin-bottom: 18px;
+    /* width: 158px; */
+    height: 24px;
+    font-family: 'Muli';
+    font-size: 15px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.41;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+    border-top: 0px;
+    padding-right: 0px;
+  }
+  .listOfServicesFooter .col-md-9 p {
+    margin-bottom: 20px;
+    font-family: 'Muli';
+    font-size: 8px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #393939;
+  }
+  .servicesFooter {
+    margin-top: 65px;
+  }
+  .keepInTouchHead {
+    width: 113px;
+    height: 24px;
+    font-family: 'Muli';
+    font-size: 15px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.41;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+    display: block;
+  }
+  .socialIcons {
+    width: 17px;
+    height: 18px;
+    object-fit: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-right: 12px;
+    background-size: contain;
+  }
+  .fbIcon {
+    background-image: url('/assets/footerImages/facebook.png');
+  }
+  .twitIcon {
+    background-image: url('/assets/footerImages/twitter.png');
+  }
+  .instaIcon {
+    background-image: url('/assets/footerImages/instagram.png');
+  }
+  .ytIcon {
+    background-image: url('/assets/footerImages/youtube.png');
+  }
+  .socialGroupFooter {
+    margin-top: 12px;
+    text-align: left;
+    display: block;
+  }
+  .lineFooter {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: auto;
+    height: 0px;
+    border: 1px solid #bdbdbd;
+  }
+  .masterIcon {
+    width: 27px;
+    background-image: url('/assets/footerImages/mastercard.png');
+  }
+  .visaIcon {
+    width: 46px;
+    background-image: url('/assets/footerImages/visa.png');
+  }
+  .paypalIcon {
+    width: 47px;
+    background-image: url('/assets/footerImages/paypal.png');
+  }
+  .paymentIcons {
+    height: 18px;
+    object-fit: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-right: 5px;
+    background-size: contain;
+  }
+  .securityGroupFooter {
+    margin-top: 15px;
+    text-align: left;
+  }
+  .securityIcons {
+    object-fit: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-right: 4px;
+    background-size: contain;
+  }
+  .aexIcon {
+    width: 40px;
+    height: 17px;
+    background-image: url('/assets/footerImages/american-express.png');
+  }
+  .dinnerClubIcon {
+    width: 40px;
+    height: 22px;
+    background-image: url('/assets/footerImages/diners-club.png');
+  }
+  .nortonIcon {
+    width: 40px;
+    height: 22px;
+    background-image: url('/assets/footerImages/bitmap.png');
+  }
+  .pop_search_content {
+    text-align: left;
+    font-size: 12px;
+  }
+  .contactClass {
+    text-align: left;
+    padding-top: 0px;
+    padding-left: 0px;
+  }
+  .shippingFooter {
+    width: 145px;
+    height: 24px;
+    font-family: 'Muli';
+    font-size: 15px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.41;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+    display: block;
+  }
+  .DHLShipping {
+    width: 90px;
+    height: 29px;
+    background-image: url('/assets/footerImages/shipping.png');
+    margin-top: 10px;
+    display: block;
+  }
+  .paymentGroupFooter {
+    margin-top: 12px;
+    text-align: left;
+  }
+  .paymentAndSecureHead {
+    height: 24px;
+    font-family: 'Muli';
+    font-size: 15px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.41;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+    margin-bottom: 0px;
+  }
+  .pop_search_heading {
+    width: 139px;
+    height: 24px;
+    font-family: 'Muli';
+    font-size: 17px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.41;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+    margin-bottom: 15px;
+  }
+  .needHelpFooter {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    height: 24px;
+    font-family: 'Muli';
+    font-size: 15px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.41;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+    padding-left: 0px;
+  }
+  .websiteAddress {
+    height: 24px;
+    font-family: 'Muli';
+    font-size: 17px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.41;
+    letter-spacing: 0.1px;
+    text-align: right;
+    color: #393939;
+    position: relative;
+    top: -21px;
+    padding: 0px;
+    border-top: 0px;
+    margin-top: 0px;
+  }
+  .copyRightFooter {
+    text-align: center;
+    padding: 15px 15px;
+    font-family: 'Muli';
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.67;
+    letter-spacing: 0.1px;
+    text-align: center;
+    color: #393939;
+  }
+  .lineFooterEnding {
+    width: auto;
+    height: 0px;
+    border: 1px solid #bdbdbd;
+  }
+  .popularSearchFooter {
+    display: block;
+  }
+  .keepInTouchHeadMob {
+    display: none;
+  }
+  .accrordianArrow {
+    display: none;
+  }
+  .serviceItems {
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .footerServiceHeader {
+    font-size: 17px;
+  }
+  .listOfServicesFooter .col-md-9 p {
+    font-size: 12px;
+  }
+  .pop_search_content {
+    font-size: 12px;
+  }
+
+  .socialIcons {
+    width: 24px;
+    height: 24px;
+    margin-right: 14px;
+  }
+  .securityIcons {
+    margin-right: 14px;
+  }
+  .masterIcon {
+    width: 33px;
+  }
+  .visaIcon {
+    width: 58px;
+  }
+  .paypalIcon {
+    width: 60px;
+  }
+  .paymentIcons {
+    margin-right: 14px;
+  }
+  .nortonIcon {
+    width: 55px;
+    height: 29px;
+  }
+  .aexIcon {
+    width: 49px;
+    height: 17px;
+    background-image: url('/assets/footerImages/american-express.png');
+  }
+  .dinnerClubIcon {
+    width: 47px;
+    height: 33px;
+    background-image: url('/assets/footerImages/diners-club.png');
+  }
+  .nortonIcon {
+    width: 40px;
+    height: 22px;
+    background-image: url('/assets/footerImages/bitmap.png');
+  }
+  .securityIcons {
+    margin-right: 14px;
+  }
+  .lineFooter {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  /* .serviceItems{
+        display: none;
+    } */
+  /* .in{
+        display: block;
+    } */
+  /* }
+        font-size: 17px;
+    } */
+  .paymentAndSecureHead {
+    font-size: 17px;
+  }
+  .shippingFooter {
+    font-size: 17px;
+  }
+  .needHelpFooter {
+    font-size: 17px;
+  }
+}

@@ -1,0 +1,37 @@
+
+	 <h1>Gift Card view</h1>
+	  
+	<div class="knt__login__container">
+		  <div class="knt__login__d1">
+		   
+		     <img src="{{data.image}}" class="gc-design-img-preview" id="gc-standard-design-image"> 
+		    <!-- <img src="../../assets/generic_gift.jpg" alt="Gift Card"> -->
+		    <h2 style="text-align: left;" >Gift Amount : ₹ {{ data.itemAmount }}</h2>
+		    
+		    <h2 >Best Wishes : {{data.message}}</h2>
+		    </div>
+		 
+	    <div class="knt__login__d3">
+	   <form [formGroup]="giftForm" (ngSubmit)="giftFormform(giftForm.value)" class="knt__login__form">
+	      
+	     <label>Name : {{data.name}} </label>
+	     <label>Amount : ₹ {{data.itemAmount}} </label>
+	     <label>Message : {{data.message}} </label>
+	     <label>Mobile : {{data.mobile}} </label>
+		 <label>Email : {{data.toemaill}} </label>
+		 
+	   
+	    
+   
+   
+  
+        <button style="background-color:#2196F3" class="btn btn-primary proceedButton" type="submit" [disabled]="checkoutLoading">{{checkoutLoading?'Redirecting to payment...':'Proceed to payment'}}</button>
+        <button type="button" class="btn btn-primary proceedButton" (click)="goBack(giftForm.value)"  > Go Back </button> 
+       <!--  <button><a href="javascript:void(0)" (click)="goBack()"> Go Back </a></button>  -->
+       </form>
+   </div>
+  
+       </div>
+
+
+  

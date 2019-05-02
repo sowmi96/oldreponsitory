@@ -1,0 +1,136 @@
+
+@media screen and (min-width:360px){
+.review-page{
+    width:310px;
+    margin:0 auto;
+}
+
+
+.review-section{
+    margin-top:41px;
+    border-bottom:1px solid #c8c8c8;
+}
+
+.star-color:hover{
+    color:#ffc405
+}
+#sell{
+    font-size:12px;
+    height:29px;
+    margin-top:11px;
+}
+    .review-heading{
+        height: 25px;
+  font-family:Muli-Bold;
+  font-size: 20px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #393939;
+    }
+    .review-subtitle{
+        border-bottom:3px solid black;
+margin-bottom:0px;
+padding-bottom:37px;
+  height: 24px;
+  font-family: Muli;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+    }
+
+    .review-list{
+        border-bottom:1px solid   #c8c8c8;
+        padding-top:25px;
+        padding-bottom:25px;
+    }
+    .circle-alphabet{
+        width: 32px;
+        height: 32px;
+        border-radius:50%;
+        line-height:2.3;
+        background-color: #a4a767;
+        text-transform: capitalize;
+    }
+    .star-list{
+        text-align:left;
+        padding-left:20px;
+    }
+    .star-color{
+        color: #d8d8d8;
+
+    }
+    .star-text{
+        color: #737373;
+        font-size:12px;
+        display:inline-block;
+        padding-left:15px;
+        font-family:Muli-semiBold;
+    }
+    .user-title{
+        font-family: Muli-Bold;
+       font-size: 14px;
+       line-height: 1.43;
+       font-weight: bold;
+       padding-top:11px;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+  margin:0px;
+    }
+    .user-name{
+        font-family: Muli-SemiBold;
+        font-weight:normal;
+        color: #737373;
+        padding-top:9px;
+
+    }
+    .user-comment{
+        font-size:12px;
+        font-weight:600;
+        padding-top:5px;
+        color: #737373;
+
+    }
+}
+
+@media screen and (min-width:768px){
+.review-page{
+
+    width:700px;
+
+}
+.fa{
+    padding-left:5px;
+} 
+.liked{
+    margin-right:20px;
+}
+.like-symbol{
+    /* text-align:center; */
+    width: 43px;
+  height: 22px;
+  background-color: #f8f8f8;
+  border: solid 1px #e1e1e1;
+  cursor: pointer;
+}
+
+}
+
+@media screen and (min-width:1024px){
+    .review-page{
+    
+        width:940px;
+        
+    }
+    
+    
+    }

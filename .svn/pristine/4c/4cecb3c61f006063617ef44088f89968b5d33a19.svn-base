@@ -1,0 +1,70 @@
+{
+    "review": [
+        {
+          "rating": "5",
+          "reviewtitle": "Very Good Quality",
+          "reviewername": "anjali",
+          "reviewdate": "Mar 30, 2018",
+          "likes": "18",
+          "dislikes": "14",
+          "likecount": "3",
+          "totalreviews": "4",
+          "firstletter":"A"
+        },
+        {
+          "rating": "4",
+          "reviewtitle": "Very Good Quality",
+          "reviewername": "anjali",
+          "reviewdate": "Mar 30, 2018",
+          "likes": "17",
+          "dislikes": "14",
+          "likecount": "3",
+          "totalreviews": "4",
+          "firstletter":"B"
+        },
+        {
+          "rating": "4",
+          "reviewtitle": "Very Good Quality",
+          "reviewername": "anjali",
+          "reviewdate": "Mar 30, 2018",
+          "likes": "17",
+          "dislikes": "14",
+          "likecount": "3",
+          "totalreviews": "4",
+          "firstletter":"B"
+        },
+        {
+          "rating": "3",
+          "reviewtitle": "Very Good Quality",
+          "reviewername": "anjali",
+          "reviewdate": "Mar 30, 2018",
+          "likes": "17",
+          "dislikes": "14",
+          "likecount": "3",
+          "totalreviews": "4",
+          "firstletter":"B"
+        },
+        {
+          "rating": "3",
+          "reviewtitle": "Very Good Quality",
+          "reviewername": "anjali",
+          "reviewdate": "Mar 30, 2018",
+          "likes": "17",
+          "dislikes": "14",
+          "likecount": "3",
+          "totalreviews": "4",
+          "firstletter":"B"
+        },
+        {
+          "rating": "3",
+          "reviewtitle": "Very Good Quality",
+          "reviewername": "anjali",
+          "reviewdate": "Mar 30, 2018",
+          "likes": "17",
+          "dislikes": "14",
+          "likecount": "3",
+          "totalreviews": "4",
+          "firstletter":"B"
+        }
+      ]
+    }

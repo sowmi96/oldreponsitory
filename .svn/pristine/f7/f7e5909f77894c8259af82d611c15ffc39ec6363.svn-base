@@ -1,0 +1,57 @@
+<div class="myOrderOuter">
+
+
+  <div class="inputsOuterMobile">
+
+    <h1 class="message" *ngIf="hidedata">No Order Found</h1>
+    <div class="myOrders" *ngFor="let ord1 of myorder; let i=index; let last = last">
+      <div class="orederId" *ngIf="ord1.myOrderDetailsResponseDTOS.length!==0">
+        <div class="wholeorder">OrderId:{{ord1.id}}</div>
+      </div>
+
+      <div class="order-wrapper" (click)="orderSelect(ord)" *ngFor="let ord of ord1.myOrderDetailsResponseDTOS">
+
+        <div class="orderIdRow">
+          <div class="orderType" [ngClass]="{'orderTypeMade': ord.orderType==='Made To Order','orderTypeBulk': ord.orderType==='Bulk Order'}">{{ord.orderType}}</div>
+          <div class="trackOrderPopup" (mouseenter)="trackOrderPopupShow(ord.id)" (mouseleave)="trackOrderPopupHide(ord.id)">
+            <div id="trackOrderPopupIconId" class="trackOrderPopupIcon"> </div>
+            <div id="{{ord.id}}" class="trackOrderEditGroup">
+              <div class="trackOrderGroup trackOrderButton">Track Order</div>
+              <div class="trackOrderGroup supportButton" (click)="supportFunc($event)">Support</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="orderItemDesc">
+          <div class="orderImg" [style.backgroundImage]="'url('+ord.smallImagePath+')'"></div>
+          <div class="orderItemName">{{ord.title}}</div>
+          <div class="deliveryDate" *ngIf="ord.deliveryDate">
+            Delivered on
+            <span>{{ord.deliveryDate | date: 'dd/MM/yyyy'}}</span>
+            <br>
+          </div>
+          <div class="deliverystatus" *ngIf="ord.orderStatus">
+            <span class="deliveryText">Your item has been {{ord.orderStatus}}</span>
+
+          </div>
+          <div class="orderPriceOuter" *ngIf="ord.orderAmount">
+            Rs.
+            <span class="orderPrice">{{ord.orderAmount}}</span>
+          </div>
+        </div>
+        <div class="orderPriceRow">
+          <div *ngIf="ord.orderedDate">
+            <span class="orderText">Ordered On :</span>
+            <span class="orderedDate">{{ord.orderedDate | date: 'dd/MM/yyyy'}}</span>
+          </div>
+          <div class="orderPriceClassOuter" *ngIf="ord.orderAmount">
+            <span class="orderText">Order Total :</span>
+            <span class="orderedPrice"> Rs. {{ord.orderAmount}}</span>
+          </div>
+        </div>
+
+        <div [ngClass]="{ last: last }" class="horizontalLine"></div>
+      </div>
+    </div>
+  </div>
+</div>

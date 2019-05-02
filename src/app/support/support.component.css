@@ -1,0 +1,100 @@
+.reset-page-header {
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.alert {
+  margin-bottom: 20px;
+}
+.select-category {
+  position: relative;
+}
+select {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+}
+button {
+  outline: none;
+}
+.login {
+  float: right;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 20px;
+  cursor: pointer;
+  width: 100px;
+  display: none;
+}
+.reset-password-header {
+  font-weight: bold;
+  padding-top: 20px;
+  font-size: 20px;
+  background: #be93c5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #be93c5,
+    #7bc6cc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #be93c5,
+    #7bc6cc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding-bottom: 0;
+}
+.select-category::after {
+  content: "\f078";
+  font: normal normal normal 13px/1 FontAwesome;
+  color: #9a9a9a;
+  right: 11px;
+  top: 34px;
+  position: absolute;
+  pointer-events: none;
+}
+.status-text {
+  font-size: 15px;
+  height: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.reset-password {
+  padding: 20px;
+  background: #be93c5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #be93c5,
+    #7bc6cc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #be93c5,
+    #7bc6cc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.reset-password label {
+  float: left;
+}
+.reset-password .form-group {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.reset-password button {
+  background-color: #0086eb;
+  border-color: #0086eb;
+  width: 300px;
+  margin-top: 20px;
+}
+.caution {
+  text-align: left;
+  color: #c41b1f;
+  margin-top: 10px;
+  font-weight: bold;
+}
+select {
+  margin-bottom: 0px;
+  font-weight: normal;
+}
+.error-info {
+  text-align: left;
+}

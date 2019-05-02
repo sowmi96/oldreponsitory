@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="237" key="CommitDialog.location.y"/>
+	<item value="157" key="CommitDialog.location.x"/>
+	<item value="421" key="RevertDialog.location.x"/>
+	<item value="500" key="CommitDialog.weights.0"/>
+	<item value="500" key="CommitDialog.weights.1"/>
+	<item value="108" key="RevertDialog.location.y"/>
+	<item value="425" key="CommitDialog.size.y"/>
+	<item value="1163" key="CommitDialog.size.x"/>
+	<item value="21" key="HistoryTableProvider.SVNHistoryPage.Date"/>
+	<item value="385" key="RevertDialog.size.y"/>
+	<item value="525" key="RevertDialog.size.x"/>
+	<item value="168" key="HistoryTableProvider.SVNHistoryPage.Author"/>
+	<item value="20" key="HistoryTableProvider.SVNHistoryPage.Revision"/>
+	<item value="775" key="HistoryTableProvider.SVNHistoryPage.Comment"/>
+	<section name="CommitWizard">
+		<item value="500" key="VWeight2"/>
+		<item value="500" key="VWeight1"/>
+		<item value="false" key="ShowCompare"/>
+	</section>
+</section>

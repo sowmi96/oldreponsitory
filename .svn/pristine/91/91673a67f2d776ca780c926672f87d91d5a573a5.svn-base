@@ -1,0 +1,68 @@
+<div    *ngIf="hideform" class="alert alert-danger">You don't Have Supplier Details.Please Register to tender</div>
+
+<form   *ngIf="!hideform" class="col-xs-12 col-sm-12" [formGroup]="tenderForm" (ngSubmit)="onSubmit(tenderForm.value)">
+    <div class="row">
+            <p  class="detail co-xs-12">Supplier Details</p>
+
+  <div class="col-xs-12  col-sm-5 wrapper">
+      <label>Supplier Name</label>
+      <input type="text" formControlName="supplier"  [ngClass]="{'no-pointer':allowedit}"  class="form-control" placeholder="Supplier Name"  [(ngModel)]="name" />
+      <div *ngIf="tenderForm.controls['supplier'].errors && tenderForm.controls['supplier'].touched" class="error-msg">
+            <div class="error-info" [hidden]="!tenderForm.controls['supplier'].errors.required">Please Enter Supplier Name.</div>
+
+          </div>
+  
+  </div>
+  <div class="col-xs-12  col-sm-5 wrapper">
+    <label>Account Number</label>
+    <input type="text" formControlName="accountNumber"  [ngClass]="{'no-pointer':allowedit}"  class=" form-control" placeholder="Supplier Account Number" minlength="16" maxlength="16"  [(ngModel)]="accno"/>
+    <div *ngIf="tenderForm.controls['accountNumber'].errors && tenderForm.controls['accountNumber'].touched" class="error-msg">
+            <div class="error-info" [hidden]="!tenderForm.controls['accountNumber'].errors.required">Please Enter Account  No.</div>
+
+            <div class="error-info" [hidden]="!tenderForm.controls['accountNumber'].errors.minlength">Please Enter Minimum 16 digit Accno..</div>
+
+          </div>
+  </div>
+  
+  
+    </div>
+
+
+    <div class="row">
+
+<div class="col-xs-12  col-sm-5 wrapper">
+       <label>Bussiness Type</label>
+
+        <select   [ngClass]="{'no-pointer':allowedit}" class="form-control"  formControlName="BussinessType" [(ngModel)]="Bussiness" >
+                <option selected disabled [value]=null>Select Bussiness Type</option>
+           <option *ngFor="let c of bussinessList" [ngValue]="c.businessTypeId"> {{c.businessTypeCode}} </option>
+        </select>
+          <div *ngIf="tenderForm.controls['BussinessType'].errors && tenderForm.controls['BussinessType'].touched" class="error-msg">
+        <div class="error-info" [hidden]="!tenderForm.controls['BussinessType'].errors.required">Please Select Bussiness Type.</div>
+
+      </div>
+</div>
+<div class="col-xs-12  col-sm-5 wrapper">
+        <label>Supplier Type</label>
+        <select  required   [ngClass]="{'no-pointer':allowedit}" class="form-control"  [(ngModel)]="Supplier" formControlName="SupplierType" >
+                <option selected disabled [value]=null>Select Supplier Type</option>
+           <option *ngFor="let c of SupplierList" [ngValue]="c.supplierTypeId"> {{c.supplierTypeCode}} </option>
+        </select>
+        <div *ngIf="tenderForm.controls['SupplierType'].errors && tenderForm.controls['SupplierType'].touched" class="error-msg">
+        <div class="error-info" [hidden]="!tenderForm.controls['SupplierType'].errors.required">Please Select Supplier Type.</div>
+
+
+      </div>
+</div>
+
+
+</div>
+    <div class="row text-right">
+            <button *ngIf="showbutton" type="button" class="btn" (click)="EditCancel()">cancel</button>
+            <button   *ngIf="!showbutton" type="button" class="btn" (click)="EditField()">Edit</button>
+            <button *ngIf="showbutton"  type="submit" class="btn btn-primary" >Save</button>
+ 
+ 
+           </div>
+  
+    </form>

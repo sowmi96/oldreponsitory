@@ -1,0 +1,226 @@
+<div class="homelanding">
+  <div *ngIf="mainslider.loading">Loading...</div>
+  <div *ngIf="mainslider.error">Error in getting slider images</div>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" *ngIf="!mainslider.loading && !mainslider.error">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" *ngFor="let new of mainslider.content;let i=index" [attr.data-slide-to]="i" [ngClass]="{'active':i==0}"></li>
+    </ol>
+
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner mobile-carousel">
+      <div *ngFor="let slide of mainslider.content; let i = index;" [ngClass]="{'item test':true,'active':i==0}">
+        <img class="main-img" [src]="slide.largeImagePath" alt="Slider Image">
+        <div class="carousel-caption">
+          <h2>{{slide.name}}</h2>
+          <button class="caurosal-button" (click)="mainSlider(slide.ecommMainMenuId)">Shop Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class=" carousel-control  left-one" href="#myCarousel" data-slide="prev">
+      <span class="top-arrows">
+        <img src="/assets/leftarrow.svg" />
+      </span>
+
+    </a>
+    <a class=" carousel-control  right-one" href="#myCarousel" data-slide="next">
+      <span class="top-arrows">
+        <img src="/assets/rightarrow.svg" />
+      </span>
+    </a>
+  </div>
+  <div class="row offer-carousel-wrapper">
+    <div class="image1">
+      <img src="assets/group-3.png" />
+      <h4>Deal for the day</h4>
+    </div>
+
+    <div class="row mainDiv">
+      <div class="col-xs-12 col-sm-7 nopad">
+        <div *ngIf="dealOfTheDay1.loading">Loading...</div>
+        <div *ngIf="dealOfTheDay1.error">Error in getting deals</div>
+        <div *ngIf="!dealOfTheDay1.loading && !dealOfTheDay1.error && dealOfTheDay1.content.length==0">No deals available</div>
+        <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel1" *ngFor="let new of dealOfTheDay1.content;let i=index" [attr.data-slide-to]="i" [ngClass]="{'active':i==0}"></li>
+
+          </ol>
+          <div class="carousel-inner fixed-height">
+            <div *ngFor="let data of dealOfTheDay1.content;let i = index" [ngClass]="{'item':true,'active':i==0}">
+              <div class="col-sm-12 col-xs-12 nopad left-image">
+                <div class="deal1" [ngStyle]="{'background-image':'url('+ data.mediumImagePath +')'}">
+
+                  <!-- <div class="deal1"> -->
+                  <div class="percentage_card">
+                    <div class="percentage_cardBorder">
+                      <p>FLAT {{data.discountPercentage}}% OFF </p>
+                    </div>
+
+                  </div>
+                  <div class="sub">
+                    <h1>{{data.name}}</h1>
+                    <button class="caurosal-button" (click)="dealsDay(data.productId)">Shop Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-5 nopad">
+        <div *ngIf="dealOfTheDay2.loading">Loading...</div>
+        <div *ngIf="dealOfTheDay2.error">Error in getting deals</div>
+        <div *ngIf="!dealOfTheDay2.loading && !dealOfTheDay2.error && dealOfTheDay2.content.length==0">No deals available</div>
+
+        <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel2" *ngFor="let new of dealOfTheDay2.content;let i=index" [attr.data-slide-to]="i" [ngClass]="{'active':i==0}"></li>
+
+          </ol>
+          <div class="carousel-inner slide-height">
+            <div *ngFor="let data of dealOfTheDay2.content;let i = index" [ngClass]="{'item nopad image-content':true,'active':i==0}">
+              <div class="deal2 col-md-12" [ngStyle]="{'background-image':'url('+ data.mediumImagePath +')'}">
+                <!-- <div class="deal2 col-md-12"> -->
+                <div class="percentage_card">
+                  <div class="percentage_cardBorder">
+                    <p>UPTO {{data.discountPercentage}}% OFF </p>
+                  </div>
+                </div>
+                <div class="sub1">
+                  <h2>{{data.name}}</h2>
+                  <button class="caurosal-button" (click)="dealsDay(data.productId)">Shop Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-5 nopad">
+        <div *ngIf="dealOfTheDay3.loading">Loading...</div>
+        <div *ngIf="dealOfTheDay3.error">Error in getting deals</div>
+        <div *ngIf="!dealOfTheDay3.loading && !dealOfTheDay3.error && dealOfTheDay3.content.length==0">No deals available</div>
+
+        <div id="myCarousel3" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel3" *ngFor="let new of dealOfTheDay3.content;let i=index" [attr.data-slide-to]="i" [ngClass]="{'active':i==0}"></li>
+
+          </ol>
+          <div class="carousel-inner slide-height">
+            <div *ngFor="let data of dealOfTheDay3.content;let i = index" [ngClass]="{'item nopad image-content':true,'active':i==0}">
+              <div class="deal2 col-md-12" [ngStyle]="{'background-image':'url('+ data.mediumImagePath +')'}">
+                <!-- <div class="deal2 col-md-12"> -->
+                <div class="percentage_card">
+                  <div class="percentage_cardBorder">
+                    <p>UPTO {{data.discountPercentage}}% OFF </p>
+                  </div>
+                </div>
+                <div class="sub1">
+                  <h2>{{data.name}}</h2>
+                  <button class="caurosal-button" (click)="dealsDay(data.productId)">Shop Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <div class=" arrival-data">
+    <div class="div3 arrival-container">
+      <div class="image1">
+        <img src="assets/group-3.png" />
+        <h4>New Arrivals</h4>
+        <!-- <div class="arrival-viewall" ><button [routerLink]="['/product']">View All</button></div> -->
+      </div>
+      <div *ngIf="newArrival.loading">Loading...</div>
+      <div *ngIf="newArrival.error">Error in getting deals</div>
+      <div *ngIf="!newArrival.loading && !newArrival.error && newArrival.content.length==0">No deals available</div>
+
+      <ngx-carousel class="home__card ngcarousel" [inputs]="carouselTile" *ngIf="newArrival.content.length>0">
+        <ngx-tile NgxCarouselItem *ngFor="let new of newArrival.content" class="home__card1">
+          <div class="card">
+            <img class="card-img-top" [src]="new.mediumImagePath" alt="Card image cap" style="max-width:100%">
+            <div class="card-body">
+              <p class="new-item  new-offer">New</p>
+              <!-- <p class="buy-offer new-offer">{{new.off}}</p> -->
+              <h5 class="card-sarie">{{new.name}}</h5>
+              <p class="purchase-amount">Starts at
+                <span style="color:#59c559">Rs.{{new.actualPrice}}</span>
+              </p>
+              <a class="btn btn-danger shop-button" (click)="arivalDetail(new.productId)">Shop Now</a>
+            </div>
+          </div>
+        </ngx-tile>
+        <button NgxCarouselPrev class='leftRs'>
+          <img class=" home-last" src="/assets/leftarrow.svg" />
+        </button>
+        <button NgxCarouselNext class='rightRs '>
+          <img class=" home-last" src="/assets/rightarrow.svg" />
+        </button>
+      </ngx-carousel>
+    </div>
+  </div>
+  <div class="schemes">
+    <div class="schemas__image"></div>
+    <div class="schemas__content">
+      <h1>Check out our KNT schemes</h1>
+      <!-- <p>Buy a Kanchevaram saree at Rs 100 only</p> -->
+      <button class="button" [routerLink]="['/knt_scheme/login']">View</button>
+    </div>
+  </div>
+  <div class=" div3 shopby-color">
+    <div class="image1">
+      <img src="assets/group-3.png" />
+      <h4>Shop by color</h4>
+    </div>
+    <div class="buttonGroup row ">
+      <div *ngIf="colors.loading">Loading...</div>
+      <div *ngIf="colors.error">'Error in getting colors'</div>
+      <div class=" col-xs-12 col-sm-3 nopad colorCard" *ngFor="let c of colors.content | slice:0:4;">
+        <div class="colorButtonDiv" (click)="setFilterColor(c[0].id)">
+          <div class="colorButton" [style.backgroundColor]="c[0].name">
+          </div>
+          <p>{{c[0].name}}</p>
+        </div>
+        <div class="colorButtonDiv   color-btn-other" (click)="setFilterColor(c[1].id)">
+          <div class="colorButton" [style.backgroundColor]="c[1].name">
+          </div>
+          <p>{{c[1].name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="collection_Saries row">
+    <div *ngIf="collections.loading">Loading...</div>
+    <div class="col-md-6 col-sm-6 col-xs-12  nopad" *ngIf="collections.content.length>0">
+      <div class="saries1 coptex-sarie" [style.backgroundImage]="'url('+ collections.content[0].largeImagePath +')'">
+        <div class="saries1__inside">
+          <h1 class="sarie-info">{{collections.content[0].name}}</h1>
+          <button class="caurosal-button" (click)="collectionsRedirect(collections.content[0].ecommMainMenuId)">Shop Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12 noright-padding" *ngIf="collections.content.length>1">
+      <div class="saries2  coptex-sarie" [style.backgroundImage]="'url('+ collections.content[0].largeImagePath +')'">
+        <div class="saries2__inside">
+          <h1 class="sarie-info">{{collections.content[1].name}}</h1>
+          <button class="caurosal-button" (click)="collectionsRedirect(collections.content[1].ecommMainMenuId)">Shop Now</button>
+        </div>
+      </div>
+      <div class="saries3  coptex-sarie">
+        <div class="saries3__inside">
+          <h1 class="sarie-info">Design your own saree</h1>
+          <button class="caurosal-button" [routerLink]="['/madeOrder']">Customize</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

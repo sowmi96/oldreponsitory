@@ -1,0 +1,191 @@
+@media only screen and (min-width: 320px) {
+  #myProfile {
+    width: 92%;
+    margin: 0 auto;
+    max-width: 940px;
+  }
+  .profileColumns {
+    padding: 0 5px 0 5px;
+  }
+  .profileSideTab {
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+  .profileDetails {
+    border-radius: 4px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+  .profileTabOuter {
+    margin: 25px 25px;
+  }
+
+  .profileImgandName {
+    text-align: left;
+    padding-top: 24px;
+  }
+  .profilePic {
+    width: 42px;
+    height: 42px;
+    background-size: cover;
+    float: left;
+    margin-right: 14px;
+  }
+  .profilePic1 {
+    background-image: url('/assets/img/header/user.png');
+  }
+  .cameraIcon {
+    position: relative;
+    left: -22px;
+    top: -6px;
+    cursor: pointer;
+  }
+  .profileName {
+    font-family: 'Muli';
+    font-size: 20px;
+    font-weight: 800;
+    color: #393939;
+  }
+  .profileItems {
+    text-align: left;
+    font-family: 'Muli';
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: solid 1px #979797;
+    border-top: solid 1px #979797;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+
+  .accrordianArrow {
+    background-image: url('/assets/footerImages/down-arrow.png');
+    width: 13px;
+    height: 7px;
+    margin-top: 9px;
+    background-repeat: no-repeat;
+    float: right;
+    display: block;
+  }
+  .accrordianArrow1 {
+    background-image: url('/assets/footerImages/active.png');
+    width: 13px;
+    height: 7px;
+    margin-top: 9px;
+    background-repeat: no-repeat;
+    float: right;
+    display: none;
+  }
+  .accSetItems {
+    font-family: 'Muli';
+    font-size: 12px;
+    text-align: left;
+    color: #737373;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  .myOrders:hover > span {
+    color: #1c9cea;
+  }
+
+  .accSetItems:hover > span {
+    color: #1c9cea;
+  }
+  .registrationDetails {
+    padding-top: 0px;
+    border-top: 0px;
+  }
+  .logoutOuter {
+    text-align: left;
+    margin-bottom: 20px;
+    font-family: 'Muli-Bold';
+    font-size: 14px;
+    text-align: left;
+    color: #393939;
+    padding-bottom: 20px;
+    cursor: pointer;
+  }
+
+  .logoutOuter:hover {
+    color: #1c9cea;
+  }
+
+  .logoutImg {
+    background-image: url('/assets/my-profileImages/logoutImg.png');
+    width: 14px;
+    height: 15px;
+    display: inline-block;
+    margin-left: 24px;
+    margin-right: 10px;
+  }
+  .frequventlyVisited {
+    text-align: left;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.2);
+    padding-left: 24px;
+  }
+  .freqVisitText {
+    font-family: 'Muli';
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .freqVisitItems {
+    display: inline-block;
+    font-family: 'Muli';
+    font-size: 10px;
+    font-weight: 600;
+    color: #737373;
+    cursor: pointer;
+  }
+  .freqVisitItems:hover {
+    color: #1c9cea;
+  }
+
+  .personalInfo {
+    margin-top: 15px;
+  }
+
+  .myOrderTabClass {
+    width: 75px;
+    display: inline-block;
+  }
+
+  .tabUnderlineClass {
+    border-bottom: solid 2px #1c9cea;
+  }
+  label.cameraButton {
+    display: inline-block;
+    position: relative;
+    left: -22px;
+    top: -6px;
+    cursor: pointer;
+  }
+  label.cameraButton input[accept*='camera'] {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1024px) {
+  .profileSideTab {
+    width: 300px;
+  }
+  .profileDetails {
+    width: 620px;
+  }
+  .freqVisitItems {
+    font-size: 12px;
+  }
+}

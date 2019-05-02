@@ -1,0 +1,372 @@
+.editDiv {
+  position: absolute;
+  right: 20px;
+  z-index: 1;
+  cursor: pointer;
+}
+.header {
+  font-size: 22px;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 15px;
+}
+select {
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+}
+.other-info,
+.priority-info,
+.diffrently-abled,
+.destitute-sec,
+.servicemen-sec {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+}
+.sec-name {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0px;
+  background: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  color: black;
+}
+.sec-name1 {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  color: black;
+}
+.add-info {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.left-align {
+  text-align: left;
+}
+.add_qualification {
+  text-align: left;
+  padding: 15px;
+  font-size: 16px;
+  margin-top: 15px;
+  font-family: Muli-bold;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+}
+.row1,
+.row2,
+.row3 {
+  padding: 10px;
+}
+.career-apply-portal {
+  background: #fff;
+  padding: 2px 0px 34px;
+  text-align: left;
+}
+input {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px;
+  width: 100%;
+  font-size: 12px;
+  font-family: 'Muli-SemiBold';
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.additional-info {
+  border-top: 1px solid #e4e4e4;
+  padding: 0;
+  text-align: left;
+  margin-top: 15px;
+}
+.additional-info:first-child {
+  border-top: none;
+}
+.additional-info:last-child {
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 20px;
+}
+.permanent {
+  padding: 0px 0px 33px 0px;
+  border-bottom: 1px solid #e4e4e4;
+  text-align: left;
+}
+.checkbox_box {
+  display: flex;
+  text-align: left;
+  align-items: center;
+}
+.carrier_apply label {
+  font-family: 'Muli-SemiBold';
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+  margin-top: 16px;
+}
+.checkbox {
+  width: 30px;
+  margin-top: 20px;
+}
+.head {
+  font-family: 'Muli-Bold';
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+}
+.medium input {
+  width: 30px;
+}
+.medium label {
+  padding: 6px;
+}
+.modal-body form div {
+  margin-top: 10px;
+}
+.qualification-button,
+.work-exp-button {
+  font-family: 'Muli-Bold';
+  font-size: 14px;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+  padding: 8px 30px;
+  margin: 24px 0px 32px;
+  border-radius: 4px;
+  background-color: #c7aaaaad;
+}
+.caution {
+  text-align: left;
+  color: #c41b1f;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.btn-cont {
+  text-align: center;
+}
+.checkoutbutton {
+  background-color: #1c9cea !important;
+}
+.qualification_details {
+  border: 1px solid #e0e0e0;
+  margin-top: 15px;
+  padding: 10px;
+}
+.edit,
+.delete {
+  float: right;
+  cursor: pointer;
+}
+.edit i,
+.delete i {
+  font-size: 18px;
+}
+.delete {
+  margin-right: 20px;
+}
+.submit-info button {
+  float: right;
+}
+.container .fa-asterisk {
+  float: left;
+  font-size: 8px;
+  margin-top: 20px;
+  margin-right: 5px;
+  color: #cd1517;
+}
+
+.doc_upload {
+  padding: 5px 0px 0px 40px;
+  border: 0px;
+  position: relative;
+  outline: none;
+  width: 100%;
+}
+.doc_upload:before {
+  content: 'Upload file';
+  border-radius: 3px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 115px;
+  padding: 5px 8px;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #000;
+}
+.head .fa-asterisk {
+  margin-top: 5px;
+  float: left;
+}
+.salutation {
+  padding-left: 0 !important;
+}
+input.ng-valid {
+  border: 1px solid #e0e0e0 !important;
+}
+input[name='diff-abled'],
+input[name='destitute'],
+input[name='serviceman'] {
+  width: 20px;
+}
+.servicemen-sec {
+  margin-bottom: 20px;
+}
+.btn-continue {
+  float: right;
+  margin-top: 20px;
+}
+.mandCaution {
+  margin-top: 30px;
+}
+button.buybutton.btn-continue[disabled],
+select.ng-dirty.ng-touched[disabled],
+input.ng-dirty.ng-touched[disabled],
+.final-submit[disabled] {
+  background: #efefef;
+  cursor: not-allowed;
+  color: lightgray;
+}
+.submit-information > button {
+  float: right;
+  margin-bottom: 20px;
+}
+.success-apply {
+  color: greenyellow;
+  margin-bottom: 20px;
+}
+input#number,
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+select {
+  font-size: 10px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: solid 1px #bdbdbd;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-group-ck {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.form-group-ck input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.form-group-ck label {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.form-group-ck label:before {
+  content: '';
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 2px solid #0079bf;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 8px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.form-group-ck input:checked + label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 7px;
+  width: 6px;
+  height: 12px;
+  border: solid #0079bf;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+i.fa-check {
+  margin-left: 15px;
+  color: lightseagreen;
+  border: 2px solid lightseagreen;
+  border-radius: 50%;
+  padding: 3px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+
+h4.modal-title.text-center.header-log {
+    width: 95%;
+    float: left;
+    font-size: 20px;
+}
+.modal-header {
+    padding: 13px;
+}
+.modal-header .close {
+    margin-top: 3px;
+}
+.career-apply-portal .sec-name {
+   cursor:pointer;
+}

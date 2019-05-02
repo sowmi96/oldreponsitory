@@ -1,0 +1,89 @@
+<div class="container">
+  <div *ngIf="showPage=='termsandcondition'">
+    <h1>
+      <!-- <a target="_blank" [routerLink]="['information/disclaimer']">Terms & Conditions</a> -->
+      Terms & Conditions
+    </h1>
+    <p>
+      This website is owned and operated by Co-optex.(“ Co-optex”, “we”, or “us”) a firm having its office at Chennai, India. Your
+      visit to and use of this website are governed by the terms and policies that are posted on this website. Co-optex reserves
+      the right to modify these policies any time. If any of these conditions is deemed invalid, that condition shall be
+      deemed severable and shall not affect the validity or enforceability of the remaining conditions. All rights for the
+      code and content, including copyright, in this website are owned or licensed by Co-optex. Disputes, if any, will be
+      referred to an Arbitrator appointed by Co-optex and the proceedings of Arbitrator would be governed by the provisions
+      of Arbitration & Conciliation Act of India, 1996.
+    </p>
+  </div>
+  <div *ngIf="showPage=='refundandreturn'">
+    <h1>Refund and Return</h1>
+    <p>
+      This website is owned and operated by Co-optex.(“ Co-optex”, “we”, or “us”) a firm having its office at Chennai, India. Your
+      visit to and use of this website are governed by the terms and policies that are posted on this website. Co-optex reserves
+      the right to modify these policies any time. If any of these conditions is deemed invalid, that condition shall be
+      deemed severable and shall not affect the validity or enforceability of the remaining conditions. All rights for the
+      code and content, including copyright, in this website are owned or licensed by Co-optex. Disputes, if any, will be
+      referred to an Arbitrator appointed by Co-optex and the proceedings of Arbitrator would be governed by the provisions
+      of Arbitration & Conciliation Act of India, 1996.
+    </p>
+  </div>
+  <div *ngIf="showPage=='replacement'">
+    <h1>Replacement Policy</h1>
+    <p>
+      This website is owned and operated by Co-optex.(“ Co-optex”, “we”, or “us”) a firm having its office at Chennai, India. Your
+      visit to and use of this website are governed by the terms and policies that are posted on this website. Co-optex reserves
+      the right to modify these policies any time. If any of these conditions is deemed invalid, that condition shall be
+      deemed severable and shall not affect the validity or enforceability of the remaining conditions. All rights for the
+      code and content, including copyright, in this website are owned or licensed by Co-optex. Disputes, if any, will be
+      referred to an Arbitrator appointed by Co-optex and the proceedings of Arbitrator would be governed by the provisions
+      of Arbitration & Conciliation Act of India, 1996.
+    </p>
+  </div>
+  <div *ngIf="showPage=='shippinganddelivery'">
+    <h1>Shipping and Delivery</h1>
+    <p>
+      This website is owned and operated by Co-optex.(“ Co-optex”, “we”, or “us”) a firm having its office at Chennai, India. Your
+      visit to and use of this website are governed by the terms and policies that are posted on this website. Co-optex reserves
+      the right to modify these policies any time. If any of these conditions is deemed invalid, that condition shall be
+      deemed severable and shall not affect the validity or enforceability of the remaining conditions. All rights for the
+      code and content, including copyright, in this website are owned or licensed by Co-optex. Disputes, if any, will be
+      referred to an Arbitrator appointed by Co-optex and the proceedings of Arbitrator would be governed by the provisions
+      of Arbitration & Conciliation Act of India, 1996.
+    </p>
+  </div>
+  <div *ngIf="showPage=='privacypolicy'">
+    <h1>Privacy Policy</h1>
+    <p>
+      This website is owned and operated by Co-optex.(“ Co-optex”, “we”, or “us”) a firm having its office at Chennai, India. Your
+      visit to and use of this website are governed by the terms and policies that are posted on this website. Co-optex reserves
+      the right to modify these policies any time. If any of these conditions is deemed invalid, that condition shall be
+      deemed severable and shall not affect the validity or enforceability of the remaining conditions. All rights for the
+      code and content, including copyright, in this website are owned or licensed by Co-optex. Disputes, if any, will be
+      referred to an Arbitrator appointed by Co-optex and the proceedings of Arbitrator would be governed by the provisions
+      of Arbitration & Conciliation Act of India, 1996.
+    </p>
+  </div>
+  <div *ngIf="showPage=='payment'">
+    <h1>Payment</h1>
+    <p>
+      This website is owned and operated by Co-optex.(“ Co-optex”, “we”, or “us”) a firm having its office at Chennai, India. Your
+      visit to and use of this website are governed by the terms and policies that are posted on this website. Co-optex reserves
+      the right to modify these policies any time. If any of these conditions is deemed invalid, that condition shall be
+      deemed severable and shall not affect the validity or enforceability of the remaining conditions. All rights for the
+      code and content, including copyright, in this website are owned or licensed by Co-optex. Disputes, if any, will be
+      referred to an Arbitrator appointed by Co-optex and the proceedings of Arbitrator would be governed by the provisions
+      of Arbitration & Conciliation Act of India, 1996.
+    </p>
+  </div>
+  <div *ngIf="showPage=='disclaimer'">
+    <h1>Disclaimer</h1>
+    <p>
+      This website is owned and operated by Co-optex.(“ Co-optex”, “we”, or “us”) a firm having its office at Chennai, India. Your
+      visit to and use of this website are governed by the terms and policies that are posted on this website. Co-optex reserves
+      the right to modify these policies any time. If any of these conditions is deemed invalid, that condition shall be
+      deemed severable and shall not affect the validity or enforceability of the remaining conditions. All rights for the
+      code and content, including copyright, in this website are owned or licensed by Co-optex. Disputes, if any, will be
+      referred to an Arbitrator appointed by Co-optex and the proceedings of Arbitrator would be governed by the provisions
+      of Arbitration & Conciliation Act of India, 1996.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="notifications">
+  <h1>
+    Notifications
+  </h1>
+  <div *ngFor="let x of notificationcountall">
+    <div class="notish1">
+    </div>
+    <div class="row notiRow ">
+      <div class="notish">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingzero">
+          <button>New</button>
+          <h5 class="message">{{x.notificationSubject}}</h5>
+
+          <h5 class="sub-msg"> {{x.notificationMessage}}</h5>
+          <p>{{x.createdDate |date: 'dd/MM/yyyy'}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

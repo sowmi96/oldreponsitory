@@ -1,0 +1,158 @@
+
+<div class="bulkOrderDetailsOuter">
+
+        <div class="inputsOuterMobile">
+
+
+      <div class="knt__login__d3">
+          <form action="" class="knt__login__form">
+            <div class="kntLabelGroup">
+                <span class="kntLabel">Customer Name</span>
+            </div>
+            <input type="text" class="custName inputsClass" placeholder="Customer Name">
+
+            <div class="kntLabelGroup">
+                    <span class="kntLabel">Designation</span>
+                </div>
+             <input type="text" class="bulk_designation inputsClass" placeholder="Procurement Manager">
+
+             <div class="kntLabelGroup">
+                    <span class="kntLabel">Email ID</span>
+                </div>
+             <input type="text" class="bulk_email inputsClass" placeholder="E-mail">
+
+             <div class="kntLabelGroup">
+                    <span class="kntLabel">Company Name</span>
+                </div>
+             <input type="text" class="bulk_companyName inputsClass" placeholder="Company Name">
+
+             <div class="kntLabelGroup">
+                    <span class="kntLabel">Type of Company</span>
+                </div>
+             <input type="text" class="bulk_companyType inputsClass" placeholder="Type of Company">
+
+             <div class="phone__number">
+                    <div>
+                  <div class="kntLabelGroup">
+                      <span class="kntLabel">Mobile Number</span>
+                  </div>
+              <div>
+                <input type="number" class="inputsClass1" placeholder="Mobile Number">
+              </div>
+            </div>
+
+            </div>
+
+
+            <div>
+            <div class="kntLabelGroup">
+                <span class="kntLabel">Business Address</span>
+            </div>
+            <div>
+              <input type="text" class="inputsClass1" placeholder="Address Line1">
+              <input type="text" class="inputsClass1" placeholder="Address Line2">
+            </div>
+            <div>
+                <div class="selectdiv ">
+                <select>
+                    <option value="American">American flamingo</option>
+                    <option value="Andean">Andean flamingo</option>
+                    <option value="Chilean">Chilean flamingo</option>
+                    <option value="Greater">Greater flamingo</option>
+                    <option value="James's">James's flamingo</option>
+                    <option value="Lesser">Lesser flamingo</option>
+          </select>
+          </div>
+          <div class="selectdiv ">
+          <select>
+              <option value="American">American flamingo</option>
+              <option value="Andean">Andean flamingo</option>
+              <option value="Chilean">Chilean flamingo</option>
+              <option value="Greater">Greater flamingo</option>
+              <option value="James's">James's flamingo</option>
+              <option value="Lesser">Lesser flamingo</option>
+            </select>
+            </div>
+            </div>
+            <div>
+                <div class="selectdiv ">
+                <select>
+                    <option value="American">American flamingo</option>
+                    <option value="Andean">Andean flamingo</option>
+                    <option value="Chilean">Chilean flamingo</option>
+                    <option value="Greater">Greater flamingo</option>
+                    <option value="James's">James's flamingo</option>
+                    <option value="Lesser">Lesser flamingo</option>
+          </select>
+          </div>
+          <input type="number" min="0" class="inputsClass1" placeholder="Pin Code">
+        </div>
+            </div>
+
+
+                  <div class="docInfoButtonGroup">
+                        <button type="button" class="cancel">Cancel</button>
+                        <button type="button" class="btn save buttonClass">Save</button>
+                        <button type="button" class="btn edit buttonClass">Edit</button>
+                    </div>
+          </form>
+
+        </div>
+      </div>
+      <hr>
+
+
+      <div class="inputsOuterMobile">
+
+          <div class="addNewAddressButton"  (click)="displayDocInfoForm()">
+              Add New Documents
+          </div>
+          <div id="docInfoFormId" class="docInfoForm">
+           <form #docInfoForm="ngForm" >
+
+
+           <div class="selectDocText">Select Document</div>
+           <label class="radioClass" for="pan"> <input type="radio" id="pan" name="document" value="Pan card" class="pancardClass"> Pan Card</label>
+           <label class="radioClass" for="addhar"><input type="radio" id="addhar" name="document" value="Addahar Card" class="addaharClass"> Addahar Card</label>
+           <label class="radioClass" for="voter"><input type="radio" id="voter" name="document" value="Voter Card" class="voterClass">Voter Id</label>
+
+            <div class="docInfoNameGroup">
+                <div class="form-group">
+                   <span class="docInfoInputHeadings">ID Number</span><br>
+                   <input type="text" class="firstName namesInput inputFields form-control" placeholder="Type..." name="IDno" [(ngModel)]="IDno"/>
+               </div>
+
+               <div class="form-group">
+                   <span class="docInfoInputHeadings">Full Name</span><br>
+                   <input type="text" class="lastName namesInput inputFields form-control" placeholder="Type..." name="fullName" [(ngModel)]="fullName"/>
+               </div>
+             </div>
+
+
+             <input #uploadDoc [(ngModel)]="docFilePath" type="file" name="pic" accept="image/*" class="knt__login__upload" (change)="onSubmit(docInfoForm.value);">
+
+
+    
+
+          </form>
+          </div>
+
+      </div>
+      <hr>
+
+      <div class="docInfoSavedDocsGroup"  *ngFor="let document of documentsInfoArr">
+
+
+          <span class="deleteButton">Delete</span>
+
+          <br>
+
+          <span class="docInfoSaved docTypeName">Pan card</span>
+          <span class="docInfoSaved docTypeId">{{document.IDno}}</span><br>
+
+          <span class="docInfoSaved docFullname">{{document.fullName}}</span>
+          <!-- <span class="docInfoSavedText docTypeName">{{document.pic}}</span> -->
+          <div class="docInfoSaved downloadDoc"><span class="docAttachName">vijay-PAN-card.pdf</span> <div class="downloadImg"></div></div>
+          <hr/>
+      </div>
+      </div>

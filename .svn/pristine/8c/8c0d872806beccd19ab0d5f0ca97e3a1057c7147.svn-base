@@ -1,0 +1,228 @@
+<div class="knt__login__header">
+  <div>
+    <h1>Place Bulk Orders</h1>
+    <img src="../../assets/registration/uniform-manufacturers-in-mumbai-500-x-500.png" alt="girl with bags">
+  </div>
+</div>
+<div class="knt__login__container">
+  <div class="knt__login__d1">
+    <h2>What is Bulk Orders?</h2>
+    <p>Save money when you buy in bulk! We offer discounts on bulk orders depending on the product and the total invoice amount.
+      Minimum value to be eligible for discounts is approximately USD $1,500. A bulk order can be placed by anyone from anywhere
+      in the world and will be delivered anywhere in the world. </p>
+    <p>Discounts are available on total invoice value excluding shipping charges.</p>
+  </div>
+  <div class="knt__login__d2">
+    <h2>3 Simple steps to get started with bulk orders</h2>
+    <div class="knt__login__steps">
+      <div>
+        <h5>1</h5>
+        <h3>Select from a huge range of products</h3>
+      </div>
+      <div>
+        <h5>2</h5>
+        <h3>Select quantity and place orders</h3>
+      </div>
+      <div>
+        <h5>3</h5>
+        <h3>Enjoy delightful discounts</h3>
+      </div>
+    </div>
+  </div>
+  <div class="knt__login__d3">
+    <form [formGroup]="bulkForm" (ngSubmit)="submit(bulkForm.value)" class="knt__login__form">
+      <div class="phone__number" *ngIf="userData==undefined">
+        <div>
+          <label for="">Customer Name</label>
+          <div>
+            <input type="text" formControlName="customerName" minlength="3" maxlength="100" required placeholder="Customer Name">
+            <div *ngIf="bulkForm.controls['customerName'].errors && bulkForm.controls['customerName'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!bulkForm.controls['customerName'].errors.required">Please Enter Customer Name</div>
+              <div class="error-info" [hidden]="!bulkForm.controls['customerName'].errors.minlength">Please Minimum 3 character</div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label for="">Mobile Number</label>
+          <div>
+            <input type="text" (keypress)="isNumber($event)" minlength="10" maxlength="10" formControlName="mobileNumber" pattern="[789][0-9]{9}"
+              required placeholder="Mobile Number">
+            <div *ngIf="bulkForm.controls['mobileNumber'].errors && bulkForm.controls['mobileNumber'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!bulkForm.controls['mobileNumber'].errors.required">Please Enter Mobile Number</div>
+              <div class="error-info" [hidden]="!bulkForm.controls['mobileNumber'].errors.minlength">Please 10 digit Mobile Number</div>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone__number" *ngIf="userData==undefined">
+        <div>
+          <label for="">Email ID</label>
+          <div>
+            <input type="email" formControlName="emailId" [pattern]="emailPattern" required placeholder="Email">
+            <div *ngIf="bulkForm.controls['emailId'].errors && bulkForm.controls['emailId'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!bulkForm.controls['emailId'].errors.required">Please Enter Email</div>
+              <div class="error-info" [hidden]="!bulkForm.controls['emailId'].errors.pattern">Enter Valid Email</div>
+
+
+
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="">Password</label>
+          <div>
+            <input type="password" minlength="6" placeholder="password" formControlName="password" required />
+            <div *ngIf="bulkForm.controls['password'].errors && bulkForm.controls['password'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!bulkForm.controls['password'].errors.required">Please Enter Password</div>
+              <div class="error-info" [hidden]="!bulkForm.controls['password'].errors.minlength">Enter Minimum 6 character</div>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone__number">
+        <div>
+          <label for="">Designation</label>
+          <div>
+            <input type="text" minlength="6" formControlName="designation" required placeholder="Designation">
+            <div *ngIf="bulkForm.controls['designation'].errors && bulkForm.controls['designation'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!bulkForm.controls['designation'].errors.required">Please Enter Designation</div>
+              <div class="error-info" [hidden]="!bulkForm.controls['designation'].errors.minlength">Enter Minimum 3 character</div>
+
+
+
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="">Company Name</label>
+          <div>
+            <input type="text" minlength="3" formControlName="companyName" required placeholder="Company">
+            <div *ngIf="bulkForm.controls['companyName'].errors && bulkForm.controls['companyName'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!bulkForm.controls['companyName'].errors.required">Please Enter Company Name</div>
+              <div class="error-info" [hidden]="!bulkForm.controls['companyName'].errors.minlength">Enter Minimum 3 character</div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div>
+        <label class="businessAddress" for="">Business Address</label>
+        <div>
+          <div class="input-height">
+            <label>AddressLine one</label>
+            <input type="text" minlength="3" maxlength="100" formControlName="businessAddress" required placeholder="Address Line1">
+            <div *ngIf="bulkForm.controls['businessAddress'].errors && bulkForm.controls['businessAddress'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!bulkForm.controls['businessAddress'].errors.required">Please Enter AddressLine one</div>
+              <div class="error-info" [hidden]="!bulkForm.controls['businessAddress'].errors.minlength">Enter Minimum 3 character</div>
+
+
+
+            </div>
+          </div>
+          <div class="input-height">
+            <label>AddressLine two</label>
+
+            <input type="text" minlength="3" formControlName="businessAddress1" required placeholder="Address Line2">
+            <div *ngIf="bulkForm.controls['businessAddress1'].errors && bulkForm.controls['businessAddress1'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!bulkForm.controls['businessAddress1'].errors.required">Please Enter AddressLine two</div>
+              <div class="error-info" [hidden]="!bulkForm.controls['businessAddress1'].errors.minlength">Enter Minimum 3 character</div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="selectdiv ">
+            <label>Country</label>
+
+            <select [(ngModel)]="businessCountry" (ngModelChange)="onCountryChange($event)" formControlName="country">
+              <option [value]=null>Select country</option>
+              <option *ngFor="let c of countryList" [ngValue]="c.placeId"> {{c.placeName}} </option>
+
+            </select>
+            <div *ngIf="bulkForm.controls['country'].errors && bulkForm.controls['country'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!bulkForm.controls['country'].errors.required">Please Select Country</div>
+
+
+
+            </div>
+          </div>
+          <div class="selectdiv ">
+            <label>state</label>
+
+            <select [(ngModel)]="businessState" (ngModelChange)="onStateChange($event)" formControlName="city">
+              <option [value]=null>Select state</option>
+              <option *ngFor="let c of stateList" [ngValue]="c.placeId"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="bulkForm.controls['city'].errors && bulkForm.controls['city'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!bulkForm.controls['city'].errors.required">Please Select State</div>
+
+
+
+            </div>
+          </div>
+
+        </div>
+
+        <div>
+          <div class="selectdiv ">
+            <label>City</label>
+
+            <select [(ngModel)]="businessCity" formControlName="state">
+              <option [value]=null>Select City</option>city
+              <option *ngFor="let c of cityList" [ngValue]="c.placeId"> {{c.placeName}} </option>
+            </select>
+            <div *ngIf="bulkForm.controls['state'].errors && bulkForm.controls['state'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!bulkForm.controls['state'].errors.required">Please Select City</div>
+
+
+
+            </div>
+          </div>
+          <div class="selectdiv ">
+            <label>Pincode</label>
+
+            <input type="text" (keypress)="isNumber($event)" formControlName="pincode" minlength="6" maxlength="6" placeholder="Pin Code">
+            <div *ngIf="bulkForm.controls['pincode'].errors && bulkForm.controls['pincode'].touched" class="error-msg">
+              <div class="error-info" [hidden]="!bulkForm.controls['pincode'].errors.required">Please Enter Pincode</div>
+              <div class="error-info" [hidden]="!bulkForm.controls['pincode'].errors.minlength"> Enter 6 digit Pincode</div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <h4>
+        <a target="_blank" href="/#/information/termsandcondition">Terms and Condition</a>
+      </h4>
+      <label class="tandc">Agree to Terms and Conditions
+        <input #saveUserNameCheckBox id="saveUserNameCheckBox" type="checkbox" [checked]="checkboxValue1" (change)="newFunction1(saveUserNameCheckBox.checked)">
+        <span class="checkmark"></span>
+      </label>
+      <button [disabled]=" !checkboxValue1">Register</button>
+    </form>
+  </div>
+
+</div>

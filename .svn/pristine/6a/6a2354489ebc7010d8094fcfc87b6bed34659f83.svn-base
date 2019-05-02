@@ -1,0 +1,40 @@
+{
+    "similarproduct": [
+        {
+          "id": "1",
+          "src": "/assets/img/product/4.png",
+          "title": "Parampara Silks",
+          "oldprice": "2500",
+          "newprice": "2000",
+          "offer": "10%OFF",
+          "wishlist": ""
+        },
+        {
+          "id": "2",
+          "src": "/assets/img/product/4.png",
+          "title": "Parampara Silks",
+          "oldprice": "2500",
+          "newprice": "1500",
+          "offer": "10%OFF",
+          "wishlist": ""
+        },
+        {
+          "id": "3",
+          "src": "/assets/img/product/4.png",
+          "title": "Parampara Silks",
+          "oldprice": "2500",
+          "newprice": "1500",
+          "offer": "10%OFF",
+          "wishlist": ""
+        },
+        {
+          "id": "4",
+          "src": "/assets/img/product/4.png",
+          "title": "Parampara Silks",
+          "oldprice": "2500",
+          "newprice": "1500",
+          "offer": "10%OFF",
+          "wishlist": ""
+        }
+      ]
+}

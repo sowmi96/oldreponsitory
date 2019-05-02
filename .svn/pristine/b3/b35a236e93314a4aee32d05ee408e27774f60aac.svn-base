@@ -1,0 +1,10 @@
+<div class="failureOuter">
+
+  <div class="failureMsg"> Payment is unsuccessful.
+    <br> please click the below button to navigate.
+  </div>
+
+  <a class="continueButton" (click)="Navigate()">Click here to Continue</a>
+
+
+</div>

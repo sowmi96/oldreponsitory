@@ -1,0 +1,102 @@
+<!-- <div class="row reset-page-header">
+  <div class="col-lg-1 col-md-1 col-sm-1">
+    <a href="/"><img class="co-optex-headerImg" src="./assets/img/header/co-optex-logo.png"></a>
+  </div>
+  <div class="col-lg-1 col-md-1 col-sm-1 login">
+    Login
+  </div>
+</div> -->
+<div class="reset-password-header">
+  <label class="reset-head">Post Your Queries</label>
+</div>
+
+
+
+
+<div class="reset-password">
+
+  <div class="row">
+    <button class="btn btn-primary" (click)="query()">Raise new Query</button>
+    <button class="btn btn-primary" (click)="trackQuery()">Track your Query status </button>
+
+  </div>
+  <form *ngIf="trackquery">
+    <div class="row">
+      <div class="form-group">
+        <label for="comment">Enter the Ticket Number</label>
+        <input type="textbox" name="ticket" placeholder="Enter Ticket Number" [(ngModel)]="ticketid" class="form-control" id="comment/">
+        <div *ngIf="statusshow" class="status-text text-success">Currently ticket is {{ticketstatus}}</div>
+      </div>
+
+      <button type="submit" (click)="ticketStatus()" class="btn btn-primary">Submit</button>
+
+
+    </div>
+
+
+
+  </form>
+
+  <form *ngIf="newquery" [formGroup]="supportForm" (ngSubmit)="supportSave(supportForm.value)">
+    <div class="row">
+      <div *ngIf="success" class="alert col-xs-12  col-sm-push-3 col-sm-6  col-md-4 col-md-push-4 alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> We have Received Your Queries
+        <div>Reference Number:{{ticketNumber}}
+
+        </div>
+      </div>
+      <div *ngIf="failure" class="alert col-xs-12   col-sm-push-3 col-sm-6  col-md-4 col-md-push-4  alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Failure!</strong>Something Went wrong Please Try Again
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="credential-label" for="exampleInputPassword5">Mobile Number</label>
+      <input type="text" class="form-control" pattern="[789][0-9]{9}" minlength="10" maxlength="10" (keypress)="isNumber($event)"
+        formControlName="contact" placeholder="Enter Mobile Number">
+      <div *ngIf="supportForm.controls['contact'].errors && supportForm.controls['contact'].touched" class="error-msg">
+        <div class="error-info" [hidden]="!supportForm.controls['contact'].errors.required">Please Mobile Number.</div>
+        <div class="error-info" [hidden]="!supportForm.controls['contact'].errors.minlength">Please Enter Minimun 10 digit.</div>
+        <div class="error-info" [hidden]="!supportForm.controls['contact'].errors.pattern">Please Enter Valid Mobile Number.</div>
+
+
+
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label class="credential-label" for="exampleInputPassword5">Email</label>
+      <input type="text" formControlName="email" [pattern]="emailPattern" class="form-control" placeholder="Enter Email">
+      <div *ngIf="supportForm.controls['email'].errors && supportForm.controls['email'].touched" class="error-msg">
+        <div class="error-info" [hidden]="!supportForm.controls['email'].errors.required">Please Enter Email.</div>
+        <div class="error-info" [hidden]="!supportForm.controls['email'].errors.pattern">Please Enter valid Email.</div>
+
+
+      </div>
+    </div>
+    <div class="form-group select-category">
+      <label for="sel1">Category:</label>
+      <select required formControlName="category" [(ngModel)]="dropdown" class="form-control" id="sel1">
+        <option value="null" disabled>Select Category</option>
+        <option *ngFor="let x of categoryList" value="{{x.categoryId}}">{{x.categoryName}}</option>
+
+      </select>
+      <div *ngIf="supportForm.controls['category'].errors && supportForm.controls['category'].touched" class="error-msg">
+        <div class="error-info" [hidden]="!supportForm.controls['category'].errors.required">Please Select Category.</div>
+
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="comment">Description:</label>
+      <textarea minlength="20" maxlength="250" formControlName="description" class="form-control" rows="5" id="comment"></textarea>
+      <div *ngIf="supportForm.controls['description'].errors && supportForm.controls['description'].touched" class="error-msg">
+        <div class="error-info" [hidden]="!supportForm.controls['description'].errors.required">Please write Description.</div>
+        <div class="error-info" [hidden]="!supportForm.controls['description'].errors.minlength">Enter Minimum 20 characters.</div>
+
+
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">{{buttontext}}</button>
+  </form>
+</div>

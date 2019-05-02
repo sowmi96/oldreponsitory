@@ -1,0 +1,325 @@
+<header>
+  <div class="row co-optex-header" [class.co-optex-header1]="showMenu==true" *ngIf="showMenu1==false">
+    <div class="col-lg-4 col-md-3 col-sm-3 co-optex-col leftpadding rightpadding cursorPointer logo__cont">
+      <img class="co-optex-headerImg" src="./assets/img/header/logo-new.jpg" [routerLink]="['/']">
+      <div class="co-optex-logoText" [routerLink]="['/']"><b class="border-header">The Tamilnadu Handloom Weavers' <br>Co-operative Society Ltd</b></div>
+    </div>
+    <div class="col-lg-8 col-md-9 col-sm-9 co-optex-col rightpadding leftpadding">
+      <div class="row co-optex--row hedermargintop " [class.co-optex--row1]="showMenu==true">
+        <div [class.hideInMobile]="showMenu==true" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingzero">
+
+          <ul class="co-optex--ul hideInMobile " [class.co-optex--ul1]="showMenu==true">
+            <!-- <li>
+              <div class="btn-group" dropdown>
+                <button id="button-basic" dropdownToggle type="button" class=" dropdown-toggle co-optex-loc-dropdown" aria-controls="dropdown-basic"
+                  placeholder="ehddueh">
+                  <span>
+                    <img class="co-optex-loc-img" src="./assets/img/header/pin.png">
+                  </span>
+                  <span>Location</span>
+                  <span class="caret"></span>
+                </button>
+                <div id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic" (click)="onEvent($event)">
+                  <h1 class="location">My Location</h1>
+                  <input type="text" placeholder="Location/zip/pincode" [(ngModel)]="locationInfo">
+                  <div class="locationSvg">
+                    <svg class="cooptex-svg">
+                      <g>
+                        <path d="M12 17.07c1.4 0 2.6-.5 3.6-1.48.98-1 1.47-2.2 1.47-3.6s-.5-2.6-1.48-3.6c-1-.98-2.2-1.47-3.6-1.47s-2.6.5-3.6 1.48c-.98 1-1.47 2.2-1.47 3.6s.5 2.6 1.48 3.6c1 .98 2.2 1.47 3.6 1.47zm6.5-5.78H20v1.4h-1.5c-.16 1.54-.78 2.84-1.87 3.93-1.1 1.1-2.4 1.7-3.92 1.87V20h-1.4v-1.5c-1.54-.16-2.84-.78-3.93-1.87-1.1-1.1-1.7-2.4-1.87-3.92H4v-1.4h1.5c.16-1.54.78-2.84 1.87-3.93 1.1-1.1 2.4-1.7 3.92-1.87V4h1.4v1.5c1.54.16 2.84.78 3.93 1.87 1.1 1.1 1.7 2.4 1.87 3.92zM12 9.1c.8 0 1.48.3 2.04.86.57.56.85 1.25.85 2.04 0 .8-.3 1.48-.86 2.04-.56.57-1.25.85-2.04.85-.8 0-1.48-.3-2.04-.86-.57-.56-.85-1.25-.85-2.04 0-.8.3-1.48.86-2.04.56-.57 1.25-.85 2.04-.85z"></path>
+                      </g>
+                    </svg>
+                    <h2 class="access" (click)="getLocation()">{{locationLoad?'Accessing Location...':'Access location'}}</h2>
+                  </div>
+                </div>
+              </div>
+            </li> -->
+
+            <li [class.co-optex-menuList2]="showMenu==true">
+              <span class="co-optex-menuList">
+                <a [ngClass]="{'selected': selectedItem1 == '1' }" (click)="listClick($event, '1')" href="/#/knt_scheme/login">KNT Schemes</a>
+              </span>
+            </li>
+            <li [class.co-optex-menuList2]="showMenu==true">
+              <span class="co-optex-menuList">
+                <a [ngClass]="{'selected': selectedItem1 == '2' }" (click)="listClick($event, '2');goBulkOrder()" href="javascript:void(0)">Bulk Order</a>
+              </span>
+            </li>
+            <li [class.co-optex-menuList2]="showMenu==true">
+              <span class="co-optex-menuList">
+                <a [ngClass]="{'selected': selectedItem1 == '3' }" (click)="listClick($event, '3');goTender()" href="javascript:void(0)">Tender</a>
+              </span>
+            </li>
+            <li [class.co-optex-menuList2]="showMenu==true">
+              <span class="co-optex-menuList">
+                <a [ngClass]="{'selected': selectedItem1 == '4' }" (click)="listClick($event, '4')" href="/#/career/details">Careers</a>
+              </span>
+            </li>
+            <li [class.co-optex-menuList2]="showMenu==true">
+              <span class="co-optex-menuList">
+                <a [ngClass]="{'selected': selectedItem1 == '5' }" (click)="listClick($event, '5')" href="/#/event">Events</a>
+              </span>
+            </li>
+            <li [class.co-optex-menuList2]="showMenu==true">
+              <span class="co-optex-menuList">
+                <a [ngClass]="{'selected': selectedItem1 == '5' }" (click)="listClick($event, '6')" href="/#/giftcard">Giftcard</a>
+              </span>
+            </li>
+            <li [class.co-optex-menuList2]="showMenu==true">
+              <span class="co-optex-menuList co-optex-menuList1">
+                <span *ngIf="showLogin=='false'">
+                  <a href="javascript:;" data-toggle="modal" data-target="#myModal" (click)="clear()">Login</a> |</span>
+                <span *ngIf="showLogin=='false'">
+                  <a href="javascript:;" data-toggle="modal" data-target="#myModal2" (click)="clear()">Sign Up</a> |</span>
+                <span *ngIf="showLogin!='false'">
+                  <a href="javascript:;" data-toggle="modal" data-target="" [routerLink]="['profile']" [queryParams]="{ tab: 'myorder' }">
+                    My Orders</a> |</span>
+                <span>
+                  <a href="javascript:;" [routerLink]="['support']"> Support</a>
+                </span>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingzero secondary__menu">
+          <ul class="co-optex--ul  co-optex--ul12">
+            <li class="co-optex--li hideInMobile currency__main">
+              <span>{{currencyList[currentCurrencyIndex].code}}</span>
+              <!-- <img src="./assets/img/header/flag-of-india.png"> -->
+              <img class="hideInMobile cart" src="./assets/img/header/drop.png">
+              <div class="currency__dropdown">
+                <div class="currency__cont" (click)="changeCurrency(i)" *ngFor="let currency of currencyList;let i=index">{{currency.code}}</div>
+
+              </div>
+            </li>
+            <ul *ngIf="showLogin!='false'">
+              <li class="co-optex--li" (mouseover)="changeStyle2($event)" (mouseout)="changeStyle22($event)">
+                <img src="./assets/img/header/fav.png">
+                <div class="showNotiNum" *ngIf="wishlist.length!=0">{{wishlist.length}}</div>
+                <img class="hideInMobile cart" src="./assets/img/header/drop.png">
+                <div class=" showNoti" [class.showNoti1]="showDiv2">
+                  <div *ngIf="wishlist.length==0">
+                    wishlist is empty
+                  </div>
+                  <div class="force-overflow" *ngIf="wishlist.length!=0">
+                    <h6>Wish List</h6>
+                    <div class="row wishlist" *ngFor="let myWishlist of wishlist" (click)="productDetail(myWishlist.productId)">
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+
+                        <img src="{{myWishlist?.smallImages[0]}}" class="itemImg">
+                      </div>
+                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 productDet">
+                        <h6>{{myWishlist.productName}}</h6>
+                        <p>Rs. {{ myWishlist.newPrice }}</p>
+                      </div>
+                    </div>
+                    <div class="row prodTotalRow">
+                      <button class="prodTotalButton" [routerLink]="['wishlist']">View all</button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="co-optex--li" (mouseover)="changeStyle1($event)" (mouseout)="changeStyle11($event)">
+                <img src="./assets/img/header/cart.png">
+                <div class="showNotiNum" *ngIf="cartList.length!=0">{{cartList.length}}</div>
+                <img class="hideInMobile cart" src="./assets/img/header/drop.png">
+                <div class=" showNoti" [class.showNoti1]="showDiv1">
+                  <div *ngIf="cartList.length==0">
+                    Cart is empty
+                  </div>
+                  <div class="force-overflow" *ngIf="cartList.length!=0">
+                    <h6>My Cart</h6>
+                    <div class="row" *ngFor="let CartList of cartList">
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <img src="{{CartList.smallImagePath}}" class="itemImg">
+                      </div>
+                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 productDet">
+                        <h6>{{CartList.name}}</h6>
+                        <p>Rs. {{CartList.newPrice}}</p>
+                        <p>Qty : {{CartList.quantity}}</p>
+                      </div>
+                    </div>
+                    <div class="row prodTotalRow">
+                      <p class="prodTotal">
+                        <span>Total:</span>
+                        <span class="prodTotalSpan">Rs {{totalAmout}}</span>
+                      </p>
+                      <button class="prodTotalButton" [routerLink]="['product/add-to-cart']">View all</button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="co-optex--li" (mouseover)="changeStyle3($event)" (mouseout)="changeStyle33($event)">
+                <img src="./assets/img/header/noti.png">
+
+                <div *ngIf="notificationcount!=0" class="showNotiNum">{{notificationcount}}</div>
+                <img class="hideInMobile cart" src="./assets/img/header/drop.png">
+
+                <div class=" showNoti  " id="#style-13" [class.showNoti1]="showDiv3">
+                  <div class="force-overflow">
+                    <h6>Notification</h6>
+                    <div *ngIf="notificationList.length==0">
+                      No notifications
+                    </div>
+                    <div *ngFor="let x of notificationList">
+
+                      <div class="row notiRow">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingzero">
+                          <button>New</button>
+                          <h5 class="message">{{x.notificationSubject}}</h5>
+                          <h5> {{x.notificationMessage}}</h5>
+                          <p class="time">{{x.createdDate | date: 'dd/MM/yyyy'}}</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button *ngIf="notificationList.length > 0" class="prodTotalButton notibutton" (click)="viewAll()" [routerLink]="['/notification']">View all</button>
+                </div>
+
+              </li>
+              <li class="co-optex--li hideInMobile" (mouseover)="changeStyle4($event)" (mouseout)="changeStyle44($event)">
+                <img src="./assets/img/header/user-3.png">
+                <span class="down">
+                  <span *ngIf="showLogin!='false'" class="">Welcome</span>
+                  <img class="hideInMobile cart" src="./assets/img/header/drop.png">
+                </span>
+                <div class="hideInMobile showNoti" [class.showNoti1]="showDiv4">
+                  <h6 class="userullogout">User Profile</h6>
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 paddingzero">
+                      <img *ngIf="photoUrl===null" src="../../assets/img/header/user.png">
+                      <div class="profilePic" [style.backgroundImage]="'url('+photoUrl+')'" *ngIf="photoUrl!==null"></div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 paddingzero username">
+                      <p>Hello,</p>
+                      <h5 class="userullogout">{{userName}}</h5>
+                    </div>
+                    <ul class="userul">
+                      <li>
+                        <a [routerLink]="['profile']" [queryParams]="{ tab: 'personal_info' }">My Accounts</a>
+                      </li>
+                      <li>
+                        <a [routerLink]="['profile']" [queryParams]="{ tab: 'myorder' }">My Orders</a>
+                      </li>
+                      <li (click)="logout()">
+                        <img src="../../assets/img/header/noun-1645760-cc.png">
+                        <span class="userullogout">Logout</span>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </ul>
+          <li class="co-optex--li hideInDesktop">
+            <button class="mobileLogin" *ngIf="showLogin=='false'" data-toggle="modal" data-target="#myModal">Login</button>
+            <button class="mobilesignup" *ngIf="showLogin=='false'" data-toggle="modal" data-target="#myModal2">Sign Up</button>
+            <img class="" src="./assets/img/header/hamberger.png" (click)="menuClick()">
+          </li>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showMenu1==false">
+    <ul class="headerFilter headerbackcolor remargin-bottom">
+      <li (mouseover)="mouseOverOnMenu(menu.name)" (mouseout)="mouseOutOnMenu()" *ngFor="let menu of menuData">
+        <span>{{menu.name.charAt(0).toUpperCase()+menu.name.slice(1).toLowerCase()}}</span>
+        <div class="row categoryList" [class.categoryList1]="showDiv==menu.name">
+          <h6 class="text-center" *ngIf="menu.subMenu.length==0">No Items Available</h6>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 paddingzero" *ngFor="let submenu of menu.subMenu">
+            <h6 class="itemHeading" (click)="showProducts(submenu.id)">{{submenu.name}}</h6>
+            <p class="itemList" (click)="showProducts(product.id)" *ngFor="let product of submenu.products">{{product.name}}</p>
+          </div>
+        </div>
+      </li>
+      <li class="hideInMobile" routerLink='/madeOrder'>
+        <span>Made to order</span>
+      </li>
+      <li class="searchBar1">
+        <input class="searchBar searchboxborder" [(ngModel)]="filterVlaue" (keyup.enter)="showSearchBar(filterVlaue)" placeholder="Search Products">
+        <img (click)="showSearchBar(filterVlaue)" class="searchIcon" src="./assets/img/header/search-3.png">
+      </li>
+    </ul>
+  </div>
+  <div class="mobileMenuBar" *ngIf="showMenu1==true">
+    <div class="row  userInfo">
+      <div class="col-xs-2">
+        <img src="../../assets/img/header/profile-pic-male-2-fd-3-e-8-copy.png">
+      </div>
+      <div class="col-xs-8" *ngIf="showLogin!='false'">
+        <h5 class="mobileUsernmae">Welcome {{userName}}</h5>
+        <!-- <img src="./assets/img/header/pin.png">Chennai</p> -->
+      </div>
+      <div class="col-xs-2 close-icon">
+        <img src="/assets/img/header/close.png" (click)="menuClick()">
+      </div>
+    </div>
+    <ul>
+
+
+      <!-- <li>
+        <div (click)="showmenuList(menu.name)" *ngFor="let menu of menuData">
+          <span>{{menu.name}}</span>
+          <img class="floatright" src="/assets/footerImages/active.png" *ngIf="!showmenuListDetail">
+          <img class="floatright" src="/assets/img/header/left-arrow-copy-8.png" *ngIf="showmenuListDetail">
+          <div class="middlemenuList" (click)="showmenuList1(submenu.name)" *ngFor="let submenu of subMenu">
+            <span *ngIf="showmenuListDetail1">{{submenu.name}}</span>
+            <img *ngIf="clickedMenu1!=submenu.name" class="floatright" src="/assets/img/header/group-2-copy.png">
+            <img *ngIf="clickedMenu1==submenu.name" class="floatright" src="/assets/img/header/line.png">
+            <div class="lastmenuList" *ngFor="let product of submenu.products">
+              <p *ngIf="clickedMenu1==submenu.name" class="lastmenuList1">{{product.name}}</p>
+            </div>
+          </div>
+        </div>
+
+      </li> -->
+
+      <li class="">
+        <span class="">
+          <a (click)="menuClick()" href="/#/knt_scheme">KNT Schemes</a>
+        </span>
+      </li>
+      <li>
+        <span class="">
+          <a (click)="menuClick()" href="/#/product/bulk/login">Bulk Order</a>
+        </span>
+      </li>
+      <li>
+        <span class="">
+          <a (click)="menuClick()" href="/#/tender/login">Tender</a>
+        </span>
+      </li>
+      <li>
+        <span class="">
+          <a (click)="menuClick()" href="/#/career">Careers</a>
+        </span>
+      </li>
+      <li>
+        <span class="">
+          <a (click)="menuClick()" href="/#/event">Events</a>
+        </span>
+      </li>
+      <li>
+        <span *ngIf="showLogin!='false'">
+          <a href="javascript:;" data-toggle="modal" data-target="" [routerLink]="['profile']" [queryParams]="{ tab: 'myorder' }">
+            My Orders</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:;" [routerLink]="['support']"> Support</a>
+        </span>
+      </li>
+    </ul>
+    <div>
+
+      <button class="mobilelogout" *ngIf="showLogin!='false'">
+        <img src="../../assets/img/header/noun-1645760-cc.png">
+        <span class="userullogout" (click)="logout()">Logout</span>
+      </button>
+    </div>
+  </div>
+</header>

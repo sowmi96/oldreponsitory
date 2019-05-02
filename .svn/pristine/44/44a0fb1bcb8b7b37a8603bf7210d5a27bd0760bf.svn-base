@@ -1,0 +1,33 @@
+<!-- <div class="row reset-page-header">
+  <div class="col-lg-1 col-md-1 col-sm-1">
+    <a href="/"><img class="co-optex-headerImg" src="./assets/img/header/co-optex-logo.png"></a>
+  </div>
+  <div class="col-lg-1 col-md-1 col-sm-1 login">
+    Login
+  </div>
+</div> -->
+<div class="reset-password-header">
+  <label class="reset-head">Reset Password</label>
+</div>
+<div class="reset-password">
+  <div class="form-group">
+    <label class="credential-label" for="exampleInputPassword5">New Password</label>
+    <input type="password" class="form-control" (change)="checklength()" minlength="6" id="exampleInputPassword5" [(ngModel)]="password"
+      placeholder="New password" (change)="validatePassword()" required>
+    <div class="caution" *ngIf="showPasswordlength">
+      Entered Minimum 6 character's
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="credential-label" for="exampleInputPassword6">Confirm password</label>
+    <input type="password" class="form-control" minlength="6" id="exampleInputPassword6" (change)="validatePassword()" placeholder="Confirm password"
+      [(ngModel)]="confirmpassword" required>
+    <div class="caution" *ngIf="showPasswordCaution">
+      Entered password does not match
+    </div>
+    <div class="caution" *ngIf="showCaution">
+      Please enter both the fields.
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="submitPassword()">Submit</button>
+</div>

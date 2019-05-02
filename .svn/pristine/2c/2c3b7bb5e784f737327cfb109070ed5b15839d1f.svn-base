@@ -1,0 +1,99 @@
+<div id="footer">
+        <div class="mainDivFooter" id="accordion">
+                <div class="row listOfServicesFooter">
+                        <div class="col-xs-12 col-sm-12 col-md-12 ">
+                                <div class="row">
+                                        <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <h3 class="footerServiceHeader" (click)="accordionClick(0)">Co-Optex
+                                                        <div id="a0" class="accrordianArrow1"></div>
+                                                        <div id="b0" class="accrordianArrow"></div>
+                                                </h3>
+
+                                                <div id="demo0" class="serviceItems" *ngIf="footerToggle[0]">
+                                                        <p (click)="informationClick()" [routerLink]="['tender/login']">Tenders</p>
+                                                        <p (click)="informationClick()" [routerLink]="['career/details']">Careers</p>
+                                                </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <h3 class="footerServiceHeader" (click)="accordionClick(1)">Online shopping
+                                                        <div id="a1" class="accrordianArrow1"></div>
+                                                        <div id="b1" class="accrordianArrow"></div>
+                                                </h3>
+
+                                                <div id="demo1" class="serviceItems" *ngIf="footerToggle[1]">
+                                                        <p (click)="showProducts(menu.id)" *ngFor="let menu of menuData | slice:0:7;">{{menu.name}}</p>
+                                                </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-3 col-md-3 ">
+                                                <h3 class="footerServiceHeader" (click)="accordionClick(2)">Services
+                                                        <div id="a2" class="accrordianArrow1"></div>
+                                                        <div id="b2" class="accrordianArrow"></div>
+                                                </h3>
+                                                <div id="demo2" class="serviceItems" *ngIf="footerToggle[2]">
+                                                        <p (click)="informationClick()" [routerLink]="['knt_scheme/login']">KNT Schemes</p>
+                                                        <p (click)="informationClick()" [routerLink]="['products/bulk/login']">Bulk Order</p>
+                                                        <p (click)="informationClick()" [routerLink]="['madeOrder']">Made to Order</p>
+                                                </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-3 col-md-3 ">
+                                                <h3 class="footerServiceHeader" (click)="accordionClick(3)">Information
+                                                        <div id="a3" class="accrordianArrow1"></div>
+                                                        <div id="b3" class="accrordianArrow"></div>
+                                                </h3>
+                                                <div id="demo3" class="serviceItems" *ngIf="footerToggle[3]">
+                                                        <p (click)="informationClick()">
+                                                                <a target="_blank" [routerLink]="['information/refundandreturn']">Refund and Return</a>
+                                                        </p>
+                                                        <p (click)="informationClick()">
+                                                                <a target="_blank" [routerLink]="['information/replacement']">Replacement Policy</a>
+                                                        </p>
+                                                        <p (click)="informationClick()">
+                                                                <a target="_blank" [routerLink]="['information/shippinganddelivery']">Shipping and Delivery</a>
+                                                        </p>
+                                                        <p (click)="informationClick()">
+                                                                <a target="_blank" [routerLink]="['information/privacypolicy']">Privacy Policy</a>
+                                                        </p>
+                                                        <p (click)="informationClick()">
+                                                                <a target="_blank" [routerLink]="['information/termsandcondition']">Terms and Conditions</a>
+                                                        </p>
+                                                        <p (click)="informationClick()">
+                                                                <a target="_blank" [routerLink]="['information/payment']">Payment</a>
+                                                        </p>
+                                                        <p (click)="informationClick()">
+                                                                <a target="_blank" [routerLink]="['information/disclaimer']">Disclaimer</a>
+                                                        </p>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
+                </div>
+                <div class="lineFooter"></div>
+
+                <div class="needHelpFooter">
+                        Need Help? Contact us
+                </div>
+                <div class="contactClass">
+                        +91-9590900092
+                </div>
+                <div class="contactClass">
+                        The Tamilnadu Handloom Weavers' Co-operative Society Ltd #350, Pantheon Road, Egmore, Chennai - 600 008.
+                </div>
+                <div class="websiteAddress">
+                        <a target="_blank" href="http://www.cooptex.gov.in">www.cooptex.gov.in</a>
+
+                </div>
+        </div>
+        <div class="lineFooterEnding"></div>
+        <div class="copyRightFooter">
+                The Tamilnadu Handloom Weavers' Co-operative Society Ltd © 2018. All rights reserved |
+                <a target="_blank" [routerLink]="['information/privacypolicy']">Privacy Policy</a> |
+                <a target="_blank" [routerLink]="['information/termsandcondition']">Terms and Conditions</a>
+        </div>
+</div>
+
+<script>
+
+</script>

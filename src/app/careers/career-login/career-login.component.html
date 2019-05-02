@@ -1,0 +1,208 @@
+<div class="knt__login__header">
+  <div>
+    <h1>Careers</h1>
+    <img src="../../assets/registration/2943@2x.png" alt="girl with bags">
+  </div>
+</div>
+<div class="knt__login__container">
+  <div class="knt__login__d1">
+    <h2>Careers at Co-optex</h2>
+    <p>Employment News, a weekly publication of the Publications Division under Ministry of Information and Broadcasting publishes
+      government job vacancies. User can search jobs along with the jobs highlights. List of Employment News dealers in different
+      parts of the country is also given. Questions and answers for different career option are given. Results of different
+      competitive examinations and...</p>
+    <!-- <p>Discounts are available on total invoice value excluding shipping charges.</p> -->
+    <p></p>
+  </div>
+  <div class="knt__login__d2">
+    <h2>3 Simple steps to apply for your dream job</h2>
+    <div class="knt__login__steps">
+      <div>
+        <h5>1</h5>
+        <h3>Sign up as a candidate</h3>
+      </div>
+      <div>
+        <h5>2</h5>
+        <h3>Apply for open jobs</h3>
+      </div>
+      <div>
+        <h5>3</h5>
+        <h3>Get employed</h3>
+      </div>
+    </div>
+  </div>
+  <div class="knt__login__d3">
+    <form [formGroup]="careerForm" (ngSubmit)="submit(careerForm.value)" class="knt__login__form">
+      <div class="phone__number">
+        <div>
+          <label for="">First name</label>
+          <div>
+            <input type="text" formControlName="firstName" required placeholder="">
+          </div>
+        </div>
+        <div>
+          <label for="">Last name</label>
+          <div>
+            <input type="text" formControlName="lastName" required placeholder="">
+          </div>
+        </div>
+      </div>
+
+      <div class="phone__number">
+        <div>
+          <label for="">Fathers name</label>
+          <div>
+            <input type="text" formControlName="fatherName" required placeholder="">
+          </div>
+        </div>
+        <div>
+          <label for="">Mothers name</label>
+          <div>
+            <input type="text" formControlName="motherName" required placeholder="">
+          </div>
+        </div>
+      </div>
+
+      <div class="phone__number">
+        <div>
+          <label for="">Spouse name</label>
+          <div>
+            <input type="text" formControlName="spouseName" required placeholder="">
+          </div>
+        </div>
+        <div>
+          <label for="">Date of Birth</label>
+          <div>
+            <input type="text" placeholder="">
+          </div>
+        </div>
+      </div>
+
+      <div class="phone__number">
+        <div>
+          <label for="">Primary Mobile Number</label>
+          <div>
+            <input type="number" formControlName="primaryNumber" pattern="[789][0-9]{9}" required placeholder="">
+          </div>
+        </div>
+        <div>
+          <label for="">Secondary Mobile</label>
+          <div>
+            <input type="number" formControlName="secondaryNumber" pattern="[789][0-9]{9}" required placeholder="">
+          </div>
+        </div>
+      </div>
+
+      <div class="phone__number">
+        <div>
+          <label for="">Primary Email ID</label>
+          <div>
+            <input type="email" formControlName="primaryEmail" required placeholder="">
+          </div>
+        </div>
+        <div>
+          <label for="">Secondary Email ID</label>
+          <div>
+            <input type="email" formControlName="secondaryEmail" required placeholder="">
+          </div>
+        </div>
+      </div>
+      <!-- <label for="">Supplier Name</label>
+      <input type="text" placeholder="Customer Name"> -->
+      <div>
+        <label class="homeAddress" for="">Home Address (Same)</label>
+        <div>
+          <input type="text" formControlName="homeAddress1" required placeholder="">
+          <input type="text" formControlName="homeAddress2" required placeholder="">
+        </div>
+        <div>
+          <div class="selectdiv ">
+            <select [(ngModel)]="businessCountry" (ngModelChange)="onCountryChange($event)" formControlName="country">
+              <option [value]=null>Select country</option>
+              <option *ngFor="let c of countryList" [ngValue]="c"> {{c}} </option>
+            </select>
+          </div>
+          <div class="selectdiv ">
+            <select [(ngModel)]="businessState" (ngModelChange)="onStateChange($event)" formControlName="city">
+              <option [value]=null>Select state</option>
+              <option *ngFor="let c of stateList" [ngValue]="c"> {{c}} </option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="selectdiv ">
+            <select [(ngModel)]="businessCity" (ngModelChange)="onCityChange($event)" formControlName="state">
+              <option [value]=null>Select City</option>
+              <option *ngFor="let c of cityList" [ngValue]="c"> {{c}} </option>
+            </select>
+          </div>
+          <input type="number" formControlName="pincode" min="0" placeholder="600010">
+        </div>
+      </div>
+      <!-- <div class="knt__login__homeaddress">
+          <label for="">Home Address (Same)
+          </label>
+          <input type="checkbox" class="knt__login__homeaddress--check">
+              <span class="homeaddress__checkmark"></span>
+          <div>
+            <input type="text" placeholder="Address Line1">
+            <input type="text" placeholder="Address Line2">
+          </div>
+          <div>
+              <select>
+                  <option value="American">American flamingo</option>
+                  <option value="Andean">Andean flamingo</option>
+                  <option value="Chilean">Chilean flamingo</option>
+                  <option value="Greater">Greater flamingo</option>
+                  <option value="James's">James's flamingo</option>
+                  <option value="Lesser">Lesser flamingo</option>
+        </select>
+        <select>
+            <option value="American">American flamingo</option>
+            <option value="Andean">Andean flamingo</option>
+            <option value="Chilean">Chilean flamingo</option>
+            <option value="Greater">Greater flamingo</option>
+            <option value="James's">James's flamingo</option>
+            <option value="Lesser">Lesser flamingo</option>
+          </select>
+          </div>
+          <div>
+              <select>
+                  <option value="American">American flamingo</option>
+                  <option value="Andean">Andean flamingo</option>
+                  <option value="Chilean">Chilean flamingo</option>
+                  <option value="Greater">Greater flamingo</option>
+                  <option value="James's">James's flamingo</option>
+                  <option value="Lesser">Lesser flamingo</option>
+        </select>
+        <input type="number" min="0" placeholder="Pin Code">
+      </div> -->
+      <!-- </div> -->
+      <!-- <div class="phone__number">
+            <div>
+          <label for="">Mobile Number</label>
+      <div>
+        <input type="number" placeholder="Mobile Number">
+      </div>
+    </div>
+    <div>
+      <label for="">Landline Number</label>
+      <div>
+        <input type="number" placeholder="Landline Number">
+      </div>
+    </div>
+    </div> -->
+      <h3>Upload your documents</h3>
+      <input type="file" (change)="onFileChange($event)" name="pic" accept="image/*" class="knt__login__upload">
+      <h4>
+        <a target="_blank" href="/#/information/termsandcondition">Terms and Condition</a>
+      </h4>
+      <label class="tandc">Agree to Terms and Conditions
+        <input #saveUserNameCheckBox id="saveUserNameCheckBox" type="checkbox" [checked]="checkboxValue1" (change)="newFunction1(saveUserNameCheckBox.checked)">
+        <span class="checkmark"></span>
+      </label>
+      <button [disabled]="careerForm.invalid || !checkboxValue1">Register</button>
+    </form>
+  </div>
+
+</div>

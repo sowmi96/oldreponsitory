@@ -1,0 +1,78 @@
+<div class="modal" id="myModal2" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="header-log">Sign Up</div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="clearField()" #closeButton1>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="validateSignup(signUpForm)" #signUpForm="ngForm">
+          <div class="alert alert-danger alert-dismissible" role="alert" *ngIf="showCaution">
+            {{errorMessage}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="form-group">
+            <label class="credential-label">Name</label>
+            <input type="text" id="name1" class="form-control" placeholder="Enter name" name="name1"[(ngModel)]="name" #name1="ngModel"
+              required pattern="[a-zA-Z ]*">
+            <div *ngIf="name1.invalid && (name1.dirty || name1.touched)" class="caution">
+              <div *ngIf="name1?.errors.required">Name is required</div>
+              
+              <div *ngIf="name1.errors && name1?.errors.pattern"> Please enter a valid name</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="credential-label">Email ID</label>
+            <input type="e-mail" class="form-control" placeholder="Enter email" name="email1" [(ngModel)]="email" #email1="ngModel" required
+              pattern="[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
+            <div *ngIf="email1.invalid && (email1.dirty || email1.touched)" class="caution">
+              <div *ngIf="email1?.errors.required"> Email is required.
+
+              </div>
+              <div *ngIf="email1.errors && email1?.errors.pattern"> Please enter a valid Email Id</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="credential-label">Mobile Number</label>
+            <input type="text" class="form-control" placeholder="mobile number" name="mobile1" (keypress)="verifyMobileNumber($event)"
+              [(ngModel)]="mobile" required pattern="[6789][0-9]{9}" minlength="10" maxlength="10" #mobile1="ngModel">
+            <div class="caution" *ngIf="mobile1.invalid && (mobile1.dirty || mobile1.touched)">
+              Please enter a valid mobile number
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="credential-label" for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword2" name="password1" [(ngModel)]="password" placeholder="Enter a Password"
+              #password1="ngModel" required validateEqual="confirmPassword1" reverse="true">
+            <div class="caution" *ngIf="password1.invalid && (password1.dirty || password1.touched)">
+              Password is required
+            </div>
+
+          </div>
+          <div class="form-group">
+            <label class="credential-label" for="exampleInputPassword1" >Confirm password</label>
+            <input type="password" class="form-control" id="ConfirmPassword1" name="ConfirmPassword1" placeholder="Confirm password"
+              [(ngModel)]="confirmpassword" required validateEqual="password1" #confirmPassword1="ngModel" >
+            <div class="caution" *ngIf="(confirmPassword1.invalid && ((confirmPassword1.dirty || confirmPassword1.touched))||mismatch)" >
+              Password mismatch
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!signUpForm.form.valid">Sign up</button>
+        </form>
+
+        <div class="sign-up">
+          <span>Already a Member?</span>
+          <span>&nbsp;
+            <a href="javascript:;" data-toggle="modal" data-target="#myModal" (click)="closeSignUp()">Login now</a>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

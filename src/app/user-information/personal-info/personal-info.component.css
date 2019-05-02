@@ -1,0 +1,192 @@
+
+
+
+@media only screen and (min-width: 320px) {
+
+    .profileDetailsOuter{
+        margin:25px 25px;
+        text-align:left;
+    
+    }
+    .disable{
+        pointer-events: none;
+    background-color:#9f91911a;;
+    }
+    .inputsOuterMobile{
+        width:170px;
+        margin: 0 auto;
+      }
+
+    .fillImg{
+        background-image: url('/assets/my-profileImages/fill.png');
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .personalInfoText{
+        font-family:  'Muli-Bold';
+      font-size: 14px;
+    }
+
+    .namesInput{
+        width:175px;
+        }
+
+        .inputFields{
+            border: 1px solid #979797;
+            border-radius: 3px;
+            padding: 5px;
+            margin-top: 8px;
+        }
+        .genderHeading{
+            font-family: 'Muli';
+          font-size: 12px;
+          font-weight: 600;
+          color: #737373;
+          margin-top: 24px;
+        }
+
+        .genderForm{
+            margin-top: 10px;
+          font-family: 'Muli';
+          font-size: 12px;
+          font-weight: 600;
+          color: #737373;
+        }
+
+        .genderFemale{
+            margin-left: 20px;
+        
+        } 
+
+        .personalInfoHead{
+            text-align: left;
+            padding-top: 24px;
+        }
+    
+        .emailIdInput{
+            height: 32px
+        }
+        .mobileNoInput{
+            height: 32px;
+        }
+
+        .profileButtonGroup{
+            margin-top: 15px;
+             text-align: center;
+        }
+        .cancel{
+            background-color: white;
+            border: 0px;
+            width: 56px;
+            height: 25px;
+            font-family: 'Muli';
+            font-size: 14px;
+            font-weight: bold;
+            color: #95989a;
+            font-size: 12px;
+            padding: 0px;
+        }
+        .buttonClass{
+            font-family: 'Muli';
+            font-size: 14px;
+            font-weight: bold;
+            color: #95989a;
+            font-size: 12px;
+        }
+        .saveAct{
+            background-color: black;
+            color:white;
+        }
+        .cancelAct{
+            color:red;
+        }
+
+        .prof_button{
+            width: 72px;
+            height: 27px;
+            border-radius: 4px;
+            text-align: center;
+            display: inline-block;
+            border: 1px solid white;
+            padding-top: 2px;
+         }
+        
+        .prof_button:hover{
+            cursor: pointer;
+            border: 1px solid #979797;
+        } 
+        
+        .cancelButton{
+            color:red;
+        }
+         
+        .saveButton{
+            color:white;
+            background-color: black;
+        }
+
+
+        .lineBar{
+            border: solid 0.5px #979797;
+            margin-top: 32px;
+        }
+        .FAQtext{
+            font-size: 17px;
+            font-family: 'Muli-Bold';
+        }
+        .FAQ_ques
+        {font-family: 'Muli';
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 20px;
+        }
+        .FAQ_ans{
+            font-family: 'Muli';
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.1px;
+          text-align: left;
+          color: #737373;
+        }
+        
+        .deactivateAccount{
+          font-family:  'Muli-Bold';
+          font-size: 14px;
+          color: #1c9cea;
+          padding-bottom: 20px;
+          cursor: pointer;
+        }
+
+        .radioClass{
+            cursor: pointer;
+        }
+    
+    }
+    
+    
+    
+    @media only screen and (min-width: 768px) {
+    
+    .emailIdInput{
+        width: 356px;
+        height: 32px
+    }
+    .mobileNoInput{
+        width: 356px;
+        height: 32px;
+    }
+
+    .inputsOuterMobile{
+        width:100%;
+    }
+    .profileButtonGroup{
+    
+        margin-right: 30px;
+        text-align: right;
+    }
+    
+    }
+    

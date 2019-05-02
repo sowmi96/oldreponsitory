@@ -1,0 +1,40 @@
+{
+   "ShippingAddress":[{
+        "Id":"1",
+        "Name":"Leroy Roy",
+        "Address":"173 Aufderhar Heights",
+        "City":"Bangalore",
+        "State":"Karnataka",
+        "Pincode":"560028",
+        "Country":"India",
+        "Mobno":"+91 - 90876 54563"
+
+},
+{
+        "Id":"2",
+        "Name":"Harish",
+        "Address":"173 Bangalore",
+        "City":"Bangalore",
+        "State":"Karnataka",
+        "Pincode":"560028",
+        "Country":"India",
+        "Mobno":"+91 - 90876 54563"
+
+},
+{
+        "Id":"3",
+        "Name":"Harish",
+        "Address":"173 Bangalore",
+        "City":"Bangalore",
+        "State":"Karnataka",
+        "Pincode":"560028",
+        "Country":"India",
+        "Mobno":"+91 - 90876 54563"
+
+}
+]
+
+
+
+
+}

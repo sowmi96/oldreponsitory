@@ -1,0 +1,190 @@
+<div class="row career-header">
+  <div class="career col-lg-4 col-sm-4 col-xs-12">Careers</div>
+  <div class="career-img col-lg-8 col-sm-8 col-xs-12">
+    <img src="./assets/2943@2x.jpg">
+  </div>
+</div>
+<div class="row sort">
+  <div class="sort-opt col-lg-2 col-sm-3 col-xs-6">
+    <div class="selectdiv ">
+      <select class="selectDropdown" [(ngModel)]="tenderFilter" (ngModelChange)="onDropdownChange(tenderFilter)">
+        <option *ngFor="let c of items;let i=index" [value]="c"> {{c=='none'?'Not applied':c | titlecase}} </option>
+      </select>
+    </div>
+
+
+  </div>
+</div>
+<div class="container left-bar">
+  <div class="tab-cont col-xs-12 col-sm-2">
+    <div class="jobs col-xs-12 primary-font">Jobs</div>
+    <div class="col-xs-12 jobs-desc">
+      <ul class="tabs col-xs-12">
+        <li class="tab-item col-xs-4 col-sm-12" [ngClass]="{'active': selectedItem == item}" (click)="listClick($event, item)" *ngFor="let item of tabList">
+          <span>{{item.listItem}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="job-portal col-lg-10 col-sm-10 col-xs-12">
+    <div *ngIf="returnedArray.length==0" class="no__content">No jobs available.</div>
+    <div class="col-xs-12 col-sm-10 col-lg-12 job-opening no-padding" [ngClass]="{'active': currentCareer === career1.jobCode}"
+      *ngFor="let career1 of returnedArray;let i=index">
+      <div class="job-main-cont" (click)="toggle($event,career1.jobCode)">
+        <div class="col-xs-12 app-status">
+          <span *ngIf="career1.jobApplicationResponseDTO==null" [class.statusBlue]="career1.jobStatus == 'applied'" [class.statusGreen]="career1.jobStatus == 'offered'"
+            [class.statusNone]="career1.jobStatus == 'none'">{{career1.jobStatus=='none'?'Not Applied':career1.jobStatus}}</span>
+          <span *ngIf="career1.jobStatus == 'applied' && career1.jobApplicationResponseDTO?.appointmentOrderStatus=='offered'" class="statusGreen">offered</span>
+          <span *ngIf="career1.jobStatus == 'applied' && career1.jobApplicationResponseDTO?.appointmentOrderStatus=='written'" class="statusBlue">written</span>
+        </div>
+        <div class="col-xs-12 col-lg-4 position">
+          <span class="role">{{career1.jobTitle}}</span>
+          <span class="job-code">{{career1.jobCode}}</span>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-4 schedule">
+          <span class="start-date">Job application start date:
+            <span class="date">{{career1.startDate | date: 'dd/MM/yyyy'}}</span>
+          </span>
+          <span class="end-date">Job application end date:
+            <span class="date">{{career1.endDate | date: 'dd/MM/yyyy'}}</span>
+          </span>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-4 misc-details">
+          <span class="location">Location:
+            <span class="city">{{career1.jobLocation}}</span>
+          </span>
+          <span class="job-type">Job type:
+            <span class="type">{{career1.jobType}}</span>
+          </span>
+        </div>
+        <div class="col-xs-12 no-padding accordian-icon">
+          <i [ngClass]="{'fa': true, 'fa-chevron-down': currentCareer !== career1.jobCode, 'fa-chevron-up': currentCareer === career1.jobCode}"
+            aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="job-details-section col-xs-12 no-padding" *ngIf="currentCareer==career1.jobCode">
+        <div class="col-xs-12 status-sec no-padding" *ngIf="career1.jobStatus=='applied'">
+          <div class="status-header">Application Status</div>
+          <div class="stepper col-xs-12">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="completed active">
+                <a class="persistant-disabled" href="#stepper-step-1" data-toggle="tab" aria-controls="stepper-step-1" role="tab" title=""
+                  data-original-title="Step 1" aria-expanded="true">
+                  <span class="round-tab" [class.activeStatus]="(career1.jobStatus == 'applied') || (career1.jobStatus == 'written') || (career1.job_status == 'offered')"></span>
+                </a>
+                <span class="progress-text">Applied</span>
+              </li>
+              <li role="presentation" class="completed">
+                <a class="persistant-disabled" href="#stepper-step-2" data-toggle="tab" aria-controls="stepper-step-2" role="tab" title=""
+                  data-original-title="Step 2" aria-expanded="false">
+                  <span class="round-tab" [class.activeStatus]="(career1.jobStatus == 'written') || (career1.jobStatus == 'offered')"></span>
+                </a>
+                <span class="progress-text">Written</span>
+              </li>
+              <li role="presentation" class="completed">
+                <a class="persistant-disabled" href="#stepper-step-3" data-toggle="tab" aria-controls="stepper-step-3" role="tab" title=""
+                  data-original-title="Step 3" aria-expanded="false">
+                  <span class="round-tab" [class.activeStatus]="(career1.jobStatus == 'offered')"></span>
+                </a>
+                <span class="progress-text">Oral</span>
+              </li>
+              <li role="presentation" class="">
+                <a class="persistant-disabled" href="#stepper-step-4" data-toggle="tab" aria-controls="stepper-step-4" role="tab" title=""
+                  data-original-title="Complete" aria-expanded="false">
+                  <span class="round-tab" [class.activeStatus]="(career1.jobStatus == 'offered')"></span>
+                </a>
+                <span class="progress-text">Offered</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xs-12 job-desc no-padding">
+          <div class="desc">
+            <div class="desc-header header">Job Description</div>
+            <div class="desc-details details">
+              {{career1.jobDescription}}
+            </div>
+            <div class="desc-header header">Responsibilities</div>
+            <div class="desc-details details">
+              <p>{{career1.responsibility}}</p>
+            </div>
+            <div class="desc-header header">Required Experience</div>
+            <div class="desc-details details">
+              {{career1.reqiredExperience}}
+            </div>
+            <div class="desc-header header">Qualification</div>
+            <div class="desc-details details">
+              {{career1.qualification}}
+            </div>
+            <div class="buttons-cont col-xs-12" *ngIf="career1.jobStatus == 'none'">
+              <button class="buybutton apply-btn col-xs-2 col-sm-4 col-lg-2" (click)="applyJob(career1.jobCode)">Apply</button>
+              <a id="login" data-toggle="modal" data-target="#myModal"></a>
+            </div>
+          </div>
+          <div *ngIf="career1.job_status != 'none'">
+            <div class="col-xs-12 applied no-padding" *ngIf="career1.written_scheduled == 'no'">
+              <div class="col-xs-12 msg">Thank you for Applying.</div>
+              <div class="col-xs-12 msg">Kindly wait to get the Hall Ticket.</div>
+            </div>
+            <div class="exam-details-section no-padding col-xs-12 written" *ngIf="(career1.written_scheduled == 'scheduled') || (career1.written_scheduled == 'cleared')">
+              <div class="exam-det col-xs-12 col-sm-6">
+                <span class="exam-type">Written</span>
+                <span class="date-label">Exam date:</span>
+                <span class="exam-date">05/08/2018</span>
+              </div>
+              <div class="exam-center col-xs-12 col-sm-6">Center:
+                <span>Government High School, Egmore</span>
+              </div>
+              <div class="exam-status col-xs-12">
+                <div class="status-text col-xs-3" *ngIf="career1.written_scheduled == 'cleared'">
+                  <span>cleared</span>
+                </div>
+                <div class="button-cont col-xs-9 col-lg-12 no-padding" *ngIf="career1.written_scheduled != 'cleared'">
+                  <div class="status-text red">The hall ticket is available for download. Please click the button to download.</div>
+                  <button class="buybutton dwn-hall-tckt">Download Hall Ticket</button>
+                </div>
+              </div>
+            </div>
+            <div class="exam-details-section oral-exam no-padding col-xs-12" *ngIf="career1.written_scheduled == 'cleared'">
+              <div class="exam-det col-xs-12 col-sm-6">
+                <span class="exam-type">Oral</span>
+                <span class="date-label">Exam date:</span>
+                <span class="exam-date">05/08/2018</span>
+              </div>
+              <div class="exam-center col-xs-12 col-sm-6">Center:
+                <span>Government High School, Egmore</span>
+              </div>
+              <div class="exam-status col-xs-12">
+                <div class="status-text col-xs-3" *ngIf="career1.oral_schduled == 'cleared'">
+                  <span>cleared</span>
+                </div>
+                <div class="button-cont col-xs-9 col-lg-12 no-padding" *ngIf="career1.oral_schduled != 'cleared'">
+                  <div class="status-text red">The hall ticket is available for download. Please click the button to download.</div>
+                  <button class="buybutton dwn-hall-tckt">Download Call Letter</button>
+                </div>
+              </div>
+            </div>
+            <div class="job-offer-section no-padding col-xs-12" *ngIf="career1?.oral_schduled == 'cleared'">
+              <div class="exam-det col-xs-12 col-sm-6">
+                <span class="exam-type">Offer</span>
+                <span class="date-label">Exam date:</span>
+                <span class="exam-date">05/08/2018</span>
+              </div>
+              <div class="exam-center col-xs-12 col-sm-6">Center:
+                <span>Government High School, Egmore</span>
+              </div>
+              <div class="offer-status col-xs-12">
+                <div class="status-text red">The offer letter is available for download. Please click the button to download.</div>
+                <button class="buybutton dwn-offer-lttr">Download Offer Letter</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="returnedArray.length>0">
+      <pagination previousText="&lsaquo;" nextText="&rsaquo;" [totalItems]="career?.length" (pageChanged)="pageChanged($event)"
+        [itemsPerPage]="5"></pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<app-header *ngIf="showHeader">
+</app-header>
+<app-forgot-password></app-forgot-password>
+<app-login *ngIf="!showLoginPage"></app-login>
+<app-sign-up></app-sign-up>
+<div [ngClass]="{'hero':true,'not__logged__in':!showHeader}">
+    <router-outlet></router-outlet>
+</div>
+<app-show-loading [hidden]="!showPageLoading"></app-show-loading>
+<app-footer *ngIf="showHeader"></app-footer>

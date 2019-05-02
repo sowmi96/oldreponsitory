@@ -1,0 +1,62 @@
+<div class="profileDetailsOuter">
+
+  <div class="inputsOuterMobile">
+
+    <div class="personalInfoHead">
+      <span class="personalInfoText">Personal Information</span>
+    </div>
+    <form class="genderForm" [formGroup]="PersonalForm">
+
+      <input type="text" class="firstName namesInput inputFields" formControlName="username" placeholder="First Name" [(ngModel)]="firstName"
+        [ngClass]="{'disable':allowEdit}" />
+      <div *ngIf=" PersonalForm.controls['username'].errors &&  PersonalForm.controls['username'].touched" class="error-msg">
+        <div class="error-info" [hidden]="! PersonalForm.controls['username'].errors.required">Please Enter Name.</div>
+      </div>
+      <div class="genderHeading">Your Gender</div>
+      <label class="radioClass" for="maleId">
+        <input type="radio" id="maleId" name="gender" value="male" class="genderMale" [checked]="gender==true" (change)="radioCheck('male')"
+          [disabled]="allowEdit"> Male</label>
+      <label class="radioClass" for="femaleId">
+        <input type="radio" id="femaleId" name="gender" value="female" class="genderFemale" [checked]="gender1==true" (change)="radioCheck('female')"
+          [disabled]="allowEdit"> Female</label>
+      <br>
+    </form>
+
+
+    <div class="personalInfoHead">
+      <span class="personalInfoText">Email ID</span>
+    </div>
+
+    <input type="text" class="inputFields emailIdInput" placeholder="Email Id" [(ngModel)]="email" [disabled]="allowEdit1" />
+
+    <div class="personalInfoHead">
+      <span class="personalInfoText">Mobile Number</span>
+    </div>
+
+    <input type="number" class="inputFields mobileNoInput" placeholder="Mobile No" [(ngModel)]="mobile" [disabled]="allowEdit1"
+    />
+
+
+    <div class="profileButtonGroup text-right">
+      <button type="button" *ngIf="showbutton" class="btn" (click)="cancel()">Cancel</button>
+      <button type="button" *ngIf="showbutton" class="btn  btn-primary" (click)="save()" [disabled]="allowEdit">Save</button>
+      <button type="button" *ngIf="!showbutton" class="btn" (click)="edit()">Edit</button>
+
+    </div>
+
+  </div>
+  <hr class="lineBar">
+
+  <div class="FAQ_outer">
+    <div class="FAQtext">FAQs</div>
+    <p class="FAQ_ques">What happens when I update my email address (or mobile number)?</p>
+    <p class="FAQ_ans">Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your
+      updated email address (or mobile number).</p>
+
+    <p class="FAQ_ques">What happens to my existing Co-optex account when I update my email address (or mobile number)?</p>
+    <p class="FAQ_ans">Updating your email address (or mobile number) doesn't invalidate your account. Your account remains fully functional.
+      You'll continue seeing your Order history, saved information and personal details.</p>
+
+  </div>
+  <div class="deactivateAccount" (click)="deactivateAccount()">Deactivate Account</div>
+</div>

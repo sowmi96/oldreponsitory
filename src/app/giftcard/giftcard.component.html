@@ -1,0 +1,89 @@
+<div class="knt__login__header">
+    <div>
+      <h1>Gift Card </h1>
+       <div class="gallery">
+          <button id="gc-mini-design-thumb-2" name="wedding" class="a-button-text" type="button">
+            <img alt="wedding" src="../../assets/generic_gift.jpg" (click)="mainSrc='../../assets/generic_gift.jpg'" id="gc-mini-picker-design-swatch-image-2" height="70" width="90"align="right">
+          </button> 
+          <button id="gc-mini-design-thumb-2" name="birthday" class="a-button-text" type="button">
+            <img alt="birthday" src="../../assets/birthday.jpg" (click)="mainSrc='../../assets/birthday.jpg'" id="gc-mini-picker-design-swatch-image-2" height="70" width="90" align="left">
+         </button>    
+         <button id="gc-mini-design-thumb-2" name="festive" class="a-button-text" type="button">
+            <img alt="festive" src="../../assets/festive_greetings.jpg" (click)="mainSrc='../../assets/festive_greetings.jpg'" id="gc-mini-picker-design-swatch-image-2" height="70" width="90" align="right">
+         </button>
+      
+         <button id="gc-mini-design-thumb-2" name="wedding" class="a-button-text" type="button">
+            <img alt="wedding" src="../../assets/wedding_kalash.jpg" (click)="mainSrc='../../assets/wedding_kalash.jpg'" id="gc-mini-picker-design-swatch-image-2" height="70" width="90"align="right">
+         </button>
+         
+       </div>
+    </div>
+  </div>       
+          
+  <div class="knt__login__container">
+    <div class="knt__login__d1">
+      <h2>Co-optex Gift Cards</h2>
+      <img src="{{mainSrc}}" class="gc-design-img-preview" id="gc-standard-design-image">
+      <!-- <img src="../../assets/generic_gift.jpg" alt="Gift Card"> -->
+      <h2 style="text-align: left;" >Gift Amount :{{ amountval | number }}</h2>
+      <div class="wish">
+      <h2 >Best Wishes : {{messageval}}</h2>
+      </div>
+    </div>
+  
+  
+    <div class="knt__login__d3">
+      <form [formGroup]="giftForm" (ngSubmit)="giftFormform(giftForm.value)" class="knt__login__form">
+       <label for="">Enter your gift card details</label>
+        <div class="gift_card">
+         <ul>
+          <li><input class="gift-btn gift-btn-pad" type="button" value="500" (click)="amountval=500"></li>
+          <li><input class="gift-btn gift-btn-pad" type="button" value="1000" (click)="amountval=1000"></li>
+          <li><input class="gift-btn gift-btn-pad" type="button" value="1500" (click)="amountval=1500"></li>
+          <li><input class="gift-btn gift-btn-pad" type="button" value="2000" (click)="amountval=2000"></li> 
+          <li><input type="text" class="form-control" name="itemAmount" pattern="[0-9]+" minlength="3" maxlength="7" formControlName="itemAmount" placeholder="Other amount" [(ngModel)]="amountval" required style="width: 120px;color: green;"/></li> </ul>
+         <div *ngIf="itemAmount.invalid && (itemAmount.dirty || itemAmount.touched || isSubmitted)" class="error-msg">
+                <div *ngIf="itemAmount?.errors.required"> Amount is required.</div>
+                <div *ngIf="itemAmount.errors && itemAmount?.errors.pattern"> Please enter a valid amount</div> 
+              </div>
+         
+       
+        </div>
+  
+        <label for="">To</label>
+        <input type="email"  id="toemaill" formControlName="toemaill" [pattern]="emailPattern" placeholder="Email" required/>
+           <div *ngIf="toemaill.invalid && (toemaill.dirty || toemaill.touched || isSubmitted)" class="error-msg">
+                <div *ngIf="toemaill?.errors.required"> Email is required.</div>
+                <div *ngIf="toemaill.errors && toemaill?.errors.pattern"> Please enter a valid Email Id</div>
+              </div> 
+              
+        <label for="">From</label>
+        <input type="text" [(ngModel)]="name1" formControlName="name" pattern="[a-zA-Z ]*" minlength="3" maxlength="50" id="userId" placeholder="name" value="{{firstname}}" />
+           <div *ngIf="name.invalid && (name.dirty || name.touched || isSubmitted)" class="error-msg">
+                  <div *ngIf="name?.errors.required"> Name is required.</div>
+                <div *ngIf="name.errors && name?.errors.pattern"> Please enter a valid Name</div>   
+              </div>      
+  
+        <label for="text">Message</label>    
+       <textarea placeholder="Write a message" id="message" formControlName="message" [(ngModel)]="messageval" rows="2" cols="10" minlength="3" maxlength="250" style="width: 362px; resize:  none; border-radius: 4px;"></textarea> 
+          <div *ngIf="message.invalid && (message.dirty || message.touched || isSubmitted)" class="error-msg">
+                <div *ngIf="message?.errors.required"> Message is required.</div>
+                <div *ngIf="message.errors && message?.errors.pattern"> Please enter Valid Message </div> 
+            </div>  
+   
+        <label class="businessAddress" for="">Mobile Number</label>
+            <div class=mob_place>
+              <input class="mob" type="number" formControlName="mobile" pattern="[6789][0-9]{9}"  minlength="8"
+                maxlength="10" placeholder="Mobile Number" required/>
+              <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched || isSubmitted)" class="error-msg">
+                <div *ngIf="mobile?.errors.required"> Please Enter Number </div>
+                <div *ngIf="mobile.errors && mobile?.errors.pattern"> Please Enter 10 digit valid Number </div> 
+              </div> 
+            </div>
+     
+        <button class="check_submit" type="submit" *ngIf="useridData!=undefined" > Proceed </button>
+        <button class="check_submit" type="submit" *ngIf="useridData==undefined" data-toggle="modal" data-target="#myModal" > Proceed </button>    
+      </form>
+    </div>
+  
+  </div>

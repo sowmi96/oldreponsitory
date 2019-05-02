@@ -1,0 +1,72 @@
+{
+      "topdeal":[
+        {
+       "src":"/assets/white-and-black-checks-kanjivaram-saree-with-pink-border-copy.png",
+       "description":"The sarees are woven from pure mulberry silk thread.",
+       "title":"Silk Sarees",
+       "offer":"50% offer"
+
+         },
+        {
+          "src":"/assets/white-and-black-checks-kanjivaram-saree-with-pink-border-copy.png",
+          "description":"The sarees are woven from pure mulberry silk thread.",
+          "title":"silk Sarees",
+              "offer":"60%"
+
+ 
+           },
+           {
+            "src":"/assets/white-and-black-checks-kanjivaram-saree-with-pink-border-copy.png",
+            "description":"The sarees are woven from pure mulberry silk thread.",
+            "title":"Silk Sarees",
+             "offer":"70%"
+   
+             }
+
+],
+"middeal":[
+
+{
+  "src":"/assets/white-and-black-checks-kanjivaram-saree-with-pink-border-copy.png",
+  "title":"Silk Sarees",
+  "offer":"50% offer"
+
+
+    },
+   {
+     "src":"/assets/white-and-black-checks-kanjivaram-saree-with-pink-border-copy.png",
+     "title":"Pothys Sarees",
+     "offer":"50% offer"
+
+      },
+      {
+       "src":"/assets/white-and-black-checks-kanjivaram-saree-with-pink-border-copy.png",
+       "title":"Silk Sarees",
+       "offer":"50% offer"
+
+        }
+],
+"lowdeal":[
+{
+  "src":"/assets/download-41-copy.png",
+  "title":"Silk Sarees",
+  "offer":"50% offer"
+   },
+   {
+     "src":"/assets/white-and-black-checks-kanjivaram-saree-with-pink-border-copy.png",
+
+     "title":"Pothys Sarees",
+     "offer":"50% offer"
+
+
+      },
+      {
+       "src":"/assets/download-41-copy.png",
+       "title":"Silk Sarees",
+       "offer":"50% offer"
+
+
+        }
+    ]
+
+}

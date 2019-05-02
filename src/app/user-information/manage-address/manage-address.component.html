@@ -1,0 +1,221 @@
+<div class="manageAddressOuter">
+  <div class="inputsOuterMobile">
+    <div class="addNewAddressButton" (click)="displayManageAddrForm()" [class.disableAddnewAddr]="billingAddress?.id!==null && shippingAddress?.id!==null && officeAddress?.id!==null && customerAddress?.id!==null">
+      Add New Address
+    </div>
+    <div id="manageAddressFormId" class="manageAddressForm">
+      <div class="text-center add-title" *ngIf="selecter">{{addressTyper}}</div>
+      <form #manageForm="ngForm" (ngSubmit)="onSubmit(manageForm.value)">
+        <div class="manageAddressAddressGroup">
+        <div>
+            <!-- <span class="manageAddressInputHeadings">Billing Address</span><br> -->
+            <input type="text" required class="address1 inputFields" placeholder="Name"[(ngModel)]="addressLine1"
+            />
+
+          </div>
+          <div>
+            <!-- <span class="manageAddressInputHeadings">Billing Address</span><br> -->
+            <input type="text" required class="address1 inputFields" placeholder="Billing To"[(ngModel)]="addressLine1"
+            />
+
+          </div><br>
+           <div>
+            <!-- <span class="manageAddressInputHeadings">Billing Address</span><br> -->
+            <input type="text" required class="address1 inputFields" placeholder="Mobile no"[(ngModel)]="addressLine1"
+            />
+
+          </div>
+          <div>
+            <!-- <span class="manageAddressInputHeadings">Billing Address</span><br> -->
+            <input type="text" required class="address1 inputFields" placeholder="Address line one" name="addressLine1" [(ngModel)]="addressLine1"
+            />
+
+          </div><br>
+          
+
+          <div>
+            <input type="text" required class="address2 inputFields" placeholder="Address line two " name="addressLine2" [(ngModel)]="addressLine2"
+            />
+
+          </div>
+         
+
+          <div class="manageAddresInputs">
+            <select (change)="CountryChange(countryName)" #Countryname="ngModel" name="countryName" [(ngModel)]="countryName">
+              <option selected disabled [ngValue]=null>Select Country</option>
+
+              <option *ngFor='let x of countryList' [ngValue]="x.placeId">
+                {{x.placeName}}
+              </option>
+            </select>
+          </div>
+<br>
+          <div class="manageAddresInputs">
+            <select (change)="StateChange(stateName)" #State="ngModel" name="stateName" [(ngModel)]="stateName">
+              <option selected disabled [ngValue]=null>Select State</option>
+              <option *ngFor='let x of stateList' [ngValue]="x.placeId">
+                {{x.placeName}}
+              </option>
+            </select>
+
+
+          </div>
+          
+          <div class="manageAddresInputs">
+            <select (change)="districtChange(districtName)" required #district="ngModel" name="districtName" [(ngModel)]="districtName">
+              <option selected disabled [ngValue]=null>Select District</option>
+              <option *ngFor='let x of districtList' [ngValue]="x.placeId">
+                {{x.placeName}}
+              </option>
+
+            </select>
+          </div>
+<br>
+
+          <div class="manageAddresInputs">
+            <select (change)="StateChange(stateName)" #State="ngModel" name="cityName" [(ngModel)]="cityName">
+              <option selected disabled [ngValue]=null>Select City</option>
+              <option *ngFor='let x of stateList' [ngValue]="x.placeId">
+                {{x.placeName}}
+              </option>
+            </select>
+
+
+          </div>
+          
+          <div class="manageAddresInputs">
+            <input type="text" minlength="6" maxlength="6" (keypress)=" isNumber($event)" #Pincode="ngModel" required class="pincode inputFields"
+              placeholder="Pincode" name="pincode" [(ngModel)]="pincode" />
+          </div>
+<br>
+           <div class="manageAddresInputs">
+         <select [ngClass]="{'disable':nopointer}" [hidden]="selecter" required #addressType="ngModel" name="addresstype" [(ngModel)]="typeaddress">
+              <option selected disabled [ngValue]=null>Select AddressType</option>
+
+              <option *ngIf="billingAddress?.id===null" [ngValue]=1>Billing Address</option>
+              <option *ngIf="shippingAddress?.id===null" [ngValue]=2>Shipping Address</option>
+              <option *ngIf="officeAddress?.id===null" [ngValue]=3>Office Address</option>
+              <option *ngIf="customerAddress?.id===null" [ngValue]=4>Home Address</option>
+
+
+
+            </select>
+                <div *ngIf="addressType.errors && (addressType.dirty||addressType.touched)">
+
+              <div class="error-info" [hidden]="!addressType.errors.required">
+                Please Select Address Type
+              </div>
+
+            </div>
+
+
+         </div>  </div>
+          
+          <br>
+        
+         
+        <div class="manageAddrButtonGroup">
+          <div class="manageAddr_button cancelButton" (click)="hideManageAddForm()">Cancel</div>
+          <button [disabled]="manageForm.invalid" type="submit" [ngClass]="{'btn':true,'addNewAddressButton':manageForm.valid}">save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="manageAddrSavedAddrGruop" *ngIf="Billingshow && billingAddress.id!==null">
+    <span class="maangeAddrSavedIcon">Billing Address</span>
+
+
+
+
+    <div (mouseenter)="editPopupShow(billingAddress.id)" (mouseleave)="editPopupHide()">
+      <div id="manageAddrPopupIconId" class="manageAddrPopupIcon"> </div>
+      <div id="manageAddrEditGroupId" class="manageAddrEditGroup" *ngIf="showOption===billingAddress.id">
+        <div (click)="editPopupClick(billingAddress,1,'Billing Address')" class="EditGroup editButton">Edit</div>
+        <!-- <div  (click)="deleteAddress(billingAddress.id)" class="EditGroup deleetButton">Delete</div> -->
+      </div>
+    </div>
+    <br>
+
+
+    <div class="manageAddrSavedAddrText">
+      <p>{{ billingAddress.addressLine1}},{{ billingAddress.addressLine2}},{{ billingAddress.countryName}},{{ billingAddress.stateName}},{{
+        billingAddress.districtName}},{{ billingAddress.cityName}}</p>
+    </div>
+    <hr />
+  </div>
+
+  <div class="manageAddrSavedAddrGruop" *ngIf="Shippingshow && shippingAddress.id!==null">
+    <span class="maangeAddrSavedIcon">Shipping Address</span>
+
+
+
+
+    <div (mouseenter)="editPopupShow(shippingAddress.id)" (mouseleave)="editPopupHide()">
+      <div id="manageAddrPopupIconId" class="manageAddrPopupIcon"> </div>
+      <div id="manageAddrEditGroupId" class="manageAddrEditGroup" *ngIf="showOption==shippingAddress.id">
+        <div (click)="editPopupClick(shippingAddress,2,'Shipping Address')" class="EditGroup editButton">Edit</div>
+        <!-- <div (click)="deleteAddress(shippingAddress.id)" class="EditGroup deleetButton">Delete</div> -->
+      </div>
+    </div>
+    <br>
+
+
+    <div class="manageAddrSavedAddrText">
+      <p>{{ shippingAddress.addressLine1}},{{ shippingAddress.addressLine2}},{{ shippingAddress.countryName}},{{ shippingAddress.stateName}},{{
+        shippingAddress.districtName}},{{ shippingAddress.cityName}}</p>
+    </div>
+    <hr />
+  </div>
+
+
+  <div class="manageAddrSavedAddrGruop" *ngIf="Officeshow && officeAddress.id!==null">
+    <span class="maangeAddrSavedIcon">Office Address</span>
+
+
+
+
+    <div (mouseenter)="editPopupShow(officeAddress.id)" (mouseleave)="editPopupHide()">
+      <div id="manageAddrPopupIconId" class="manageAddrPopupIcon"> </div>
+      <div id="manageAddrEditGroupId" class="manageAddrEditGroup" *ngIf="showOption==officeAddress.id">
+        <div (click)="editPopupClick(officeAddress,3,'Office Address')" class="EditGroup editButton">Edit</div>
+        <!-- <div   (click)="deleteAddress(officeAddress.id)" class="EditGroup deleetButton">Delete</div> -->
+      </div>
+    </div>
+    <br>
+
+
+    <div class="manageAddrSavedAddrText">
+      <p>{{ officeAddress.addressLine1}},{{ officeAddress.addressLine2}},{{ officeAddress.countryName}},{{ officeAddress.stateName}},{{
+        officeAddress.districtName}},{{ officeAddress.cityName}}</p>
+    </div>
+    <hr />
+  </div>
+
+
+
+  <div class="manageAddrSavedAddrGruop" *ngIf="Customershow  && customerAddress.id!==null">
+    <span class="maangeAddrSavedIcon">Customer Address </span>
+
+
+
+
+    <div (mouseenter)="editPopupShow(customerAddress.id)" (mouseleave)="editPopupHide()">
+      <div id="manageAddrPopupIconId" class="manageAddrPopupIcon"> </div>
+      <div id="manageAddrEditGroupId" class="manageAddrEditGroup" *ngIf="showOption==customerAddress.id">
+        <div (click)="editPopupClick(customerAddress,4,'Customer Address')" class="EditGroup editButton">Edit</div>
+        <!-- <div  (click)="deleteAddress(customerAddress.id)" class="EditGroup deleetButton">Delete</div> -->
+      </div>
+    </div>
+    <br>
+
+
+    <div class="manageAddrSavedAddrText">
+      <p>{{customerAddress.addressLine1}},{{ customerAddress.addressLine2}},{{ customerAddress.countryName}},{{ customerAddress.stateName}},{{
+        customerAddress.districtName}},{{ customerAddress.cityName}}</p>
+    </div>
+    <hr />
+  </div>
+</div>

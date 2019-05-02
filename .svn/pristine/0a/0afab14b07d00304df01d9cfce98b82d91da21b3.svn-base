@@ -1,0 +1,616 @@
+
+  .kntSchemeDetailsOuter{
+    margin:25px 25px;
+    text-align:left;
+
+}
+.inputsOuterMobile{
+    width:215px;
+    margin: 0 auto;
+    padding-top: 26px;
+  }
+
+.knt__login__d3{
+    grid-area: d3;
+    /* background-color: black; */
+    border-radius: 4px;
+}
+.fillImg{
+    background-image: url('/assets/my-profileImages/fill.png');
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+.knt__login__form{
+    text-align: left;
+}
+
+.kntLabel{
+    font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+  padding-bottom: 4px;
+}
+.kntLabelGroup{
+    margin-bottom: 6px;
+}
+
+.docInfoButtonGroup{
+    margin-top: 15px;
+    text-align: center;
+    padding-right: 0px;
+}
+
+
+.cancel{
+          background-color: white;
+            border: 0px;
+            width: 56px;
+            height: 25px;
+            font-family: 'Muli';
+            font-size: 14px;
+            font-weight: bold;
+            color: #95989a;
+            font-size: 12px;
+            padding: 0px;
+}
+.buttonClass{
+    font-family: 'Muli';
+    font-size: 14px;
+    font-weight: bold;
+    color: #95989a;
+    font-size: 12px;
+}
+.save{
+    font-family: 'Muli';
+    font-size: 14px;
+    font-weight: bold;
+    color: #95989a;
+    font-size: 12px;
+}
+.saveAct{
+    background-color: black;
+    color:white;
+}
+.cancelAct{
+    color:red;
+}
+
+.knt__login__form input,select{
+    font-size: 10px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: solid 1px #bdbdbd;
+}
+.knt__login__form h3{
+    font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+}
+.knt__login__upload{
+    padding: 5px 0px 0px 35px;
+    border: 0px;
+    position: relative;
+    outline: none;
+    width: 100%;
+}
+ .knt__login__upload::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+ .knt__login__upload::before{
+    content: 'Upload a file';
+  border-radius: 3px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  padding: 5px 8px;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #000;
+}
+.knt__login__form h4{
+    font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+}
+
+.knt__login__homeaddress{
+    position: relative;
+}
+.knt__login__homeaddress .knt__login__homeaddress--check{
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    left: -15px;
+    top: 30px;
+    width: 10px;
+    cursor: pointer;
+}
+.homeaddress__checkmark{
+    position: absolute;
+    top: 36px;
+    left: -18px;
+    height: 10px;
+    width: 10px;
+    background-color: #fff;
+    border-radius: 2px;
+    border: 0.5px solid #000;   
+}
+.knt__login__homeaddress .knt__login__homeaddress--check:checked ~ .homeaddress__checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.homeaddress__checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.knt__login__homeaddress .knt__login__homeaddress--check:checked ~ .homeaddress__checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.knt__login__homeaddress .homeaddress__checkmark:after {
+    left: 3px;
+    top: -1px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* The tandc */
+.knt__login__form .tandc {
+    display: block;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.tandc input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    display: none;
+    
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 4px;
+    left: -18px;
+    height: 10px;
+    width: 10px;
+    background-color: #fff;
+    border-radius: 2px;
+    border: 0.5px solid #000;
+}
+
+/* When the checkbox is checked, add a blue background */
+.tandc input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.tandc input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.tandc .checkmark:after {
+    left: 3px;
+    top: -1px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+.phoneNumClass{
+    display: block;
+}
+
+
+/* New doc upload START */
+
+
+
+
+  .addNewAddressButton{
+    width: 184px;
+    height: 32px;
+    background-color: black;
+    color:white;
+    font-family: 'Muli';
+     font-size: 14px;
+     font-weight: 800;
+     text-align: center;
+     padding-top: 4px;
+     border-radius: 4px;
+     cursor: pointer;
+  }
+
+  .inpput[type=radio]{
+      margin-right: 8px;
+  }
+  .radioClass{
+    cursor: pointer;
+    }
+    #voter{
+        margin-right: 4px;
+    }
+
+  .selectDocText{
+    font-family: 'Muli';
+    font-size: 12px;
+    font-weight: bold;
+    color: #393939;
+    margin-top: 25px;
+  }
+  .docInfoForm{
+    display: none;
+}
+
+
+
+  .docInfoNameGroup{
+    margin-top: 20px;
+}
+
+.docInfoNameGroup > div{
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+.docInfoInputHeadings{
+  font-family: 'Muli';
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  color: #393939;
+}
+.inputFields{
+    width:172px;
+    height: 32px;
+    border: 1px solid #979797;
+    border-radius: 3px;
+    padding: 5px;
+}
+#uploadDocButton{
+    width: 123px;
+    height: 32px;
+    background-color: black;
+    color:white;
+    border-radius: 4px;
+    border: 0px;
+}
+.docInfoPopupIcon{
+    background-image: url('/assets/my-profileImages/popupIcon.png');
+    width: 3px;
+    height: 16px;
+    float: right;
+    cursor: pointer;
+}
+.docInfoEditGroup{
+    width: 72px;
+    height: 45px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 3px 3px 12px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 12px 0 rgba(0, 0, 0, 0.2);
+    float: right;
+    display: none;
+    cursor: pointer;
+}
+.EditGroup{
+    padding: 2px 0px 2px 7px;
+    font-family: 'Muli';
+    font-size: 12px;
+    font-weight: 600;
+    color: #393939;
+}
+.editButton{
+    border-bottom: solid 1px #e0e0e0;
+}
+.docInfoButtonGroup{
+    margin-top: 15px;
+    text-align: center;
+    padding-right: 0px;
+}
+.docInfo_button{
+    width: 72px;
+    height: 27px;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid white;
+    padding-top: 2px;
+ }
+ .cancelButton{
+    color:red;
+}
+.docInfoSaved{
+    font-family: 'Muli-Bold';
+    font-size: 12px;
+    color: #393939;
+    margin-right: 110px;
+    margin-top: 12px;
+
+}
+.docInfoSavedText{
+    font-family: 'Muli';
+    font-size: 12px;
+    font-weight: 600;
+    color: #737373;
+    margin-top: 17px;
+}
+label{
+    margin-right: 35px;
+    font-family: 'Muli';
+    font-size: 12px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    color: #737373;
+}
+
+
+
+
+.deleteButton{
+    width: 72px;
+    height: 27px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid white;
+    padding-top: 2px;
+    float: right;
+    color:red;
+ }
+
+.deleteButton:hover{
+    cursor: pointer;
+    border: 1px solid #979797;
+} 
+
+
+.downloadDoc
+{   display: inline-block;
+    border: 1px solid #e0e0e0;
+    padding: 4px;
+    color: #1c9cea;
+}
+.downloadImg{
+    background-image: url('/assets/my-profileImages/download.png');
+    width:12px;
+    height: 13px;
+    display: inline-block;
+    margin-left: 30px;
+}
+.docFullname{
+    margin-right: 148px;
+    font-family: 'Muli';
+}
+
+
+
+
+
+/* New doc upload end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 768px){
+    .inputsOuterMobile{
+        width:100%;
+    }
+    .knt__login__header >div{
+        display: flex;
+        width: 700px;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .knt__login__header > div > h1{
+        font-size: 24px;
+    }
+    .knt__login__header > div > img{
+        width: 132px;
+        height: 93px;
+        margin-left: 88px;
+    }
+    .knt__login__container{
+        height: 100%;
+        width: 700px;
+        margin: 0 auto;
+        padding: 64px 0px 56px;
+        display: grid;
+        grid-auto-rows:auto;
+        grid-gap: 0px 60px;
+        grid-template-areas:
+                            "d1 d1 d2 d2"
+                            "d3 d3 d3 d3"
+                            "d3 d3 d3 d3";
+    }
+    .knt__login__container h2{
+      text-align: left;
+    }
+    .knt__login__container p{
+        line-height: 1.58;
+    }
+    .knt__login__d1{
+        grid-area: d1;
+    }
+    .knt__login__d2{
+        grid-area: d2;
+    }
+    .knt__login__d3{
+        grid-area: d3;
+        /* padding: 40px 60px 48px; */
+    }
+    .knt__login__form > div > div{
+        /* display: flex; */
+        justify-content: space-between;
+    }
+    .knt__login__form .birthDateAndMobClass {
+        /* display: flex; */
+        justify-content: space-between;
+    }
+    .knt__login__form .birthDateAndMobClass > div{
+        display: block;
+    }
+    .knt__login__form label{
+        display: block;
+        font-size: 14px;
+    }
+    .knt__login__form input,select{
+        font-size: 12px;
+        /* width: 280px; */
+        width: 134px;
+    }
+   
+    .knt__login__form h3{
+        font-size: 14px;
+    }
+    .knt__login__form h4{
+        font-size: 14px;
+        margin-top: 36px;
+    }
+    /* .knt__login__form button {
+        width: 363px;
+    } */
+    .custName{
+        width: 260px !important;
+    }
+    .phoneNumClass{
+        display: inline-block;
+    }
+    }
+    @media only screen and (min-width: 1024px){
+        .knt__login__header >div{
+            width: 800px;
+        }
+        .knt__login__header > div > h1{
+            font-size: 31px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+        }
+        .knt__login__container{
+            height: 100%;
+            width: 800px;
+            margin: 0 auto;
+            padding: 64px 0px 56px;
+            display: grid;
+            grid-auto-rows:auto;
+            grid-gap: 0px 60px;
+            grid-template-areas:
+                                "d1 d1 d3 d3"
+                                "d2 d2 d3 d3"
+                                "d2 d2 d3 d3";
+        }
+        .knt__login__container h2{
+            margin:0 0 12px;
+          }
+          .knt__login__container p{
+              font-size: 14px;
+          }
+          .knt__login__d1{
+              padding-bottom: 0px;
+              grid-area: d1;
+          }
+          .knt__login__d2{
+            grid-area: d2;
+        }
+          .knt__login__d3{
+            grid-area: d3;
+              /* padding: 40px 40px 48px; */
+          }
+        .knt__login__form input,select{
+            font-size: 12px;
+            width: 170px;
+        }
+        .knt__login__form > input{
+            width: 100%;
+        }
+       
+    }

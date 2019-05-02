@@ -1,0 +1,112 @@
+/** Start : Font Declarations */
+
+@font-face {
+    font-family: 'MavenPro-Medium';
+    src: url('/assets/fonts/MavenPro-Medium.ttf');
+}
+@font-face {
+    font-family: 'MavenPro-Bold';
+    src: url('/assets/fonts/MavenPro-Bold.ttf');
+}
+@font-face {
+    font-family: 'MavenPro-Regular';
+    src: url('/assets/fonts/MavenPro-Regular.ttf');
+}
+@font-face {
+    font-family: 'PT_Sans-Regular';
+    src: url('/assets/fonts/PT_Sans-Web-Regular.ttf');
+}
+@font-face {
+    font-family: 'latoBold';
+    src: url('/assets/fonts/Lato-Bold.ttf');
+}
+@font-face {
+    font-family: 'latoRegular';
+    src: url('/assets/fonts/Lato-Regular.ttf');
+}
+@font-face {
+    font-family: 'latoLight';
+    src: url('/assets/fonts/Lato-Light.ttf');
+} 
+@font-face {
+    font-family: 'quicksandRegular';
+    src: url('/assets/fonts/quicksandRegular.ttf');
+} 
+@font-face {
+    font-family: 'quicksandLight';
+    src: url('/assets/fonts/quicksandLight.ttf');
+} 
+@font-face {
+    font-family: 'quicksandSemibold';
+    src: url('/assets/fonts/quicksandSemibold.ttf');
+} 
+@font-face {
+    font-family: 'quicksandBold';
+    src: url('/assets/fonts/quicksandBold.ttf');
+} 
+@font-face {
+    font-family: 'robotoRegular';
+    src: url('/assets/fonts/robotoRegular.ttf');
+} 
+@font-face {
+    font-family: 'robotoLight';
+    src: url('/assets/fonts/robotoRegular.ttf');
+} 
+@font-face {
+    font-family: 'robotoBold';
+    src: url('/assets/fonts/robotoRegular.ttf');
+} 
+@font-face {
+    font-family: 'PtSansRegular';
+    src: url('/assets/fonts/PT_Sans-Web-Regular.ttf');
+} 
+/** End : Font Declarations */
+
+/** Start : Reset Codes */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, main {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/** End : Reset Codes */

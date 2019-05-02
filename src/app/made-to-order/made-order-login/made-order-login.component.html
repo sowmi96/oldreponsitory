@@ -1,0 +1,56 @@
+<div class="knt__login__header madeToOrder">
+  <div>
+    <h1>Made to Order</h1>
+    <img src="../../assets/registration/ha-91-outdoor-value-dec-17@2x.png" alt="girl with bags">
+  </div>
+</div>
+<div class="knt__login__container">
+  <div class="knt__login__d1">
+    <h2>What is Made to Orders?</h2>
+    <p>Produced or prepared specifically when someone requests the item, so that the item can be customized as desired by the
+      person who requested it. if the customer has any special requests, the staff is able to accommodate them. </p>
+    <p>As another example, a woman could purchase a made to order dress; this dress would be sewn to the size she requests,
+      and would use the fabric and pattern she desired.</p>
+  </div>
+  <div class="knt__login__d2">
+    <h2> 2 Simple steps to get started with made to order</h2>
+    <div class="knt__login__steps">
+      <div>
+        <h5>1</h5>
+        <h3>Upload a design of your choice</h3>
+      </div>
+      <!-- <div>
+        <h5>2</h5>
+        <h3>Choose a design from our similar options </h3>
+      </div> -->
+      <div>
+        <h5>2</h5>
+        <h3>Pay and place the order online</h3>
+      </div>
+    </div>
+    <button *ngIf="useridData!=undefined" type="button" class="btn btn-primary proceedButton" routerLink='/madeOrder/order'>Proceed to made to order</button>
+    <button *ngIf="useridData==undefined" class="cartbutton" data-toggle="modal" data-target="#myModal">Proceed to made to order</button>
+  </div>
+
+  <!-- <div class="knt__login__d3">
+    <form [formGroup]="madeForm"   (ngSubmit)="submit(madeForm.value)" class="knt__login__form">
+      <label for="">Email ID</label>
+      <input type="email" formControlName="email" required placeholder="suresh@company.co">
+       <label for="">Mobile Number</label>
+      <input type="number" formControlName="mobileNumber" pattern="[789][0-9]{9}" required placeholder="8906376421">
+       <label for="">Password</label>
+      <input type="password" [(ngModel)]="password" (change)="validatePassword()"  formControlName="password" required placeholder="">
+      <span *ngIf="!madeForm.get('password').valid && madeForm.get('password').touched" 
+      class="help-block"> Please Enter First Name (Minimum 2 Characters)</span>
+       <label for="">Confirm password</label>
+      <input type="password" [(ngModel)]="confirmpassword" (change)="validatePassword()" formControlName="confirmPassword" required placeholder="">
+      <div class="caution" *ngIf="showPasswordCaution">
+        Entered password does not match
+      </div>
+      <button  [disabled]="madeForm.invalid"  class="btn btn-primary">Sign Up</button>
+     
+    </form>
+  </div> -->
+
+
+</div>

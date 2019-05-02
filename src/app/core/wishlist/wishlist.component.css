@@ -1,0 +1,241 @@
+.wishlistRow {
+  width: 266px;
+  margin: 0 auto;
+}
+
+.tabletTab {
+  display: none;
+}
+
+.pad {
+  padding: 0;
+}
+
+.deleteWish {
+  margin-bottom: 20px;
+  text-align: right;
+  margin-right: 30px;
+}
+
+.wishlistDetail {
+  /* display: -webkit-box; */
+  padding-bottom: 28px;
+  padding-top: 20px;
+  border-bottom: 1px solid #eee;
+}
+h1 {
+  font-family: 'Muli-Bold';
+  font-size: 20px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #393939;
+  margin-top: 16px;
+  margin-bottom: 30px;
+}
+
+.wishlistImg {
+  text-align: left;
+  cursor: pointer;
+}
+
+h2 {
+  font-family: ' Muli-Bold';
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+  margin: 0;
+}
+
+.wishlistContent {
+  display: block;
+}
+
+.wishlistContentDetail,
+.wishlistContentDetail1 {
+  text-align: left;
+}
+
+.wishlistRating {
+  font-family: 'Muli-SemiBold';
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+}
+
+.cardAmount {
+  font-family: 'Muli-Bold';
+  font-size: 10px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #bdbdbd;
+  text-decoration: line-through;
+}
+
+.wishlistContentDetail1 button {
+  width: 52px;
+  height: 20px;
+  object-fit: contain;
+  border-radius: 2px;
+  background-color: #ffffff;
+  border: solid 1px #e0e0e0;
+  font-family: Lato;
+  font-size: 10px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #393939;
+  padding: 0;
+}
+
+h3 {
+  font-family: 'Muli-Bold';
+  font-size: 13px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.85;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+  margin: 0;
+}
+
+/* .wishlistStarCount {
+    font-family: Muli;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+} */
+
+@media only screen and (min-width: 768px) {
+  .wishlistRow {
+    width: 704px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .wishlistContent {
+    display: -webkit-box;
+  }
+  .deleteWish {
+    margin-bottom: 0px;
+    text-align: right;
+    margin-right: 30px;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+  }
+  .wishlistDetail {
+    position: relative;
+  }
+  .tabletTab {
+    font-family: 'Muli-Bold';
+    font-size: 17px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.41;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+    display: block;
+  }
+  .tabletTab2 {
+    margin-left: 260px;
+    display: inline;
+  }
+  .tabletTab1 {
+    display: inline;
+  }
+  .wishlistPrice {
+    margin-left: 63px;
+  }
+  h3 {
+    font-size: 15px;
+    line-height: 1.61;
+  }
+  .price {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .wishlistRow {
+    width: 936px;
+    margin: 0 auto;
+  }
+  .tabletTab2 {
+    margin-left: 385px;
+  }
+
+  .deleteWish {
+    margin-right: 0px;
+  }
+
+  .wishlistPrice {
+    margin-left: 132px;
+  }
+  h2 {
+    font-size: 17px;
+    line-height: 1.41;
+    margin-bottom: 2px;
+  }
+  .wishlistContentDetail1 {
+    margin-top: 3px;
+  }
+  .wishlistDetail {
+    margin-bottom: 19px;
+  }
+  .cardAmount {
+    margin-right: 20px;
+  }
+}
+
+.continueButton1 {
+  width: 190px;
+  font-family: 'Muli-Bold';
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+  background-color: black;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+.wishlistImag {
+  width: 80%;
+}

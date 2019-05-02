@@ -1,0 +1,246 @@
+import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { GeneralService } from '../../general.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { SharedService } from '../../shared.service';
+
+@Component({
+  selector: 'app-manage-address',
+  templateUrl: './manage-address.component.html',
+  styleUrls: ['./manage-address.component.css']
+})
+export class ManageAddressComponent implements OnInit {
+  @ViewChild('manageForm') form: any;
+  public addressTyper: any;
+  public address = [];
+  public selecter: any;
+  public countryChange = true;
+  public editaddress: any;
+  public addressLine1: any;
+  public addressLine2: any;
+  public countryName: any = null;
+  public stateName: any = null;
+  public cityName: any = null;
+  public districtName: any = null;
+  public pincode: any;
+  public name: any;
+  public billingto: any;
+  public mobileno: any;
+    public typeaddress: null;
+  public shipping: any;
+  public addressType: Boolean;
+  public billingAddress: any;
+  public shippingAddress: any;
+  public officeAddress: any;
+  public customerAddress: any;
+  public wholeaddress: any;
+  public Billingshow = false;
+  public Shippingshow = false;
+  public Officeshow = false;
+  public Customershow = false;
+  public showOption: number;
+  public countryList: any = [];
+  public stateList: any = [];
+  public cityList: any = [];
+  public districtList: any = [];
+  public nopointer = false;
+  public user;
+
+  constructor(private manage: GeneralService, private data: SharedService) {}
+
+  ngOnInit() {
+    this.user = this.manage.getUserId();
+
+    this.getAddress();
+
+    this.getCountry();
+  }
+  getCountry() {
+    this.manage.getRequest('getAllCountryList').subscribe(
+      res => {
+        this.countryList = res.responseContents;
+      },
+      e => {},
+      () => {}
+    );
+  }
+
+  getAddress() {
+    this.data.showLoading(true);
+    this.manage.getRequest('getUserManageAddress?id=' + this.user).subscribe(
+      res => {
+        this.data.showLoading(false);
+        this.billingAddress = res.responseContent.billingAddressMaster;
+        this.shippingAddress = res.responseContent.shippingAddressMaster;
+        this.officeAddress = res.responseContent.officeAddressMaster;
+        this.customerAddress = res.responseContent.customerAddressMaster;
+        this.check(this.billingAddress, 'billing');
+        this.check(this.officeAddress, 'office');
+
+        this.check(this.shippingAddress, 'shipping');
+        this.check(this.customerAddress, 'customer');
+      },
+      e => {
+        this.data.showLoading(false);
+      },
+      () => {}
+    );
+  }
+
+  check(car, bill) {
+    for (const m in car) {
+      if (car[m] == null || car[m] === '') {
+      } else {
+        if (bill === 'billing') {
+          this.Billingshow = true;
+        }
+        if (bill === 'shipping') {
+          this.Shippingshow = true;
+        }
+
+        if (bill === 'office') {
+          this.Officeshow = true;
+        }
+        if (bill === 'customer') {
+          this.Customershow = true;
+        }
+        break;
+      }
+    }
+  }
+
+  displayManageAddrForm() {
+    this.nopointer = false;
+    this.selecter = false;
+    this.form.reset();
+    this.addressTyper = '';
+
+    document.getElementById('manageAddressFormId').style.display = 'block';
+    this.cityName = null;
+    this.stateName = null;
+    this.countryName = null;
+    this.typeaddress = null;
+  }
+
+  hideManageAddForm() {
+    document.getElementById('manageAddressFormId').style.display = 'none';
+    this.form.reset();
+  }
+
+  editPopupClick(data, x, y) {
+    this.typeaddress = x;
+    this.addressTyper = y;
+    this.selecter = true;
+    this.nopointer = true;
+    window.scroll(0, 0);
+
+    document.getElementById('manageAddressFormId').style.display = 'block';
+    this.editaddress = Object.assign({}, data);
+    this.CountryChange(data.countryId);
+    this.StateChange(data.stateId);
+    this.districtChange(data.districtId);
+    this.addressLine1 = this.editaddress.addressLine1;
+    this.addressLine2 = this.editaddress.addressLine2;
+  this.name = this.editaddress.name;
+    this.billingto = this.editaddress.billingto;
+    this.mobileno = this.editaddress.mobileno;
+    this.countryName = this.editaddress.countryId;
+    this.stateName = this.editaddress.stateId;
+    this.districtName = this.editaddress.districtId;
+    this.cityName = this.editaddress.cityId;
+
+    this.pincode = this.editaddress.pincode;
+  }
+
+  onSubmit(value: any) {
+    this.data.showLoading(true);
+    const data = {
+      userId: this.user,
+      addressId: value.addresstype,
+      addressLine1: value.addressLine1,
+      addressLine2: value.addressLine2,
+      countryID: value.countryName,
+      stateId: value.stateName,
+      districtID: value.districtName,
+      cityId: value.cityName,
+      name: value.name,
+      billingto: value.billingto,
+      mobileno: value.mobileno,
+      pincode: value.pincode
+    };
+
+    this.manage.postRequest1('postUserManageAddress', data).subscribe(
+      res => {
+        this.getAddress();
+      },
+      e => {},
+      () => {}
+    );
+
+    document.getElementById('manageAddressFormId').style.display = 'none';
+    this.form.reset();
+    this.cityName = null;
+    this.stateName = null;
+    this.countryName = null;
+    this.typeaddress = null;
+  }
+  isNumber(evt) {
+    evt = evt ? evt : window.event;
+    const charCode = evt.which ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+
+  editPopupShow(pop) {
+    this.showOption = pop;
+  }
+  editPopupHide() {
+    this.showOption = null;
+  }
+
+  CountryChange(event) {
+    this.manage.getRequest('getStateListByCountry/' + event).subscribe(
+      res => {
+        this.stateList = res.responseContents;
+      },
+      e => {},
+      () => {}
+    );
+  }
+
+  StateChange(event) {
+    this.manage.getRequest('getDistrictListByState/' + event).subscribe(
+      res => {
+        this.districtList = res.responseContents;
+      },
+      e => {},
+      () => {}
+    );
+  }
+
+  districtChange(event) {
+    this.manage.getRequest('getCityListByDistrict/' + event).subscribe(
+      res => {
+        this.cityList = res.responseContents;
+      },
+      e => {},
+      () => {}
+    );
+  }
+
+  deleteAddress(x) {
+    const recorddelete = {
+      userId: this.user,
+      id: x
+    };
+    this.manage.postRequest1('deleteUserManageAddress', recorddelete).subscribe(
+      res => {
+        this.getAddress();
+      },
+      e => {},
+      () => {}
+    );
+  }
+}

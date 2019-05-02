@@ -1,0 +1,273 @@
+<div class="pro__details">
+  <div class="pro__details">
+        <div class="col-lg-12" style="text-align:left">
+              <span [routerLink]="['/']">Home</span>
+              <span (click)="breadcrumsClick(breadCrumbDetailsValue?.mainMenuId)"> <i class="fa fa-angle-double-right"></i> {{breadCrumbDetailsValue?.mainMenuName}} </span>
+              <span *ngIf="breadCrumbDetailsValue?.subMenuId!=null" (click)="breadcrumsClick(breadCrumbDetailsValue?.subMenuId)">
+                  <i class="fa fa-angle-double-right"></i> {{breadCrumbDetailsValue?.subMenuName}} </span>
+              <span *ngIf="breadCrumbDetailsValue?.categoryId!=null" (click)="breadcrumsClick(breadCrumbDetailsValue?.categoryId)">
+                  <i class="fa fa-angle-double-right"></i> {{breadCrumbDetailsValue?.categoryName}}</span>
+              <span class="proddetname"><i class="fa fa-angle-double-right"></i> {{proddetaillist.productName}}</span>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 pro__padding">
+      <div class="row" style="position: relative">
+        <div class="col-xs-12  col-sm-10 col-sm-push-2 pro__padding pro__model">
+          <img class="" src="{{selectedImg}}" imageZoom={{selectedImg}} magnification="10">
+          <div class="faHeart">
+            <i *ngIf="useridData==undefined" class="fa fa-heart" aria-hidden="true" data-toggle="modal" data-target="#myModal"></i>
+            <i *ngIf="useridData!=undefined" [ngClass]="{'active': cuurentwishlist?.wishList==true }" (click)="listClicka($event, cuurentwishlist)"
+              class="fa fa-heart" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-2 col-sm-pull-10 pro__padding pro__imageList">
+          <div [class.activeImg]="activeImg==0" class="pro__first" [style.backgroundImage]="'url('+ cuurentwishlist.smallImage +')'"
+            id="img1" (click)="imageClick(src,0)"> </div>
+          <div [class.activeImg]="activeImg==1" class=" pro__second" [style.backgroundImage]="'url('+ cuurentwishlist.mediumImage +')'"
+            id="img2" (click)="imageClick(src1,1)"> </div>
+          <div [class.activeImg]="activeImg==2" class="pro__third" [style.backgroundImage]="'url('+ cuurentwishlist.thumbnailImage +')'"
+            id="img3" (click)="imageClick(src2,2)"> </div>
+        </div>
+
+
+        <div class="col-xs-12  pro__padding pro__chooseColor">
+          <div class="circle circle3" [class.activecircle]="activecircle==x.color" *ngFor="let x  of finalarray" (click)="getprodcategory(x)">
+            <div class="circle4 circle data-{{x.color}}" [style.backgroundColor]="x.color"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 pro__padding">
+      <div class="pro__headingTitle1">
+        <h1 class="pro__heading">{{proddetaillist.productName}}</h1>
+      </div>
+      <div class="pro__star">
+        <h1 class="pro__rating">Rating</h1>
+        <rating [(ngModel)]="customerRating" [max]="5" [readonly]="true" [titles]="['one','two','three']"></rating>
+        <h1 class="pro__rating">({{customerRating}}.0)</h1>
+      </div>
+      <div class="pro__price">
+        <h1 class="pro__Off"> {{proddetaillist.oldPrice | currConvert : currencyRate}}</h1>
+        <h1 class="pro__percentage">{{proddetaillist.discount}}% OFF</h1>
+      </div>
+
+      <div class="pro__pricedrop">
+        {{proddetaillist.newPrice | currConvert : currencyRate}}
+      </div>
+      <div class="pro__list" *ngIf="size.length>0">
+        <ul class="pro__list1">
+          <li class="proSize"> Size</li>
+          <li class="pro__sizechart" *ngFor="let x  of size" [ngClass]="{'selectedSize': x == selectedItem}" (click)="listClick(x)">{{x}}</li>
+
+          <li class="pro__sizechart1">
+            <app-bulkorder-chart></app-bulkorder-chart>
+          </li>
+        </ul>
+
+      </div>
+      <form>
+        <label class="pro__quantity">Quantity</label>
+        <div class="value-button" id="decrease" (click)="decreaseValue()" value="Decrease Value">-</div>
+        <input id="number" [(ngModel)]='data' (keydown)="quantitykey($event)"(ngModelChange)="checkAvailability()"  name="quantity" type="number" />
+        <div class="value-button" id="increase" (click)="increaseValue()" value="Increase Value">+</div>
+        <div *ngIf="showAvailableError" class="error-info">We're sorry! Only {{quantity1}} units left</div>
+      </form>
+      <div class="pro__list">
+        <ul class="pro__list1">
+          <li class="proSize"> Available quantity</li>
+          <li>{{quantity1}}</li>
+
+        </ul>
+      </div>
+
+     <div class="pro__paragraph">{{proddetaillist.Length}}</div>
+      <div class="pro__button">
+        <button *ngIf="useridData!=undefined" class="cartbutton" (click)="addtocart()" [disabled]="addCardLoad">{{addCardLoad?'Adding...':'Add to Cart'}}</button>
+        <button *ngIf="useridData==undefined" class="cartbutton" data-toggle="modal" data-target="#myModal">Add to Cart</button>
+        <button class="buybutton" *ngIf="useridData!=undefined" (click)="buyNow()">Buy Now</button>
+        <button class="buybutton" *ngIf="useridData==undefined" data-toggle="modal" data-target="#myModal">Buy Now</button>
+      </div>
+      <accordion>
+        <accordion-group class="abc">
+          <div accordion-heading class="clearfix">
+            Product Details
+            <span class="float-right pull-right">
+              <img src="../../assets/footerImages/active.png" alt="">
+            </span>
+          </div>
+          <h1 class="pro__paragraph">Black Banaras Silk Saree with Zari butta on body and Zari border. Includes Unstitched Blouse.</h1>
+          <div class="pro__accordian__align">
+            <div class="pro__accordian">
+              <div class="pro__accordian__list">Category</div>
+              <div class="pro__accordian1">{{proddetaillist.productName}}</div>
+            </div>
+            <div class="pro__accordian">
+              <div class="pro__accordian__list">Price</div>
+              <div class="pro__accordian1">{{proddetaillist.newPrice | currConvert : currencyRate}}</div>
+            </div>
+            <div class="pro__accordian">
+              <div class="pro__accordian__list">Material</div>
+              <div class="pro__accordian1">{{proddetaillist.materialName}}</div>
+            </div>
+            <div class="pro__accordian">
+              <div class="pro__accordian__list">Colours</div>
+              <div class="pro__accordian1">
+                <span *ngFor="let color of finalarray">{{color.color}} </span>
+              </div>
+            </div>
+            <div class="pro__accordian">
+              <div class="pro__accordian__list">Work</div>
+              <div class="pro__accordian1">{{proddetaillist.workName}}</div>
+            </div>
+            <div class="pro__accordian">
+              <div class="pro__accordian__list">Occasion</div>
+              <div class="pro__accordian1">{{proddetaillist.occassionName}}</div>
+            </div>
+            <div class="pro__accordian">
+              <div class="pro__accordian__list">Bulk Order</div>
+              <div class="pro__accordian1">{{proddetaillist.bulkOrder}}</div>
+            </div>
+          </div>
+        </accordion-group>
+        <accordion-group>
+          <div accordion-heading class="clearfix">
+            Description
+            <span class="float-right pull-right">
+              <img src="../../assets/footerImages/active.png" alt="">
+            </span>
+          </div>
+
+          <p *ngIf="proddetaillist['description']==undefined" class="pro__paragraph pro__paragraph1">
+            no data found
+          </p>
+          <div *ngIf="proddetaillist?.description?.length>0">
+            <p class="pro__paragraph" *ngFor="let x  of proddetaillist['description']">{{x}}</p>
+          </div>
+
+        </accordion-group>
+        <accordion-group class="lastborder">
+          <div accordion-heading class="clearfix">
+            Material and Care
+            <span class="float-right pull-right">
+              <img src="../../assets/footerImages/active.png" alt="">
+            </span>
+          </div>
+          <p *ngIf="proddetaillist['materialcare']==undefined" class="pro__paragraph pro__paragraph1">
+            no data found
+          </p>
+          <div *ngIf="proddetaillist?.materialcare?.length>0">
+            <p class="pro__paragraph" *ngFor="let x  of proddetaillist['materialcare']">{{x}}</p>
+          </div>
+
+        </accordion-group>
+      </accordion>
+
+    </div>
+
+  </div>
+
+ <div class="pro__reviewSection">
+    <div class="review">Review</div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 pro__border">
+        <div class="giveRating">Give Ratings
+          <i aria-hidden="true" class="fa fa-asterisk required__star"></i>
+        </div>
+
+        <div class="pro__not__rating">
+          <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection($event)" (keyup)="confirmSelection($event)"></rating>
+          <h1 class="not_rated">Not rated</h1>
+        </div>
+        <div class="inputAlign">
+          <h1 class="writreview">Write your review
+            <i aria-hidden="true" class="fa fa-asterisk required__star"></i>
+          </h1>
+          <textarea name="" id="" cols="30" rows="10" [(ngModel)]="reviewDesc" placeholder="Type.." (ngModelChange)="reviewdesc()"
+            required></textarea>
+        </div>
+        <div *ngIf="showError" class="error-info">Please enter both rating and description</div>
+        <button *ngIf="useridData!=undefined " class="submitbutton" (click)="submitReview()" [disabled]="showReviewSubmit">{{showReviewSubmit?'Submitting Review':'Submit'}}</button>
+        <button *ngIf="useridData==undefined" class="submitbutton" data-toggle="modal" data-target="#myModal">Submit</button>
+      </div>
+      <div class="col-xs-12 col-sm-6 ">
+
+        <div class="pro__writeReview " *ngFor="let x of reviews | slice:0:2; let i=index ">
+          <div class="pro__short ">
+            <div class="shortName ">{{x.shortUserName}}</div>
+            <div class="pro__writeReview--star ">
+              <rating [(ngModel)]="x.rating " [max]="5 " [readonly]="true "></rating>
+              <span>(
+                <b>{{x.rating}}</b>)</span>
+            </div>
+          </div>
+          <h1>{{x.reviewComments}}</h1>
+          <h2>by {{x.userName}} on {{x.createdDate | date: 'dd/MM/yyyy HH:mm:ss'}}</h2>
+          <h3>{{x.likeCount}} People found this review helpful. Was this review helpful?</h3>
+          <div class="pro__likeSection ">
+            <div class="pro__like " *ngIf="useridData!=undefined " (click)="likes(x) ">
+              <img src="../../assets/img/product/like.svg " alt=" ">
+              <span>{{x.likeCount}}</span>
+            </div>
+            <div class="pro__like " *ngIf="useridData==undefined " data-toggle="modal " data-target="#myModal ">
+              <img src="../../assets/img/product/like.svg " alt=" ">
+              <span>{{x.likeCount}}</span>
+            </div>
+            <div class="pro__dislike " *ngIf="useridData!=undefined " (click)="dislike(x) ">
+              <img src="../../assets/img/product/dislike.svg " alt=" ">
+              <span>{{x.dislikeCount}}</span>
+            </div>
+            <div class="pro__dislike " *ngIf="useridData==undefined " data-toggle="modal " data-target="#myModal ">
+              <img src="../../assets/img/product/dislike.svg " alt=" ">
+              <span>{{x.dislikeCount}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="viewAll" *ngIf="reviews.length==0">No reviews for the product</div>
+        <div class="viewAll " *ngIf="reviews.length!==0" (click)="viewPage() ">View all {{reviews.length}} reviews</div>
+      </div>
+    </div>
+</div>
+<div class="pro__simillar ">
+    <div class="simillar ">Similar Products</div>
+    <div class="pro__slick ">
+      <div class="row ">
+        <div *ngIf="similarproduct.length==0 ">
+          No similar product found
+        </div>
+        <ngx-carousel *ngIf="similarproduct.length>0" [inputs]="carouselTile" class="ngcarousel">
+          <ngx-tile NgxCarouselItem *ngFor="let product of similarproduct">
+            <div class="col-xs-6 col-sm-4 similarproduct">
+              <img class="similarPro" alt="img" src="{{product.smallImages[0]}}" (click)="getsimilarDetail(product.productId)" />
+
+              <i *ngIf="useridData==undefined" class="fa fa-heart heart " data-toggle="modal" data-target="#myModal" aria-hidden="true"></i>
+              <i *ngIf="useridData!=undefined" class="fa fa-heart heart " [ngClass]="{'active': product.wishList==true}" (click)="getwhilistdata(product)"
+                aria-hidden="true"></i>
+
+              <div class="pro__slick__icon">
+                <p>{{product.productName}}</p>
+                <img class="" src="/assets/img/product/similar.svg" alt="img" />
+              </div>
+              <div class="pro__simillar__product">
+                <div class="pro__simillar_align">
+                  <h1 class="pro__simillar__discount">{{product.oldPrice | currConvert : currencyRate}}</h1>
+                  <h1 class="pro__simillar__price">{{product.newPrice | currConvert : currencyRate}}</h1>
+                </div>
+                <div class="pro__simillar__off">{{product.discount}}%OFF</div>
+              </div>
+
+            </div>
+          </ngx-tile>
+          <div NgxCarouselPrev class='pro__prev'>
+            <img class="" src="../../assets/img/product/left-copy-2.svg" />
+          </div>
+          <div NgxCarouselNext class='pro__next'>
+            <img class=" home-last" src="../../assets/img/product/right-copy-2.svg" />
+          </div>
+
+        </ngx-carousel>
+
+      </div>
+    </div>
+  </div>
+</div>

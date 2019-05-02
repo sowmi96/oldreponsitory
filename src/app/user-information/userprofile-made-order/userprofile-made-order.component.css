@@ -1,0 +1,126 @@
+
+  .madeToOrderOuter{
+    margin:25px 25px;
+    text-align:left;
+    padding-bottom: 20px;
+}
+.inputsOuterMobile{
+    width:215px;
+    margin: 0 auto;
+    padding-top: 26px;
+  }
+
+  .knt__login__d3{
+    grid-area: d3;
+    border-radius: 4px;
+}
+
+.kntLabel{
+    font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+  padding-bottom: 4px;
+}
+.kntLabelGroup{
+    margin-bottom: 6px;
+}
+.fillImg{
+    background-image: url('/assets/my-profileImages/fill.png');
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.inputsClass{  
+    font-size: 10px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #737373;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: solid 1px #bdbdbd;
+}
+.knt__login__form{
+    text-align: left;
+}
+
+.docInfoButtonGroup{
+    margin-top: 15px;
+    text-align: center;
+    padding-right: 0px;
+}
+
+
+.cancel{
+    background-color: white;
+    border: 0px;
+    width: 56px;
+    height: 25px;
+    font-family: 'Muli';
+    font-size: 14px;
+    font-weight: bold;
+    color: #95989a;
+    font-size: 12px;
+    padding: 0px;
+}
+.buttonClass{
+    font-family: 'Muli';
+    font-size: 14px;
+    font-weight: bold;
+    color: #95989a;
+    font-size: 12px;
+}
+.save{
+    font-family: 'Muli';
+    font-size: 14px;
+    font-weight: bold;
+    color: #95989a;
+    font-size: 12px;
+}
+.saveAct{
+    background-color: black;
+    color:white;
+}
+.cancelAct{
+    color:red;
+}
+
+
+
+  @media only screen and (min-width: 768px){
+    .inputsOuterMobile{
+        width:100%;
+    }
+    .knt__login__d3{
+        grid-area: d3;
+    }
+    .inputsClass{
+        width: 260px;
+    }
+
+  }
+
+
+  @media only screen and (min-width: 1024px){
+
+    .knt__login__d3{
+        grid-area: d3;
+      }
+      .inputsClass{
+        width: 356px;
+    }
+
+  }

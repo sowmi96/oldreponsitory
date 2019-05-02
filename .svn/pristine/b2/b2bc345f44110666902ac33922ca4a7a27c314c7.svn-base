@@ -1,0 +1,306 @@
+<div class="container">
+
+  <div class="quotation-card">
+    <div class=" a first-row-one">
+      <div class="info-title">
+        Co-optex Information
+
+      </div>
+      <div class="data-info">
+        <div>
+          <span class="fontadd">Tel Fax:</span>{{cooptexInfo.tel}}</div>
+        <div>
+          <span class="fontadd">Email:</span> {{cooptexInfo.email}}</div>
+        <div>
+          <span class="fontadd">Website:</span> {{cooptexInfo.website}}</div>
+        <div>
+          <span class="fontadd">Gst: </span>{{cooptexInfo.gst}}</div>
+
+
+      </div>
+    </div>
+    <div class=" b first-row-two">
+      <div class="info-title">
+        Customer Information
+      </div>
+      <div class="data-info">
+        <div>
+          <span class="fontadd">Tel Fax:</span>{{customerInfo.tel}}</div>
+        <div>
+          <span class="fontadd">Email: </span>{{customerInfo.email}}</div>
+        <div>
+          <span class="fontadd">Website:</span> {{customerInfo.website}}</div>
+        <div>
+          <span class="fontadd">Gst:</span> {{customerInfo.gst}}</div>
+
+      </div>
+    </div>
+    <div class="c second-row-one">
+      <div class="info-title">
+        Billing Address
+
+      </div>
+      <div class="info-wrapper">
+        <div>
+          <span class="fontadd">Name:</span>{{billingAddress.contactName}}</div>
+
+        <div>
+          <span class="fontadd">Adresss1:</span>{{billingAddress.addressLineOne}}</div>
+        <div>
+          <span class="fontadd">Adresss2:</span>{{billingAddress.addressLineTwo}}</div>
+        <div>
+          <span class="fontadd">Adresss3:</span>{{billingAddress.addressLineThree}}</div>
+        <div>
+          <span class="fontadd">Landmark:</span>{{billingAddress.landmark}}</div>
+
+        <div>
+          <span class="fontadd">Area:</span>{{billingAddress.area}}</div>
+
+        <div>
+          <span class="fontadd">city:</span>{{billingAddress.city}}</div>
+
+        <div>
+          <span class="fontadd">District:</span>{{billingAddress.district}}</div>
+
+        <div>
+          <span class="fontadd">Taluk:</span>{{billingAddress.taluk}}</div>
+
+        <div>
+          <span class="fontadd">Country:</span>{{billingAddress.country}}</div>
+        <div>
+          <span class="fontadd">State:</span>{{billingAddress.state}}</div>
+        <div>
+          <span class="fontadd">Postal-Code:</span>{{billingAddress.postalCode}}</div>
+
+
+
+
+
+      </div>
+    </div>
+    <div class="d second-row-two">
+      <div class="info-title">
+        Shipping Address
+      </div>
+
+      <div class="info-wrapper">
+        <div>
+          <span class="fontadd">Name:</span>{{deliveryAddress.contactName}}</div>
+
+        <div>
+          <span class="fontadd">Adresss1:</span>{{deliveryAddress.addressLineOne}}</div>
+        <div>
+          <span class="fontadd">Adresss2:</span>{{deliveryAddress.addressLineTwo}}</div>
+        <div>
+          <span class="fontadd">Adresss3:</span>{{deliveryAddress.addressLineThree}}</div>
+        <div>
+          <span class="fontadd">Landmark:</span>{{deliveryAddress.landmark}}</div>
+
+        <div>
+          <span class="fontadd">Area:</span>{{deliveryAddress.area}}</div>
+
+        <div>
+          <span class="fontadd">city:</span>{{deliveryAddress.city}}</div>
+
+        <div>
+          <span class="fontadd">District:</span>{{deliveryAddress.district}}</div>
+
+        <div>
+          <span class="fontadd">Taluk:</span>{{deliveryAddress.taluk}}</div>
+
+        <div>
+          <span class="fontadd">Country:</span>{{deliveryAddress.country}}</div>
+        <div>
+          <span class="fontadd">State:</span>{{deliveryAddress.state}}</div>
+        <div>
+          <span class="fontadd">Postal-Code:</span>{{deliveryAddress.postalCode}}</div>
+
+
+
+
+      </div>
+    </div>
+
+    <div class=" e second-row-three">
+      <div class="info-title">
+        Quotation Details
+      </div>
+      <table style="width:100%">
+        <tr>
+          <th>Number:</th>
+          <td>{{quotationDetail.quotationNumber}}</td>
+        </tr>
+        <tr>
+          <th>Created Date:</th>
+          <td>{{quotationDetail.quotationCreatedDate}}</td>
+        </tr>
+        <tr>
+          <th>Created By:</th>
+          <td>{{quotationDetail.quotationCreatedBy}}</td>
+        </tr>
+        <tr>
+          <th>Validity Date:</th>
+          <td>{{quotationDetail.quotationValidityDate}}</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="quotation-details">
+  <div class="quotation-title">
+    <span class="glyphicon glyphicon-th-large"></span> &nbsp;&nbsp;Product Details</div>
+  <div class="quotation-data">
+
+
+    <!-- <div class="quotation-head">
+
+        <div class="heading">#</div>
+      </div> -->
+    <div class="quotation-head">
+      <div class="heading">Product Details</div>
+      <div class="productdetail" *ngFor="let x of productDetail">
+
+        <div class="info">Product Varierty Code&nbsp;:&nbsp;{{x.productVarietyCode}}</div>
+
+        <div class="info">HSN Code&nbsp;:&nbsp;{{x.hsnCode}}</div>
+        <div class="info">UOM &nbsp;:&nbsp;{{x.uom}}</div>
+      </div>
+    </div>
+    <div class="quotation-head">
+      <div class="heading">Unit Details </div>
+      <div class="productdetail" *ngFor="let x of productDetail">
+        <div class="info">Quantity &nbsp;:&nbsp;{{x.quantity}}</div>
+        <div class="info">Unit Price &nbsp;:&nbsp;{{x.unitPrice}}</div>
+        <div class="info">Total Unit Price &nbsp;:&nbsp;{{x.totalUnitPrice}}</div>
+        <div class="info">Discount &nbsp;:&nbsp;{{x.discount}}</div>
+        <div class="info">Discount Value &nbsp;:&nbsp;{{x.discountValue}}</div>
+      </div>
+    </div>
+    <div class="quotation-head">
+
+      <div class="heading">TDS Details</div>
+      <div class="productdetail" *ngFor="let x of productDetail">
+
+        <div class="info">Tax(%) &nbsp;:&nbsp;{{x.taxPercentage}}</div>
+        <div class="info">Tax Price(%) &nbsp;:&nbsp;{{x.taxPrice}}</div>
+        <div class="info">Net Price &nbsp;:&nbsp;{{x.netPrice}}</div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+  </div>
+  <div class="material text-right">Material Value</div>
+
+  <div class="row">
+    <div class="table-wrapper col-xs-12 col-sm-6 no-padding">
+      <div class="gst-title">
+        <span class="glyphicon glyphicon-th-large"></span> &nbsp;&nbsp;GST Summary</div>
+      <table class="table">
+        <thead>
+          <tr class="header-wrapper" style="background-color: #509d95;">
+            <th>HSN Code</th>
+            <th>Unit</th>
+            <th>Tax(%)</th>
+            <th>Cost(&#x20b9;)</th>
+            <th>SGST(&#x20b9;)</th>
+            <th>Total Tax Amount(&#x20b9;)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of getSummary">
+            <td>{{x.hsnCode}}</td>
+            <td>{{x.unit}}</td>
+            <td>{{x.taxPercent}}</td>
+            <td>{{x.cgst}}</td>
+            <td>{{x.sgst}}</td>
+            <td>{{x.totalTax}}</td>
+          </tr>
+          <tr class="total-row">
+            <td class="no-border"></td>
+            <td class="no-border"></td>
+            <td>Total</td>
+            <td>{{totalCgst}}</td>
+            <td>{{totalSgst}}</td>
+            <td>{{totalTax}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-xs-12 col-sm-5 col-sm-push-1">
+      <table style="width:100%">
+        <tr>
+          <th>Discount Value:</th>
+          <td>{{quotationDetail.discountValue}}</td>
+        </tr>
+        <tr>
+          <th>Total:</th>
+          <td>{{quotationDetail.totalValue}} (&#x20b9;)</td>
+        </tr>
+        <tr>
+          <th>Round Off:</th>
+          <td>{{quotationDetail.roundOff}} (&#x20b9;)</td>
+        </tr>
+        <tr>
+          <th>Net Total:</th>
+          <td>{{quotationDetail.netTotal}}(&#x20b9;)</td>
+        </tr>
+      </table>
+
+    </div>
+
+
+  </div>
+
+
+
+
+  <div class="final-wrapper">
+    <div class="grid-layout">
+      <div class=" title t1">Rupees In Words</div>
+      <div class=" d1 ">Two Lakhs Rupees Only</div>
+      <div class=" title t2">Remarks</div>
+      <div class="d2">All Products Non Refundable after The Payment</div>
+      <div class=" title t3">Certified Terms</div>
+
+      <div class="d3">
+        <div>1.Quotation is Valid Through date above</div>
+        <div>2.Describe how the customer willl be billed Here(i.e 50% Upon signing and 50% Upon Billing)
+        </div>
+
+        <div>3.To accept this quote,sign and return quote sheet to the above sheet</div>
+
+
+      </div>
+      <div class=" title t4">Signature of Society</div>
+      <div class="d4"></div>
+
+
+
+
+    </div>
+    <div class="row button-container">
+      <div class="col-xs-12 col-sm-8 text-info">
+        This is Computer Generated Supply Rate Confirmation,No Manuall Signature Required
+      </div>
+      <div class=" print col-xs-6 col-sm-2" style="text-align:right">
+        <button class=" btn btn-primary">
+          <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Back</button>
+      </div>
+      <div class="  print col-xs-6 col-sm-2">
+        <button class=" btn btn-primary" (click)="Printpage()">
+          <span class="glyphicon glyphicon-print"></span> &nbsp;&nbsp;Print</button>
+
+      </div>
+
+    </div>
+  </div>

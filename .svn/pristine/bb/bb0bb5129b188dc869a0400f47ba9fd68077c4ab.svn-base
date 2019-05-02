@@ -1,0 +1,198 @@
+@media screen and (min-width: 320px) {
+     .modal-dialog {
+    width: 273px;
+    }
+
+    .modal-header {
+   padding: 4px 9px 0px 14px;
+    border-bottom: 0px solid #e5e5e5;
+}
+
+.pad {
+    padding: 0;
+}
+
+.fade.in {
+    text-align: -webkit-center;
+}
+
+.modal-header button {
+    color: #cd1517;
+}
+
+h4 {
+    font-family: 'Muli-Bold';
+  font-size: 14px;
+  line-height: 1.43;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+p {
+     font-family: 'Muli-SemiBold';
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+  margin-bottom: 0px;
+}
+
+h5 {
+     font-family: 'Muli-Bold';
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+h6 {
+     font-family: 'Muli-SemiBold';
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+  margin-top: 6px;
+}
+
+.modal-body button {
+    padding: 3px 3px;
+    margin-bottom: 12px;
+    width: 75px;
+    font-family: 'Muli-Bold';
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+  margin-right: 7px;
+}
+
+
+.modal-body {
+    padding: 0;
+    margin-left: 24px;
+    text-align: right;
+}
+ }
+
+@media screen and (min-width: 767px) {
+    .modal-header {
+   padding: 14px 14px 0px 14px;
+    border-bottom: 0px solid #e5e5e5;
+}
+
+.modal-dialog {
+    width: 446px;
+}
+
+.pad {
+    padding: 0;
+}
+
+.modal-body {
+    padding: 0;
+    margin-left: 24px;
+    text-align: left;
+}
+
+h4 {
+    font-family: 'Muli-Bold';
+  font-size: 17px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+p {
+     font-family: 'Muli-SemiBold';
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+  margin-bottom: 0px;
+}
+
+
+
+h5 {
+     font-family: 'Muli-Bold';
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #393939;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+h6 {
+     font-family: 'Muli-SemiBold';
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #737373;
+  margin-top: 19px;
+}
+
+.modal-body button {
+    padding: 3px 3px;
+    margin-bottom: 24px;
+    width: 87px;
+    font-family: 'Muli-Bold';
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+}
+
+    
+ }
+
+
+
+
+
+

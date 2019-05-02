@@ -1,0 +1,88 @@
+<div id="myProfile">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4  paddingzero profileColumns">
+            <div class="profileSideTab">
+                <div class="profileTabOuter">
+                    <div class="profileImgandName">
+                        <div class="profilePic profilePic1" *ngIf="photoUrl===null"></div>
+                        <div class="profilePic" [style.backgroundImage]="'url('+photoUrl+')'" *ngIf="photoUrl!==null"></div>
+                        <label class="cameraButton">
+                            <i class="fa fa-camera" aria-hidden="true" title="Upload"></i>
+                            <input type="file" accept="image/*;capture=camera" (change)="fileChangeEvent($event)" />
+                        </label>
+                        <span>Hello,</span>
+                        <br>
+                        <span class="profileName">{{firstname}}</span>
+                    </div>
+
+                    <div id="accSetting" class="accountSettings profileItems" (click)="profileAcc('accSetting')">
+                        <span>Account Settings</span>
+                        <div id="accSettingArr1" class="accrordianArrow1"></div>
+                        <div id="accSettingArr" class="accrordianArrow"></div>
+                    </div>
+                    <div id="accSettingList" class="accountSettingsList profileSubItems">
+                        <div class="personalInfo accSetItems" (click)="profileTabClick('personal')">
+                            <span [class.tabUnderlineClass]="showActive=='personal'" [routerLink]="['/profile']" [queryParams]="{ tab: 'personal_info' }">Personal Information</span>
+                        </div>
+                        <div class="manageAddr accSetItems" (click)="profileTabClick('manage')">
+                            <span [class.tabUnderlineClass]="showActive=='manage'" [routerLink]="['/profile']" [queryParams]="{ tab: 'manage_Address' }">Manage Addresses</span>
+                        </div>
+                        <div class="documentsInfo accSetItems" (click)="profileTabClick('docInfo')">
+                            <span [class.tabUnderlineClass]="showActive=='docInfo'" [routerLink]="['/profile']" [queryParams]="{ tab: 'Documents_info' }">Documents Information</span>
+                        </div>
+                    </div>
+                    <div id="myOrdersId" class="myOrders profileItems" (click)="profileTabClick('myorder')">
+                        <span class="myOrderTabClass" [class.tabUnderlineClass]="showActive=='myorder'" [routerLink]="['/profile']" [queryParams]="{ tab: 'myorder' }">My Orders</span>
+                    </div>
+                    <div id="regDetails" class="registrationDetails profileItems" (click)="profileAcc('regDetails')">
+                        <span>Registration Details</span>
+                        <div id="regDetailsArr1" class="accrordianArrow1"></div>
+                        <div id="regDetailsArr" class="accrordianArrow"></div>
+                    </div>
+
+                    <div id="regDetailsList" class="registrationDetailsList profileSubItems">
+                        <div class="KNTSchemesInfo accSetItems" (click)="profileTabClick('kntScheme')">
+                            <span [class.tabUnderlineClass]="showActive=='kntScheme'" [routerLink]="['/profile']" [queryParams]="{ tab: 'knt_schemes' }">KNT Schemes</span>
+                        </div>
+                        <!-- <div class="bulkOrder accSetItems"  (click) = "profileTabClick('bulk')"><span [class.tabUnderlineClass]="showActive=='bulk'" [routerLink]="['/profile']" [queryParams]="{ tab: 'bulk_order' }">Bulk Order</span></div> -->
+                        <div class="tender accSetItems" (click)="profileTabClick('tender')">
+                            <span [class.tabUnderlineClass]="showActive=='tender'" [routerLink]="['/profile']" [queryParams]="{ tab: 'tender' }">Tender</span>
+                        </div>
+                        <!-- <div class="career accSetItems"  (click) = "profileTabClick('career')"><span [class.tabUnderlineClass]="showActive=='career'" [routerLink]="['/profile']" [queryParams]="{ tab: 'career' }">Career</span></div> -->
+                        <!-- <div class="madeToOrder accSetItems"  (click) = "profileTabClick('madeOrder')"><span [class.tabUnderlineClass]="showActive=='madeOrder'" [routerLink]="['/profile']" [queryParams]="{ tab: 'made_to_order' }">Made to Order</span></div> -->
+
+                    </div>
+                </div>
+                <hr>
+                <div class="logoutOuter">
+                    <div (click)="Logout()" class="logoutImg"></div>
+                    <span class="logoutText" (click)="Logout()">Logout</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-xs-12 col-sm-8 paddingzero">
+            <div class="profilesClass profileDetails">
+                <app-personal-info *ngIf="tabText == 'personal'"></app-personal-info>
+                <app-manage-address *ngIf="tabText == 'manage'"></app-manage-address>
+                <app-documents-info *ngIf="tabText == 'docInfo'"></app-documents-info>
+                <app-userprofile-kntschem-reg *ngIf="tabText == 'kntScheme'"></app-userprofile-kntschem-reg>
+                <app-userprofile-tender *ngIf="tabText == 'tender'"></app-userprofile-tender>
+                <app-userprofile-bulkorder *ngIf="tabText == 'bulk'"></app-userprofile-bulkorder>
+                <app-userprofile-career *ngIf="tabText == 'career'"></app-userprofile-career>
+                <app-userprofile-made-order *ngIf="tabText == 'madeOrder'"></app-userprofile-made-order>
+                <app-userprofile-myorder *ngIf="tabText == 'myorder'" (valueChange)='orderOnClick($event)'></app-userprofile-myorder>
+                <app-userprofile-myorder-detail *ngIf="tabText == 'myorderDetail'" [itemId]="itemId" (backEvent)="tabText = $event"></app-userprofile-myorder-detail>
+            </div>
+
+
+
+            <div class="profilesClass manageAddress">
+                <div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

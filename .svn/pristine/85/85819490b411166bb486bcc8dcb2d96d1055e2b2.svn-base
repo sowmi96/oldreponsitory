@@ -1,0 +1,37 @@
+<div class="madeToOrderOuter">
+  <div class="inputsOuterMobile">
+
+      <div class="knt__login__d3">
+          <form action="" class="knt__login__form">
+            <div class="kntLabelGroup">
+                <span class="kntLabel">Email ID</span>
+            </div>
+            <input type="text" class="custName inputsClass" placeholder="Supplier Name">
+
+            <div class="kntLabelGroup">
+                <span class="kntLabel">Password</span>
+            </div>
+            <input type="text" class="custName inputsClass" placeholder="Password">
+
+            <div class="kntLabelGroup">
+                <span class="kntLabel">Confirm Password</span>
+            </div>
+            <input type="text" class="custName inputsClass" placeholder="Confirm Password">
+
+            <div class="kntLabelGroup">
+                <span class="kntLabel">Mobile Number</span>
+            </div>
+            <input type="text" class="custName inputsClass" placeholder="Mobile Number">
+
+            <div class="docInfoButtonGroup">       
+                <button type="button" class=" cancel">Cancel</button> 
+                <button type="button" class="btn save buttonClass">Save</button>
+                <button type="button" class="btn edit buttonClass">Edit</button>
+                <!-- To make Active Add cancelAct and saveAct classes -->
+            </div>
+
+            </form>
+       </div>
+
+  </div>
+</div>

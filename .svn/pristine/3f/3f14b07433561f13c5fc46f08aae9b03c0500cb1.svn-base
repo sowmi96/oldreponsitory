@@ -1,0 +1,163 @@
+<div class="event-page">
+  <div class="container-fluid  paddingzero">
+
+    <div *ngIf="mainEvents.loading">Loading...</div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+      <ol class="carousel-indicators">
+        <li *ngFor="let data of mainEvents.content;let i = index" data-target="#myCarousel" [attr.data-slide-to]="i" [ngClass]="{'active':i==0}"></li>
+      </ol>
+
+      <div class="carousel-inner top-inner">
+
+        <div *ngFor="let data of mainEvents.content;let i = index" [ngClass]="{'item nopad image-content':true,'active':i==0}">
+          <img src="assets/event/transparent.svg" class="transparent" />
+
+          <div class="details">
+            <h2 class="detail-title title__wrap">{{data.eventTitle}}</h2>
+            <p class="detail-desc title__wrap">{{data.eventDescription}}</p>
+
+          </div>
+          <img src="{{data.imageUrl}}" style="width:100%;" class="main-img">
+
+        </div>
+
+
+      </div>
+
+      <a class=" carousel-control  left-one" href="#myCarousel" data-slide="prev">
+        <span class="top-arrows">
+          <img src="/assets/leftarrow.svg" />
+        </span>
+
+      </a>
+      <a class=" carousel-control  right-one" href="#myCarousel" data-slide="next">
+        <span class="top-arrows">
+          <img src="/assets/rightarrow.svg" />
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="news-section">
+
+    <div class="news-wrapper">
+      <div class="news-title-wrapper">
+
+        <img src="assets/group-3.png" />
+        <h4 class="news-title">News</h4>
+
+
+        <div id="NewsCarousel" class="carousel slide col-xs-12  col-sm-6 paddingzero carousel-height" data-ride="carousel">
+          <div *ngIf="news1.loading">Loading...</div>
+         
+          <ol class="carousel-indicators">
+            <li *ngFor="let data of news1.content;let i = index" data-target="#NewsCarousel" [attr.data-slide-to]="i" [ngClass]="{'active':i==0}"></li>
+          </ol>
+
+          <div class="carousel-inner news-inner">
+
+            <div *ngFor="let data of news1.content;let i = index" [ngClass]="{'item nopad image-content':true,'active':i==0}">
+
+
+
+              <img src="{{data.imageUrl}}" style="width:100%;" class="news-img">
+
+              <div class="news-info">
+                <div class="news-subinfo">
+                  <h1 class="info-title title__wrap">{{data.eventTitle}}</h1>
+                  <p class="info-subtitle title__wrap">{{data.eventDescription}}</p>
+     
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+        <div class="col-xs-12 col-sm-6 paddingzero padding-set">
+          <div id="NewsCarousel2" class="carousel slide col-xs-12 paddingzero carousel-height news-left" data-ride="carousel">
+         
+            <ol class="carousel-indicators">
+              <li *ngFor="let data of news2.content;let i = index" data-target="#NewsCarousel2" [attr.data-slide-to]="i" [ngClass]="{'active':i==0}"></li>
+            </ol>
+
+            <div class="carousel-inner news-inner news-left">
+
+              <div *ngFor="let data of news2.content;let i = index" [ngClass]="{'item nopad image-content':true,'active':i==0}">
+
+
+
+                <img src="{{data.imageUrl}}" style="width:100%;" class="news-img news-left">
+                <div class="news-info left-info">
+                  <div class="news-subinfo">
+                    <h1 class="info-title title__wrap">{{data.eventTitle}}</h1>
+                    <p class="info-subtitle middeal-subtitle title__wrap">{{data.eventDescription}}</p>
+               
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+          <div id="NewsCarousel3" class="carousel slide col-xs-12   paddingzero carousel-height news-left" data-ride="carousel">
+      
+            <ol class="carousel-indicators">
+              <li *ngFor="let data of news3.content;let i = index" data-target="#NewsCarousel3" [attr.data-slide-to]="i" [ngClass]="{'active':i==0}"></li>
+            </ol>
+
+            <div class="carousel-inner news-inner news-left">
+
+              <div *ngFor="let data of news3.content;let i = index" [ngClass]="{'item nopad image-content':true,'active':i==0}">
+
+
+
+                <img src="{{data.imageUrl}}" style="width:100%;" class="news-img news-left">
+                <div class="news-info left-info">
+                  <div class="news-subinfo">
+                    <h1 class="info-title title__wrap">{{data.eventTitle}}</h1>
+                    <p class="info-subtitle middeal-subtitle title__wrap">{{data.eventDescription}}</p>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="bottom-box row" [style.backgroundImage]="'url('+ news.imageUrl +')'" *ngFor="let news of otherNews.content">
+    <div class="box-detailer">
+      <div class="box-content">
+        <h1 class="box-title title__wrap">{{news.eventTitle}}</h1>
+        <p class="box-subtitle title__wrap">{{news.eventDescription}}</p>
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+</div>

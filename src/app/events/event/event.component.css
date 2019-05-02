@@ -1,0 +1,349 @@
+@media screen and (min-width: 320px) {
+  #myCarousel {
+    position: relative;
+  }
+  .item {
+    position: relative;
+  }
+  .bottom-box {
+    position: relative;
+    height: 345px;
+    background-image: url('/assets/event/worker.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .box-detailer {
+    position: absolute;
+    left: 24px;
+    top: 16px;
+    width: 40%;
+    padding-bottom: 20px;
+    -webkit-backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .box-content {
+    padding-top: 20px;
+    padding-left: 20px;
+    text-align: left;
+  }
+  .box-title {
+    font-family: Muli-Bold;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.35;
+    text-align: left;
+    color: #ffffff;
+    margin: 0px;
+  }
+  .box-subtitle {
+    width: 145px;
+    font-family: Muli-SemiBold;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.43;
+    text-align: left;
+    letter-spacing: 0.1px;
+    color: #ffffff;
+    padding-top: 15px;
+    margin: 0px;
+  }
+  .box-date {
+    font-family: Muli-SemiBold;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.43;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #ffffff;
+    padding-top: 12px;
+  }
+  .box-button {
+    margin-top: 40px;
+  }
+  .news-info {
+    position: absolute;
+    width: 40%;
+    /* height: 232px; */
+    left: 16px;
+    top: 19px;
+    object-fit: contain;
+    -webkit-backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .middeal-subtitle {
+    display: none;
+  }
+  .left-info {
+    height: 140px;
+  }
+  .news-subinfo {
+    padding-top: 22px;
+    padding-left: 20px;
+    text-align: left;
+  }
+  .info-title {
+    font-family: Muli-Bold;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    text-align: left;
+    margin: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .info-subtitle {
+    width: 100%;
+    /* height: 86px; */
+    font-family: Muli-SemiBold;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.43;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: white;
+    padding-top: 20px;
+    margin-bottom: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #myCarousel,
+  .top-inner,
+  .main-img {
+    height: 182px;
+  }
+  .carousel-height,
+  .news-img,
+  .news-inner {
+    height: 300px !important;
+  }
+  #NewsCarousel,
+  #NewsCarousel2,
+  #NewsCarousel3 {
+    margin-top: 20px;
+  }
+  .news-wrapper {
+    width: 95%;
+    margin: 0 auto;
+    height: 1100px;
+  }
+  .carousal-button {
+    width: 75px;
+    height: 32px;
+    color: white;
+    font-family: Muli-Bold;
+    font-size: 12px;
+    background-color: #cd1517;
+    border-width: 1px;
+    border-color: #cd1517;
+    font-family: 'Muli-Bold';
+    border-radius: 6px;
+  }
+  .details {
+    position: absolute;
+    padding-left: 30px;
+    text-align: left;
+  }
+  .transparent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 236px;
+  }
+  .left-one,
+  .right-one {
+    display: none;
+  }
+  .detail-title {
+    width: 145px;
+    /* height: 44px; */
+    font-family: Muli-Bold;
+    font-size: 20px;
+    font-weight: bold;
+
+    line-height: 1.1;
+    text-align: left;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .detail-desc {
+    width: 184px;
+    font-family: Muli-SemiBold;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #ffffff;
+  }
+
+  /* .news-section{
+
+    } */
+  .news-title-wrapper {
+    padding-top: 30px;
+  }
+  .news-title {
+    font-family: Muli-Bold;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    color: #393939;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .news-percentage {
+    width: 62px;
+    height: 64px;
+    position: absolute;
+    background-image: url('/assets/shape.png');
+    background-repeat: no-repeat;
+    background-size: 64px 64px;
+    top: 20px;
+    right: 20px;
+  }
+  .percentage-image {
+    margin-left: 8px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
+  }
+  .percentage-offer {
+    margin: 0px;
+    font-size: 10px;
+    font-family: Muli-Bold;
+    font-size: 10px;
+
+    text-align: center;
+    color: #393939;
+  }
+  .percent-span {
+    font-weight: 600;
+  }
+  .shop-me {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #myCarousel,
+  .top-inner,
+  .main-img {
+    height: 412px;
+  }
+  .left-info {
+    height: 110px;
+  }
+  .carousel-height,
+  .news-img,
+  .news-inner {
+    height: 380px !important;
+  }
+  .padding-set {
+    padding-left: 15px;
+  }
+  .transparent {
+    width: 532px;
+  }
+  .carousal-button {
+    margin-top: 25px;
+  }
+  .detail-desc {
+    padding-top: 40px;
+    width: 270px;
+  }
+  .detail-title {
+    font-size: 34px;
+    width: 150px;
+  }
+  .details {
+    padding-left: 150px;
+    padding-top: 60px;
+    width: 270px;
+  }
+  .left-one {
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .right-one {
+    right: 0;
+    left: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .detail-desc {
+    font-size: 18px;
+  }
+
+  .news-wrapper {
+    width: 95%;
+    margin: 0 auto;
+    height: 540px;
+  }
+  .news-left {
+    height: 180px !important;
+  }
+  .box-detailer {
+    top: 23px;
+    left: 40px;
+  }
+  .box-content {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+  .box-title {
+    font-size: 24px;
+  }
+  .box-subtitle,
+  .box-date {
+    font-size: 14px;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .detail-title {
+    font-size: 42px;
+    width: 200px;
+  }
+  .bottom-box {
+    height: 390px;
+  }
+  .news-wrapper {
+    width: 95%;
+  }
+  #myCarousel,
+  .top-inner,
+  .main-img {
+    height: 442px;
+  }
+  .transparent {
+    width: 620px;
+  }
+  .detail-desc {
+    font-size: 17px;
+    width: 270px;
+    padding-top: 60px;
+  }
+  .details {
+    padding-top: 70px;
+    padding-left: 200px;
+  }
+}
+
+.title__wrap {
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

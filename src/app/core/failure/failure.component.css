@@ -1,0 +1,37 @@
+
+.failureOuter{
+    width: 64%;
+    min-width: 280px;
+    margin: 0 auto;
+    max-width: 500px;
+    height: 184px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 70px;
+    margin-bottom: 70px;
+  
+}
+
+.failureMsg{
+  font-family: 'Muli';
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #737373;
+  padding-top: 48px;
+}
+
+
+.continueButton{
+    margin-top: 26px;
+    display: inline-block;
+    cursor: pointer;
+}
+.continueButton:hover{
+    border-bottom: 1.5px solid #337ab7;
+}

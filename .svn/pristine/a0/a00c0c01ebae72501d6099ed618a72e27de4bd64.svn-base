@@ -1,0 +1,63 @@
+<div class="row review-page">
+
+  <h1 class="review-heading">All Reviews</h1>
+
+  <div class="row paddingzero review-section">
+
+    <div class="col-xs-3 col-sm-2 col-lg-2 paddingzero subtitle-wrapper">
+
+      <p class="review-subtitle  paddingzero">Review</p>
+
+    </div>
+
+    <div class="col-xs-5 col-sm-3  col-lg-2 paddingzero pull-right">
+      <div class="selectdiv ">
+        <select placeholder="Sort By" class="form-control" id="sell" [(ngModel)]="sorter" (change)="Sortdata($event.target.value)">
+          <option selected=true value="one" disabled>Sort By</option>
+          <option value="5">High-To-Low</option>
+          <option value="1">Low-To-High</option>
+        </select>
+      </div>
+
+    </div>
+
+
+
+  </div>
+  <div class="row review-list" *ngFor="let x  of returnedArray">
+    <div class="col-xs-2 paddingzero">
+      <div class="circle-alphabet">{{x.shortUserName}}</div>
+    </div>
+    <div class="col-xs-10 paddingzero">
+
+      <div class="star-list">
+        <rating [(ngModel)]="x.rating" [max]="5" [readonly]="true" [titles]="['one','two','three']"></rating>
+        <span class="star-text">({{x.rating}})</span>
+
+        <p class="user-title">{{x.reviewComments}}</p>
+        <p class="user-title user-name">By {{x.userName}} On {{x.createdDate | date: 'dd/MM/yyyy'}}</p>
+        <div class="visible-sm visible-md visible-lg">
+          <span *ngIf="useridData!=undefined" (click)="likes(x)" class="pull-right like-symbol">
+            <i class="fa fa-thumbs-down"> {{x.likeCount}}</i>
+          </span>
+          <span *ngIf="useridData==undefined" data-toggle="modal" data-target="#myModal" class="pull-right like-symbol">
+            <i class="fa fa-thumbs-down"> {{x.likeCount}}</i>
+          </span>
+          <span *ngIf="useridData!=undefined" (click)="dislike(x)" class="pull-right liked  like-symbol">
+            <i class="fa fa-thumbs-up"> {{x.dislikeCount}}</i>
+          </span>
+          <span *ngIf="useridData==undefined" data-toggle="modal" data-target="#myModal" class="pull-right liked  like-symbol">
+            <i class="fa fa-thumbs-up"> {{x.dislikeCount}}</i>
+          </span>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <pagination previousText="&lsaquo;" nextText="&rsaquo;" [totalItems]="reviews.length" (pageChanged)="pageChanged($event)"
+    [itemsPerPage]="5"></pagination>
+
+</div>

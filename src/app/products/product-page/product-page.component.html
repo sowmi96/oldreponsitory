@@ -1,0 +1,235 @@
+<div class="product-container no-padding row">
+  <div class="threadbar col-lg-12" style="text-align:left">
+    <span *ngIf="mainCategory!=='Allproduct' && mainCategory!=='Bulkorder'">
+      <span [routerLink]="['/']">Home</span>
+      <span (click)="breadcrumsClick(breadCrumbDetailsValue?.mainMenuId)"> >> {{breadCrumbDetailsValue?.mainMenuName}} </span>
+      <span *ngIf="breadCrumbDetailsValue?.subMenuId!=null" (click)="breadcrumsClick(breadCrumbDetailsValue?.subMenuId)">
+        >> {{breadCrumbDetailsValue?.subMenuName}} </span>
+      <span *ngIf="breadCrumbDetailsValue?.categoryId!=null" (click)="breadcrumsClick(breadCrumbDetailsValue?.categoryId)">
+        >> {{breadCrumbDetailsValue?.categoryName}}</span>
+    </span>
+  </div>
+  <div class="row prod-det-row">
+    <div class="col-sm-3 col-lg-3"></div>
+    <div class="current-list-header col-sm-6 col-xs-12 col-lg-6">{{mainCategory}}
+
+    </div>
+    <div class="sort-option col-lg-3 col-sm-3">
+      <select [(ngModel)]="sortData" (change)="Sortdata(sortData)">
+        <option *ngFor="let x  of items" value="{{x.value}}">{{x.name}}</option>
+      </select>
+    </div>
+    <hr class="border" />
+  </div>
+  <div class="filter-and-sort col-xs-12">
+    <div class="sort" (click)="showSort()">
+      <i class="fa fa-exchange" aria-hidden="true"></i>
+      <span>Sort</span>
+      <div [ngClass]="{'sort-opt-mobile':true, 'active':show}">
+        <form action="">
+          <div *ngFor="let x of items">
+            <input type="radio" name="option" value="{{x.value}}" (change)="Sortdata(x.value)">
+            <span>{{x.name}}</span>
+          </div>
+          <br>
+
+        </form>
+      </div>
+    </div>
+    <div class="row filter" (click)="showFilter()">
+      <i class="fa fa-filter"></i>
+      <span>Filter</span>
+    </div>
+  </div>
+  <div class="row products-cooptex">
+    <div [ngClass]="{'show':data, 'filter-section col-sm-3': true}">
+      <div class="accordion-cont">
+        <button class="accordion filter-border" (click)="toggleIcon('0')">Category
+          <i [ngClass]="{'fa':true,'fa-chevron-up':toggle[0],'fa-chevron-down':!toggle[0]}" aria-hidden="true"></i>
+        </button>
+        <div class="panel">
+          <div class="checkbox" *ngFor="let x  of categoryList?.ecommFilterCategorys">
+            <label class="checkbox-cont">
+              <input type="checkbox" value="x.id" (change)="getcatvalue($event,x.id)">{{x?.name}}
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+      <div class="accordion-cont">
+        <!-- <div class="clear">
+          <img src="../assets/button.svg">
+        </div> -->
+        <button class="accordion" (click)="toggleIcon('1')">Price
+          <i [ngClass]="{'fa':true,'fa-chevron-up':toggle[1],'fa-chevron-down':!toggle[1]}" aria-hidden="true"></i>
+        </button>
+        <div class="panel">
+          <nouislider [connect]="true" [min]="100" [max]="200000" [(ngModel)]="someRange" (change)="onChange($event)"></nouislider>
+          <div class="price-cont-range">
+            <div class="min-range">Rs. 100</div>
+            <div class="max-range">Rs. 200000</div>
+          </div>
+          <div class="min-max-range">
+            <div class="min-val">Rs.{{minRange}}</div>
+            <div class="separator">-</div>
+            <div class="max-val">Rs.{{maxRange}}</div>
+            <!-- <div class="go-btn">
+              <img src="../assets/small.svg" (click)="goFunction()">
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="accordion-cont">
+        <div class="clear" (click)="clearDiscount()">
+          <img src="../assets/button.svg">
+        </div>
+        <button class="accordion" (click)="toggleIcon('2')">Discount
+          <i [ngClass]="{'fa':true,'fa-chevron-up':toggle[2],'fa-chevron-down':!toggle[2]}" aria-hidden="true"></i>
+        </button>
+        <div class="panel">
+          <div class="checkbox" *ngFor="let x  of discount">
+            <label class="checkbox-cont">
+              <input type="checkbox" value="x.id" (change)="discountValue($event,x)" [checked]="x.selected==true">{{x.name}}
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+      <div class="accordion-cont">
+        <button class="accordion" (click)="toggleIcon('3')">Customer Rating
+          <i [ngClass]="{'fa':true,'fa-chevron-up':toggle[3],'fa-chevron-down':!toggle[3]}" aria-hidden="true"></i>
+        </button>
+        <div class="panel cust-rating">
+          <div class="checkbox" *ngFor="let x of rating">
+            <label class="checkbox-cont">
+              <input type="checkbox" value="x.id" (change)="ratingvalue($event,x)">
+
+              <rating [(ngModel)]="x.id" [max]="x.id" [readonly]="true" [titles]="['one','two','three']"></rating>
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+      <div class="accordion-cont">
+        <div class="clear" (click)="clearMaterial('ecommFilterMaterials')">
+          <img src="../assets/button.svg">
+        </div>
+        <button class="accordion" (click)="toggleIcon('4')">Material
+          <i [ngClass]="{'fa':true,'fa-chevron-up':toggle[4],'fa-chevron-down':!toggle[4]}" aria-hidden="true"></i>
+        </button>
+        <div class="panel material">
+          <div class="checkbox" *ngFor="let x  of categoryList['ecommFilterMaterials']">
+            <label class="checkbox-cont">
+              <input type="checkbox" value="x.id" (change)="getMatirial($event,x)" [checked]="x.selected=='true'">{{x.name}}
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+      <div class="accordion-cont">
+        <div class="clear" (click)="clearColor('ecommFilterColors')">
+          <img src="../assets/button.svg">
+        </div>
+        <button class="accordion" (click)="toggleIcon('5')">Colors
+          <i [ngClass]="{'fa':true,'fa-chevron-up':toggle[5],'fa-chevron-down':!toggle[5]}" aria-hidden="true"></i>
+        </button>
+        <div class="panel">
+          <div class="checkbox" *ngFor="let x  of categoryList['ecommFilterColors']">
+            <label class="checkbox-cont">
+              <input type="checkbox" value="x.id" (change)="getcolorvalue($event,x)" [checked]="x.selected=='true'">
+              <div class="{{x.name}} commonColor" [style.backgroundColor]="x.name"></div>
+              <div class="color-text">{{x.name}}</div>
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+      <div class="accordion-cont">
+        <div class="clear" (click)="clearOcassion('ecommFilterOcassions')">
+          <img src="../assets/button.svg">
+        </div>
+        <button class="accordion" (click)="toggleIcon('6')">Occasion
+          <i [ngClass]="{'fa':true,'fa-chevron-up':toggle[6],'fa-chevron-down':!toggle[6]}" aria-hidden="true"></i>
+        </button>
+        <div class="panel">
+          <div class="checkbox" *ngFor="let x  of categoryList['ecommFilterOcassions']">
+            <label class="checkbox-cont">
+              <input type="checkbox" value="x.id" (change)="getOccassionvalue($event,x)" [checked]="x.selected=='true'">{{x.name}}
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+      <div class="accordion-cont">
+        <div class="clear" (click)="clearwork('ecommFilterWorks')">
+          <img src="../assets/button.svg">
+        </div>
+        <button class="accordion" (click)="toggleIcon('7')">Work
+          <i [ngClass]="{'fa':true,'fa-chevron-up':toggle[7],'fa-chevron-down':!toggle[7]}" aria-hidden="true"></i>
+        </button>
+
+        <div class="panel">
+          <div class="checkbox" *ngFor="let x  of categoryList['ecommFilterWorks']">
+            <label class="checkbox-cont">
+              <input type="checkbox" value="x.id" (change)="getWorkvalue($event,x)" [checked]="x.selected=='true'">{{x.name}}
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="prod-wrapper col-sm-9">
+
+
+
+      <div [ngClass]="{'showclass':proddetail.length==0,'hideClass':proddetail.length>0}">
+        No product found
+      </div>
+      <div [ngClass]="{'showclass':proddetail.length>0,'hideClass':proddetail.length==0}">
+        <div class="prod col-lg-3 no-padding" *ngFor="let x  of proddetail">
+          <span class="knt-img">
+
+          </span>
+          <span class="favourite">
+            <i *ngIf="useridData!=undefined" class="fa fa-heart favouritelogo" aria-hidden="true" [ngClass]="{'my-class': x.wishList==true}"
+              (click)="getwhilistdata(x)"></i>
+            <i *ngIf="useridData==undefined" class="fa fa-heart favouritelogo" aria-hidden="true" data-toggle="modal" data-target="#myModal"></i>
+          </span>
+          <div class="prod-img" [style.backgroundImage]="'url('+ x.smallImages[0] +')'" (click)="productDetail(x.productId)"></div>
+          <div class="pro-detail">{{x.productName}}
+            <span class="similar">
+            </span>
+          </div>
+          <div class="prod-price">
+            <div class="org-price">{{x.oldPrice | currConvert : currencyRate}}</div>
+            <div class="dis-price">{{x.newPrice | currConvert : currencyRate}}</div>
+            <div class="discount">{{x.discount}}% OFF</div>
+          </div>
+          <div class="action-button">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+          </div>
+          <div class="review">
+            <div class="rev-text">Rating</div>
+            <rating [(ngModel)]="x.customerRating" [max]="5" [readonly]="true" [titles]="['one','two','three']"></rating>
+            <!-- <span class="star-text">(3.0){{x.rating}}</span> -->
+            <div class="rate">{{x.customerRating}}.(0)</div>
+          </div>
+        </div>
+
+        <div class="row pagination col-lg-12">
+          <pagination previousText="&lsaquo;" nextText="&rsaquo;" [totalItems]="proddetail.totalRecords" (pageChanged)="pageChanged($event)"
+            [itemsPerPage]="10"></pagination>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 load-more">Load More</div>
+  </div>
+</div>

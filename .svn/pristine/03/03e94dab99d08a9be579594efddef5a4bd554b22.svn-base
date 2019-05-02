@@ -1,0 +1,951 @@
+.knt__login__header {
+  border-bottom: solid 1px #e0e0e0;
+}
+
+.monthtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: lightseagreen;
+  margin-bottom: 35px;
+}
+.payment-msg {
+  color: green;
+  text-align: right;
+  padding-right: 10px;
+}
+.card-body {
+  padding: 20px;
+}
+.home-last {
+  position: absolute;
+  left: -6px;
+  top: -5px;
+}
+.knt-plans-detail {
+  margin-bottom: 20px;
+}
+.planAmount {
+  margin-top: 26px;
+}
+.rightRs {
+  position: absolute;
+  margin: auto;
+  display: block;
+  outline: none;
+  border-radius: 50%;
+  top: 120%;
+  bottom: 0;
+  width: 31px;
+  background-color: #ffffff !important;
+  height: 31px;
+  background-color: #ffffff;
+  right: 45%;
+  background-image: none;
+}
+.leftRs {
+  position: absolute;
+  margin: auto;
+  border-radius: 50%;
+  top: 120%;
+  display: block;
+  bottom: 0;
+  width: 31px;
+  height: 31px;
+  background-color: #ffffff !important;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  left: 45%;
+  background-image: none;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+.scheme-hide {
+  text-align: center;
+  padding-top: 30px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.knt-head {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #393939;
+}
+.knt {
+  margin-bottom: 20px;
+}
+.plan-name {
+  font-size: 18px;
+  font-weight: 600;
+  padding-top: 10px;
+}
+.text-color {
+  text-align: center;
+  padding: 20px;
+}
+.text-inner {
+  background-color: #f5faff;
+}
+.checkoutbutton {
+  background-color: #1c9cea !important;
+  padding: 6px 25px 6px 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #1c9cea;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: "Muli-Bold";
+  border: none;
+}
+.arrow-hide {
+  -webkit-appearance: textfield !important;
+  -moz-appearance: textfield !important;
+  appearance: textfield !important;
+  margin: 0;
+}
+.error-data {
+  text-align: center;
+  font-weight: 600;
+}
+.payment-allow {
+  background-color: #1c9cea;
+  padding: 6px 10px 6px 10px;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: "Muli-Bold";
+  border: none;
+}
+.pay-span {
+  position: absolute;
+  right: 20px;
+  font-size: 14px;
+  font-weight: 200px;
+}
+.payment-check {
+  position: absolute;
+  right: 85px;
+}
+.knt__login__header > div > h1 {
+  margin: 0px;
+  padding: 24px 0 15px;
+  font-size: 20px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #393939;
+}
+.knt__login__header > div > img {
+  width: 156px;
+  height: 110px;
+}
+.knt__Mobile,
+.knt__Mobile2 {
+  max-height: 80px;
+}
+.knt_btn {
+  font-family: "Muli";
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #333;
+  border: none;
+  padding-top: 7px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+}
+.ktn_add {
+  padding-top: 23px;
+  padding-bottom: 23px;
+}
+.knt_new_scheme {
+  background-color: #f6f6f6;
+  margin-bottom: 10px;
+  padding-top: 23px;
+  padding-bottom: 23px;
+}
+.knt_close {
+  float: right;
+  font-size: 24px;
+  line-height: 1;
+  color: #cd1517;
+  text-shadow: 0 1px 0 #fff;
+}
+button.knt_close {
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+}
+.knt_new_scheme {
+  text-align: left;
+}
+.modelButtonDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modelButtonDiv > button {
+  display: inline-block;
+  margin-left: 10px;
+}
+@media only screen and (min-width: 320px) {
+  i {
+    font-size: 28px;
+  }
+  .error-info {
+    font-size: 12px;
+    font-weight: 200;
+    color: red;
+    font-family: Muli-SemiBold;
+  }
+  .unpaid {
+    background-color: #ffdfe0;
+  }
+  .scheme-no {
+    font-family: Muli-SemiBold;
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #737373;
+  }
+
+  .scheme-user {
+    font-family: Muli-Bold;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+  }
+  .knt_new_scheme {
+    margin-bottom: 16px;
+    padding-bottom: 38px;
+  }
+  .ktn_add {
+    text-align: center;
+  }
+  .knt__login__header {
+    text-align: center;
+  }
+  .knt__Mobile {
+    padding: 5px 15px;
+  }
+  .knt__Mobile2 {
+    padding: 5px 15px 20px;
+  }
+  .form-group {
+    padding-top: 5px;
+  }
+  .modal-title {
+    font-family: "Muli-Bold";
+    font-size: 14px;
+    font-weight: 800;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+    padding-bottom: 15px;
+  }
+  .knt__stepper {
+    display: none;
+  }
+  .select {
+    font-family: "Muli-Bold";
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+    margin: 0px 0px 5px;
+  }
+  .knt__input p {
+    font-family: "Muli-SemiBold";
+    font-size: 14px;
+    text-align: left;
+    color: #393939;
+  }
+  .form-control {
+    border-color: #ccc;
+    font-family: "Muli-SemiBold";
+    font-size: 12px;
+    text-align: left;
+    color: #737373;
+    padding-left: 10px;
+  }
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .list {
+    display: flex;
+    align-items: baseline;
+  }
+  .list i {
+    font-size: 10px;
+  }
+  .list-li {
+    font-family: "Muli";
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #737373;
+    padding-left: 14px;
+  }
+  .agree {
+    font-family: "Muli-SemiBold";
+    font-size: 12px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+    display: flex;
+  }
+
+  .agree span {
+    padding-left: 13px;
+  }
+  .planAmount .modal-title {
+    padding: 40px 0px 12px !important;
+    font-size: 14px !important;
+  }
+
+  .nav-tabs {
+    display: flex;
+    width: 300px;
+    margin: 0 auto;
+    border: none;
+    justify-content: space-between;
+  }
+  .mobheader {
+    padding: 23px 0px 0px;
+    width: 260px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .tab-content {
+    text-align: left;
+  }
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:focus,
+  .nav-tabs > li.active > a:hover {
+    cursor: default;
+    border: none;
+    border-bottom: 2px solid #1c9cea;
+    color: #393939;
+  }
+  .nav-tabs > li > a {
+    font-family: "Muli-SemiBold";
+    font-size: 12px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0.1px;
+    text-align: center;
+    color: #737373;
+    text-align: left;
+    padding: 12px 0px 3px;
+    margin-bottom: 10px;
+    width: 75px;
+  }
+  .nav > li > a:hover {
+    text-decoration: none;
+    background-color: #ffffff;
+    border: none;
+    border-bottom: 2px solid #1c9cea;
+    width: 70px;
+  }
+  .tabsheader {
+    display: none;
+  }
+
+  .knt__aligment {
+    display: flex;
+    align-items: center;
+  }
+  .kntCard {
+    border-radius: 4px;
+    background-color: #ffffff;
+    /* box-shadow: 2px 4px 19px 1px rgba(0, 0, 0, 0.2); */
+    /* border-left: 4px solid #bdbdbd; */
+    width: 100%;
+  }
+  .kntCard1 {
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 2px 4px 19px 1px rgba(0, 0, 0, 0.2);
+    border-left: 4px solid #bdbdbd;
+    width: 100%;
+    margin: 12px 0px 12px;
+    border-radius: 8px;
+  }
+  .borderleft {
+    border-left: 4px solid #bdbdbd;
+    border-radius: 8px;
+  }
+  .changeColor {
+    border-left: 4px solid #1c9cea;
+    border-radius: 8px;
+  }
+  .kntCard1 h1 {
+    font-size: 17px;
+    margin: 0px;
+    font-family: "Muli-Bold";
+    color: #393939;
+    line-height: normal;
+    letter-spacing: 0.1px;
+  }
+  .kntCard1 p {
+    font-size: 12px;
+    font-family: "Muli-SemiBold";
+    text-align: left;
+    color: #737373;
+    margin: 0px;
+    line-height: normal;
+    letter-spacing: 0.1px;
+  }
+  .kntCard h1 {
+    font-size: 14px;
+    margin: 0px;
+    font-family: "Muli-Bold";
+    color: #393939;
+    line-height: normal;
+    letter-spacing: 0.1px;
+  }
+  .kntCard p {
+    font-size: 12px;
+    font-family: "Muli-SemiBold";
+    text-align: left;
+    color: #737373;
+    margin: 0px;
+    line-height: normal;
+    letter-spacing: 0.1px;
+  }
+  .knt__details {
+    padding: 19px 25px 19px 25px;
+  }
+  .knt__details1 {
+    padding: 19px 25px 19px 25px;
+  }
+  .knt__filter {
+    margin: 7px 0px 19px;
+  }
+  .kntSheme {
+    font-size: 12px !important;
+    line-height: normal;
+    letter-spacing: 0.1px;
+  }
+  .kntSheme1 {
+    font-size: 10px !important;
+    line-height: normal;
+    letter-spacing: 0.1px;
+  }
+  .kntpaid {
+    padding-top: 19px;
+    font-family: "Muli-Bold";
+    font-size: 15px;
+    font-weight: 800;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+  }
+  .kntpaid h1 {
+    line-height: normal;
+    letter-spacing: 0.1px;
+  }
+  .kntpaid button {
+    background-color: #cd1517;
+    padding: 6px 44px;
+    margin-top: 6px;
+  }
+  .nextpayment {
+    color: #cd1517;
+  }
+  .modal-header {
+    border: none;
+    padding-bottom: 0px;
+  }
+  .nextpaid {
+    color: #1c9cea;
+  }
+  .table {
+    display: none;
+  }
+  .my__scheme {
+    clear: both;
+  }
+  .mobiletable {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 22px;
+  }
+  .mob__accordian h2 {
+    font-family: "Muli-Bold";
+    font-size: 11px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+    margin: 0;
+  }
+  .mob__accordian p {
+    font-family: "Muli-SemiBold";
+    font-size: 11px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #737373;
+    margin: 0px;
+  }
+  .tableList {
+    display: flex;
+    padding: 5px 22px 6px;
+  }
+  .tableheading {
+    width: 175px;
+  }
+  .donebutton {
+    padding: 6px 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6f6f6 !important;
+    border-radius: 8px;
+    color: #95989a !important;
+    font-size: 14px;
+    font-family: "Muli-Bold";
+    border: none;
+  }
+  .cancel {
+    font-size: 14px;
+    color: #cd1517 !important;
+    font-size: 14px;
+    font-family: "Muli-Bold";
+    border: none;
+    padding: 7px 7px;
+    cursor: pointer;
+  }
+  .buybutton {
+    background-color: #c7aaaaad;
+  }
+  .cancelPay {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 14px 0px;
+  }
+  .cancelPay .buybutton {
+    padding: 6px 10px 6px 10px;
+  }
+  .knt__tybeB {
+    padding-top: 15px;
+  }
+  .cancelscheme {
+    padding-top: 15px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .knt-plans-detail {
+    margin-bottom: 30px;
+  }
+  .mob__accordian {
+    display: none !important;
+  }
+  .scheme-user {
+    font-size: 17px;
+  }
+  .knt_new_scheme {
+    margin-bottom: 10px;
+    padding-bottom: 25px;
+  }
+
+  .modal-title {
+    font-size: 17px;
+    padding-bottom: 22px;
+  }
+  .knt__login__header > div {
+    display: flex;
+    width: 700px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .knt__login__header > div > h1 {
+    font-size: 24px;
+  }
+  .knt__login__header > div > img {
+    width: 132px;
+    height: 93px;
+    margin-left: 88px;
+  }
+  .ktn_add {
+    text-align: right;
+  }
+
+  .knt__stepper {
+    margin-top: 30px;
+    display: block;
+  }
+  .select {
+    margin: 0px 0px 26px;
+  }
+  .amount {
+    padding-top: 15px;
+  }
+  .stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+  }
+  .stepwizard-row {
+    display: table-row;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #979797;
+  }
+  .stepwizard-step {
+    display: table-cell;
+    text-align: left;
+    position: relative;
+  }
+  .right {
+    text-align: right !important;
+  }
+  .stepcenter {
+    text-align: center !important;
+  }
+  .stepwizard-step p {
+    font-family: "Muli-Bold";
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.1px;
+    color: #737373;
+    margin: 0px;
+  }
+  .palnA {
+    padding-top: 8px;
+  }
+  .default {
+    background-color: #1c9cea;
+    color: #4a4a4a;
+    cursor: default;
+    box-shadow: 0 0 0 10px #a6dafa;
+    width: 21px;
+    height: 21px;
+    text-align: center;
+    padding: 6px 0;
+    border-radius: 15px;
+    margin-bottom: 10px;
+  }
+
+  .active1 {
+    background-color: #393939;
+    border: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 20px;
+    padding: 0;
+  }
+  .knt__input {
+    margin: 63px 0px 36px;
+  }
+  .list-li {
+    font-size: 14px;
+  }
+
+  .planAmount .modal-title {
+    padding: 29px 0px 12px !important;
+  }
+  .knt__filter {
+    margin: 7px 0px 19px;
+  }
+  .my__scheme {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 14px;
+    padding-bottom: 30px;
+    clear: both;
+  }
+  .nav-tabs {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border: none;
+    justify-content: flex-start;
+  }
+  .tabsheader {
+    display: block;
+  }
+  .mobheader {
+    display: none;
+  }
+  .nav-tabs .modal-title {
+    padding: 0px;
+  }
+  .tab-content {
+    width: 75%;
+    text-align: left;
+  }
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:focus,
+  .nav-tabs > li.active > a:hover {
+    width: 122px;
+  }
+  .nav-tabs > li > a {
+    padding: 20px 0px 3px;
+    margin: 0px;
+    width: 122px;
+  }
+  .nav > li > a:hover {
+    width: 122px;
+  }
+
+  .knt__aligment {
+    display: flex;
+    align-items: center;
+  }
+  .kntCard {
+    border-radius: 4px;
+    background-color: #ffffff;
+    /* box-shadow: 2px 4px 19px 1px rgba(0, 0, 0, 0.2); */
+    /* border-left: 4px solid #bdbdbd; */
+    width: 100%;
+  }
+
+  .kntCard1 {
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 2px 4px 19px 1px rgba(0, 0, 0, 0.2);
+    /* border-left: 4px solid #bdbdbd; */
+    width: 100%;
+    margin: 12px 0px 12px;
+  }
+  .kntCard1 h1 {
+    font-size: 17px;
+    margin: 0px;
+    font-family: "Muli-Bold";
+    color: #393939;
+    line-height: normal;
+    letter-spacing: 0.1px;
+  }
+  .kntCard1 p {
+    font-size: 12px;
+    font-family: "Muli-SemiBold";
+    text-align: left;
+    color: #737373;
+    margin: 0px;
+    line-height: normal;
+    letter-spacing: 0.1px;
+  }
+  .kntCard h1 {
+    font-size: 17px;
+  }
+  .kntCard p {
+    font-size: 12px;
+  }
+  .knt__details {
+    padding: 19px 25px 19px 25px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .kntSheme {
+    font-size: 14px !important;
+  }
+  .kntSheme1 {
+    font-size: 12px !important;
+  }
+  .kntpaid {
+    padding-top: 19px;
+  }
+  .kntpaid h1 {
+    font-size: 15px;
+    line-height: normal;
+    letter-spacing: 0.1px;
+  }
+  .kntpaid button {
+    background-color: #cd1517;
+    padding: 6px 44px;
+    margin-top: 6px;
+  }
+  .nextpayment {
+    color: #cd1517;
+  }
+  .nextpaid {
+    color: #1c9cea;
+  }
+  .table {
+    display: table;
+    border: none;
+    width: 95%;
+    margin: 0 auto 20px;
+  }
+  .table tr {
+    border: none;
+  }
+  .table th {
+    border: none;
+    font-family: "Muli-Bold";
+    font-size: 11px;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+  }
+  .table td {
+    border: none;
+    font-family: "Muli-SemiBold";
+    font-size: 10px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #737373;
+  }
+
+  .knt__details1 {
+    display: flex;
+    padding: 19px 25px 19px 25px;
+  }
+  .cancelscheme {
+    margin-left: 85px;
+    padding: 0px;
+  }
+  .knt__tybeB {
+    padding-top: 0px;
+  }
+  .donebutton {
+    padding: 6px 44px;
+  }
+  .cancel {
+    padding: 7px 40px;
+  }
+  .cancelPay {
+    justify-content: flex-end;
+    margin: 0px 20px 30px 0px;
+  }
+  .cancelPay .buybutton {
+    padding: 6px 25px 6px 25px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .knt__login__header > div > h1 {
+    font-size: 32px;
+  }
+  .mid-detail {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .plan-info {
+    margin-bottom: 14px;
+  }
+  .knt-plans-detail {
+    margin-bottom: 35px;
+  }
+  .plandetail {
+    font-family: "Muli-Bold";
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #393939;
+  }
+
+  .agree span {
+    padding-left: 13px;
+  }
+  .planAmount .modal-title {
+    padding: 29px 0px 12px !important;
+  }
+  .knt__tybeB {
+    display: flex;
+  }
+  .nav-tabs {
+    width: 20%;
+    justify-content: flex-start;
+  }
+  .tab-content {
+    width: 80%;
+  }
+  .kntpaid {
+    padding: 0px 0px 20px 0px;
+  }
+  .table th {
+    font-size: 12px;
+  }
+  .table td {
+    font-size: 12px;
+  }
+  .cancelscheme {
+    display: flex;
+  }
+  .kntpaid_align {
+    padding-left: 80px;
+  }
+}
+.disablePaymentButton {
+  background-color: grey !important;
+}

@@ -1,0 +1,444 @@
+@media only screen and (min-width: 320px) {
+  .myOrderDetailOuter {
+    margin: 25px 25px;
+    text-align: left;
+    padding-bottom: 45px;
+  }
+  .inputsOuterMobile {
+    width: 215px;
+    margin: 0 auto;
+  }
+  .myOrders {
+    padding-top: 20px;
+  }
+  .backer {
+    margin-right: 15px;
+  }
+  .canceler {
+    width: 50%;
+  }
+
+  .orederId {
+    font-family: "Muli-Bold";
+    font-size: 10px;
+    color: #393939;
+    display: inline-block;
+    background-color: #ededed;
+    border-radius: 2px;
+  }
+  /* .orderIdRow > div{
+          display: inline-block;
+      } */
+
+  .trackOrderPopupIcon {
+    background-image: url("/assets/my-profileImages/popupIcon.png");
+    width: 3px;
+    height: 16px;
+    float: right;
+    cursor: pointer;
+  }
+  .trackOrderEditGroup {
+    width: 84px;
+    height: 45px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 3px 3px 12px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 12px 0 rgba(0, 0, 0, 0.2);
+    float: right;
+    display: none;
+    cursor: pointer;
+  }
+  .trackOrderGroup {
+    padding: 2px 0px 2px 7px;
+    font-family: "Muli";
+    font-size: 12px;
+    font-weight: 600;
+    color: #393939;
+  }
+  .trackOrderButton {
+    border-bottom: solid 1px #e0e0e0;
+  }
+  .trackOrderPopup {
+    float: right;
+  }
+  .orderItemDesc {
+    height: 106px;
+    margin: 18px 0px;
+  }
+
+  .orderImg {
+    width: 85px;
+    height: 106px;
+    /* background-image: url('/assets/my-profileImages/myorderImg.png'); */
+    float: left;
+    margin-right: 12px;
+  }
+  .orderItemName {
+    font-family: "Muli-Bold";
+    font-size: 15px;
+    color: #393939;
+  }
+
+  .deliveryDate {
+    font-family: "Muli";
+    font-size: 12px;
+    font-weight: 600;
+    color: #393939;
+    margin: 7px 0px;
+  }
+  .deliveryText {
+    font-family: "Muli";
+    font-size: 8px;
+    color: #737373;
+  }
+  .orderPriceOuter {
+    font-family: "Muli";
+    font-size: 17px;
+
+    color: #393939;
+  }
+  .orderText {
+    font-family: "Muli";
+    font-size: 12px;
+    color: #737373;
+  }
+  .orderedDate {
+    font-family: "Muli";
+    font-size: 12px;
+    color: #737373;
+  }
+  .orderedPrice {
+    font-family: "Muli";
+    font-size: 12px;
+    color: #737373;
+  }
+  .orderPriceRow > div {
+    display: inline-block;
+  }
+  .orderPriceClassOuter {
+    float: letf;
+  }
+  .horizontalLine {
+    width: 100%;
+    height: 1px;
+    border: solid 0.3px #979797;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Delivery address css starts */
+  .deliveryAddressFields {
+    font-family: "Muli-Bold";
+    font-size: 12px;
+    color: #393939;
+    margin-right: 110px;
+  }
+  .deliveryAddressText {
+    font-family: "Muli";
+    font-size: 12px;
+    font-weight: 600;
+    color: #737373;
+    margin-top: 17px;
+  }
+  .deliveryAddLabel {
+    width: 73px;
+    font-family: "Muli";
+    font-size: 9px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: center;
+    color: #ffffff;
+    background-color: black;
+    border-radius: 3px;
+  }
+
+  /* Delivery address css ends */
+
+  .orderProcessHeader {
+    font-family: "Muli-Bold";
+    font-size: 14px;
+    color: #393939;
+  }
+}
+
+.trackStatus {
+  font-family: "Muli";
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  color: #4275bd;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+.downloadDoc {
+  display: inline-block;
+  font-family: "Muli-Bold";
+  font-size: 14px;
+  text-align: left;
+  color: #1c9cea;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.downloadImg {
+  background-image: url("/assets/my-profileImages/download.png");
+  width: 12px;
+  height: 13px;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.container1 {
+  width: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  /* margin: 0 auto; */
+  margin-top: 45px;
+  height: 100px;
+  flex-direction: column;
+}
+
+.container1 div {
+  margin-top: -23px;
+  width: 13px;
+  height: 13px;
+  position: relative;
+  line-height: 45px;
+  text-align: left;
+  border-radius: 50%;
+  text-align: left;
+}
+.container1 div > span {
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  position: absolute;
+  background-image: url(/assets/tick.svg);
+  background-size: 13px 13px;
+  background-repeat: no-repeat;
+}
+.lineStepper {
+  width: 1px;
+  height: 100px;
+  border: solid 0.3px #979797;
+  margin-top: -112px;
+  margin-left: 6px;
+}
+
+.container2 {
+  width: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-top: 15px;
+  /* margin: 0 auto; */
+  height: 149px;
+  flex-direction: column;
+  margin-top: -120px;
+  margin-left: 25px;
+}
+
+.container2 div {
+  width: 55px;
+  margin-top: -23px;
+  line-height: 45px;
+  font-family: "Muli";
+  font-size: 12px;
+  font-weight: 600;
+  color: #737373;
+}
+
+.cancelOrder {
+  width: 107px;
+  height: 28px;
+  background-color: black;
+  color: white;
+  font-family: "Muli";
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+  padding-top: 2px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-left: 0px;
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+
+.backToOrders {
+  width: 107px;
+  height: 28px;
+  background-color: #337ab7;
+  color: white;
+  font-family: "Muli";
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+  padding-top: 2px;
+  border-radius: 4px;
+  float: right;
+  cursor: pointer;
+  border: 1px solid #2e6da4;
+}
+.needSupport {
+  font-family: "Muli-Bold";
+  font-size: 12px;
+  text-align: right;
+  color: #1c9cea;
+  float: right;
+  cursor: pointer;
+  display: none;
+}
+.needSupport:hover {
+  border-bottom: 1px solid #1c9cea;
+}
+
+@media only screen and (min-width: 768px) {
+  .inputsOuterMobile {
+    width: 100%;
+  }
+  .canceler {
+    width: 100%;
+  }
+  .orderItemName {
+    font-size: 17px;
+  }
+  .deliveryDate {
+    font-size: 14px;
+    margin: 10px 0px;
+  }
+  .deliveryText {
+    font-size: 12px;
+  }
+  .orderPriceClassOuter {
+    float: right;
+  }
+  .deliveryTrackPoints {
+    width: 13px;
+    height: 13px;
+    background-color: #1c9cea;
+    border-radius: 7px;
+  }
+  .deliveryTrackLine {
+    width: 86%;
+    height: 1px;
+    border: solid 1px #979797;
+    margin-left: 38px;
+  }
+  .trackStatus {
+    margin-top: 35px;
+    margin-left: 26px;
+  }
+
+  /* 
+.container1 {
+    width: 87%;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid black;
+    padding-top: 15px;
+    margin:0 auto;
+    margin-top: 15px;
+  }
+  
+  .container1 div {
+     background-color: #1c9cea;
+        border: 2px solid black;
+        margin-top: -23px;
+        width:13px;
+        height: 13px;
+        line-height: 45px;
+        text-align: center;
+        border-radius: 50%;
+  }
+
+  .container2 {
+    width: 92%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    margin:0 auto;
+  }
+  
+  .container2 div {
+       width: 55px;
+        margin-top: -23px;
+        line-height: 45px;
+        font-family: 'Muli';
+        font-size: 12px;
+        font-weight: 600;
+        color: #737373;
+  } */
+
+  .container1 {
+    width: 87%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 45px;
+    flex-direction: initial;
+    height: 0px;
+  }
+
+  .container1 div {
+    margin-top: -23px;
+    width: 13px;
+    height: 13px;
+    line-height: 45px;
+    border-radius: 50%;
+  }
+  .lineStepper {
+    width: 87%;
+    margin: 0 auto;
+    margin-top: -17px;
+    height: 0px;
+  }
+
+  .container2 {
+    width: 92%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    margin: 0 auto;
+    height: 0px;
+    flex-direction: initial;
+  }
+  .container2 div {
+    width: 55px;
+    margin-top: -23px;
+    line-height: 45px;
+    font-family: "Muli";
+    font-size: 12px;
+    font-weight: 600;
+    color: #737373;
+  }
+
+  .cancelOrder {
+    width: 107px;
+    height: 28px;
+    background-color: black;
+    color: white;
+    font-family: "Muli";
+    font-size: 14px;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 2px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-left: 42px;
+    margin-bottom: 0px;
+  }
+  .needSupport {
+    display: inline-block;
+  }
+}

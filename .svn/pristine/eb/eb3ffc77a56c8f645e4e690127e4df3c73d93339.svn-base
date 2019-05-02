@@ -1,0 +1,39 @@
+.notifications h1 {
+  font-family: "Muli-Bold";
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #393939;
+}
+.sub-msg {
+  margin-top: 15px;
+}
+.notish,
+.notish1 {
+  width: 546px;
+  margin: 0 auto;
+}
+.notiRow {
+  padding-bottom: 10px;
+}
+.notiRow h5 {
+  padding: 0px;
+}
+.message {
+  padding: 0px;
+}
+.notiRow p {
+  padding: 10px 0px;
+}
+
+@media only screen and (min-width: 991px) {
+  .notish,
+  .notish1 {
+    width: 700px;
+    margin: 0 auto;
+  }
+}
